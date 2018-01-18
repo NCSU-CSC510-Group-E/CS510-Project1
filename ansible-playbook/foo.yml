@@ -1,0 +1,71 @@
+---
+# This playbook deploys the whole application stack in this site.
+- name: TESTING
+  hosts: new-machines
+  gather_facts: no
+  vars:
+    VCL_URL: https://vcl.ncsu.edu/scheduling/index.php?mode=xmlrpccall
+    GIT_URL: https://github.com/ZacheryPD/Node-DynamicSignal.js.git
+
+  vars_prompt:
+    - name: "wolfware_username"
+      prompt: "Enter your wolfware username"
+    - name: "wolfware_password"
+      prompt: "Enter your wolfware password"
+
+  tasks:
+    - name: Get the user's IP address
+      connection: local # Run it locally, rather than against the new-machines host group
+      uri:
+        url: http://api.ipify.org/ # Hope these guys don't blacklist us
+        return_content: yes
+      register: ip_address
+
+
+    - name: set local IP address
+      set_fact:
+        local_ip: "{{ip_address.content}}"
+
+
+    - name: Request new VCL machine
+      connection: local # Run it locally, rather than against the new-machines host group
+      uri:
+        body_format: raw
+        headers:
+          X-User: "{{ wolfware_username }}
+          X-Password: "{{ wolfware_password }}"
+        body: "{{ lookup('template', 'template/get_machine.xml.j2') }}"
+        url: https://vcl.ncsu.edu/scheduling/index.php?mode=xmlrpccall 
+      register: rpc-call # todo: parse the value out of the returning XML
+
+
+    - name: Wait until machine is provisioned
+      connection: local # Run it locally, rather than against the new-machines host group
+      uri:
+        body_format: raw
+        headers:
+          X-User: "{{ wolfware_username }}
+          X-Password: "{{ wolfware_password }}"
+        body: "{{ lookup('template', 'template/get_request_status.xml.j2') }}"
+        url: https://vcl.ncsu.edu/scheduling/index.php?mode=xmlrpccall
+        return_content: yes
+      register: rpc_call # todo: parse the value out of the returning XML
+      until: rpc_call.content | regex_search() # Conceptually, somehow "has value" don't recall the syntax, but this is the idea 
+      delay: 5 # of seconds to delay
+      retries: 15
+
+
+      # Either ansible_host or inventory_hostname
+    - name: get the IP address of new machine
+      set_fact:
+        ansible_host: "{{ rpc_call.content | regex_search() }}"
+        ansible_user: "{{ wolfware_username }}"
+        ansible_ssh_pass: "{{ wolfware_password }}"
+        ansible_become: no # don't become root.  Might be able to uncomment
+
+
+    - name: Pull Git repo to new image! 
+      git:
+        repo: GIT_URL
+        dest: ~/group_project
+        version: master
