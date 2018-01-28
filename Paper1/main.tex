@@ -1,19 +1,23 @@
-\documentclass{article}
+% Doc class required by class assignment.
+\documentclass{sig-alternate-05-2015}
 
 \begin{document}
 
+% Paper title
 \title{CSC510 Project 1 Report 1}
-\date{} %do not delete this, it suppresses insertion of the date
 
-% TODO: Fill in emails
+% TODO: Fill Bikram's name properly
 \author{
 	{\large Monica Metro}\\NCSU\\mgmetro@ncsu.edu 
 	\and {\large Zachery DeLong}\\NCSU\\zpdelong@ncsu.edu 
 	\and {\large Zhangqi Zha}\\NCSU\\zzha@ncsu.edu
-	\and {\large Bikram }\\NCSU\\Bikram@ncsu.edu }
+	\and {\large Bikram }\\NCSU\\bikram@ncsu.edu }
 
+% Generate page header.
 \maketitle
 
+
+% Paper body
 \input{sections/abstract.tex}
 
 \input{sections/introduction/intro_main.tex}
@@ -26,12 +30,15 @@
 
 \input{sections/conclusion.tex}
 
+% End paper body
 
 % REMOVE NOCITE OR IT WILL LIST EVERYTHING IN YOUR DATABASE AS A REFERENCE
 %\nocite{*}
 
+% Bibliography/style
 \bibliographystyle{acmtrans}
 
 \bibliography{ref}
+% End bibliography/style
 
 \end{document}
