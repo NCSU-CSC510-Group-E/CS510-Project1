@@ -1,18 +1,63 @@
 % Doc class required by class assignment.
 \documentclass{sig-alternate-05-2015}
 
+% copyright and other misc things provided by template.
+% DOI
+\doi{10.475/123_4}
+
+% ISBN
+\isbn{123-4567-24-567/08/06}
+
+%Conference
+\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+\acmPrice{\$15.00}
+% end copyright
 \begin{document}
 
 % Paper title
-\title{CSC510 Project 1 Report 1}
+\title{CSC 510 Software Engineering: Project 1 
+\titlenote{(Paper 1). For use with
+SIG-ALTERNATE.CLS. Supported by ACM.}}
+\subtitle{Group-P
+\titlenote{A full version of this paper is available as
+\textit{Author's Guide to Preparing ACM SIG Proceedings Using
+\LaTeX$2_\epsilon$\ and BibTeX} at
+\texttt{www.acm.org/eaddress.htm}}}
 
-% TODO: Fill Bikram's name properly
+\numberofauthors{8} %  in this sample file, there are a *total*
 \author{
-	{\large Monica Metro}\\NCSU\\mgmetro@ncsu.edu 
-	\and {\large Zachery DeLong}\\NCSU\\zpdelong@ncsu.edu 
-	\and {\large Zhangqi Zha}\\NCSU\\zzha@ncsu.edu
-	\and {\large Bikram }\\NCSU\\bikram@ncsu.edu }
-
+% TODO: Fill Bikram's name properly
+% TODO: Fill in addresses
+\alignauthor
+	Monica Metro %\titlenote{Dr.~Trovato insisted his name be first.}\\
+       \affaddr{North Carolina State University}\\
+%       \affaddr{1932 Wallamaloo Lane}\\
+%       \affaddr{Wallamaloo, New Zealand}\\
+       \email{mgmetro@ncsu.edu}
+% 2nd. author
+\alignauthor
+	Zachery DeLong %\titlenote{Dr.~Trovato insisted his name be first.}\\
+       \affaddr{North Carolina State University}\\
+       \affaddr{2305 Horizon Hike Ct}\\
+       \affaddr{Raleigh, NC}\\
+       \email{zpdelong@ncsu.edu }
+% 3rd. author
+\alignauthor 
+	Zhangqi Zha %\titlenote{Dr.~Trovato insisted his name be first.}\\
+       \affaddr{North Carolina State University}\\
+%       \affaddr{1932 Wallamaloo Lane}\\
+%       \affaddr{Wallamaloo, New Zealand}\\
+       \email{zzha@ncsu.edu}
+\and  % use '\and' if you need 'another row' of author names
+% 4th. author
+\alignauthor 
+	Bikram\\
+       \affaddr{Brookhaven Laboratories}\\
+%       \affaddr{Brookhaven National Lab}\\
+%       \affaddr{P.O. Box 5000}\\
+       \email{bikram@ncsu.edu}
+}
 % Generate page header.
 \maketitle
 
