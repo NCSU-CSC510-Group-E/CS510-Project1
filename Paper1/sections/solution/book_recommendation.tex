@@ -1,0 +1,10 @@
+% Please do not delete!  thanks! -- zach
+% !TEX root = ../../main.tex
+
+The next step in our problem is to use the topic analysis data outlined in the previous section (\ref{section:book-parser}) to suggest books based on the topics covered and the cost.
+This algorithm will be written in Python as well.  
+
+Conceptually, this algorithm will need to take in a set of required topics and weighting for topics vs price.
+This value will be used to favor inexpensive books over complete topic coverage in our algorithm.
+It will then search its algorithms for books that meet the required topics.
+The algorithm should then rank the books using the weighting mentioned earlier, then it will sort some number of the top results and give them back to the UI.

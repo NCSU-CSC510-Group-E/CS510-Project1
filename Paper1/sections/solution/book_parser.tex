@@ -5,6 +5,7 @@ The first major component of the system is the book parser.
 We intend to implement this taking advantage of the pre-built libraries available in Python such as SKLearn, Pandas, and others.  
 The goal of the book parser is to implement one of the two algorithms discussed in section \ref{section:algorithms} and to store the parsed topics in a database for searching later.  
 This will be implemented using the command pattern, which provides a simple interface to implementing different algorithms in code and allows us to easily swap between implementations.
+
 % TODO: Can we decide on a few and list them here somehow?
 The books being parsed will come from a freely available online database of textbooks.  
 It is also our intention to cache the topics parsed from these algorithms somehow (either in a database or in a flat file somewhere) to be referenced in the future.  
