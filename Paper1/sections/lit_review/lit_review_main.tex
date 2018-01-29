@@ -2,8 +2,26 @@
 % !TEX root = ../../main.tex
 
 \section{Literature Review} \label{section:algorithms}
-This is a test of our lit review
+We propose two methods for analyzing and storing topics from books automatically: LDA and Doc2vec. 
+We also give some preview of similar work that has already been done.
 
 \subsection{LDA}
+% This algorithm seems to be the clear winner.  
+
+% Conceptually, this algorithm one-hot-encodes its input like Doc2vec does
+
+% It then uses prior probabilities to identify words that are commonly paired with the given word.
+
+% Through repeated training on the same data set, it will gradually identify topics among related text.
 
 \subsection{Doc2Vec}
+
+% I'm not sure this algorithm really fits and shouldn't be replaced with something like LSI... see notes.  
+
+% conceptually, this algorithm takes in a one-hot encoded vector and attempts to train a two-layer neural network to predict words around n-grams given.
+
+% After iterations of training, it will give you a cluster of words that are similar to the given word.
+
+% I guess we'd have to put something on top of Doc2Vec to use it for topic modeling.  I'm not entirely clear on how we'd do that. 
+
+\subsection{Related Work}
