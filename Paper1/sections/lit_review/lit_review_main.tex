@@ -3,7 +3,6 @@
 
 \section{Literature Review} \label{section:algorithms}
 We propose two methods for analyzing and storing topics from books automatically: LDA and Doc2vec. 
-We also give some preview of similar work that has already been done.
 
 \subsection{LDA}
 % This algorithm seems to be the clear winner.  
@@ -15,7 +14,8 @@ We also give some preview of similar work that has already been done.
 % Through repeated training on the same data set, it will gradually identify topics among related text.
 
 \subsection{Doc2Vec}
-
+Doc2Vec is a model that extends an existing model, Word2Vec.  
+Doc2vec mirrors Word2Vec in most ways except that it adds context information. \cite{RefWorks:doc:5a6e5748e4b0d609eec798dd}
 % I'm not sure this algorithm really fits and shouldn't be replaced with something like LSI... see notes.  
 
 % conceptually, this algorithm takes in a one-hot encoded vector and attempts to train a two-layer neural network to predict words around n-grams given.
