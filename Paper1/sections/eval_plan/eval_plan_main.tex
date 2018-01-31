@@ -2,9 +2,15 @@
 % !TEX root = ../../main.tex
 
 \section{Evaluation Plan}
-This is a test of our evaluation plan section 
+In this section, we will talk about methods to evaluate our solutions. This including two parts: methods used to evaluate our topic learning model and methods used to evaluating textbook suggestions which is our final product. 
 
 \subsection{Evaluating Topic Modeling}
+In order to carry out a comparative evaluation for a set of candidate recommendation algorithms, evaluation metrics will be used to measure some quality and performance features, in our case, we will use prediction accuracy to evaluate the models. The most popular metric that is used for evaluating prediction accuracy is Root Mean Squared Error (RMSE). RMSE is used measure of the differences between values (sample and population values) predicted by a model or an estimator and the values actually observed.
+\newline
+\begin{equation}
+   RMSE = \sqrt{\frac{\sum_{1}^{n}\left ( \widehat{y_i}-y_i \right )^{2}}{n}}
+\end{equation}
+   
 %i.	Surveying?
 %ii.	Build a UI to present a book and a topic that was thought to be in the book
 %iii.	User validates yes/no
@@ -12,6 +18,27 @@ This is a test of our evaluation plan section
 
 
 \subsection{Evaluating textbook suggestions}
+\subsection{Pre-Surveying}
+To evaluate our project idea, we will conduct a pre-surveying to see what is the problem we are facing and how people reacting about our proposed solution. We will ask our participants how long they will spend on find the right textbook, what aspect do they think is most important when choosing a textbook (except the content, our learning model will do the best of this part).
+
+\begin{table}[ht]
+\caption{Questions in Pre-survey}
+\label{Pre-survey}
+\begin{center}
+\begin{tabular}{ll}
+\multicolumn{1}{c}{\bf Questions} 
+\\ \hline \\
+1. Are you a student or professor?\\
+2. How much time do you spend on choosing a textbook?\\
+3. How do you choose a textbook?\\
+4. What aspect do you think is most important\\
+when choosing a textbook (except the content)? \\
+5. Would you consider an app that will give you \\
+recommended textbooks base on your course \\
+syllabus and your preference? \\
+\end{tabular}
+\end{center}
+\end{table}
 %i.	Surveying?
 %ii.	User selects topics they want to search for
 %iii.	App presents 3 answers: 
