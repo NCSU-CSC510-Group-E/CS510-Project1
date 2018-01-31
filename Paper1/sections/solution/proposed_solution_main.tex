@@ -3,14 +3,15 @@
 
 \section{Proposed Solution} 
 To tackle this problem, we propose a three-part system that will go about recommending books via a web app.  
-The first component of this system is a recommendation engine, which will implement the above algorithms in some way and store their results (the topics) in an indexed database which we can summarily search.  
-The next component will be a recommendation engine which will implement our recommendation algorithm (see below for more details).  
+The first component of this system is a recommendation engine, which will implement the above algorithms in some way and store their results (the topics) in an indexed database which we can summarily search (see section \ref{section:book-parser}).  
+The next component will be a recommendation engine which will implement our recommendation algorithm (see section \ref{section:recommendation_engine}).  
 The third component will be a web app that will allow the end-user to search the database of topics and organize them into a useful search of books.  
-It will then present a list of suggested books using the infrastructure mentioned earlier.  
+It will then present a list of suggested books using the infrastructure mentioned earlier.
 
 % Can we expand on Ansible more?
 To host our project, we have begun work on an Ansible automation script that will communicate with NCSU's VCL environment.  
 It is our intention to use this script to provision our needed hosting resources and to tear those resources down when they are not needed.  
+
 \subsection{Book parser} \label{section:book-parser}
 \input{sections/solution/book_parser.tex}
 

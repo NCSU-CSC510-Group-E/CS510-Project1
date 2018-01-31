@@ -3,12 +3,14 @@
 
 \section{Conclusion}
 \subsection{Anticipated challenges}
-% We anticipate there being problems in setting up Doc2Vec
+There are a few potential major pitfalls that we are trying to plan our way around in this project.  
 % We do not have NLP expertise on our group's staff, so we will need to consult with TAs and do extra research.  
+The first and most glaring problem is that the team's staff has very little experience with NLP in general, so we will be relying on third party libraries that implement algorithms (Pandas, SKLearn, and Gensim specifically) as much as possible.
+% We anticipate there being problems in setting up Doc2Vec
+The other major potential problem is extracting useful clusters out of Doc2Vec.  
+Doc2Vec is not actually designed for this kind of topic modeling, and our application of it here is experimental in nature. 
+It is our goal to see if Doc2Vec can match or outperform the more conventional LDA, and it may not.  
 
-\subsection{Tentative schedule}
-% This section needs to provide a simple table with week breakdowns of tasks with the condition 
-% that we are still planning and researching and the schedule will change.
 \subsection{Future enhancement}
 One major enhancement would be the introduction of a rating system to the suggestion engine.  
 Another major enhancement would be including links in the UI to buy the books.
