@@ -45,5 +45,7 @@ PV-DBOW follows the skip-gram model of Word2Vec. In this model, instead of conca
 
 Doc2Vec was recently tested as the algorithm behind a recommender system with the goal of recommending unseen Twitter messages (tweets) relative to a user's typical activity and interests. A graph based link prediction method was used to infer which unseen tweets the users would like by "predicting the presence or absence of edges between nodes" on the graph.  \cite{RefWorks:doc:5a6e5746e4b0d609eec798d9} K values were tested in intervals divisible by 5 ranging from 5 to 35. The system preformed the best when K=30.
 
+An LDA approach of a tagging system was implemented to improve tag recommendations. \cite{RefWorks:doc:5a73e055e4b0cf1dd767b18f} Tagging systems are often used for organizaing a user or organization's data. When this data is shared, tagging can be used to find or search for relative content.This system is similar to our proposed book recommendation system that uses subject topics to search for relative material. The initial tag data set was comprised of a large sample creating a diverse tag set. This set was used to elicit latent tags of sources that did not have that many tags to describe the document. Often, the tags recommended were more specifc. By increasing the number of tags and increasing specific tags, their approach contributed to the usefulness of searching for new content. 
+
 
 
