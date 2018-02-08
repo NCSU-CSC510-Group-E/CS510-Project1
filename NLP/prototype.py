@@ -1,5 +1,6 @@
 from gensim import corpora, models, similarities
 
+# Each element in array is considered one "document"
 documents = ["Human machine interface for lab abc computer applications",
              "A survey of user opinion of computer system response time",
              "The EPS user interface management system",
@@ -10,6 +11,8 @@ documents = ["Human machine interface for lab abc computer applications",
              "Graph minors IV Widths of trees and well quasi ordering",
              "Graph minors A survey"]
 
+# Build an array where each element is a document
+# and each document is an array of words
 texts = [[word for word in document.lower().split()]
           for document in documents]
 
@@ -17,20 +20,7 @@ dictionary = corpora.Dictionary(texts)
 # Can save w/ dictionary.save()
 
 corpus = [dictionary.doc2bow(text) for text in texts]
-
-# A core of 9 documents, each consisting of some number of words
-"""
-corpus = [[(0, 1.0), (1, 1.0), (2, 1.0)],
-           [(2, 1.0), (3, 1.0), (4, 1.0), (5, 1.0), (6, 1.0), (8, 1.0)],
-           [(1, 1.0), (3, 1.0), (4, 1.0), (7, 1.0)],
-           [(0, 1.0), (4, 2.0), (7, 1.0)],
-           [(3, 1.0), (5, 1.0), (6, 1.0)],
-           [(9, 1.0)],
-           [(9, 1.0), (10, 1.0)],
-           [(9, 1.0), (10, 1.0), (11, 1.0)],
-           [(8, 1.0), (10, 1.0), (11, 1.0)]]
-"""
-
+# Could also save here just for giggles
 
 # Pass in a core and a number of topics to mine for
 model = models.ldamodel.LdaModel(corpus, 10)
