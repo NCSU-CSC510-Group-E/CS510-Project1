@@ -19,8 +19,12 @@ texts = [[word for word in document.lower().split()]
 dictionary = corpora.Dictionary(texts)
 # Can save w/ dictionary.save()
 
+print(dictionary.token2id)
+
 corpus = [dictionary.doc2bow(text) for text in texts]
 # Could also save here just for giggles
+
+print(corpus)
 
 # Pass in a core and a number of topics to mine for
 model = models.ldamodel.LdaModel(corpus, 10)
