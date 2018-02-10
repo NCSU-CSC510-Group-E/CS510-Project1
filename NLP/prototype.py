@@ -11,17 +11,21 @@ documents = ["Human machine interface for lab abc computer applications",
              "Graph minors IV Widths of trees and well quasi ordering",
              "Graph minors A survey"]
 
+# Need to initialize a new corpora from corpora.TextCorpus and initialize with lines_are_documents set to false
+
+corpus = corpora.TextDirectoryCorpus('input/', lines_are_documents=False)
+
 # Build an array where each element is a document
 # and each document is an array of words
-texts = [[word for word in document.lower().split()]
-          for document in documents]
+# texts = [[word for word in document.lower().split()]
+#           for document in documents]
 
-dictionary = corpora.Dictionary(texts)
+dictionary = corpus.dictionary
 # Can save w/ dictionary.save()
 
 print(dictionary.token2id)
 
-corpus = [dictionary.doc2bow(text) for text in texts]
+# corpus = [dictionary.doc2bow(text) for text in texts]
 # Could also save here just for giggles
 
 print(corpus)
