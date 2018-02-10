@@ -38,7 +38,7 @@ def main(path_to_input, debugging = False):
 
     # Pass in a core and a number of topics to mine for
     # TODO: Probably ought to save this model, too, just so I dont have to load it every time from scratch
-    model = models.ldamodel.LdaModel(corpus, 10, id2word = dictionary.id2token)
+    model = models.ldamodel.LdaModel(corpus, 10, id2word = dictionary.id2token, passes=40)
 
 
     # To make a new prediciton, just pass in a BOW vector to test 
@@ -59,4 +59,5 @@ def main(path_to_input, debugging = False):
 
     if(debugging):
         print('The topics modeled')
-        print(model.print_topics(10))
+        print(model.print_topics(3, 2))
+        print('')
