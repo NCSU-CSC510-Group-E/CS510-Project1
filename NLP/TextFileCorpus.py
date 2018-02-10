@@ -5,22 +5,20 @@ loading them into memory one at a time.
 """
 
 import os # Used to read all files ina  directory
+import gensim
 
-class TextFileCorpus(object):
+class TextFileCorpus(gensim.corpora.TextCorpus):
 
-   def __init__(object, path_to_files, debugging=False):
-       self._debugging = debugging;
-       self._path = path_to_files
-       
-   def __iter__(self):
-       if(self._debugging): print('Beginning iteration over corpus')
+   def __init__(self, input=None, dictionary=None, metadata=False, character_filters=None,
+                tokenizer=None, token_filters=None):
 
-       listOfInputFiles = os.listdir(self._path);
+       self.pathToFiles = input
 
-       for fileName in listOfInputFiles: 
-            for line in open(fileName):
+       gensim.corpora.TextCorpus.__init__(input, dictionary, metadata, character_filters, tokenizer, token_filters)
 
-                if(self.debugging): print('Retrieving a line from our file')
+       self._debugging = False;
 
-                # assume there's one document per line, tokens separated by whitespace
-                yield dictionary.doc2bow(line.lower().split()) 
+    def get_texts(self):
+        """
+        This is the function that actually reads the files from the disk
+        """
