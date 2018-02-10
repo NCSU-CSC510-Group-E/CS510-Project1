@@ -8,10 +8,12 @@ from prototype import main
 # Providing two "names" in one option creates a boolean parameter 
 @click.option('--verbose/--no-verbose', default=False, help='Print extra debugging information.')
 
-def analyze(training, verbose):
+@click.option('--test', default='input/test.txt', help='The file to predict once training is complete')
+
+def analyze(training, test, verbose):
     click.echo('Training on files in {}'.format( training ) )
 
-    main(training, verbose)
+    main(training, test, verbose)
 
 if __name__ == '__main__':
     analyze()

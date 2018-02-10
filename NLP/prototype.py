@@ -1,6 +1,6 @@
 from gensim import corpora, models, similarities
 
-def main(path_to_input, debugging = False):
+def main(path_to_input, predictFile, debugging = False):
     # Each element in array is considered one "document"
     documents = ["Human machine interface for lab abc computer applications",
                 "A survey of user opinion of computer system response time",
@@ -41,9 +41,16 @@ def main(path_to_input, debugging = False):
     model = models.ldamodel.LdaModel(corpus, 10, id2word = dictionary.id2token, passes=40)
 
 
+    tokens = []
+    with open(predictFile) as file:
+        text = file.read()
+        tokens = text.split()
+
+    bow = dictionary.doc2bow(tokens)
+
     # To make a new prediciton, just pass in a BOW vector to test 
     # This will return array of topics + probability tuples.  
-    newPrediction = model.get_document_topics([(8, 1.0), (10, 1.0), (11, 1.0)])
+    newPrediction = model.get_document_topics(bow)
 
     if(debugging):
         print('Our new prediction')
