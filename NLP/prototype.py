@@ -14,7 +14,7 @@ def main(path_to_input, predictFile, debugging = False):
 
     # Need to initialize a new corpora from corpora.TextCorpus and initialize with lines_are_documents set to false
 
-    corpus = corpora.TextDirectoryCorpus('input/', lines_are_documents=False)
+    corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
 
     dictionary = corpus.dictionary
     # Can save w/ dictionary.save()
