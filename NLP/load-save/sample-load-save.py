@@ -16,10 +16,12 @@ def main():
     for vector in corpus:
         print(vector)
 
-    ## save dictionary object via genism
+    ## save dictionary object via genism - as a binary file with better performance
+      #can also save as text with dictionary.save_as_text(fileName, sort in lex order boolean)
     corpus.saveDict(DICT_SAVE)
 
     ## load dictionary object via genism
+      #can also load from text saved with above save_as_text with dictionary.load_from_text(fileName)
     new_corpus = MyCorpus(INPUT_FILE, True)
     print()
     for vector2 in new_corpus:
