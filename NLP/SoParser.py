@@ -3,11 +3,11 @@
 
 import xml.etree.ElementTree as et
 import os
-
-if not os.path.exists(os.path.dirname('./soFileOutput/body/')):
-    os.makedirs(os.path.dirname('./soFileOutput/body/'))
-if not os.path.exists(os.path.dirname('./soFileOutput/tags/')):
-    os.makedirs(os.path.dirname('./soFileOutput/tags/'))
+outputDir = ['./soFileOutput/body/','./soFileOutput/tags/']
+if not os.path.exists(os.path.dirname(outputDir[0])):
+    os.makedirs(os.path.dirname(outputDir[0]))
+if not os.path.exists(os.path.dirname(outputDir[1])):
+    os.makedirs(os.path.dirname(outputDir[1]))
 
 # try:
 #     os.makedirs(os.path.dirname('./body/'))
@@ -29,13 +29,13 @@ for event, elem in document:
     Tags = elem.get('Tags')
     if Id and Body and Tags:
         # generate and save post content to file file
-        filename = './body/' + str(Id) + '_' + 'body.txt' 
+        filename = outputDir[0] + str(Id) + '_' + 'body.txt' 
         f = open(filename,'w')
         f.write(Body.encode('utf8'))
         f.close()
         
         # generate and save post content to file file
-        filename = './tags/' + str(Id) + '_' + 'tags.txt' 
+        filename = outputDir[1] + str(Id) + '_' + 'tags.txt' 
         f = open(filename,'w')
         f.write(Tags.encode('utf8'))
         f.close()
