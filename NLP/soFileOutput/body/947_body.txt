@@ -1,0 +1,3 @@
+<p>I have imported the kernel32 library so I have the <code>createMutex</code> function available but I am not quite sure of the various parameters and return values.</p>
+
+<p>This is classic Visual Basic, not Visual Basic.NET but I can probably work with either language in the form of an answer.</p>

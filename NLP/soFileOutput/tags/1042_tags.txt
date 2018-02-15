@@ -1,0 +1,1 @@
+<sql><sql-server><sql-server-2005><indexing><full-text-search>

@@ -1,0 +1,63 @@
+<p>Recently our site has been deluged with the resurgence of the <a href="https://en.wikipedia.org/wiki/Asprox_botnet" rel="noreferrer">Asprox botnet</a> <a href="http://en.wikipedia.org/wiki/SQL_injection" rel="noreferrer">SQL injection</a> attack. Without going into details, the attack attempts to execute SQL code by encoding the <a href="http://en.wikipedia.org/wiki/Transact-SQL" rel="noreferrer">T-SQL</a> commands in an ASCII encoded BINARY string. It looks something like this:</p>
+
+<pre><code>DECLARE%20@S%20NVARCHAR(4000);SET%20@S=CAST(0x44004500...06F007200%20AS%20NVARCHAR(4000));EXEC(@S);--
+</code></pre>
+
+<p>I was able to decode this in SQL, but I was a little wary of doing this since I didn't know exactly what was happening at the time.</p>
+
+<p>I tried to write a simple decode tool, so I could decode this type of text without even touching <a href="http://en.wikipedia.org/wiki/Microsoft_SQL_Server" rel="noreferrer">SQL&nbsp;Server</a>. The main part I need decoded is:</p>
+
+<pre><code>CAST(0x44004500...06F007200 AS
+NVARCHAR(4000))
+</code></pre>
+
+<p>I've tried all of the following commands with no luck:</p>
+
+<pre><code>txtDecodedText.Text =
+    System.Web.HttpUtility.UrlDecode(txtURLText.Text);
+txtDecodedText.Text =
+    Encoding.ASCII.GetString(Encoding.ASCII.GetBytes(txtURLText.Text));
+txtDecodedText.Text =
+    Encoding.Unicode.GetString(Encoding.Unicode.GetBytes(txtURLText.Text));
+txtDecodedText.Text =
+    Encoding.ASCII.GetString(Encoding.Unicode.GetBytes(txtURLText.Text));
+txtDecodedText.Text =
+    Encoding.Unicode.GetString(Convert.FromBase64String(txtURLText.Text));
+</code></pre>
+
+<p>What is the proper way to translate this encoding without using SQL Server? Is it possible? I'll take VB.NET code since I'm familiar with that too.</p>
+
+<hr>
+
+<p>Okay, I'm sure I'm missing something here, so here's where I'm at.</p>
+
+<p>Since my input is a basic string, I started with just a snippet of the encoded portion - 4445434C41 (which translates to DECLA) - and the first attempt was to do this...</p>
+
+<pre><code>txtDecodedText.Text = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(txtURL.Text));
+</code></pre>
+
+<p>...and all it did was return the exact same thing that I put in, since it converted each character into is byte.</p>
+
+<p>I realized that I need to parse each two characters into a byte manually since I don't know of any methods yet that will do that, so now my little decoder looks something like this:</p>
+
+<pre><code>while (!boolIsDone)
+{
+    bytURLChar = byte.Parse(txtURLText.Text.Substring(intParseIndex, 2));
+    bytURL[intURLIndex] = bytURLChar;
+    intParseIndex += 2;
+    intURLIndex++;
+
+    if (txtURLText.Text.Length - intParseIndex &lt; 2)
+    {
+        boolIsDone = true;
+    }
+}
+
+txtDecodedText.Text = Encoding.UTF8.GetString(bytURL);
+</code></pre>
+
+<p>Things look good for the first couple of pairs, but then the loop balks when it gets to the "4C" pair and says that the string is in the incorrect format.</p>
+
+<p>Interestingly enough, when I step through the debugger and to the GetString method on the byte array that I was able to parse up to that point, I get ",-+" as the result.</p>
+
+<p>How do I figure out what I'm missing - do I need to do a "direct cast" for each byte instead of attempting to parse it?</p>

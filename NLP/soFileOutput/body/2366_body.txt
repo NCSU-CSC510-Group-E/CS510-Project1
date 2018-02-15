@@ -1,0 +1,8 @@
+<blockquote>
+  <p><strong>Possible Duplicate:</strong><br>
+  <a href="https://stackoverflow.com/questions/44965/what-is-a-monad">What is a monad?</a>  </p>
+</blockquote>
+
+
+
+<p>I think I understand what 'Maybe Monads' are, but I'm not sure about the other types.</p>

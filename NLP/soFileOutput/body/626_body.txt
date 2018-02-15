@@ -1,0 +1,7 @@
+<p>In Ruby 1.8, there are subtle differences between proc/lambda on the one hand, and <code>Proc.new</code> on the other. </p>
+
+<ul>
+<li>What are those differences?</li>
+<li>Can you give guidelines on how to decide which one to choose?</li>
+<li>In Ruby 1.9, proc and lambda are different. What's the deal?</li>
+</ul>

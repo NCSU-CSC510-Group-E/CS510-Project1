@@ -1,23 +1,48 @@
-import xml.etree.ElementTree as et
+# Instructions: 
+# Put 'posts-1.xml' in the same folder as this file
 
-document = et.iterparse("posts.xml", events=("start", "end"))
+import xml.etree.ElementTree as et
+import os
+
+if not os.path.exists(os.path.dirname('./soFileOutput/body/')):
+    os.makedirs(os.path.dirname('./soFileOutput/body/'))
+if not os.path.exists(os.path.dirname('./soFileOutput/tags/')):
+    os.makedirs(os.path.dirname('./soFileOutput/tags/'))
+
+# try:
+#     os.makedirs(os.path.dirname('./body/'))
+# except OSError as e:
+#     if e.errno != errno.EEXIST:
+#         raise
+# try:   
+#     os.makedirs(os.path.dirname('./tags/'))
+# except OSError as e:
+#     if e.errno != errno.EEXIST:
+#         raise
+
+document = et.iterparse("posts-1.xml", events=("start", "end"))
 i = 0
 for event, elem in document:
+    # print elem.keys()   # read the keys of each element
     Id = elem.get('Id')
     Body = elem.get('Body')
-    # print (type(Body))
-    if Id and Body:
-        filename = str(Id) + '_' + 'post.txt' 
-        print(filename)
-        # print (type(Body))
-        # content = unicode(Body, 'encoding')
+    Tags = elem.get('Tags')
+    if Id and Body and Tags:
+        # generate and save post content to file file
+        filename = './body/' + str(Id) + '_' + 'body.txt' 
         f = open(filename,'w')
         f.write(Body.encode('utf8'))
         f.close()
-        # print(content)
+        
+        # generate and save post content to file file
+        filename = './tags/' + str(Id) + '_' + 'tags.txt' 
+        f = open(filename,'w')
+        f.write(Tags.encode('utf8'))
+        f.close()
+        print i
     i += 1
 
-    if i > 100:
+    if i > 2000:
         break
 
 elem.clear()

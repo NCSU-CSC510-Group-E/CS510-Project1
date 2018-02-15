@@ -1,0 +1,57 @@
+<p>I'm working on a <strong>multithreaded</strong> C++ application that is corrupting the heap.  The usual tools to locate this corruption seem to be inapplicable.  Old builds (18 months old) of the source code exhibit the same behaviour as the most recent release, so this has been around for a long time and just wasn't noticed; on the downside, source deltas can't be used to identify when the bug was introduced - there are <em>a lot</em> of code changes in the repository.</p>
+
+<p>The prompt for crashing behaviuor is to generate throughput in this system - socket transfer of data which is munged into an internal representation.  I have a set of test data that will periodically cause the app to exception (various places, various causes - including heap alloc failing, thus: heap corruption).</p>
+
+<p>The behaviour seems related to CPU power or memory bandwidth; the more of each the machine has, the easier it is to crash.  Disabling a hyper-threading core or a dual-core core reduces the rate of (but does not eliminate) corruption.  This suggests a timing related issue.</p>
+
+<p>Now here's the rub:<br>
+When it's run under a lightweight debug environment (say <code>Visual Studio 98 / AKA MSVC6</code>) the heap corruption is reasonably easy to reproduce - ten or fifteen minutes pass before something fails horrendously and exceptions, like an <code>alloc;</code> when running under a sophisticated debug environment (Rational Purify, <code>VS2008/MSVC9</code> or even Microsoft Application Verifier) the system becomes memory-speed bound and doesn't crash (Memory-bound: CPU is not getting above <code>50%</code>, disk light is not on, the program's going as fast it can, box consuming <code>1.3G</code> of 2G of RAM).  So, <strong>I've got a choice between being able to reproduce the problem (but not identify the cause) or being able to idenify the cause or a problem I can't reproduce.</strong></p>
+
+<p>My current best guesses as to where to next is:</p>
+
+<ol>
+<li>Get an insanely grunty box (to replace the current dev box: 2Gb RAM in an <code>E6550 Core2 Duo</code>); this will make it possible to repro the crash causing mis-behaviour when running under a powerful debug environment; or</li>
+<li>Rewrite operators <code>new</code> and <code>delete</code> to use <code>VirtualAlloc</code> and <code>VirtualProtect</code> to mark memory as read-only as soon as it's done with.  Run under <code>MSVC6</code> and have the OS catch the bad-guy who's writing to freed memory.  Yes, this is a sign of desperation: who the hell rewrites <code>new</code> and <code>delete</code>?!  I wonder if this is going to make it as slow as under Purify et al.</li>
+</ol>
+
+<p>And, no: Shipping with Purify instrumentation built in is not an option.</p>
+
+<p>A colleague just walked past and asked "Stack Overflow?  Are we getting stack overflows now?!?"</p>
+
+<p>And now, the question: <strong>How do I locate the heap corruptor?</strong></p>
+
+<hr>
+
+<p>Update: balancing <code>new[]</code> and <code>delete[]</code> seems to have gotten a long way towards solving the problem.  Instead of 15mins, the app now goes about two hours before crashing.  Not there yet.  Any further suggestions? The heap corruption persists.</p>
+
+<p>Update: a release build under Visual Studio 2008 seems dramatically better; current suspicion rests on the <code>STL</code> implementation that ships with <code>VS98</code>.</p>
+
+<hr>
+
+<blockquote>
+  <ol start="3">
+  <li>Reproduce the problem. <code>Dr Watson</code> will produce a dump that might be helpful in further analysis. </li>
+  </ol>
+</blockquote>
+
+<p>I'll take a note of that, but I'm concerned that Dr Watson will only be tripped up after the fact, not when the heap is getting stomped on.</p>
+
+<blockquote>
+  <p>Another try might be using <code>WinDebug</code> as a debugging tool which is quite powerful being at the same time also lightweight.</p>
+</blockquote>
+
+<p>Got that going at the moment, again: not much help until something goes wrong.  I want to catch the vandal in the act.</p>
+
+<blockquote>
+  <p>Maybe these tools will allow you at least to narrow the problem to certain component.</p>
+</blockquote>
+
+<p>I don't hold much hope, but desperate times call for...</p>
+
+<blockquote>
+  <p>And are you sure that all the components of the project have correct runtime library settings (<code>C/C++ tab</code>, Code Generation category in VS 6.0 project settings)?</p>
+</blockquote>
+
+<p>No I'm not, and I'll spend a couple of hours tomorrow going through the workspace (58 projects in it) and checking they're all compiling and linking with the appropriate flags.
+<hR>
+Update: This took 30 seconds.  Select all projects in the <code>Settings</code> dialog, unselect until you find the project(s) that don't have the right settings (they all had the right settings).</p>

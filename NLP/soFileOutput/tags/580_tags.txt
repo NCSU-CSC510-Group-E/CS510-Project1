@@ -1,0 +1,1 @@
+<sql-server><sql-server-2005><deployment><release-management>

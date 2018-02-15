@@ -1,0 +1,38 @@
+<h2>Form-based authentication for websites</h2>
+
+<p>We believe that Stack&nbsp;Overflow should not just be a resource for very specific technical questions, but also for general guidelines on how to solve variations on common problems. "Form based authentication for websites" should be a fine topic for such an experiment.</p>
+
+<h3>It should include topics such as:</h3>
+
+<ul>
+<li>How to log in</li>
+<li>How to remain logged in</li>
+<li>Managing cookies (including recommended settings)</li>
+<li>SSL/HTTPS encryption</li>
+<li>How to store passwords</li>
+<li>Using secret questions</li>
+<li>Forgotten username/password functionality</li>
+<li>Use of <a href="https://en.wikipedia.org/wiki/Cryptographic_nonce" rel="noreferrer">nonces</a> to prevent <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery" rel="noreferrer">cross-site request forgeries (CSRF)</a></li>
+<li><a href="http://openid.net/" rel="noreferrer">OpenID</a></li>
+<li>"Remember me" checkbox</li>
+<li>Browser autocompletion of usernames and passwords</li>
+<li>Secret URLs (public <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Locator" rel="noreferrer">URL</a> protected by digest)</li>
+<li>Checking password strength</li>
+<li>E-mail validation</li>
+<li><em>and much more about</em> <a href="http://en.wikipedia.org/wiki/Form-based_authentication" rel="noreferrer">form based authentication</a>...</li>
+</ul>
+
+<h3>It should not include things like:</h3>
+
+<ul>
+<li>Roles and authorization</li>
+<li>HTTP basic authentication</li>
+</ul>
+
+<h3>Please help us by:</h3>
+
+<ol>
+<li>Suggesting subtopics</li>
+<li>Submitting good articles about this subject</li>
+<li>Editing the official answer</li>
+</ol>

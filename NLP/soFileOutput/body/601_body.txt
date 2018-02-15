@@ -1,0 +1,5 @@
+<p>I'm looking for a performant, reasonably robust RNG using no special hardware. It can use mathematical methods (Mersenne Twister, etc), it can "collect entropy" from the machine, whatever. On Linux/etc we have a <code>drand48()</code> which generates 48 random bits. I'd like a similar function/class for C++ or C# which can generate more than 32 bits of randomness and which low-order bits are equally as random as high-order bits.</p>
+
+<p>It doesn't have to be cryptographically secure but it must not use or be based on the C-language <code>rand()</code> or .NET <code>System.Random</code>.</p>
+
+<p>Any source code, links to source, etc. would be appreciated! Failing that, what TYPE of RNG should I be looking for?</p>

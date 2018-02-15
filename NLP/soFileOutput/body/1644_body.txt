@@ -1,0 +1,147 @@
+<p>Yes, Podcasts, those nice little Audiobooks I can listen to on the way to work. With the current amount of Podcasts, it's like searching a needle in a haystack, except that the haystack happens to be the Internet and is filled with too many of these "Hot new Gadgets" stuff :(</p>
+
+<p>Now, even though <strong>I</strong> am mainly a .NET developer nowadays, maybe anyone knows some good Podcasts from people regarding the whole software lifecycle? Unit Testing, Continous Integration, Documentation, Deployment...</p>
+
+<p>So - what are you guys and gals listening to?</p>
+
+<hr>
+
+<p>Please note that the categorizations are somewhat subjective and may not be 100% accurate as many podcasts cover several areas. Categorization is made against what is considered the "main" area.</p>
+
+<h1>General Software Engineering / Productivity</h1>
+
+<ul>
+<li><a href="http://blog.stackoverflow.com/category/podcasts/">Stack Overflow </a>(inactive, but still a good listen)</li>
+<li><a href="http://tekpub.com" rel="nofollow noreferrer">TekPub (Requires Paid Subscription)</a></li>
+<li><a href="http://www.se-radio.net/" rel="nofollow noreferrer">Software Engineering Radio</a></li>
+<li><a href="http://www.43folders.com/podcast" rel="nofollow noreferrer">43 Folders</a></li>
+<li><a href="http://perspectives.on10.net/" rel="nofollow noreferrer">Perspectives</a></li>
+<li><a href="http://www.drdobbs.com/tv/" rel="nofollow noreferrer">Dr. Dobb's</a> (now a video feed)</li>
+<li><a href="http://www.pragprog.com/podcasts" rel="nofollow noreferrer">The Pragmatic Podcast</a> (Inactive)</li>
+<li><a href="http://www.thoughtworks.com/what-we-say/podcasts.html" rel="nofollow noreferrer">IT Matters</a> </li>
+<li><a href="http://agiletoolkit.libsyn.com/" rel="nofollow noreferrer">Agile Toolkit Podcast</a></li>
+<li><a href="http://thestacktrace.libsyn.com/" rel="nofollow noreferrer">The Stack Trace</a> (Inactive)</li>
+<li><a href="http://www.parleys.com/display/PARLEYS/Home#page=Home" rel="nofollow noreferrer">Parleys</a></li>
+<li><a href="http://techzinglive.com/" rel="nofollow noreferrer">Techzing</a></li>
+<li><a href="http://startuppodcast.wordpress.com/" rel="nofollow noreferrer">The Startup Success Podcast</a></li>
+<li><a href="http://webcast.berkeley.edu/course_feeds.php" rel="nofollow noreferrer">Berkeley CS class lectures</a></li>
+<li><a href="http://twit.tv/FLOSS" rel="nofollow noreferrer">FLOSS Weekly</a></li>
+<li><a href="http://www.thisdeveloperslife.com/" rel="nofollow noreferrer">This Developer's Life</a></li>
+</ul>
+
+<h1>.NET / Visual Studio / Microsoft</h1>
+
+<ul>
+<li><a href="http://herdingcode.com/" rel="nofollow noreferrer">Herding Code</a></li>
+<li><a href="http://www.hanselminutes.com/" rel="nofollow noreferrer">Hanselminutes</a></li>
+<li><a href="http://www.dotnetrocks.com/" rel="nofollow noreferrer">.NET Rocks!</a></li>
+<li><a href="http://deepfriedbytes.com/" rel="nofollow noreferrer">Deep Fried Bytes</a></li>
+<li><a href="http://altnetpodcast.com/" rel="nofollow noreferrer">Alt.Net Podcast</a> (inactive)</li>
+<li><a href="http://www.polymorphicpodcast.com/" rel="nofollow noreferrer">Polymorphic Podcast</a> (inconsistent)</li>
+<li><a href="http://www.sparklingclient.com/" rel="nofollow noreferrer">Sparkling Client (The Silverlight Podcast)</a></li>
+<li><a href="http://www.dnrtv.com/default.aspx" rel="nofollow noreferrer">dnrTV!</a></li>
+<li><a href="http://feeds.feedburner.com/SpaghettiCodePodcasts" rel="nofollow noreferrer">Spaghetti Code</a></li>
+<li><a href="http://aspnetpodcast.com/CS11/Default.aspx" rel="nofollow noreferrer">ASP.NET Podcast</a></li>
+<li><a href="http://channel9.msdn.com/Media/Podcasts/" rel="nofollow noreferrer">Channel 9</a></li>
+<li><a href="http://www.radiotfs.com/" rel="nofollow noreferrer">Radio TFS</a></li>
+<li><a href="http://feeds.feedburner.com/powerscripting" rel="nofollow noreferrer">PowerScripting Podcast</a></li>
+<li><a href="http://thirstydeveloper.com/" rel="nofollow noreferrer">The Thirsty Developer</a></li>
+<li><a href="http://elegantcode.com/elegantcode-cast/" rel="nofollow noreferrer">Elegant Code</a> (inactive)</li>
+<li><a href="http://www.connectedshow.com/" rel="nofollow noreferrer">ConnectedShow</a></li>
+<li><a href="http://craftycoders.com/?tag=/podcast" rel="nofollow noreferrer">Crafty Coders</a></li>
+<li><a href="http://codingqa.com" rel="nofollow noreferrer">Coding QA</a></li>
+</ul>
+
+<h1>jQuery</h1>
+
+<ul>
+<li><a href="http://yayquery.com/" rel="nofollow noreferrer">yayQuery</a></li>
+<li><a href="http://blog.jquery.com/2009/11/13/announcing-the-official-jquery-podcast/" rel="nofollow noreferrer">The official jQuery podcast</a></li>
+</ul>
+
+<h1>Java / Groovy</h1>
+
+<ul>
+<li><a href="http://javaposse.com/" rel="nofollow noreferrer">The Java Posse</a></li>
+<li><a href="http://www.grailspodcast.com/blog/list" rel="nofollow noreferrer">Grails Podcast</a></li>
+<li><a href="http://www.javaworld.com/podcasts/jtech/" rel="nofollow noreferrer">Java Technology Insider</a></li>
+<li><a href="http://basementcoders.com/" rel="nofollow noreferrer">Basement Coders</a></li>
+</ul>
+
+<h1>Ruby / Rails</h1>
+
+<ul>
+<li><a href="http://railscasts.com/" rel="nofollow noreferrer">Railscasts</a></li>
+<li><a href="http://railsenvy.com/podcast" rel="nofollow noreferrer">Rails Envy</a></li>
+<li><a href="http://podcast.rubyonrails.org/" rel="nofollow noreferrer">The Ruby on Rails Podcast</a></li>
+<li><a href="http://rubiverse.com/" rel="nofollow noreferrer">Rubiverse</a></li>
+<li><a href="http://ruby5.envylabs.com/" rel="nofollow noreferrer">Ruby5</a></li>
+</ul>
+
+<h1>Web Design / JavaScript / Ajax</h1>
+
+<ul>
+<li><a href="http://webdevradio.com/" rel="nofollow noreferrer">WebDevRadio</a></li>
+<li><a href="http://boagworld.com/" rel="nofollow noreferrer">Boagworld</a></li>
+<li><a href="http://therissingtonpodcast.co.uk/" rel="nofollow noreferrer">The Rissington podcast</a></li>
+<li><a href="http://ajaxian.com/by/category/podcasts" rel="nofollow noreferrer">Ajaxian</a></li>
+<li><a href="http://developer.yahoo.com/yui/theater/" rel="nofollow noreferrer">YUI Theater</a></li>
+</ul>
+
+<h1>Unix / Linux / Mac / iPhone</h1>
+
+<ul>
+<li><a href="http://www.mac-developer-network.com/" rel="nofollow noreferrer">Mac Developer Network</a></li>
+<li><a href="http://www.hackerpublicradio.org/" rel="nofollow noreferrer">Hacker Public Radio</a></li>
+<li><a href="http://www.linuxoutlaws.com/" rel="nofollow noreferrer">Linux Outlaws</a></li>
+<li><a href="http://macosken.com/" rel="nofollow noreferrer">Mac OS Ken</a></li>
+<li><a href="http://lugradio.org/" rel="nofollow noreferrer">LugRadio Linux radio show</a> (Inactive)</li>
+<li><a href="http://www.jupiterbroadcasting.com/?cat=4" rel="nofollow noreferrer">The Linux Action Show!</a></li>
+<li><a href="http://www.kernelpodcast.org/" rel="nofollow noreferrer">Linux Kernel Mailing List (LKML) Summary Podcast</a></li>
+<li><a href="http://itunes.stanford.edu/" rel="nofollow noreferrer">Stanford's iPhone programming class</a></li>
+<li><a href="http://www.sunsetlakesoftware.com/2010/06/03/advanced-iphone-development-course-now-itunes-u" rel="nofollow noreferrer">Advanced iPhone Development Course - Madison Area Technical College</a></li>
+<li><a href="http://developer.apple.com/videos/wwdc/2010/" rel="nofollow noreferrer">WWDC 2010 Session Videos (requires Apple Developer registration)</a></li>
+</ul>
+
+<h1>System Administration, Security or Infrastructure</h1>
+
+<ul>
+<li><a href="http://feeds.feedburner.com/RunasRadio" rel="nofollow noreferrer">RunAs Radio</a></li>
+<li><a href="http://www.grc.com/securitynow.htm" rel="nofollow noreferrer">Security Now!</a></li>
+<li><a href="http://crypto-gram.libsyn.com/" rel="nofollow noreferrer">Crypto-Gram Security Podcast</a></li>
+<li><a href="http://www.hak5.org/" rel="nofollow noreferrer">Hak5</a></li>
+<li><a href="http://blogs.vmware.com/vmtn/podcasts/index.html" rel="nofollow noreferrer">VMWare VMTN</a></li>
+<li><a href="http://twit.tv/ww" rel="nofollow noreferrer">Windows Weekly</a></li>
+<li><a href="http://pauldotcom.com/" rel="nofollow noreferrer">PaulDotCom Security</a></li>
+<li><a href="http://www.theregister.co.uk/hardware/semi_coherent/podcast.rss" rel="nofollow noreferrer">The Register - Semi-Coherent Computing</a></li>
+<li><a href="http://feathercast.org/" rel="nofollow noreferrer">FeatherCast</a></li>
+</ul>
+
+<h1>General Tech / Business</h1>
+
+<ul>
+<li><a href="http://revision3.com/tekzilla/" rel="nofollow noreferrer">Tekzilla</a></li>
+<li><a href="http://twit.tv/twit" rel="nofollow noreferrer">This Week in Tech</a></li>
+<li><a href="http://www.guardian.co.uk/technology/series/techweekly" rel="nofollow noreferrer">The Guardian Tech Weekly</a></li>
+<li><a href="http://www.pcmag.com/category2/0,2806,2007098,00.asp" rel="nofollow noreferrer">PCMag Radio Podcast</a> (Inactive)</li>
+<li><a href="http://ecorner.stanford.edu/" rel="nofollow noreferrer">Entrepreneurship Corner</a></li>
+<li><a href="http://www.manager-tools.com/" rel="nofollow noreferrer">Manager Tools</a></li>
+</ul>
+
+<h1>Other / Misc. / Podcast Networks</h1>
+
+<ul>
+<li><a href="http://itc.conversationsnetwork.org/" rel="nofollow noreferrer">IT Conversations</a></li>
+<li><a href="http://retrobits.libsyn.org/" rel="nofollow noreferrer">Retrobits Podcast</a></li>
+<li><a href="http://cagematch.dvorak.org/index.php/board,45.0.html" rel="nofollow noreferrer">No Agenda Netcast</a></li>
+<li><a href="http://www.crankygeeks.com/" rel="nofollow noreferrer">Cranky Geeks</a></li>
+<li><a href="http://thecommandline.net/" rel="nofollow noreferrer">The Command Line</a></li>
+<li><a href="http://www.freelanceswitch.com/podcasts/" rel="nofollow noreferrer">Freelance Radio</a></li>
+<li><a href="http://www.ibm.com/developerworks/podcast/" rel="nofollow noreferrer">IBM developerWorks</a></li>
+<li><a href="http://www.theregister.co.uk/software/open_season/podcast.rss" rel="nofollow noreferrer">The Register - Open Season</a></li>
+<li><a href="http://www.drunkandretired.com/thepodcast/" rel="nofollow noreferrer">Drunk and Retired</a></li>
+<li><a href="http://itc.conversationsnetwork.org/series/technometria.html" rel="nofollow noreferrer">Technometria</a></li>
+<li><a href="http://www.sodthis.com/podcast/" rel="nofollow noreferrer">Sod This</a></li>
+<li><a href="http://www.radio4nerds.com/" rel="nofollow noreferrer">Radio4Nerds</a></li>
+<li><a href="http://hackermedley.org" rel="nofollow noreferrer">Hacker Medley</a></li>
+</ul>

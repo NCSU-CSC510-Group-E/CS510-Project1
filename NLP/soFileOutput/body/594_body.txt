@@ -1,0 +1,1 @@
+<p>There are several ways to iterate over a result set. What are the tradeoff of each?</p>

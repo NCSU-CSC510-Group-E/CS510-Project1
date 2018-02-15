@@ -1,0 +1,14 @@
+<p>In Lucene if you had multiple indexes that covered only one partition each. Why does the same search on different indexes return results with different scores? The results from different servers match exactly. </p>
+
+<p>i.e. if I searched for :</p>
+
+<ul>
+<li>Name - John Smith</li>
+<li>DOB - 11/11/1934</li>
+</ul>
+
+<p><strong>Partition 0</strong> would return a score of 0.345</p>
+
+<p><strong>Partition 1</strong> would return a score of 0.337</p>
+
+<p>Both match exactly on name and DOB.</p>

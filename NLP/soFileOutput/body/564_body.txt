@@ -1,0 +1,3 @@
+<p>I was reading <em><a href="http://rads.stackoverflow.com/amzn/click/1430209879" rel="noreferrer">More Joel on Software</a></em> when I came across <a href="http://en.wikipedia.org/wiki/Joel_Spolsky" rel="noreferrer">Joel Spolsky</a> saying something about a particular type of programmer knowing the difference between an <code>int</code> and an <code>Integer</code> in Java/C# (Object Oriented Programming Languages).</p>
+
+<p>So, what is the difference?</p>

@@ -1,0 +1,5 @@
+<p>I am looking for guidance regarding the best practice around the use of the Profile feature in ASP.NET.</p>
+
+<p>How do you decide what should be kept in the built-in user Profile, or if you should create your own DB Table and add a column for the desired fields? For example, a user has a ZIP code, should I save the ZIP code in my own table, or should I add it to the web.config xml profile and access it via the user profile ASP.NET mechanize? </p>
+
+<p>The pros/cons I can think of are that since I don't know the profile very well (it is a bit of a <em>Matrix</em> right now), I probably can do whatever I want if I go the table route (e.g., SQL to get all the users in the same ZIP code as the current user); I don't know if I can do the same if I use the ASP.NET profile.</p>
