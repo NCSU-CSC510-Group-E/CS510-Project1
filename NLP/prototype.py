@@ -1,23 +1,10 @@
 from gensim import corpora, models, similarities
 
 def main(path_to_input, predictFile, debugging = False):
-    # Each element in array is considered one "document"
-    documents = ["Human machine interface for lab abc computer applications",
-                "A survey of user opinion of computer system response time",
-                "The EPS user interface management system",
-                "System and human system engineering testing of EPS",
-                "Relation of user perceived response time to error measurement",
-                "The generation of random binary unordered trees",
-                "The intersection graph of paths in trees",
-                "Graph minors IV Widths of trees and well quasi ordering",
-                "Graph minors A survey"]
-
     # Need to initialize a new corpora from corpora.TextCorpus and initialize with lines_are_documents set to false
-
     corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
 
     dictionary = corpus.dictionary
-    # Can save w/ dictionary.save()
 
     if(debugging):
         print('Dumping tokens and respective IDs')
@@ -35,20 +22,23 @@ def main(path_to_input, predictFile, debugging = False):
 
     # TODO: Could also save dictionary here just for giggles
 
-
     # Pass in a core and a number of topics to mine for
     # TODO: Probably ought to save this model, too, just so I dont have to load it every time from scratch
+    # Providing id2word dictionary mappings here so that output of topics learned at the end are strings and not integers
     model = models.ldamodel.LdaModel(corpus, 10, id2word = dictionary.id2token, passes=40)
 
 
+    # Lets attempt to predict a file.
+    # We first need to read that file in and tokenize it
     tokens = []
     with open(predictFile) as file:
         text = file.read()
         tokens = text.split()
 
+    # tokenization
     bow = dictionary.doc2bow(tokens)
 
-    # To make a new prediciton, just pass in a BOW vector to test 
+    # To make a new prediciton, just pass in a BOW vector (tokens) to test 
     # This will return array of topics + probability tuples.  
     newPrediction = model.get_document_topics(bow)
 
@@ -66,5 +56,5 @@ def main(path_to_input, predictFile, debugging = False):
 
     if(debugging):
         print('The topics modeled')
-        print(model.print_topics(3, 2))
+        print(model.print_topics(10, 5))
         print('')
