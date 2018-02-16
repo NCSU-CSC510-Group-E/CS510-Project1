@@ -4,16 +4,10 @@ def main(path_to_input, predictFile, debugging = False):
     # Need to initialize a new corpora from corpora.TextCorpus and initialize with lines_are_documents set to false
     corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
 
-    dictionary = corpus.dictionary
+    # if we are given a dictionary to load, then load that instead of loading it from the corpus
+    if(path_to_dictionary is not None):
+        dictionary = corpora.Dictionary.load(path_to_dictionary)
 
-    if(debugging):
-        print('Dumping tokens and respective IDs')
-        print(dictionary.token2id)
-        print('')
-
-        print('Dumping corpus')
-        print(corpus)
-        print('')
 
 
     # Can't figure out why id2token isn't being populated automatically.
