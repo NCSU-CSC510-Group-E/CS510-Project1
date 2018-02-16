@@ -1,0 +1,25 @@
+<p>Yes, I know.  The existence of a running copy of <code>SQL Server 6.5</code> in 2008 is absurd.</p>
+
+<p>That stipulated, what is the best way to migrate from <code>6.5</code> to <code>2005</code>?  Is there any direct path?  Most of the documentation I've found deals with upgrading <code>6.5</code> to <code>7</code>.</p>
+
+<p>Should I forget about the native <code>SQL Server</code> upgrade utilities, script out all of the objects and data, and try to recreate from scratch?</p>
+
+<p>I was going to attempt the upgrade this weekend, but server issues pushed it back till next.  So, any ideas would be welcomed during the course of the week.</p>
+
+<p><em>Update.  This is how I ended up doing it:</em></p>
+
+<ul>
+<li>Back up the database in question and Master on <code>6.5</code>.</li>
+<li>Execute <code>SQL Server 2000</code>'s <code>instcat.sql</code> against <code>6.5</code>'s Master.  This allows <code>SQL Server 2000</code>'s OLEDB provider to connect to <code>6.5</code>.</li>
+<li>Use <code>SQL Server 2000</code>'s standalone <code>"Import and Export Data"</code> to create a DTS package, using <code>OLEDB</code> to connect to 6.5.  This successfully copied all <code>6.5</code>'s tables to a new <code>2005</code> database (also using <code>OLEDB</code>).</li>
+<li>Use <code>6.5</code>'s Enterprise Manager to script out all of the database's indexes and triggers to a .sql file.</li>
+<li>Execute that .sql file against the new copy of the database, in 2005's Management Studio.</li>
+<li>Use 6.5's Enterprise Manager to script out all of the stored procedures.</li>
+<li>Execute that <code>.sql</code> file against the <code>2005</code> database.  Several dozen sprocs had issues making them incompatible with <code>2005</code>.  Mainly <code>non-ANSI joins</code> and <code>quoted identifier issues</code>.</li>
+<li>Corrected all of those issues and re-executed the <code>.sql</code> file.</li>
+<li>Recreated the <code>6.5</code>'s logins in <code>2005</code> and gave them appropriate permissions.</li>
+</ul>
+
+<p>There was a bit of rinse/repeat when correcting the stored procedures (there were hundreds of them to correct), but the upgrade went great otherwise.</p>
+
+<p>Being able to use Management Studio instead of <code>Query Analyzer</code> and <code>Enterprise Manager 6.5</code> is such an amazing difference.  A few report queries that took 20-30 seconds on the <code>6.5 database</code> are now running in 1-2 seconds, without any modification, new indexes, or anything.  I didn't expect that kind of immediate improvement.</p>

@@ -1,0 +1,13 @@
+<p>Is it possible to configure <a href="http://www.apachefriends.org/en/xampp.html" rel="noreferrer">xampp</a> to serve up a file outside of the <code>htdocs</code> directory?</p>
+
+<p>For instance, say I have a file located as follows:</p>
+
+<p><code>C:\projects\transitCalculator\trunk\TransitCalculator.php</code></p>
+
+<p>and my <a href="http://www.apachefriends.org/en/xampp.html" rel="noreferrer">xampp</a> files are normally served out from:</p>
+
+<p><code>C:\xampp\htdocs\</code></p>
+
+<p>(because that's the default configuration) Is there some way to make Apache recognize and serve up my <code>TransitCalculator.php</code> file without moving it under <code>htdocs</code>? Preferably I'd like Apache to serve up/have access to the entire contents of the projects directory, and I don't want to move the projects directory under <code>htdocs</code>.</p>
+
+<p>edit: edited to add Apache to the question title to make Q/A more "searchable"</p>

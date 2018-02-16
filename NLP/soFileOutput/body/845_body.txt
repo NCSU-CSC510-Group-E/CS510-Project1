@@ -1,0 +1,12 @@
+<p>Suppose I have the following CSS rule in my page:</p>
+
+<pre class="lang-css prettyprint-override"><code>body {
+    font-family: Calibri, Trebuchet MS, Helvetica, sans-serif;
+}
+</code></pre>
+
+<p>How can I detect which one of the defined fonts was used in the user's browser?</p>
+
+<p><strong>Edit for people wondering why I want to do this:</strong> The font I'm detecting contains glyph's that are not available in other fonts and when the user does not have the font I want to display a link asking the user to download that font so they can use my web application with the correct font.</p>
+
+<p>Currently I am displaying the download font link for all users, I want to only display this for people who do not have the correct font installed.</p>

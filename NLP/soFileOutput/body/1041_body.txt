@@ -1,0 +1,10 @@
+<p>I'm looking for a robust, easy-to-use, regular expression evaluator for native C++, either platform-independent or Windows-specific.</p>
+
+<p>Requirements:</p>
+
+<ul>
+<li>Can't use Boost or ACE regex libraries (unfortunately)</li>
+<li>Can't use .NET Regex (or any managed code)</li>
+</ul>
+
+<p>The main requirement is that it should be standalone and open.</p>

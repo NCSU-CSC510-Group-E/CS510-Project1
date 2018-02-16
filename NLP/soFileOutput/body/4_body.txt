@@ -1,0 +1,15 @@
+<p>I want to use a track-bar to change a form's opacity.</p>
+
+<p>This is my code:</p>
+
+<pre><code>decimal trans = trackBar1.Value / 5000;
+this.Opacity = trans;
+</code></pre>
+
+<p>When I build the application, it gives the following error:</p>
+
+<blockquote>
+  <p>Cannot implicitly convert type <code>'decimal'</code> to <code>'double'</code>.</p>
+</blockquote>
+
+<p>I tried using <code>trans</code> and <code>double</code> but then the control doesn't work. This code worked fine in a past VB.NET project.</p>

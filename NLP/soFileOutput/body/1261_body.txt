@@ -1,0 +1,5 @@
+<p>My company is using CVS as our de-facto standard for source control. However, I've heard a lot of people say that SVN is better.</p>
+
+<p>I know SVN is newer, but other than that, I'm unfamiliar with its benefits.</p>
+
+<p>What I'm looking for is a good, succinct comparison of the two systems, noting any advantages or disadvantages of each in a Java/Eclipse development environment.</p>

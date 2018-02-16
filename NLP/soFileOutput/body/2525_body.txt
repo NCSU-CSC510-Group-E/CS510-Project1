@@ -1,0 +1,11 @@
+<p>My product has several components: ASP.NET, Windows Forms App and Windows Service. 95% or so of the code is written in VB.NET.</p>
+
+<p>For Intellectual Property reasons, I need to obfuscate the code, and until now I have been using a version of dotfuscator which is now over 5 years old. I'm thinking it is time to move to a new generation tool. What I'm looking for is a list of requirements which I should consider when searching for a new obfuscator.</p>
+
+<p>What I know I should look for so far:</p>
+
+<ul>
+<li><strong><em>Serialization/De-serialization</em></strong>. In my current solution, I simply tell the tool <strong>not</strong> to obfuscate any class data members because the pain of not being able to load data which was previously serialized is simply too big.</li>
+<li><strong><em>Integration with Build Process</em></strong></li>
+<li><strong><em>Working with ASP.NET</em></strong>. In the past, I have found this problematic due to changing .dll names (you often have one per page) - which not all tools handle well.</li>
+</ul>

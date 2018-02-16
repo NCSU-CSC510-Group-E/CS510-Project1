@@ -1,0 +1,11 @@
+<p>I haven't been able to find an understandable explanation of how to actually use Python's <code>itertools.groupby()</code> function.  What I'm trying to do is this:</p>
+
+<ul>
+<li>Take a list - in this case, the children of an objectified <code>lxml</code> element</li>
+<li>Divide it into groups based on some criteria</li>
+<li>Then later iterate over each of these groups separately.</li>
+</ul>
+
+<p>I've reviewed <a href="https://docs.python.org/2/library/itertools.html" rel="noreferrer">the documentation</a>, and <a href="https://docs.python.org/2/library/itertools.html#itertools.groupby" rel="noreferrer">the examples</a>, but I've had trouble trying to apply them beyond a simple list of numbers. </p>
+
+<p>So, how do I use of <code>itertools.groupby()</code>?  Is there another technique I should be using?  Pointers to good "prerequisite" reading would also be appreciated.</p>

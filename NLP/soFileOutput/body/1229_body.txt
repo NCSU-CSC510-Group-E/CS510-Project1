@@ -1,0 +1,3 @@
+<p>I want to link to a specific slide in an online PowerPoint file, (e.g.  <code>http://www.example.com/hello.ppt</code>) but what I want is that when people click on my link, it goes straight to the nth slide.</p>
+
+<p>Is this possible?</p>

@@ -1,0 +1,9 @@
+<p>Most mathematicians agree that:</p>
+
+<blockquote>
+  <p>e<sup>πi</sup> + 1 = 0</p>
+</blockquote>
+
+<p>However, most floating point implementations disagree. How well can we settle this dispute?</p>
+
+<p>I'm keen to hear about different languages and implementations, and various methods to make the result as close to zero as possible. Be creative!</p>

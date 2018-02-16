@@ -1,0 +1,15 @@
+<p>Given a relatively simple CSS:</p>
+
+<p><div class="snippet" data-lang="js" data-hide="false" data-console="true" data-babel="false">
+<div class="snippet-code">
+<pre class="snippet-code-css lang-css prettyprint-override"><code>div {
+  width: 150px;
+}</code></pre>
+<pre class="snippet-code-html lang-html prettyprint-override"><code>&lt;div&gt;
+  12333-2333-233-23339392-332332323
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+</p>
+
+<p>How do I make it so that the string stays constrained to the <code>width</code> of <strong>150</strong>, and simply wraps to a newline on the hyphen?</p>

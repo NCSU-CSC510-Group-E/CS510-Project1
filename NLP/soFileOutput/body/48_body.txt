@@ -1,0 +1,21 @@
+<p>Let's say you create a Wizard in an HTML form. One button goes back, and one goes forward.  Since the <em>back</em> button appears first in the markup when you press Enter it will use that button to submit the form. </p>
+
+<p>Example:</p>
+
+<p><div class="snippet" data-lang="js" data-hide="false" data-console="true" data-babel="false">
+<div class="snippet-code">
+<pre class="snippet-code-html lang-html prettyprint-override"><code>&lt;form&gt;
+  &lt;!-- put your cursor in this field and press Enter --&gt;
+  &lt;input type="text" name="field1" /&gt;
+
+  &lt;!-- This is the button that will submit --&gt;
+  &lt;input type="submit" name="prev" value="Previous Page" /&gt;
+
+  &lt;!-- But this is the button that I WANT to submit --&gt;
+  &lt;input type="submit" name="next" value="Next Page" /&gt;
+&lt;/form&gt;</code></pre>
+</div>
+</div>
+</p>
+
+<p>What I would like to do, is get to decide which button is used to submit the form when a user presses Enter. That way, when you press Enter the Wizard will move to the next page, not the previous. Do you have to use <code>tabindex</code> to do this?</p>

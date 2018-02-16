@@ -1,0 +1,7 @@
+<p>When looking beyond the <a href="https://en.wikipedia.org/wiki/Rapid_application_development" rel="noreferrer">RAD</a> (drag-drop and configure) way of building user interfaces that many tools encourage you are likely to come across three design patterns called <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" rel="noreferrer">Model-View-Controller</a>, <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter" rel="noreferrer">Model-View-Presenter</a> and <a href="http://en.wikipedia.org/wiki/Model_View_ViewModel" rel="noreferrer">Model-View-ViewModel</a>. My question has three parts to it:</p>
+
+<ol>
+<li>What issues do these patterns address?</li>
+<li>How are they similar?</li>
+<li>How are they different?</li>
+</ol>

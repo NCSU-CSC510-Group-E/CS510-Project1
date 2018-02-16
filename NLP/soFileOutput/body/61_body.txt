@@ -1,0 +1,3 @@
+<p>Where can I find a list of all of the MIME types and the identifying characters for Office 2007 files?</p>
+
+<p>I have an upload form that is restricting uploads based on the extensions and identifying characters, but I cannot seem to find the Office 2007 MIME types.</p>

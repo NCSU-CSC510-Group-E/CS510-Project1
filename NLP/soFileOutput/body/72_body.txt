@@ -1,0 +1,3 @@
+<p>I want to format my existing comments as 'RDoc comments' so they can be viewed using <code>ri</code>.</p>
+
+<p>What are some recommended resources for starting out using RDoc?</p>

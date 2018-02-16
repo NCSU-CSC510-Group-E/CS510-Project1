@@ -1,0 +1,17 @@
+<p>As a novice in practicing test-driven development, I often end up in a quandary as to how to unit test persistence to a database.</p>
+
+<p>I know that technically this would be an integration test (not a unit test), but I want to find out the best strategies for the following:</p>
+
+<ol>
+<li>Testing queries. </li>
+<li>Testing inserts. How do I know that the insert that has gone wrong if it fails? I can test it by inserting and then querying, but how can I know that the query wasn't wrong? </li>
+<li>Testing updates and deletes -- same as testing inserts</li>
+</ol>
+
+<p>What are the best practices for doing these?</p>
+
+<hr>
+
+<p>Regarding testing SQL: I am aware that this could be done, but if I use an O/R Mapper like NHibernate, it attaches some naming warts in the aliases used for the output queries, and as that is somewhat unpredictable I'm not sure I could test for that.</p>
+
+<p>Should I just, abandon everything and simply trust NHibernate? I'm not sure that's prudent.</p>
