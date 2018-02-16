@@ -231,3 +231,4 @@ TSWLatexianTemp*
 # standalone packages
 *.sta
 *.pyc
+NLP/save/*
