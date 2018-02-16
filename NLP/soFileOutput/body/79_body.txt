@@ -1,9 +1,9 @@
-<p>The version of <strong>Subclipse (1.2.4)</strong> currently available through Aptana's automatic <em>Plugins Manager</em> does not work with the newest version of Subversion.</p>
+The version of Subclipse (1.2.4) currently available through Aptana's automatic Plugins Manager does not work with the newest version of Subversion.
 
-<p>I see on the Subclipse website however that they have 1.4.2 out for Eclipse. So I added a <a href="http://subclipse.tigris.org/update_1.4.x" rel="noreferrer">new remote update site</a> to my Update manager. When I tried to install it, it told me I needed <strong>Mylyn 3.0.0</strong>. So after much searching I found Mylyn 3.0.0 and added <a href="http://download.eclipse.org/tools/mylyn/update/e3.3" rel="noreferrer">another new remote update site</a> to my update manager. Then when I tried to install that, it told me I needed <strong>org.eclipse.ui 3.3.0</strong> or equivalent.</p>
+I see on the Subclipse website however that they have 1.4.2 out for Eclipse. So I added a new remote update site to my Update manager. When I tried to install it, it told me I needed Mylyn 3.0.0. So after much searching I found Mylyn 3.0.0 and added another new remote update site to my update manager. Then when I tried to install that, it told me I needed org.eclipse.ui 3.3.0 or equivalent.
 
-<p>Looking at the configuration details for Aptana, it looks like it is built against eclipse 3.2.2.</p>
+Looking at the configuration details for Aptana, it looks like it is built against eclipse 3.2.2.
 
-<p>Does anyone know if there is a way to upgrade the version of Eclipse Aptana that is built against to 3.3.0? Or if there is some other way to get Subclipse to work with the very newest version of Subversion?</p>
+Does anyone know if there is a way to upgrade the version of Eclipse Aptana that is built against to 3.3.0? Or if there is some other way to get Subclipse to work with the very newest version of Subversion?
 
-<p>I know this isn't necessarily a "programming" question, but I hope it's ok since it's highly relevant to the programming experience.</p>
+I know this isn't necessarily a "programming" question, but I hope it's ok since it's highly relevant to the programming experience.

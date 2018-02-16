@@ -1,5 +1,0 @@
-<p>I am looking for a tool that can detect malicious requests (such as obvious SQL injection gets or posts) and will immediately ban the IP address of the requester/add to a blacklist. I am aware that in an ideal world our code should be able to handle such requests and treat them accordingly, but there is a lot of value in such a tool even when the site is safe from these kinds of attacks, as it can lead to saving bandwidth, preventing bloat of analytics, etc.</p>
-
-<p>Ideally, I'm looking for a cross-platform (<code>LAMP/.NET</code>) solution that sits at a higher level than the technology stack; perhaps at the web-server or hardware level. I'm not sure if this exists, though.</p>
-
-<p>Either way, I'd like to hear the community's feedback so that I can see what my options might be with regard to implementation and approach.</p>

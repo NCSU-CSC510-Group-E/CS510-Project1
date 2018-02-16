@@ -1,1 +1,0 @@
-<p>How do I call shell commands from inside of a Ruby program? How do I then get output from these commands back into Ruby?</p>

@@ -1,3 +1,0 @@
-<p>What is the best way to display <code>Flash</code> content in a <strong>C#</strong> WinForms application? I would like to create a user control (similar to the current <code>PictureBox</code>) that will be able to display images and flash content.</p>
-
-<p>It would be great to be able to load the flash content from a <strong>stream</strong> of sorts rather than a file on disk.</p>

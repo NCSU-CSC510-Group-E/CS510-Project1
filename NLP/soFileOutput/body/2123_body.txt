@@ -1,3 +1,0 @@
-<p><code>Checkboxes</code> in <code>HTML</code> forms don't have implicit <em>labels</em> with them. Adding an explicit label (some text) next to it doesn't toggle the <code>checkbox</code>.</p>
-
-<p><strong>How do I make a checkbox toggle from clicking on the text label as well?</strong></p>

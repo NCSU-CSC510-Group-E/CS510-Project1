@@ -1,3 +1,0 @@
-<p>I've read that it is possible to add a method to an existing object (e.g. not in the class definition) in Python. </p>
-
-<p>I understand that it's not always good to do so. But, how might one do this?</p>

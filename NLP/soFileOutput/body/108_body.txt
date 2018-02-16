@@ -1,11 +1,11 @@
-<p>I've been using <a href="http://tortoisesvn.tigris.org/" rel="noreferrer">TortoiseSVN </a> in a Windows environment for quite some time.  It seems very feature-complete and nicely integrated into the Windows shell, and more importantly, it's fairly painless to teach to colleagues with little or no experience with source control.  <strong>However</strong>, since we have moved to Windows Vista 64bit, Tortoise has been very buggy and has seemed to cause lots of explorer.exe abnormalities and crashes.  This has happened both with older versions of the software and the latest version (1.5.1 build 13563).</p>
+I've been using TortoiseSVN  in a Windows environment for quite some time.  It seems very feature-complete and nicely integrated into the Windows shell, and more importantly, it's fairly painless to teach to colleagues with little or no experience with source control.  However, since we have moved to Windows Vista 64bit, Tortoise has been very buggy and has seemed to cause lots of explorer.exe abnormalities and crashes.  This has happened both with older versions of the software and the latest version (1.5.1 build 13563).
 
-<p>I was curious if anyone has suggestions for other Subversion clients that will run on Windows (specifically Vista 64bit).  Developers here use a variety of text editors so using Visual Studio or Dreamweaver for SVN is not ideal.</p>
+I was curious if anyone has suggestions for other Subversion clients that will run on Windows (specifically Vista 64bit).  Developers here use a variety of text editors so using Visual Studio or Dreamweaver for SVN is not ideal.
 
-<p>I have heard great things about <a href="http://www.zennaware.com/cornerstone/" rel="noreferrer">Cornerstone</a>, and would love something similar for Windows if it exists.</p>
+I have heard great things about Cornerstone, and would love something similar for Windows if it exists.
 
-<hr>
 
-<p>I'm correlating the Vista/explorer problems with Tortoise because they normally occur when I'm using the functionality in Tortoise.  Sometimes bringing up the "merge" screen will cause the GUI to start acting very strange and eventually hang or crash.</p>
 
-<p>I did not see 1.5.2 -- I'm installing now, maybe that will fix some of my issues.</p>
+I'm correlating the Vista/explorer problems with Tortoise because they normally occur when I'm using the functionality in Tortoise.  Sometimes bringing up the "merge" screen will cause the GUI to start acting very strange and eventually hang or crash.
+
+I did not see 1.5.2 -- I'm installing now, maybe that will fix some of my issues.

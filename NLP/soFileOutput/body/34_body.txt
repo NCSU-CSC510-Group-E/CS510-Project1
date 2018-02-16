@@ -1,14 +1,14 @@
-<p>How do I forcefully unload a <code>ByteArray</code> from memory in ActionScript 3?</p>
+How do I forcefully unload a ByteArray from memory in ActionScript 3?
 
-<p>I have tried (without success):</p>
+I have tried (without success):
 
-<pre><code>byteArray.length = 0;
+byteArray.length = 0;
 byteArray = new ByteArray();
-</code></pre>
 
-<p>And</p>
 
-<pre><code>for ( var i:int=0; i &lt; byteArray.length; i++ ) {
+And
+
+for ( var i:int=0; i  byteArray.length; i++ ) {
     byteArray[i] = null;
 }
-</code></pre>
+

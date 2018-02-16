@@ -1,3 +1,0 @@
-<p>I'm currently working on an application with a frontend written in Adobe Flex 3. I'm aware of <a href="http://code.google.com/p/as3flexunitlib/" rel="noreferrer">FlexUnit</a> but what I'd really like is a unit test runner for Ant/NAnt and a runner that integrates with the Flex Builder IDE (AKA Eclipse). Does one exist? </p>
-
-<p>Also, are there any other resources on how to do Flex development "the right way" besides the <a href="http://labs.adobe.com/wiki/index.php/Cairngorm" rel="noreferrer">Cairngorm microarchitecture</a> example?</p>

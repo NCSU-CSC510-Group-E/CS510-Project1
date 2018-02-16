@@ -1,3 +1,0 @@
-<p>Is there a way to create a <code>JButton</code> with your own button graphic and not just with an image inside the button? </p>
-
-<p>If not, is there another way to create a custom <code>JButton</code> in java?</p>

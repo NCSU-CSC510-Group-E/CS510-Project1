@@ -1,3 +1,0 @@
-<p>One of the sites I maintain relies heavily on use of <code>ViewState</code> (it isn't my code). However, on certain pages where the <code>ViewState</code> is extra-bloated, Safari throws a <code>"Validation of viewstate MAC failed"</code> error.</p>
-
-<p>This appears to only happen in Safari. Firefox, IE and Opera all load successfully in the same scenario.</p>

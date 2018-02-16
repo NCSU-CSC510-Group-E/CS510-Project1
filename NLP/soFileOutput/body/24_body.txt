@@ -1,1 +1,1 @@
-<p>If I have a <code>trigger</code> <code>before the update</code> on a table, how can I throw an error that prevents the update on that table?</p>
+If I have a trigger before the update on a table, how can I throw an error that prevents the update on that table?

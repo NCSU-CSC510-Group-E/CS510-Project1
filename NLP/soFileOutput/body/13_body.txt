@@ -1,1 +1,1 @@
-<p>Is there any standard way for a Web Server to be able to determine a user's timezone within a web page? Perhaps from a HTTP header or part of the user-agent string?</p>
+Is there any standard way for a Web Server to be able to determine a user's timezone within a web page? Perhaps from a HTTP header or part of the user-agent string?

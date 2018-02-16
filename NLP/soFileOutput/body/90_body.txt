@@ -1,1 +1,1 @@
-<p>How do you <a href="http://svnbook.red-bean.com/en/1.8/svn.branchmerge.html" rel="nofollow noreferrer">branch and merge</a> with Apache Subversion using the TortoiseSVN client? </p>
+How do you branch and merge with Apache Subversion using the TortoiseSVN client? 

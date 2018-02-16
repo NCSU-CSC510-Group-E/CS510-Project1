@@ -1,3 +1,0 @@
-<p>I've been writing a few web services for a <code>.net</code> app, now I'm ready to consume them. I've seen numerous examples where there is homegrown code for consuming the service as opposed to using the auto generated methods that Visual Studio creates when adding the web reference. </p>
-
-<p>Is there some advantages to this?</p>

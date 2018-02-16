@@ -1,9 +1,0 @@
-<p>Stack Overflow has a subversion version number at the bottom:</p>
-
-<blockquote>
-  <p>svn revision: 679</p>
-</blockquote>
-
-<p>I want to use such automatic versioning with my <code>.NET Web Site/Application</code>, Windows Forms, WPD projects/solutions.</p>
-
-<p>How do I implement this?</p>

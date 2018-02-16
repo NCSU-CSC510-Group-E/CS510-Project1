@@ -1,1 +1,0 @@
-<p>What is the best way to record statistics on the number of visitors visiting my site that have set their browser to block ads?</p>

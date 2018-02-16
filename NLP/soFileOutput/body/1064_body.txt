@@ -1,5 +1,0 @@
-<p>I'd like to display ~100 floating cubes using <code>DirectX</code> or <code>OpenGL</code>.</p>
-
-<p>I'm looking for either some sample source code, or a description of the technique. I know this kind of thing is easy for you accomplished '3D' gurus out there but I have enough trouble getting even one cube to display correctly.</p>
-
-<p>I've combed the net for a good series of tutorials and although they talk about how to do <code>3D</code> primitives, what I can't find is information on how to do large numbers of <code>3D</code> primitives - <code>cubes</code>, <code>spheres</code>, <code>pyramids</code>, and so forth.</p>

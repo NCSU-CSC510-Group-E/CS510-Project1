@@ -1,8 +1,8 @@
-<p>How do you expose a LINQ query as an ASMX web service? Usually, from the business tier, I can return a typed <code>DataSet</code> or <code>DataTable</code> which can be serialized for transport over ASMX.</p>
+How do you expose a LINQ query as an ASMX web service? Usually, from the business tier, I can return a typed DataSet or DataTable which can be serialized for transport over ASMX.
 
-<p>How can I do the same for a LINQ query? Is there a way to populate a typed <code>DataSet</code> or <code>DataTable</code> via a LINQ query?</p>
+How can I do the same for a LINQ query? Is there a way to populate a typed DataSet or DataTable via a LINQ query?
 
-<pre><code>public static MyDataTable CallMySproc()
+public static MyDataTable CallMySproc()
 {
     string conn = "...";
 
@@ -19,6 +19,6 @@
 
     return dt;
 }
-</code></pre>
 
-<p>How can I get the result set of a LINQ query into a <code>DataSet</code> or <code>DataTable</code>? Alternatively, is the LINQ query serializeable so that I can expose it as an ASMX web service?</p>
+
+How can I get the result set of a LINQ query into a DataSet or DataTable? Alternatively, is the LINQ query serializeable so that I can expose it as an ASMX web service?

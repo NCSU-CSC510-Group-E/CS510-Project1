@@ -1,1 +1,0 @@
-<sql-server><database><documentation><data-dictionary>

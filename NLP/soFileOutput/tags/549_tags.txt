@@ -1,1 +1,0 @@
-<security><http><authentication><language-agnostic><article>

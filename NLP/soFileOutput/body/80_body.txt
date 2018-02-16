@@ -1,6 +1,6 @@
-<p>I've written a database generation script in <a href="http://en.wikipedia.org/wiki/SQL" rel="nofollow noreferrer">SQL</a> and want to execute it in my <a href="http://en.wikipedia.org/wiki/Adobe_Integrated_Runtime" rel="nofollow noreferrer">Adobe AIR</a> application:</p>
+I've written a database generation script in SQL and want to execute it in my Adobe AIR application:
 
-<pre><code>Create Table tRole (
+Create Table tRole (
     roleID integer Primary Key
     ,roleName varchar(40)
 );
@@ -26,11 +26,11 @@ Create Table tCategory (
     ,parent_categoryID integer
 );
 ...
-</code></pre>
 
-<p>I execute this in Adobe AIR using the following methods:</p>
 
-<pre><code>public static function RunSqlFromFile(fileName:String):void {
+I execute this in Adobe AIR using the following methods:
+
+public static function RunSqlFromFile(fileName:String):void {
     var file:File = File.applicationDirectory.resolvePath(fileName);
     var stream:FileStream = new FileStream();
     stream.open(file, FileMode.READ)
@@ -50,6 +50,6 @@ public static function NonQuery(strSQL:String):void {
         Alert.show(error.toString());
     }
 }
-</code></pre>
 
-<p>No errors are generated, however only <code>tRole</code> exists. It seems that it only looks at the first query (up to the semicolon- if I remove it, the query fails). Is there a way to call multiple queries in one statement?</p>
+
+No errors are generated, however only tRole exists. It seems that it only looks at the first query (up to the semicolon- if I remove it, the query fails). Is there a way to call multiple queries in one statement?

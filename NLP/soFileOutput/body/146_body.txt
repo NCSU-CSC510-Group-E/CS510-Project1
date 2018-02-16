@@ -1,25 +1,25 @@
-<p>I have a website that plays mp3s in a flash player. If a user clicks 'play' the flash player automatically downloads an mp3 and starts playing it. </p>
+I have a website that plays mp3s in a flash player. If a user clicks 'play' the flash player automatically downloads an mp3 and starts playing it. 
 
-<p>Is there an easy way to track how many times a particular song clip (or any binary file) has been downloaded?</p>
+Is there an easy way to track how many times a particular song clip (or any binary file) has been downloaded?
 
-<hr>
 
-<blockquote>
-  <p>Is the play link a link to the actual
+
+
+  Is the play link a link to the actual
   mp3 file or to some javascript code
-  that pops up a player?</p>
+  that pops up a player?
   
-  <p>If the latter, you can easily add your
+  If the latter, you can easily add your
   own logging code in there to track the
-  number of hits to it.</p>
+  number of hits to it.
   
-  <p>If the former, you'll need something
+  If the former, you'll need something
   that can track the web server log
   itself and make that distinction. My
   hosting plan comes with webalizer,
-  which does this nicely.</p>
-</blockquote>
+  which does this nicely.
 
-<p>It's javascript code, so that answers that. </p>
 
-<p>However, it would be nice to know how to track downloads using the other method (without switching hosts).</p>
+It's javascript code, so that answers that. 
+
+However, it would be nice to know how to track downloads using the other method (without switching hosts).

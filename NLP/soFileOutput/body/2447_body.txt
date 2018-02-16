@@ -1,3 +1,0 @@
-<p>Regarding Agile development, what are the best practices for testing security per release?</p>
-
-<p>If it is a monthly release, are there shops doing pen-tests every month?</p>

@@ -1,5 +1,0 @@
-<p>We are using <a href="http://en.wikipedia.org/wiki/Windows_Media_Video" rel="nofollow noreferrer">WMV</a> videos on an internal site, and we are embedding them into web sites. This works quite well on Internet Explorer, but not on Firefox. I've found ways to make it work in Firefox, but then it stops working in Internet Explorer.</p>
-
-<p>We do not want to use Silverlight just yet, especially since we cannot be sure that all clients will be running Windows XP with Windows Media Player installed. </p>
-
-<p>Is there some sort of Universal Code that embeds WMP into both Internet Explorer and Firefox, or do we need to implement some user-agent-detection and deliver different HTML for different browsers?</p>

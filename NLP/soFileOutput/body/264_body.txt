@@ -1,8 +1,0 @@
-<ul>
-<li>What's the optimal level of concurrency that the C++ implementation of BerkeleyDB can reasonably support?</li>
-<li>How many threads can I have hammering away at the DB before throughput starts to suffer because of resource contention?</li>
-</ul>
-
-<p>I've read the manual and know how to set the number of locks, lockers, database page size, etc. but I'd just like some advice from someone who has real-world experience with BDB concurrency.</p>
-
-<p>My application is pretty simple, I'll be doing gets and puts of records that are about 1KB each. No cursors, no deleting.</p>

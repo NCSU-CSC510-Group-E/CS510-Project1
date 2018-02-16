@@ -1,7 +1,0 @@
-<p>I have 2 SQLite databases, one downloaded from a server (<code>server.db</code>), and one used as storage on the client (<code>client.db</code>). I need to perform various sync queries on the client database, using data from the server database.</p>
-
-<p>For example, I want to delete all rows in the <code>client.db tRole</code> table, and repopulate with all rows in the <code>server.db tRole</code> table.</p>
-
-<p>Another example, I want to delete all rows in the <code>client.db tFile</code> table where the <code>fileID</code> is not in the <code>server.db tFile</code> table.</p>
-
-<p>In SQL Server you can just prefix the table with the name of the database. Is there anyway to do this in SQLite using Adobe Air?</p>

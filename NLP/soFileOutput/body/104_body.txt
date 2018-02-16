@@ -1,11 +1,11 @@
-<p>In .NET perspective:</p>
+In .NET perspective:
 
-<ul>
-<li>What is a <strong><a href="http://en.wikipedia.org/wiki/Memory_leak" rel="noreferrer">Memory Leak</a></strong>?</li>
-<li>How can you determine whether your application leaks? What are the effects?</li>
-<li>How can you prevent a memory leak?</li>
-<li>If your application has memory leak, does it go away when the process exits or is killed? Or do memory leaks in your application affect other processes on the system even after process completion?</li>
-<li>And what about unmanaged code accessed via COM Interop and/or P/Invoke?</li>
-</ul>
 
-<p>I have some answers for these questions myself, but they are incomplete. What do you think?</p>
+What is a Memory Leak?
+How can you determine whether your application leaks? What are the effects?
+How can you prevent a memory leak?
+If your application has memory leak, does it go away when the process exits or is killed? Or do memory leaks in your application affect other processes on the system even after process completion?
+And what about unmanaged code accessed via COM Interop and/or P/Invoke?
+
+
+I have some answers for these questions myself, but they are incomplete. What do you think?

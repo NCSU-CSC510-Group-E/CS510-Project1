@@ -1,1 +1,0 @@
-<p>I was wondering if there is any good and clean oo implementation of Bayesian filtering for spam and text classification? This is just for learning purposes.</p>

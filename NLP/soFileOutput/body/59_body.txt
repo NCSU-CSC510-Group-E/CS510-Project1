@@ -1,9 +1,9 @@
-<p>Let's say I have a <code>DataTable</code> with a <code>Name</code> column. I want to have a collection of the unique names ordered alphabetically. The following query ignores the order by clause.</p>
+Let's say I have a DataTable with a Name column. I want to have a collection of the unique names ordered alphabetically. The following query ignores the order by clause.
 
-<pre><code>var names =
+var names =
     (from DataRow dr in dataTable.Rows
     orderby (string)dr["Name"]
     select (string)dr["Name"]).Distinct();
-</code></pre>
 
-<p>Why does the <code>orderby</code> not get enforced?</p>
+
+Why does the orderby not get enforced?

@@ -1,7 +1,0 @@
-<p>For all the RSS feeds I subscribe to I use <a href="http://www.google.com/reader/" rel="noreferrer">Google Reader</a>, which I love. I do however have a couple of specific RSS feeds that I'd like to be notified of as soon as they get updated (say, for example, an RSS feed for a forum I like to monitor and respond to as quickly as possible). </p>
-
-<p>Are there any tools out there for this kind of monitoring which also have some kind of alert functionality (for example, a prompt window)? </p>
-
-<p>I've tried <a href="http://www.simbolic.net/software/RSSAlert/" rel="noreferrer">Simbolic RSS Alert</a> but I found it a bit buggy and couldn't get it to alert me as often as I liked.</p>
-
-<p>Suggestions? Or perhaps a different experience with Simbolic? </p>

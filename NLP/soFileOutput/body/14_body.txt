@@ -1,1 +1,1 @@
-<p>What is the difference between <a href="http://msdn.microsoft.com/en-us/library/9a6a2sxy.aspx" rel="noreferrer"><code>Math.Floor()</code></a> and <a href="http://msdn.microsoft.com/en-us/library/system.math.truncate.aspx" rel="noreferrer"><code>Math.Truncate()</code></a> in .NET?</p>
+What is the difference between Math.Floor() and Math.Truncate() in .NET?

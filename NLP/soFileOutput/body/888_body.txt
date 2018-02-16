@@ -1,5 +1,0 @@
-<p>How do you debug <strong>PHP</strong> scripts?</p>
-
-<p>I am aware of basic debugging such as using the Error Reporting. The breakpoint debugging in <strong>PHPEclipse</strong> is also quite useful.</p>
-
-<p>What is the <strong>best</strong> (in terms of fast and easy) way to debug in phpStorm or any other IDE?</p>

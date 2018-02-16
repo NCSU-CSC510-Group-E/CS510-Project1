@@ -1,5 +1,0 @@
-<p>I often have to sort a dictionary, consisting of keys &amp; values, by value. For example, I have a hash of words and respective frequencies, that I want to order by frequency.</p>
-
-<p>There is a <code>SortedList</code> which is good for a single value (say frequency), that I want to map it back to the word.</p>
-
-<p><a href="http://msdn.microsoft.com/en-us/library/f7fta44c.aspx" rel="noreferrer">SortedDictionary</a> orders by key, not value. Some resort to a <a href="http://www.codeproject.com/KB/recipes/lookupcollection.aspx" rel="noreferrer">custom class</a>, but is there a cleaner way?</p>

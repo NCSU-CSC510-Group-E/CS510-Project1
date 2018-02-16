@@ -1,27 +1,27 @@
-<p>How can I monitor an SQL Server database for changes to a table without using triggers or modifying the structure of the database in any way? My preferred programming environment is <a href="http://en.wikipedia.org/wiki/.NET_Framework" rel="noreferrer">.NET</a> and C#.</p>
+How can I monitor an SQL Server database for changes to a table without using triggers or modifying the structure of the database in any way? My preferred programming environment is .NET and C#.
 
-<p>I'd like to be able to support any <a href="http://en.wikipedia.org/wiki/Microsoft_SQL_Server#Genesis" rel="noreferrer">SQL Server 2000</a> SP4 or newer. My application is a bolt-on data visualization for another company's product. Our customer base is in the thousands, so I don't want to have to put in requirements that we modify the third-party vendor's table at every installation.</p>
+I'd like to be able to support any SQL Server 2000 SP4 or newer. My application is a bolt-on data visualization for another company's product. Our customer base is in the thousands, so I don't want to have to put in requirements that we modify the third-party vendor's table at every installation.
 
-<p>By <em>"changes to a table"</em> I mean changes to table data, not changes to table structure.</p>
+By "changes to a table" I mean changes to table data, not changes to table structure.
 
-<p>Ultimately, I would like the change to trigger an event in my application, instead of having to check for changes at an interval.</p>
+Ultimately, I would like the change to trigger an event in my application, instead of having to check for changes at an interval.
 
-<hr>
 
-<p>The best course of action given my requirements (no triggers or schema modification, SQL Server 2000 and 2005) seems to be to use the <code>BINARY_CHECKSUM</code> function in <a href="http://en.wikipedia.org/wiki/Transact-SQL" rel="noreferrer">T-SQL</a>. The way I plan to implement is this:</p>
 
-<p>Every X seconds run the following query:</p>
+The best course of action given my requirements (no triggers or schema modification, SQL Server 2000 and 2005) seems to be to use the BINARY_CHECKSUM function in T-SQL. The way I plan to implement is this:
 
-<pre><code>SELECT CHECKSUM_AGG(BINARY_CHECKSUM(*))
+Every X seconds run the following query:
+
+SELECT CHECKSUM_AGG(BINARY_CHECKSUM(*))
 FROM sample_table
 WITH (NOLOCK);
-</code></pre>
 
-<p>And compare that against the stored value. If the value has changed, go through the table row by row using the query:</p>
 
-<pre><code>SELECT row_id, BINARY_CHECKSUM(*)
+And compare that against the stored value. If the value has changed, go through the table row by row using the query:
+
+SELECT row_id, BINARY_CHECKSUM(*)
 FROM sample_table
 WITH (NOLOCK);
-</code></pre>
 
-<p>And compare the returned checksums against stored values.</p>
+
+And compare the returned checksums against stored values.

@@ -1,7 +1,7 @@
-<p>I am aware that in <a href="http://en.wikipedia.org/wiki/.NET_Framework" rel="noreferrer">.NET</a> there are three timer types (see <em><a href="http://msdn.microsoft.com/en-us/magazine/cc164015.aspx" rel="noreferrer">Comparing the Timer Classes in the .NET Framework Class Library</a></em>). I have chosen a threaded timer as the other types can drift if the main thread is busy, and I need this to be reliable.</p>
+I am aware that in .NET there are three timer types (see Comparing the Timer Classes in the .NET Framework Class Library). I have chosen a threaded timer as the other types can drift if the main thread is busy, and I need this to be reliable.
 
-<p>The way this timer works in the control of the timer is put on another thread so it can always tick along with the work begin completed on the parent thread when it is not busy.</p>
+The way this timer works in the control of the timer is put on another thread so it can always tick along with the work begin completed on the parent thread when it is not busy.
 
-<p>The issue with this timer in a console application is that while the timer is ticking along on another thread the main thread is not doing anything so the application closes.</p>
+The issue with this timer in a console application is that while the timer is ticking along on another thread the main thread is not doing anything so the application closes.
 
-<p>I tried adding a <code>while true</code> loop, but then the main thread is too busy when the timer does go off.</p>
+I tried adding a while true loop, but then the main thread is too busy when the timer does go off.

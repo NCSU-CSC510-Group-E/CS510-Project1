@@ -1,1 +1,1 @@
-<p>How do you page through a collection in LINQ given that you have a <code>startIndex</code> and a <code>count</code>?</p>
+How do you page through a collection in LINQ given that you have a startIndex and a count?

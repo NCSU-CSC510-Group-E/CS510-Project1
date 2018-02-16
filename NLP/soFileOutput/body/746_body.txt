@@ -1,1 +1,0 @@
-<p>How do I format a string to <a href="http://www.grammar-monster.com/lessons/capital_letters_title_case.htm" rel="noreferrer">title case</a>?</p>
