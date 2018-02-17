@@ -1,5 +1,6 @@
 from gensim import corpora, models, similarities
 from pathlib import Path
+from books import Book
 
 def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = None,  debugging = False):
 
