@@ -232,3 +232,4 @@ TSWLatexianTemp*
 *.sta
 *.pyc
 NLP/save/*
+/NLP/books.db
