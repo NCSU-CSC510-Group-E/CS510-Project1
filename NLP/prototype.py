@@ -63,7 +63,7 @@ def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = 
 
     # To make a new prediciton, just pass in a BOW vector (tokens) to test 
     # This will return array of topics + probability tuples.  
-    newPrediction = model.get_document_topics(bow)
+    newPrediction = model.get_document_topics(bow, minimum_probability=.5)
 
     if(debugging):
         print('Our new prediction')
@@ -78,8 +78,17 @@ def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = 
     topics = model.get_topics()
 
     if(debugging):
-        print('The topics modeled')
-        print(model.print_topics(10, 5))
+        print('The topics modeled in the given document')
+        for pred in newPrediction:
+            # print(pred[0])
+            print('\tTopic: {}, {} Likelihood'.format(pred[0], pred[1]))
+            print(topics[pred[0]])
+
+            for key, val in enumerate(topics[pred[0]]):
+                print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val))
+                # print(val)
+
+
         print('')
 
 
