@@ -28,4 +28,4 @@ class Topic(BaseModel):
 
 
 db.connect()
-db.create_tables([Book, Topic], safe=True)
+db.create_tables([Author, Book, Topic], safe=True)
