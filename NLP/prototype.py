@@ -65,15 +65,6 @@ def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = 
     # This will return array of topics + probability tuples.  
     newPrediction = model.get_document_topics(bow, minimum_probability=.5)
 
-    if(debugging):
-        print('Our new prediction')
-        # print(newPrediction)
-
-        for pred in newPrediction:
-            print(pred)
-
-        print('')
-
     # Returns the topics from the above model
     topics = model.get_topics()
 
