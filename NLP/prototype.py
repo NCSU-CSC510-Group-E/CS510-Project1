@@ -9,11 +9,9 @@ def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = 
 
     d = Path(path_to_dictionary)
     dictionaryExists = d.is_file()
-    print(dictionaryExists)
 
     m = Path(path_to_model)
     modelExists = m.is_file()
-    print(modelExists)
 
     # if we are given a dictionary to load, then load that instead of loading it from the corpus
     if(dictionaryExists):
@@ -23,7 +21,6 @@ def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = 
         corpus = initializeCorpus(path_to_input, debugging)
         print(corpus)
 
-    print(corpus)
 
     """
      Initialize a dictionary from our corpus
