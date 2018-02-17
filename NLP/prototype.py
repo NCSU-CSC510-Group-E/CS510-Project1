@@ -80,12 +80,13 @@ def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = 
     if(debugging):
         print('The topics modeled in the given document')
         for pred in newPrediction:
-            # print(pred[0])
-            print('\tTopic: {}, {} Likelihood'.format(pred[0], pred[1]))
-            print(topics[pred[0]])
+            print('Topic: {}, {} Likelihood'.format(pred[0], pred[1]))
+            # print(topics[pred[0]])
 
-            for key, val in enumerate(topics[pred[0]]):
-                print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val))
+            topicsFound = model.get_topic_terms(pred[0], topn=2 )
+
+            for (key, val) in enumerate(topicsFound):
+                print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
                 # print(val)
 
 
