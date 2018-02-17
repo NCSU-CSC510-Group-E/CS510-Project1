@@ -1,4 +1,5 @@
 from peewee import Model
+from peewee import IntegerField
 from peewee import TextField
 from peewee import CharField
 from peewee import ForeignKeyField
@@ -10,14 +11,19 @@ class BaseModel(Model):
     class Meta:
         database = db
         
+class Author(BaseModel):
+    ID = IntegerField(primary_key=True)
+    FirstName = CharField()
+    LastName = CharField()
+    
 class Book(BaseModel):
-    # ID = IntegerField()
+    ID = IntegerField(primary_key=True)
     Title = CharField()
+    Author = ForeignKeyField(Author, backref='authors')
 
 class Topic(BaseModel):
-    # ID = IntegerField()
-    Text = TextField()
-    # Not sure what backref is for
+    ID = IntegerField(primary_key=True)
+    Text = CharField()
     Book = ForeignKeyField(Book, backref='books')
 
 
