@@ -16,3 +16,7 @@ class LabeledLineSentence(object):
             #split because the model is trained on a word-to-word basis
             #could possibly tokenize here to get rid of common words
             yield LabeledSentence(words=doc.split(),labels=[self.docLabels[idx]])
+
+
+    ## With the current genism implementation, all label vectors are stored separately in RAM.
+    ## they report being able to run 2 million different sentences no problem, however
