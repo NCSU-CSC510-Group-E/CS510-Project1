@@ -4,7 +4,11 @@ Gensim Doc2Vec needs model training data in an iterator object
 """
 from gensim.models import doc2vec
 
-class LabeledSentece(object):
+#this was depreciated need to use TaggedBrownCorpus ?
+
+
+
+class LabeledLineSentence(object):
     def __init__(self, docData, docLabels):
         """
         docLabels = the labels list for the documents (filenames)
@@ -18,7 +22,7 @@ class LabeledSentece(object):
             #split because the model is trained on a word-to-word basis
             #could possibly tokenize here to get rid of common words
             print(doc)
-            yield LabeledSentence(words=doc.split(),labels=[self.docLabels[idx]])
+            yield doc2vec.TaggedDocument(words=doc.split(),labels=[self.docLabels[idx]])
 
 
     ## With the current gensim implementation, all label vectors are stored separately in RAM.

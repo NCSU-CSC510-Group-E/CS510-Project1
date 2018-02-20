@@ -2,9 +2,9 @@
 Gensim Doc2Vec needs model training data in an iterator object
 - modified to iterate through documents instead of a list
 """
-from gensim.models import doc2vec
+from gensim.models.doc2vec import doc2vec
 
-class LabeledSentece(object):
+class LabeledDocs(object):
     def __init__(self, docData, docLabels):
         """
         docLabels = the labels list for the documents (filenames)
