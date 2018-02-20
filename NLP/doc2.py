@@ -1,5 +1,5 @@
 from gensim.models import doc2vec
-from LabeledLineSentence import LabeledLineSentence
+from TaggedDocs import TaggedDocs
 
 ##get txt documents from folder 'input'
 from os import listdir
@@ -25,16 +25,20 @@ def main():
 
     # TRAINING
 
-    ########### this is not working. new version of gensim? my need to use TaggedDocument instead
-
-    #the iterator object produced from the LabeledSentence object - Doc needs this to train over itself
-    it = LabeledLineSentence(data, docLabels)
+    #the iterator object produced from the TaggedDocs object
+    #based on an older version. Can maybe fixed to read data from disk
+    it = TaggedDocs(data, docLabels)
 
     #model using a fixed model rate given by gensim
-    model = doc2vec.Doc2Vec(size=300, window=10, min_count=5, workers=11, alpha=0.025, min_alpha=0.025)
+    #model = doc2vec.Doc2Vec(size=300, window=10, min_count=5, workers=11, alpha=0.025, min_alpha=0.025)
+    # NEW VERSION
+
+    #it = tagged documents iterable
+    model = doc2vec.Doc2Vec(it, size=300, window=10, min_count=5, workers=11,  alpha=0.025, min_alpha=0.025)
+    
 
     #before training, needs to build vocab
-    model.build_vocab(it)
+    #model.build_vocab(it)
 
     #Gensim found that training over the data several times works better
     for epoch in range(10):
@@ -48,7 +52,7 @@ def main():
     model.save('model.doc2vec')
 
     # LOAD
-    model_loaded = Doc2Vec.load('model.doc2vec')
+    model_loaded = doc2vec.Doc2Vec.load('model.doc2vec')
 
 
 
