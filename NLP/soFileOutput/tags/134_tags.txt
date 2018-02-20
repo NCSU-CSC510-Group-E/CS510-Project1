@@ -1,1 +1,1 @@
-<.net><database><xsd>
+.net,database,xsd

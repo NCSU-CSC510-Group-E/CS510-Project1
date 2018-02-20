@@ -1,1 +1,1 @@
-<linq><.net-3.5>
+linq,.net-3.5

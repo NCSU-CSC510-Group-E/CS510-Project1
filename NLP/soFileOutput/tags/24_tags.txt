@@ -1,1 +1,1 @@
-<mysql><database><triggers>
+mysql,database,triggers

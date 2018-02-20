@@ -1,1 +1,1 @@
-<mysql><sql-server><csv><sql-server-2005><bcp>
+mysql,sql-server,csv,sql-server-2005,bcp

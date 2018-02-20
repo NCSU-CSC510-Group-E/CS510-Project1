@@ -1,1 +1,1 @@
-<.net><performance><memory-leaks><com-interop>
+.net,performance,memory-leaks,com-interop

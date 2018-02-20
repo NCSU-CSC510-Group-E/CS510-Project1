@@ -1,1 +1,1 @@
-<c#><.net><compression><decompression>
+c#,.net,compression,decompression

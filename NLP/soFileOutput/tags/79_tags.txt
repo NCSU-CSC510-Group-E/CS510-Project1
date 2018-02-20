@@ -1,1 +1,1 @@
-<eclipse><svn><aptana><subclipse>
+eclipse,svn,aptana,subclipse

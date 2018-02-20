@@ -1,1 +1,1 @@
-<c++><c><sockets><mainframe><zos>
+c++,c,sockets,mainframe,zos

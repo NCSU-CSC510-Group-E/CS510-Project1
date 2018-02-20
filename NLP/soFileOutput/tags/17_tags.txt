@@ -1,1 +1,1 @@
-<mysql><database><binary-data><data-storage>
+mysql,database,binary-data,data-storage

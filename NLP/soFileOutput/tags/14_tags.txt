@@ -1,1 +1,1 @@
-<.net><math>
+.net,math

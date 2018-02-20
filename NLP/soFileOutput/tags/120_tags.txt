@@ -1,1 +1,1 @@
-<sql><asp.net><xml><sitemap>
+sql,asp.net,xml,sitemap

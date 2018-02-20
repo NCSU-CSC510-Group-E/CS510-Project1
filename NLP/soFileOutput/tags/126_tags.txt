@@ -1,1 +1,1 @@
-<java><php><oop><theory>
+java,php,oop,theory

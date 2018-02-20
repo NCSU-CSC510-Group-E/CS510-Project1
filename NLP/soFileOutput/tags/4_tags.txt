@@ -1,1 +1,1 @@
-<c#><winforms><type-conversion><decimal><opacity>
+c#,winforms,type-conversion,decimal,opacity
