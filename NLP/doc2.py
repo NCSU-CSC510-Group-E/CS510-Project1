@@ -26,7 +26,7 @@ def main():
     # TRAINING
 
     #the iterator object produced from the TaggedDocs object
-    #based on an older version. Can maybe fixed to read data from disk
+    #based on an older version. Can maybe fix to read data from disk
     it = TaggedDocs(data, docLabels)
 
     #model using a fixed model rate given by gensim
