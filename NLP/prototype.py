@@ -2,7 +2,7 @@ from gensim import corpora, models, similarities
 from pathlib import Path
 from books import Book
 
-def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = None,  debugging = False):
+def main(path_to_training_data, predictFile, path_to_dictionary = None, path_to_model = None,  debugging = False):
 
     corpus = None
     dictionary = None
@@ -18,7 +18,7 @@ def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = 
         dictionary = corpora.Dictionary.load(path_to_dictionary)
 
     if(not modelExists):
-        corpus = initializeCorpus(path_to_input, debugging)
+        corpus = initializeCorpus(path_to_training_data, debugging)
         print(corpus)
 
 
@@ -63,7 +63,7 @@ def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = 
 
     # To make a new prediciton, just pass in a BOW vector (tokens) to test 
     # This will return array of topics + probability tuples.  
-    newPrediction = model.get_document_topics(bow, minimum_probability=.5)
+    newPrediction = model.get_document_topics(bow, minimum_probability=.1)
 
     # Returns the topics from the above model
     topics = model.get_topics()
@@ -84,13 +84,13 @@ def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = 
         print('')
 
 
-def initializeCorpus(path_to_input, debugging):
+def initializeCorpus(path_to_training_data, debugging):
     
     """"
      Need to initialize a new corpora from corpora.TextCorpus and
      initialize with lines_are_documents set to false
     """
-    corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
+    corpus = corpora.TextDirectoryCorpus(path_to_training_data, lines_are_documents=False)
 
     if(debugging):
         # print('Dumping tokens and respective IDs')
