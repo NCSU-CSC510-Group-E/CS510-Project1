@@ -93,9 +93,9 @@ def initializeCorpus(path_to_input, debugging):
     corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
 
     if(debugging):
-        print('Dumping tokens and respective IDs')
-        print(dictionary.token2id)
-        print('')
+        # print('Dumping tokens and respective IDs')
+        # print(dictionary.token2id)
+        # print('')
 
         print('Dumping corpus')
         print(corpus)
