@@ -1,0 +1,27 @@
+% Please do not delete!  thanks! -- zach
+% !TEX root = ../main.tex
+
+\section{Conclusion}
+\subsection{Anticipated challenges}
+There are a few potential major pitfalls that we are trying to plan our way around in this project.  
+% We do not have NLP expertise on our group's staff, so we will need to consult with TAs and do extra research.  
+The first and most glaring problem is that the team's staff has very little experience with NLP in general, so we will be relying on third party libraries that implement algorithms (Pandas, SKLearn, and Gensim specifically) as much as possible.
+% We anticipate there being problems in setting up Doc2Vec
+The other major potential problem is extracting useful clusters out of Doc2Vec.  
+Doc2Vec is not actually designed for this kind of topic modeling, and our application of it here is experimental in nature. 
+It is our goal to see if Doc2Vec can match or outperform the more conventional LDA, and it may not.  
+
+\subsection{Future enhancement}
+The problem of textbook suggestion is fairly general and lends itself well to a number of different directions.
+We would like to start this app off with a fairly limited set of functionality, just the suggestions and a link to the FOSS library holding the book in question, but enhancements such as amazon integration would be 
+One major enhancement would be the introduction of a rating system to the suggestion engine.  
+Another major enhancement would be including links in the UI to buy the books.
+A third major enhancement would be evaluating other topic modeling algorithms to see how they stack up, such as IDA.
+Another enhancement would be to test an even more rudimentary topic modeling method, such as simply representing topics as lines in a table of contents.  
+Essentially asking the question of whether or not fancy algorithms are even more useful that simple text search for this domain.
+
+\subsection{Timeline}
+It is our team's goal to parallel path as much of the development of this application as possible.
+The front-end will be developed in parallel with the learning algorithms, and we plan to have those complete by the 14th of February, pending any problems requiring us to move things around.
+Once the algorithms are functional, we will spend the next sprint validating them and developing the recommendation engine.
+Once those tasks are complete, we will begin the final validation phase.

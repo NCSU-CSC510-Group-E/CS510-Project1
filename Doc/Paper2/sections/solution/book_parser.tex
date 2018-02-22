@@ -1,0 +1,27 @@
+% Please do not delete!  thanks! -- zach
+% !TEX root = ../../main.tex
+
+The first major component of the system is the book parser.  
+We intend to implement this taking advantage of the pre-built libraries available in Python such as SKLearn, Pandas, and others.  
+The goal of the book parser is to implement one of the two algorithms discussed in section \ref{section:algorithms} and to store the parsed topics in a database for searching later.  
+This will be implemented using the command pattern, which provides a simple interface to implementing different algorithms in code and allows us to easily swap between implementations.
+
+
+
+% TODO: Can we decide on a few and list them here somehow?
+The books being parsed will come from a freely available online database of textbooks.  
+We have found a number of websites such as openstax.org and onlinebooks.library.upenn.edu that offer free libraries of textbooks that we are evaluating for use for this project.
+It is our intention to use a REST API or something similar to poll for books to analyze.
+
+We are also exploring how much of the books we need to parse.
+Parsing entire books for topics is infeasible as the number of books grows (and as our introduction pointed out, there are plenty of books to parse) but we need to ensure that we have enough text to encapsulate all of the important topics the books cover, and that we have enough text to reliably train our algorithms on.
+To test this, the team intends to do testing before we test the actual application to see how much training is required when parsing the table of contents only, the index only, and any available summaries.
+We also intend to test some combinations such as the table of contents and the index together, to try to isolate what section might be most useful for training.
+
+
+Because analyzing entire libraries of books is not something that we can do in real time, we plan to cache the topics parsed from these algorithms in a database to be referenced in the future.  
+We are evaluating MySQL, Postgress, and an object-oriented DB such as Mongo for this task.  
+This will allow us to train the algorithms on the books ahead of time and will make searching for books based on topics much more efficient. 
+It also allows us to do routine similarity analysis on the topics of books to identify potential synonyms between topics.
+In other words, we could store the topics from two different books in the same database tables we are exploring algorithms that might then allow us to identify similarities in topics mined and then link the books to the same topics for future analysis.  
+That said, this is a very lofty goal in an already complex project, and similarity analysis may need to be cut for time constraints.
