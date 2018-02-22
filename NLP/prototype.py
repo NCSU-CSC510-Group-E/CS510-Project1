@@ -1,6 +1,17 @@
+# Models used for analysis
 from gensim import corpora, models, similarities
+
+# Our similarity measures
+from gensim.matutils import jaccard
+from gensim.matutils import cossim
+
+# used to determine if models exist to load from disk
 from pathlib import Path
+
+# Our ORM
 from books import Book
+
+# Used to read files from disk
 import os
 
 def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, path_to_model = None,  debugging = False):
@@ -87,6 +98,9 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
             text = f.read()
             tokens = text.split()
 
+        # This is where we will need to read in the vector of tags
+        # We will need to set the "likelihood" of each of those terms to 100%.
+
         # tokenization
         bow = dictionary.doc2bow(tokens)
 
@@ -101,9 +115,10 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
             print('The topics modeled in file: {}'.format(file))
             for pred in newPrediction:
                 print('Topic: {}, {} Likelihood'.format(pred[0], pred[1]))
-                # print(topics[pred[0]])
 
                 topicsFound = model.get_topic_terms(pred[0], topn=2 )
+
+                #here, we need to calculate the similarity of topics found to the tags vector
 
                 for (key, val) in enumerate(topicsFound):
                     print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
