@@ -48,13 +48,35 @@ def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, pa
     else:
         model = models.ldamodel.LdaModel.load(path_to_model)
 
-    # TODO: Probably ought to save this model, too, just so I dont have to load it every time from scratch
-
-
     """
-     Lets attempt to predict a file.
+     Lets attempt to predict our files.
      We first need to read that file in and tokenize it
     """
+    predictFiles(path_to_test_data, model, dictionary, debugging)
+
+
+def initializeCorpus(path_to_training_data, debugging):
+    
+    """"
+     Need to initialize a new corpora from corpora.TextCorpus and
+     initialize with lines_are_documents set to false
+    """
+    corpus = corpora.TextDirectoryCorpus(path_to_training_data, lines_are_documents=False)
+
+    if(debugging):
+        # print('Dumping tokens and respective IDs')
+        # print(dictionary.token2id)
+        # print('')
+
+        print('Dumping corpus')
+        print(corpus)
+        print('')
+
+    return corpus
+
+
+def predictFiles(path_to_test_data, model, dictionary, debugging):
+    
     files = os.listdir(path_to_test_data)
     for file in files:
         if(debugging):
@@ -89,23 +111,3 @@ def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, pa
 
 
             print('')
-
-
-def initializeCorpus(path_to_training_data, debugging):
-    
-    """"
-     Need to initialize a new corpora from corpora.TextCorpus and
-     initialize with lines_are_documents set to false
-    """
-    corpus = corpora.TextDirectoryCorpus(path_to_training_data, lines_are_documents=False)
-
-    if(debugging):
-        # print('Dumping tokens and respective IDs')
-        # print(dictionary.token2id)
-        # print('')
-
-        print('Dumping corpus')
-        print(corpus)
-        print('')
-
-    return corpus
