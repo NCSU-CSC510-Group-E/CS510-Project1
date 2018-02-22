@@ -1,9 +1,11 @@
 from gensim import corpora, models, similarities
 from pathlib import Path
 from books import Book
+import os
 
-def main(path_to_training_data, predictFile, path_to_dictionary = None, path_to_model = None,  debugging = False):
+def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, path_to_model = None,  debugging = False):
 
+    path_to_test_data = path_to_test_data + '/'
     corpus = None
     dictionary = None
 
@@ -53,35 +55,40 @@ def main(path_to_training_data, predictFile, path_to_dictionary = None, path_to_
      Lets attempt to predict a file.
      We first need to read that file in and tokenize it
     """
-    tokens = []
-    with open(predictFile) as file:
-        text = file.read()
-        tokens = text.split()
+    files = os.listdir(path_to_test_data)
+    for file in files:
+        if(debugging):
+            print('Reading file {}'.format(path_to_test_data + file))
 
-    # tokenization
-    bow = dictionary.doc2bow(tokens)
+        tokens = []
+        with(open(path_to_test_data + file)) as f:
+            text = f.read()
+            tokens = text.split()
 
-    # To make a new prediciton, just pass in a BOW vector (tokens) to test 
-    # This will return array of topics + probability tuples.  
-    newPrediction = model.get_document_topics(bow, minimum_probability=.1)
+        # tokenization
+        bow = dictionary.doc2bow(tokens)
 
-    # Returns the topics from the above model
-    topics = model.get_topics()
+        # To make a new prediciton, just pass in a BOW vector (tokens) to test 
+        # This will return array of topics + probability tuples.  
+        newPrediction = model.get_document_topics(bow, minimum_probability=.1)
 
-    if(debugging):
-        print('The topics modeled in the given document')
-        for pred in newPrediction:
-            print('Topic: {}, {} Likelihood'.format(pred[0], pred[1]))
-            # print(topics[pred[0]])
+        # Returns the topics from the above model
+        topics = model.get_topics()
 
-            topicsFound = model.get_topic_terms(pred[0], topn=2 )
+        if(debugging):
+            print('The topics modeled in file: {}'.format(file))
+            for pred in newPrediction:
+                print('Topic: {}, {} Likelihood'.format(pred[0], pred[1]))
+                # print(topics[pred[0]])
 
-            for (key, val) in enumerate(topicsFound):
-                print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
-                # print(val)
+                topicsFound = model.get_topic_terms(pred[0], topn=2 )
+
+                for (key, val) in enumerate(topicsFound):
+                    print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
+                    # print(val)
 
 
-        print('')
+            print('')
 
 
 def initializeCorpus(path_to_training_data, debugging):
