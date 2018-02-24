@@ -14,6 +14,8 @@ from books import Book
 # Used to read files from disk
 import os
 
+from LDA import LDA
+
 def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, path_to_model = None,  debugging = False):
 
     path_to_test_data = path_to_test_data + '/'
