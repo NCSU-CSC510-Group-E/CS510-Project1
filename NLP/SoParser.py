@@ -58,13 +58,13 @@ def so_parser(path_to_XML="./posts-1.xml", path_to_output='./soFileOutput/', num
         post_tags = elem.get('Tags')
         if post_id and post_body and post_tags:
             # generate and save post content to file file
-            filename = output_dir[0] + str(post_id) + '_' + 'body.txt'
+            filename = output_dir[0] + str(post_id) + '.txt'
             f = open(filename, 'w')
             f.write(strip_html_tags(post_body).encode('utf8'))
             f.close()
 
             # generate and save post content to file file
-            filename = output_dir[1] + str(post_id) + '_' + 'tags.txt'
+            filename = output_dir[1] + str(post_id) + '.txt'
             f = open(filename, 'w')
             tags = post_tags.encode('utf8')
             f.write(strip_bracket(tags))
