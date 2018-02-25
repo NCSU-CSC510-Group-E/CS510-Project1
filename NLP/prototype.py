@@ -1,6 +1,3 @@
-# Models used for analysis
-from gensim import corpora, models, similarities
-
 # Our similarity measures
 from gensim.matutils import jaccard
 from gensim.matutils import cossim
@@ -8,13 +5,13 @@ from gensim.matutils import cossim
 # used to determine if models exist to load from disk
 from pathlib import Path
 
-# Our ORM
-from books import Book
-
 # Used to read files from disk
 import os
 
-from LDA import LDA
+from NLP_models.LDA import LDA
+
+# Our ORM
+from DB_models.books import Book
 
 def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, path_to_model = None,  debugging = False):
 
