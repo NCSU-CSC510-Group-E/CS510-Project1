@@ -23,7 +23,6 @@ PV-DM is similar to the Continuous Bag of Words (CBOW) model in Word2Vec such th
 
 PV-DBOW follows the skip-gram model of Word2Vec. In this model, instead of concatenating the paragraph vector with the word vectors formed in close proximity in order to predict the next word, random text from the paragraph is selected and a random word is selected from that text. Because this model does not save the word vectors and therefore does not retain as much information about the context and semantics of the text, it requires less storage. Mikolov and Le recommend using a combination of PV-DM and PV-DBOW for consistently accurate results.  \cite{RefWorks:doc:5a6e5746e4b0d609eec798d7}
 
-
 \subsection{Related Work}
 
 Doc2Vec was recently tested as the algorithm behind a recommender system with the goal of recommending unseen Twitter messages (tweets) relative to a user's typical activity and interests. A graph based link prediction method was used to infer which unseen tweets the users would like by "predicting the presence or absence of edges between nodes" on the graph.  \cite{RefWorks:doc:5a6e5746e4b0d609eec798d9} K values were tested in intervals divisible by 5 ranging from 5 to 35. The system preformed the best when K=30.

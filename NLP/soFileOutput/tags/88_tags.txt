@@ -1,1 +1,0 @@
-<linux><winapi><visual-c++><unix><timer>

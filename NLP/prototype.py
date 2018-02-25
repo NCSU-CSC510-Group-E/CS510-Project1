@@ -1,104 +1,87 @@
-from gensim import corpora, models, similarities
+# Our similarity measures
+from gensim.matutils import jaccard
+from gensim.matutils import cossim
+
+# used to determine if models exist to load from disk
 from pathlib import Path
-from books import Book
 
-def main(path_to_input, predictFile, path_to_dictionary = None, path_to_model = None,  debugging = False):
+# Used to read files from disk
+import os
 
-    corpus = None
-    dictionary = None
+from NLP_models.LDA import LDA
 
-    d = Path(path_to_dictionary)
-    dictionaryExists = d.is_file()
+# Our ORM
+from DB_models.books import Book
 
-    m = Path(path_to_model)
-    modelExists = m.is_file()
+def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, path_to_model = None,  debugging = False):
 
-    # if we are given a dictionary to load, then load that instead of loading it from the corpus
-    if(dictionaryExists):
-        dictionary = corpora.Dictionary.load(path_to_dictionary)
+    lda = LDA(path_to_dictionary, path_to_model, debugging)
 
-    if(not modelExists):
-        corpus = initializeCorpus(path_to_input, debugging)
-        print(corpus)
+    corpus = lda.LoadCorpus(path_to_training_data + 'body/')
 
-
-    """
-     Initialize a dictionary from our corpus
-     Can't figure out why id2token isn't being populated automatically.
-     Stole this inversion code from: http://code.activestate.com/recipes/252143-invert-a-dictionary-one-liner/
-    """
-    if(not dictionaryExists):
-        dictionary = corpus.dictionary
-        dictionary.save(path_to_dictionary)
+    dictionary = lda.LoadDictionary()
 
     dictionary.id2token = dict([[v,k] for k,v in dictionary.token2id.items()])
 
-    # TODO: Could also save dictionary here just for giggles
+    model = lda.LoadModel(dictionary.id2token)
 
     """
-     Train a model! (yay!)
-     Pass in a core and a number of topics to mine for
-     Providing id2word dictionary mappings here so that output of topics learned at the end are strings and not integers
-    """
-    if(not modelExists):
-        model = models.ldamodel.LdaModel(corpus, 10, id2word = dictionary.id2token, passes=40)
-        model.save(path_to_model)
-    else:
-        model = models.ldamodel.LdaModel.load(path_to_model)
-
-    # TODO: Probably ought to save this model, too, just so I dont have to load it every time from scratch
-
-
-    """
-     Lets attempt to predict a file.
+     Lets attempt to predict our files.
      We first need to read that file in and tokenize it
     """
-    tokens = []
-    with open(predictFile) as file:
-        text = file.read()
-        tokens = text.split()
-
-    # tokenization
-    bow = dictionary.doc2bow(tokens)
-
-    # To make a new prediciton, just pass in a BOW vector (tokens) to test 
-    # This will return array of topics + probability tuples.  
-    newPrediction = model.get_document_topics(bow, minimum_probability=.5)
-
-    # Returns the topics from the above model
-    topics = model.get_topics()
-
-    if(debugging):
-        print('The topics modeled in the given document')
-        for pred in newPrediction:
-            print('Topic: {}, {} Likelihood'.format(pred[0], pred[1]))
-            # print(topics[pred[0]])
-
-            topicsFound = model.get_topic_terms(pred[0], topn=2 )
-
-            for (key, val) in enumerate(topicsFound):
-                print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
-                # print(val)
+    predictFiles(path_to_test_data, model, dictionary, debugging)
 
 
-        print('')
-
-
-def initializeCorpus(path_to_input, debugging):
+ 
+# TODO: This needs to be refactored so the meat of the prediction work is being done inside my fancy LDA class
+def predictFiles(path_to_test_data, model, dictionary, debugging):
+    path_to_test_labels = path_to_test_data + 'tags/'
+    path_to_test_data = path_to_test_data + 'body/'
     
-    """"
-     Need to initialize a new corpora from corpora.TextCorpus and
-     initialize with lines_are_documents set to false
-    """
-    corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
+    files = os.listdir(path_to_test_data)
+    for file in files:
+        # skip pesky dotfiles (thanks OSX with your .DS_STORE 
+        if(file[0] == '.'):
+            continue
 
-    if(debugging):
-        print('Dumping tokens and respective IDs')
-        print(dictionary.token2id)
-        print('')
+        if(debugging):
+            print('Reading file {}'.format(path_to_test_data + file))
 
-        print('Dumping corpus')
-        print(corpus)
-        print('')
+        tokens = []
+        with(open(path_to_test_data + file)) as f:
+            text = f.read()
+            tokens = text.split()
+        with(open(path_to_test_labels + file)) as f:
+            text = f.read()
+            labels = text.split(',')
 
-    return corpus
+        # This is where we will need to read in the vector of tags
+        # We will need to set the "likelihood" of each of those terms to 100%.
+
+        # tokenization
+        bow = dictionary.doc2bow(tokens)
+        labels = dictionary.doc2bow(labels)
+
+        # To make a new prediciton, just pass in a BOW vector (tokens) to test 
+        # This will return array of topics + probability tuples.  
+        newPrediction = model.get_document_topics(bow, minimum_probability=.5)
+
+        # Returns the topics from the above model
+        topics = model.get_topics()
+
+        if(debugging):
+            print('The topics modeled in file: {}'.format(file))
+            for pred in newPrediction:
+
+                topicTerms = model.get_topic_terms(pred[0], topn=2 )
+
+
+                #here, we need to calculate the similarity of topics found to the tags vector
+                jac = jaccard(topicTerms, labels)
+                cos = cossim(topicTerms, labels)
+
+                print('Topic: {}, Likelihood:{}, \nJacc: {}, \tCos: {}\n'.format(pred[0], pred[1], jac, cos))
+
+                for (key, val) in enumerate(topicTerms):
+                    print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
+            print('')

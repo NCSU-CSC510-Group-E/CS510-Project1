@@ -3,7 +3,7 @@ import click
 from prototype import main
 
 @click.command()
-@click.option('--training', default='input/', help='Path to your training documents.')
+@click.option('--training', default='soFileOutput/', help='Path to your training documents.')
 
 # Providing two "names" in one option creates a boolean parameter 
 @click.option('--verbose/--no-verbose', default=False, help='Print extra debugging information.')
@@ -12,7 +12,7 @@ from prototype import main
 
 @click.option('--model', default='save/model', help='The file to save your model to (for loading later)')
 
-@click.option('--test', default='input/test.txt', help='The file to predict once training is complete')
+@click.option('--test', default='soFileTest/', help='The file to predict once training is complete')
 
 
 def analyze(training, test, dictionary, model, verbose):
