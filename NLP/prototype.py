@@ -37,7 +37,8 @@ def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, pa
 
 
 def predictFiles(path_to_test_data, model, dictionary, debugging):
-    path_to_test_data = path_to_test_data + '/'
+    path_to_test_data = path_to_test_data + '/body/'
+    path_to_test_labels = path_to_test_data + '/tags/'
     
     files = os.listdir(path_to_test_data)
     for file in files:
@@ -48,16 +49,20 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
         with(open(path_to_test_data + file)) as f:
             text = f.read()
             tokens = text.split()
+        with(open(path_to_test_labels)) as f:
+            text = f.read()
+            labels = text.split(',')
 
         # This is where we will need to read in the vector of tags
         # We will need to set the "likelihood" of each of those terms to 100%.
 
         # tokenization
         bow = dictionary.doc2bow(tokens)
+        labels = dictionary.doc2bow(labels)
 
         # To make a new prediciton, just pass in a BOW vector (tokens) to test 
         # This will return array of topics + probability tuples.  
-        newPrediction = model.get_document_topics(bow, minimum_probability=.1)
+        newPrediction = model.get_document_topics(bow, minimum_probability=.5)
 
         # Returns the topics from the above model
         topics = model.get_topics()
@@ -69,11 +74,18 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
 
                 topicsFound = model.get_topic_terms(pred[0], topn=2 )
 
+                jac = jaccard(topicsFound, labels)
+                cos = cossim(topicsFound, labels)
+
+
+
                 #here, we need to calculate the similarity of topics found to the tags vector
 
-                for (key, val) in enumerate(topicsFound):
-                    print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
-                    # print(val)
+                print(topicsFound)
+
+                # for (key, val) in enumerate(topicsFound):
+                #     print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
+                #     # print(val)
 
 
             print('')
