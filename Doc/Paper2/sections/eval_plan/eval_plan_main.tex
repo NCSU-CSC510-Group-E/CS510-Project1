@@ -1,10 +1,17 @@
 % Please do not delete!  thanks! -- zach
 % !TEX root = ../../main.tex
 
-\section{Evaluation Plan}
+\section{Evaluation}
 Need to fix this section...
 
 \subsection{Evaluating LDA}
 
-\subsection{Evaluationg Doc2Vec}
+\subsection{Evaluating Doc2Vec}
 
+\subsubsection{Information Retrieval}
+
+One way to verify that our implementation of Doc2Vec is correctly mapping word vectors to other semantically similar word vectors is to test the trained model on an information retrieval task . \cite{RefWorks:doc:5a6e5746e4b0d609eec798d7} The data collected from stackoverflow is tagged with different topics that pertain to the content. The tags can then be used to organize the content via topic. The Doc2Vec model should report two documents that pertain to the same topic as less distant to each other than a third document that focuses on a different topic.
+
+-Seperate content such that documents used for testing were not trained on
+- 3 folders: two with the same topic, a third folder of different topics that don't include the picked special topic
+-Report results
