@@ -42,7 +42,7 @@ class LDA(object):
         Need to initialize a new corpora from corpora.TextCorpus and
         initialize with lines_are_documents set to false
         """
-        if(self.Corpus == None):
+        if(self.Dictionary == None):
             
             corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
 
