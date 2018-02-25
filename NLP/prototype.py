@@ -18,33 +18,14 @@ from LDA import LDA
 
 def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, path_to_model = None,  debugging = False):
 
-    path_to_test_data = path_to_test_data + '/'
-    corpus = None
-    dictionary = None
-
-    d = Path(path_to_dictionary)
-    dictionaryExists = d.is_file()
 
     m = Path(path_to_model)
     modelExists = m.is_file()
 
-    # if we are given a dictionary to load, then load that instead of loading it from the corpus
-    if(dictionaryExists):
-        dictionary = corpora.Dictionary.load(path_to_dictionary)
+    lda = LDA(path_to_dictionary, path_to_model)
 
-    if(not modelExists):
-        corpus = initializeCorpus(path_to_training_data, debugging)
-        print(corpus)
-
-
-    """
-     Initialize a dictionary from our corpus
-     Can't figure out why id2token isn't being populated automatically.
-     Stole this inversion code from: http://code.activestate.com/recipes/252143-invert-a-dictionary-one-liner/
-    """
-    if(not dictionaryExists):
-        dictionary = corpus.dictionary
-        dictionary.save(path_to_dictionary)
+    corpus = lda.LoadCorpus(path_to_training_data)
+    dictionary = lda.Dictionary
 
     dictionary.id2token = dict([[v,k] for k,v in dictionary.token2id.items()])
 
@@ -68,27 +49,9 @@ def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, pa
     predictFiles(path_to_test_data, model, dictionary, debugging)
 
 
-def initializeCorpus(path_to_training_data, debugging):
-    
-    """"
-     Need to initialize a new corpora from corpora.TextCorpus and
-     initialize with lines_are_documents set to false
-    """
-    corpus = corpora.TextDirectoryCorpus(path_to_training_data, lines_are_documents=False)
-
-    if(debugging):
-        # print('Dumping tokens and respective IDs')
-        # print(dictionary.token2id)
-        # print('')
-
-        print('Dumping corpus')
-        print(corpus)
-        print('')
-
-    return corpus
-
 
 def predictFiles(path_to_test_data, model, dictionary, debugging):
+    path_to_test_data = path_to_test_data + '/'
     
     files = os.listdir(path_to_test_data)
     for file in files:
