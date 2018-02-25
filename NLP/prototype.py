@@ -18,29 +18,15 @@ from LDA import LDA
 
 def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, path_to_model = None,  debugging = False):
 
-
-    m = Path(path_to_model)
-    modelExists = m.is_file()
-
     lda = LDA(path_to_dictionary, path_to_model)
 
     corpus = lda.LoadCorpus(path_to_training_data)
+
     dictionary = lda.Dictionary
 
     dictionary.id2token = dict([[v,k] for k,v in dictionary.token2id.items()])
 
-    # TODO: Could also save dictionary here just for giggles
-
-    """
-     Train a model! (yay!)
-     Pass in a core and a number of topics to mine for
-     Providing id2word dictionary mappings here so that output of topics learned at the end are strings and not integers
-    """
-    if(not modelExists):
-        model = models.ldamodel.LdaModel(corpus, 10, id2word = dictionary.id2token, passes=40)
-        model.save(path_to_model)
-    else:
-        model = models.ldamodel.LdaModel.load(path_to_model)
+    model = lda.LoadModel(dictionary.id2token)
 
     """
      Lets attempt to predict our files.
