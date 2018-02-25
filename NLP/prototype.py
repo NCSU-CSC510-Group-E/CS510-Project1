@@ -20,7 +20,7 @@ def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, pa
 
     lda = LDA(path_to_dictionary, path_to_model)
 
-    corpus = lda.LoadCorpus(path_to_training_data)
+    corpus = lda.LoadCorpus(path_to_training_data + '/body/')
 
     dictionary = lda.Dictionary
 
@@ -37,11 +37,15 @@ def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, pa
 
 
 def predictFiles(path_to_test_data, model, dictionary, debugging):
-    path_to_test_data = path_to_test_data + '/body/'
-    path_to_test_labels = path_to_test_data + '/tags/'
+    path_to_test_labels = path_to_test_data + 'tags/'
+    path_to_test_data = path_to_test_data + 'body/'
     
     files = os.listdir(path_to_test_data)
     for file in files:
+        # skip pesky dotfiles (thanks OSX with your .DS_STORE 
+        if(file[0] == '.'):
+            continue
+
         if(debugging):
             print('Reading file {}'.format(path_to_test_data + file))
 
@@ -49,7 +53,7 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
         with(open(path_to_test_data + file)) as f:
             text = f.read()
             tokens = text.split()
-        with(open(path_to_test_labels)) as f:
+        with(open(path_to_test_labels + file)) as f:
             text = f.read()
             labels = text.split(',')
 
@@ -74,18 +78,10 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
 
                 topicsFound = model.get_topic_terms(pred[0], topn=2 )
 
+                #here, we need to calculate the similarity of topics found to the tags vector
                 jac = jaccard(topicsFound, labels)
                 cos = cossim(topicsFound, labels)
 
-
-
-                #here, we need to calculate the similarity of topics found to the tags vector
-
-                print(topicsFound)
-
-                # for (key, val) in enumerate(topicsFound):
-                #     print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
-                #     # print(val)
-
-
+                for (key, val) in enumerate(topicsFound):
+                    print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
             print('')
