@@ -29,7 +29,7 @@
 %    }
 }
 
-\numberofauthors{8} %  in this sample file, there are a *total*
+\numberofauthors{4} %  in this sample file, there are a *total*
 \author{
 \alignauthor
 	{Monica Metro}\\
@@ -62,24 +62,45 @@
 % Generate page header.
 \maketitle
 
-
 % Paper body
 \input{sections/abstract.tex}
 
+\section{Introduction}
+\label{sec:intro}
 \input{sections/introduction/intro_main.tex}
 
+\section{Literature Review}
+\label{sec:literature-review}
 \input{sections/lit_review/lit_review_main.tex}
 
-\input{sections/solution/proposed_solution_main.tex}
+\section{Architecture}
+\label{sec:architecture}
 
+\section{Progress}
+\label{sec:progress}
+% TODO:
+
+\section{Validation}
+\label{sec:validation}
 \input{sections/eval_plan/eval_plan_main.tex}
 
-\input{sections/conclusion.tex}
+\section{Conclusion}
+\label{sec:conclusion}
+
+
+
+% 
+% \input{sections/lit_review/lit_review_main.tex}
+% 
+% \input{sections/solution/proposed_solution_main.tex}
+% 
+% 
+% \input{sections/conclusion.tex}
 
 % End paper body
 
 % REMOVE NOCITE OR IT WILL LIST EVERYTHING IN YOUR DATABASE AS A REFERENCE
-%\nocite{*}
+% \nocite{*}
 
 % Bibliography/style
 \bibliographystyle{abbrv}
