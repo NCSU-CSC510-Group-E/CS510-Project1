@@ -16,6 +16,8 @@ class LDA(object):
         If posisble, initialize from previous run
         """
         self.debugging = debugging
+        self.path_to_dict = path_to_dict
+        self.path_to_model = path_to_model
 
         d = Path(path_to_dict)
         dictionaryExists = d.is_file()
@@ -65,9 +67,17 @@ class LDA(object):
 
         return self.Dictionary
 
-    def LoadModel(self):
+    def LoadModel(self, id2word, topic_count = 10, pass_count=10):
         """
+        Train a model! (yay!)
+        Pass in a core and a number of topics to mine for
+        Providing id2word dictionary mappings here so that output of topics learned at the end are strings and not integers
         """
+        if(self.Model == None):
+            self.Model = models.ldamodel.LdaModel(self.Corpus, topic_count, id2word = id2word, passes=pass_count)
+            self.Model.save(self.path_to_model)
+
+        return self.Model
 
     def TestModel(self):
         """
