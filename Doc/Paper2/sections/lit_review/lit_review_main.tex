@@ -17,17 +17,21 @@ We propose two methods for analyzing and storing topics from books automatically
 Doc2Vec is a model that extends an existing model, Word2Vec. Doc2vec mirrors Word2Vec in most ways except that it adds context information. \cite{RefWorks:doc:5a6e5748e4b0d609eec798dd}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Doc2Vec is an implementation of the Paragraph Vector (PV) introduced by Mikolov and Le in 2014 - an unsupervised algorithm that generates vector representations of text. \cite{RefWorks:doc:5a6e5746e4b0d609eec798d7}  The basic difference between LDA and Doc2Vec is that LDA tries to form a structure of related words (a topic name with the list of associated words) out of books mainly on the basis of frequency of words in the document. While a simple yet powerful approach, it has a few drawbacks, such as semantics. For example, the words "powerful, strong and Paris" are equally distant when considered by a bag of words model, however "powerful" and "strong" are semantically close. \cite{RefWorks:doc:5a6e5746e4b0d609eec798d7}
 	
 Paragraph Vector involves predicting words in the paragraph. It is "unsupervised", which means that it predicts words in a paragraph and then uses these predictions to attempt to form structures of related words without any knowing of accuracy of the structure(s). The PV utilizes fixed length feature vectors learned from text sources of variable length. Mikolov offers two models of PV that are based on the implementation of Word2Vec: Distributed Memory Model (PV-DM) and Distributed Bag of Words (PV-DBOW). 
 =======
 \\subsubsection{Introduction}
+=======
+\subsubsection{Introduction}
+>>>>>>> doc
 Doc2Vec is an implementation of the Paragraph Vector (PV) introduced by Mikolov and Le in 2014 - an unsupervised algorithm that generates vector representations of text inspired from research of vector representations of words via neural networks. \cite{RefWorks:doc:5a6e5746e4b0d609eec798d7} By concatenationg or averaging vector represenations of words with other word vectors, the resulting vector can be used to predict future text. This technique offers one distinct advantage to bag-of-words models like LDA: the ability to record semantics due to the mapping of the word vectors into a vector space that allocates words of similar meaning together. For example, the words "powerful, strong and Paris" are equally distant when considered by a bag-of-words model, however "powerful" and "strong" are semantically close and should therefore be less distant from one another. \cite{RefWorks:doc:5a6e5746e4b0d609eec798d7}
 	
 PV is "unsupervised", which means that it predicts words in a paragraph and then uses these predictions to attempt to form structures of related words without any knowing of accuracy of the structure(s). The PV utilizes fixed length feature vectors learned from text sources of variable length. 
 
 
-\\subsubsection{Models}
+\subsubsection{Models}
 Mikolov offers two models of PV that are based on the implementation of Word2Vec: Distributed Memory Model (PV-DM) and Distributed Bag of Words (PV-DBOW). 
 >>>>>>> doc
 
@@ -35,7 +39,7 @@ PV-DM is similar to the Continuous Bag of Words (CBOW) model in Word2Vec such th
 
 PV-DBOW follows the skip-gram model of Word2Vec. In this model, instead of concatenating the paragraph vector with the word vectors formed in close proximity in order to predict the next word, random text from the paragraph is selected and a random word is selected from that text. Because this model does not save the word vectors and therefore does not retain as much information about the context and semantics of the text, it requires less storage.
 
-\\subsubsection{Application}
+\subsubsection{Application}
 -talk about different parameters and reults of gensim / Mikolov 
 
 -talk about using all three models : one of each and one that uses both
