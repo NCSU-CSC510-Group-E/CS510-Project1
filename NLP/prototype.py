@@ -18,9 +18,9 @@ from LDA import LDA
 
 def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, path_to_model = None,  debugging = False):
 
-    lda = LDA(path_to_dictionary, path_to_model)
+    lda = LDA(path_to_dictionary, path_to_model, debugging)
 
-    corpus = lda.LoadCorpus(path_to_training_data + '/body/')
+    corpus = lda.LoadCorpus(path_to_training_data + 'body/')
 
     dictionary = lda.Dictionary
 
@@ -35,7 +35,8 @@ def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, pa
     predictFiles(path_to_test_data, model, dictionary, debugging)
 
 
-
+ 
+# TODO: This needs to be refactored so the meat of the prediction work is being done inside my fancy LDA class
 def predictFiles(path_to_test_data, model, dictionary, debugging):
     path_to_test_labels = path_to_test_data + 'tags/'
     path_to_test_data = path_to_test_data + 'body/'

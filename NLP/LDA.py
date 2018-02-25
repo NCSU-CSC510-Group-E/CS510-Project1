@@ -42,15 +42,14 @@ class LDA(object):
         Need to initialize a new corpora from corpora.TextCorpus and
         initialize with lines_are_documents set to false
         """
+        if(self.debugging):
+            print('Training on data in {}'.format(path_to_input))
+
         if(self.Dictionary == None):
             
             corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
 
             if(self.debugging):
-                # print('Dumping tokens and respective IDs')
-                # print(dictionary.token2id)
-                # print('')
-
                 print('Dumping corpus')
                 print(corpus)
                 print('')
