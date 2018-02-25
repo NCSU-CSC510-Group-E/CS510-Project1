@@ -1,4 +1,8 @@
 from gensim import corpora, models
+
+# used to determine if models exist to load from disk
+from pathlib import Path
+
 class LDA(object):
     """
     This class performs LDA on a given data set.  
@@ -13,7 +17,7 @@ class LDA(object):
         """
         self.debugging = debugging
 
-        d = Path(path_to_dictionary)
+        d = Path(path_to_dict)
         dictionaryExists = d.is_file()
         if(dictionaryExists):
             self.Dictionary = corpora.Dictionary.load(path_to_dict)
@@ -25,43 +29,47 @@ class LDA(object):
         modelExists = m.is_file()
 
         if(modelExists):
-            self.model = models.ldamodel.LdaMode.load(path_to_model)
+            self.Model = models.ldamodel.LdaModel.load(path_to_model)
         else:
             self.Model = None
 
         self.Corpus = None
         
-    def LoadCorpus(path_to_input):
-        """
-        """
-        if(self.Corpus == None):
-            
+    def LoadCorpus(self, path_to_input):
         """"
         Need to initialize a new corpora from corpora.TextCorpus and
         initialize with lines_are_documents set to false
         """
-        corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
+        if(self.Corpus == None):
+            
+            corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
 
-        if(self.debugging):
-            # print('Dumping tokens and respective IDs')
-            # print(dictionary.token2id)
-            # print('')
+            if(self.debugging):
+                # print('Dumping tokens and respective IDs')
+                # print(dictionary.token2id)
+                # print('')
 
-            print('Dumping corpus')
-            print(corpus)
-            print('')
+                print('Dumping corpus')
+                print(corpus)
+                print('')
 
-        return corpus
+                self.Corpus = corpus
 
-    def LoadDictionary():
+        return self.Corpus
+
+    def LoadDictionary(self):
+        """
+        """
+        if(self.Dictionary == None):
+            self.Dictionary = self.Corpus.dictionary
+
+        return self.Dictionary
+
+    def LoadModel(self):
         """
         """
 
-    def LoadModel():
-        """
-        """
-
-    def TestModel():
+    def TestModel(self):
         """
         """
     
