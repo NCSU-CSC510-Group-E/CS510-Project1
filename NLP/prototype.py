@@ -74,14 +74,16 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
         if(debugging):
             print('The topics modeled in file: {}'.format(file))
             for pred in newPrediction:
-                print('Topic: {}, {} Likelihood'.format(pred[0], pred[1]))
 
-                topicsFound = model.get_topic_terms(pred[0], topn=2 )
+                topicTerms = model.get_topic_terms(pred[0], topn=2 )
+
 
                 #here, we need to calculate the similarity of topics found to the tags vector
-                jac = jaccard(topicsFound, labels)
-                cos = cossim(topicsFound, labels)
+                jac = jaccard(topicTerms, labels)
+                cos = cossim(topicTerms, labels)
 
-                for (key, val) in enumerate(topicsFound):
+                print('Topic: {}, Likelihood:{}, \nJacc: {}, \tCos: {}\n'.format(pred[0], pred[1], jac, cos))
+
+                for (key, val) in enumerate(topicTerms):
                     print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
             print('')
