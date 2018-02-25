@@ -19,7 +19,7 @@ def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, pa
 
     corpus = lda.LoadCorpus(path_to_training_data + 'body/')
 
-    dictionary = lda.Dictionary
+    dictionary = lda.LoadDictionary()
 
     dictionary.id2token = dict([[v,k] for k,v in dictionary.token2id.items()])
 
