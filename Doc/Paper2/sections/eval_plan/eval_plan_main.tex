@@ -7,11 +7,32 @@ Need to fix this section...
 \subsection{Evaluating LDA}
 
 \subsection{Evaluating Doc2Vec}
+TO DO
+
+\subsubsection{Sentiment Prediction Accuracy}
+Need to figure out how to test the accuracy of doc2vec when it predicts future text
+
+-gensim has a infer vector function that "infers a vector for given post-bulk trainng document"
+
+-calling model.docvec[doc tag/id] should pull up the vectors that were trained already
+	-I think gensm uses most similar function to find a good trained vector (good because it would predict the given document well)
+	- so if the most similar trained vector is very different than the infered vector, the model is not good?
+
+-I suppose we should be infering documents that were not used in training
+
+-Error rate would be how far away best vectors are, lower the better?
 
 \subsubsection{Information Retrieval}
 
 One way to verify that our implementation of Doc2Vec is correctly mapping word vectors to other semantically similar word vectors is to test the trained model on an information retrieval task . \cite{RefWorks:doc:5a6e5746e4b0d609eec798d7} The data collected from stackoverflow is tagged with different topics that pertain to the content. The tags can then be used to organize the content via topic. The Doc2Vec model should report two documents that pertain to the same topic as less distant to each other than a third document that focuses on a different topic.
 
 -Seperate content such that documents used for testing were not trained on
+
 - 3 folders: two with the same topic, a third folder of different topics that don't include the picked special topic
+<<<<<<< HEAD
 -Report resultsgit
+=======
+
+-Report results (use DM, DBOW, and both together -follow gensim example at https://github.com/RaRe-Technologies/gensim/blob/develop/docs/notebooks/doc2vec-IMDB.ipynb 
+
+>>>>>>> doc
