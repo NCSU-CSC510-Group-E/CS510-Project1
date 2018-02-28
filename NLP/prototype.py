@@ -64,7 +64,7 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
 
         # To make a new prediciton, just pass in a BOW vector (tokens) to test 
         # This will return array of topics + probability tuples.  
-        newPrediction = model.get_document_topics(bow, minimum_probability=.5)
+        newPrediction = model.get_document_topics(bow, minimum_probability=.3)
 
         # Returns the topics from the above model
         topics = model.get_topics()
@@ -73,7 +73,7 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
             print('The topics modeled in file: {}'.format(file))
             for pred in newPrediction:
 
-                topicTerms = model.get_topic_terms(pred[0], topn=2 )
+                topicTerms = model.get_topic_terms(pred[0], topn=5 )
 
 
                 #here, we need to calculate the similarity of topics found to the tags vector
