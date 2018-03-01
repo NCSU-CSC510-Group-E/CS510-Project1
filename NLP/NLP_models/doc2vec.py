@@ -8,7 +8,7 @@ Gensim Doc2Vec needs model training data in an iterator object
 - modified to iterate through documents instead of a list
 """
 class TaggedDocs(object):
-    def __init__(self, data_dir):
+    def __init__(self, data_dir, tokens_only=False):
         """
         docData = the raw contents string of the documents 
         """
@@ -27,7 +27,11 @@ class TaggedDocs(object):
             file.close()
                        
             #gensim has built in tokenizer - remove punctuation, set to lowercase, split into list of words...
-            yield gensim.models.doc2vec.TaggedDocument(gensim.utils.simple_preprocess(doc),tags=[i])
+            if tokens_only:
+                yield gensim.utils.simple_preprocess(doc)
+
+            else:
+            yield gensim.models.doc2vec.TaggedDocument(words=gensim.utils.simple_preprocess(doc),tags=[i])
 
 
     ## With the current gensim implementation, all label vectors are stored separately in RAM.
@@ -42,6 +46,7 @@ def main():
     
     #First, get corpus iterator
     train_corpus = TaggedDocs(train_dir)
+    test_corpus = TaggedDocs(test_dir, True)
 
     #create do2vec model. dm=1 is for DM model
     model = gensim.models.doc2vec.Doc2Vec(dm=1, vector_size=300, window=10, min_count=2, epochs=20)
