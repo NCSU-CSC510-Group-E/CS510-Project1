@@ -6,7 +6,7 @@ import os
 import shutil
 
 
-def tagParser(tag='python', input_path='./allPosts3/'):
+def tagParser(tag='javascript', input_path='./allPosts3/'):
     output_path = './' + tag + 'Posts/'
     #check if the output directory exists, if not, create it
     if not os.path.exists(os.path.dirname(output_path)):
@@ -15,12 +15,14 @@ def tagParser(tag='python', input_path='./allPosts3/'):
     directory = os.listdir(input_path + "tags/") #returns a list of filenames in order
     
     i = 0
+    print("Searching for ", tag)
+    
     for filename in directory:
         post = open(input_path + "tags/" + filename, 'r')
         tags = post.readline().split(',')  #generate list of string tags; tags file should only have one line
     
         #check if post contains the specified tag
-        if (tag in tags) and ('database' not in tags) and ('java' not in tags) and ('c#' not in tags) and ('.net' not in tags) and ('javascript' not in tags):
+        if (tag in tags) and ('python' not in tags) and ('database' not in tags) and ('java' not in tags) and ('c#' not in tags) and ('.net' not in tags):
 
             #copy and paste post body into new folder
             src = input_path + 'body/' + filename

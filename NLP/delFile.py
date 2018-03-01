@@ -7,7 +7,7 @@ Delete dangerous files out of tags folder that were captured by Microsoft's Defe
 
 
 def deleteFile(directory, filenames):
-        trojans = ['55064.txt', '319265.txt', '383413.txt', '426517.txt', '456861.txt', '558421.txt', '697121.txt', '756020.txt', '776046.txt', '889594.txt', '1281677.txt']
+        trojans = ['742728.txt', '55064.txt', '319265.txt', '383413.txt', '426517.txt', '456861.txt', '558421.txt', '697121.txt', '756020.txt', '776046.txt', '889594.txt', '1281677.txt']
 
         for filename in filenames:
             if filename in trojans:
