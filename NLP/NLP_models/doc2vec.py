@@ -1,6 +1,7 @@
 import gensim
 from os import listdir
-from os.path import isfile, join
+import random
+from docToExcel import docToExcel
 
 """
 Gensim Doc2Vec needs model training data in an iterator object
@@ -91,6 +92,8 @@ def main():
     similar = model.docvecs.most_similar([inferred_vector], topn=1)
     similar[index]
     """
+
+    docToExcel(inferred_vectors, similar_vectors, title)
 
 
 
