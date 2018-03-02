@@ -1,10 +1,10 @@
 import gensim
 from os import listdir
-import random
+from random import randint
 #from docToExcel import docToExcel
-import shutil
-import multiprocessing
-import smart_open
+from shutil import copyfile
+from multiprocessing import cpu_count
+from smart_open import smart_open
 
 """
 Gensim Doc2Vec needs model training data in an iterator object
@@ -26,7 +26,7 @@ class TaggedDocs(object):
         #gives it new integer tag/label to save space in case of large filenames
 
         for i, filename in enumerate(self.filenames):
-            file = smart_open.smart_open(self.data_dir + filename, 'rb')
+            file = smart_open(self.data_dir + filename, 'rb')
             doc = file.read().decode("utf-8") #get past unicode
             file.close()
 
@@ -46,7 +46,7 @@ class TaggedDocs(object):
 class D2VModel():
     def __init__(self, model_name):
         self.model_name = model_name
-        self.cores = multiprocessing.cpu_count()
+        self.cores = cpu_count()
         assert gensim.models.doc2vec.FAST_VERSION > -1
 
 
@@ -97,10 +97,10 @@ class D2VModel():
         print()
 
     def saveModel(self):
-        #save model 
+        #save model to ./docModels folder
         print()
         print("Saving Model ", self.model_name)
-        self.model.save(self.model_name + ".model")
+        self.model.save("./docModels/" + self.model_name + ".model")
         print("Model Saved")
         print()
 
@@ -117,16 +117,16 @@ class D2VModel():
         """
         Information Retrieval Test. Can the model accuratly predict 
         whether two documents are similar or not in comparison to another?
-        @params - test_corpus2 is the corpus 
+        @params - test_corpus2 is the corpus that needs twice as many documents
         """
         model = self.model
         used1 = []
         used2 = []
         correct = 0
         count = 0
-        x = random.randint(0, test_corpus1.corpus_count)
-        y1 = random.randint(0, test_corpus1.corpus_count)
-        y2 = random.randint(0, test_corpus1.corpus_count)
+        x = randint(0, test_corpus1.corpus_count)
+        y1 = randint(0, test_corpus1.corpus_count)
+        y2 = randint(0, test_corpus1.corpus_count)
         
         
 
@@ -137,17 +137,17 @@ class D2VModel():
         #use random documents from the corpuses
         for i in range(min_):
             while x in used1:
-                x = random.randint(0, test_corpus1.corpus_count)
+                x = randint(0, test_corpus1.corpus_count)
 
             used1.append(x)
 
             while y1 in used2:
-                y1 = random.randint(0, test_corpus1.corpus_count)
+                y1 = randint(0, test_corpus1.corpus_count)
 
             used2.append(y1)
 
             while y2 in used2:
-                y2 = random.randint(0, test_corpus1.corpus_count)
+                y2 = randint(0, test_corpus1.corpus_count)
 
             used2.append(y2)
 
@@ -189,7 +189,7 @@ def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testD
         ap(x)
         source = inputDirectory + filenames[x]
         destination = trainDirectory + filenames[x]
-        shutil.copyfile(source, destination)
+        copyfile(source, destination)
 
     #add files to testing folder that were not trained on
     for k in range(numToTest):
@@ -199,7 +199,7 @@ def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testD
         ap(y)
         source = inputDirectory + filenames[y]
         destination = testDirectory + filenames[y]
-        shutil.copyfile(source, destination)
+        copyfile(source, destination)
 
     print("done copy-pasting files")
 
@@ -248,11 +248,14 @@ def main():
     #send to information retrieval task
     for mod in all_models:
         results = mod.infoRet(testPython, testJavascript)
+        print()
         print(mod.model)
         print("Correct: ", results[0])
         print("Out of: ", results[1])
+        print()
 
 
+    # ---- End of Info Retieval ----
 
 
 
