@@ -3,6 +3,7 @@ from os import listdir
 import random
 #from docToExcel import docToExcel
 import shutil
+import multiprocessing
 
 """
 Gensim Doc2Vec needs model training data in an iterator object
@@ -42,6 +43,8 @@ class TaggedDocs(object):
 class D2VModel():
     def __init__(self, model_name):
         self.model_name = model_name
+        self.cores = multiprocessing.cpu_count()
+        assert gensim.models.doc2vec.FAST_VERSION > -1,
 
 
         """
@@ -60,29 +63,30 @@ class D2VModel():
         else:
             corpus = TaggedDocs(directory) 
 
-        return corpus
+        self.corpus = corpus
 
-    def createModel(self, dm=1, vector_size=300, window=10, min_count=2, epochs=20):
+    def createModel(self, dm=1, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=1, dm_mean=0):
         #create doc2vec model
-        model = gensim.models.doc2vec.Doc2Vec(dm=dm, vector_size=vector_size, window=window, min_count=min_count, epochs=epochs)
-        return model
+        model = gensim.models.doc2vec.Doc2Vec(dm=dm, vector_size=vector_size, window=window, min_count=min_count, epochs=epochs, dm_concat=dm_concat, dm_mean=dm_mean, workers=self.cores)
+        self.model = model
 
-    def trainModel(self, train_corpus, model):
+    def trainModel(self):
+        model = self.model
 
         #build vocabulary (dictionary accessible via mode.wv.vocab of all unique words extracted 
         #from the training corpus) with the frequency counts (model.wv.vocan['word'].count)
-        model.build_vocab(train_corpus)
+        model.build_vocab(self.corpus)
 
         #Train
-        model.train(train_corpus, total_examples=model.corpus_count, epochs=model.epochs)
+        model.train(self.corpus, total_examples=model.corpus_count, epochs=model.epochs)
 
-        return model
+        self.model = model
 
-    def saveModel(self, model):
+    def saveModel(self):
         #save model 
         print()
         print("Saving Model ", self.model_name)
-        model.save(self.model_name)
+        self.model.save(self.model_name)
         print("Model Saved")
         print()
 
@@ -93,14 +97,16 @@ class D2VModel():
         model_loaded = doc2vec.Doc2Vec.load(filename)
         print("Model Loaded")
 
-        return model_loaded
+        self.model = model_loaded
 
-    def infoRet(train_corpus, test_corpus1, test_corpus2):
+    def infoRet(self, test_corpus1, test_corpus2):
         """
         Information Retrieval Test. Can the model accuratly predict 
         whether two documents are similar or not in comparison to another?
         """
-        DM = 
+
+        
+
         
 
 
@@ -140,13 +146,11 @@ def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testD
 
 
 def main():
+    #Directories of posts
+    train_python_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainPythonJavascript'
+    test_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testJavascript/'
+    test_python = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testPython/'
 
-    model_name = 'javascript-python-model'
-    train_dir = 'D:/trainPythonJavascript/'
-    test_dir1 = 'D:/testJavascript/'
-    test_dir2 = 'D:/testPython/'
-
-    model = D2VModel(model_name, train_dir, test_dir1, test_dir2)
 
     # ---- Create Training and Testing Folders for Info Retrieval ----
     # createRandomMix(25000, 30000, 'D:/javascriptPosts/', train_dir, test_dir1)
@@ -155,10 +159,38 @@ def main():
 
 
     # ---- Info Retrieval ----
-    train_corpus = TaggedDocs(self.train_dir) #both
-    test_corpus1 = TaggedDocs(self.test_dir1, True) #javascript
-    test_corpus2 = TaggedDocs(self.test_dir2, True)  #python
+    # train_corpus = TaggedDocs(self.train_dir) #both
+    # test_corpus1 = TaggedDocs(self.test_dir1, True) #javascript
+    # test_corpus2 = TaggedDocs(self.test_dir2, True)  #python
 
+    #initialzie objects
+    dm_mean = D2VModel("dmM_python_javascript")
+    dm_concat = D2VModel("dmC_python_javascript")
+    dbow = D2VModel("dbowM_python_javascript")
+
+    #create training corpus
+    all_models = [dm_mean, dm_concat, dbow]
+
+    for m in all_models:
+        m.createCorpus(train_python_javascript)
+
+    #create models
+    dm_mean.createModel(dm=1, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=0, dm_mean=1)
+    dm_concat.createModel(dm=1, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=1, dm_mean=0)
+    dbow.createModel(dm=0, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=0, dm_mean=0)
+
+    #train models
+    for mo in all_models:
+        mo.trainModel()
+        mo.saveModel()
+
+    #create test corpuses
+    testPython = TaggedDocs(test_python, True)
+    testJavascript = TaggedDocs(test_javascript, True)
+
+    #send to information retrieval task
+    for mod in all_models:
+        mod.infoRet(testPython, testJavascript)
 
 
     #to compare:
