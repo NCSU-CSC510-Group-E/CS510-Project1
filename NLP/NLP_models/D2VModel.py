@@ -38,13 +38,18 @@ class TaggedDocs(object):
     ## With the current gensim implementation, all label vectors are stored separately in RAM.
     ## they report being able to run 2 million different sentences no problem, however
 class D2VModel():
-    def __init__(self, model_name, train_dir, test_dir1, test_dir2):
+    def __init__(self, model_name):
         self.model_name = model_name
-        self.train_dir = train_dir
-        self.test_dir1 = test_dir1
-        self.test_dir2 = test_dir2
 
-     def trainModel(self):
+    def createCorpus(directory, tokens_only=False):
+        if tokens_only: #testing, not training. Doesn't use tags.
+            corpus = TaggedDocs(directory, True)
+        else:
+            corpus = TaggedDocs(directory) 
+
+        return corpus
+
+     def trainModel(self, train_corpus):
         """
         create the corpus
         build the model
@@ -52,10 +57,7 @@ class D2VModel():
         save model
         """
 
-        #First, get corpus iterator
-        train_corpus = TaggedDocs(self.train_dir) #both
-        test_corpus1 = TaggedDocs(self.test_dir1, True) #javascript
-        test_corpus2 = TaggedDocs(self.test_dir2, True)  #python
+        #First, get corpus iterator (train_corpus)
 
         #create do2vec model. dm=1 is for DM model
         model = gensim.models.doc2vec.Doc2Vec(dm=1, vector_size=300, window=10, min_count=2, epochs=20)
@@ -81,11 +83,12 @@ class D2VModel():
         model_loaded = doc2vec.Doc2Vec.load(filename)
         self.model = model_loaded
 
-    def infoRet():
+    def infoRet(train_corpus, test_corpus1, test_corpus2):
         """
         Information Retrieval Test. Can the model accuratly predict 
         whether two documents are similar or not in comparison to another?
         """
+        DM = 
         
 
 
