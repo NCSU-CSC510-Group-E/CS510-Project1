@@ -105,37 +105,37 @@ class D2VModel():
 
 
 def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testDirectory):
-        """
-        copy and paste random files from one folder into another
-        for testing so that the test files are not trained on
-        """
-        filenames = listdir(inputDirectory) #returns a list of filenames in order
-        used = []
-        ap = used.append
+    """
+    copy and paste random files from one folder into another
+    for testing so that the test files are not trained on
+    """
+    filenames = listdir(inputDirectory) #returns a list of filenames in order
+    used = []
+    ap = used.append
 
-        print("copy-pasting files...")
+    print("copy-pasting files...")
 
-        #add files to training folder
-        for i in range(numToTrain):
+    #add files to training folder
+    for i in range(numToTrain):
+        x = random.randint(0, len(filenames)-1)
+        while x in used:
             x = random.randint(0, len(filenames)-1)
-            while x in used:
-                x = random.randint(0, len(filenames)-1)
-            ap(x)
-            source = inputDirectory + filenames[x]
-            destination = trainDirectory + filenames[x]
-            shutil.copyfile(source, destination)
+        ap(x)
+        source = inputDirectory + filenames[x]
+        destination = trainDirectory + filenames[x]
+        shutil.copyfile(source, destination)
 
-        #add files to testing folder that were not trained on
-        for k in range(numToTest):
+    #add files to testing folder that were not trained on
+    for k in range(numToTest):
+        y = random.randint(0, len(filenames)-1)
+        while y in used:
             y = random.randint(0, len(filenames)-1)
-            while y in used:
-                y = random.randint(0, len(filenames)-1)
-            ap(y)
-            source = inputDirectory + filenames[y]
-            destination = testDirectory + filenames[y]
-            shutil.copyfile(source, destination)
+        ap(y)
+        source = inputDirectory + filenames[y]
+        destination = testDirectory + filenames[y]
+        shutil.copyfile(source, destination)
 
-        print("done copy-pasting files")
+    print("done copy-pasting files")
 
 def main():
 
