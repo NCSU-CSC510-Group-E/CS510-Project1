@@ -233,3 +233,15 @@ TSWLatexianTemp*
 *.pyc
 NLP/save/*
 /NLP/books.db
+
+#folders Monica put into her clone
+NLP/.netPosts/
+NLP/allPosts/
+NLP/c#Posts/
+NLP/databasePosts/
+NLP/javaPosts/
+NLP/javascriptPosts/
+NLP/pythonPosts/
+NLP/testJavascript/
+NLP/testPython/
+NLP/trainPythonJavascript/
