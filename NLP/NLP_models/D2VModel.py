@@ -89,8 +89,10 @@ class D2VModel():
     def loadModel(self, filename):
         # LOAD
         print("Loading Model ", filename)
+        self.model_name = filename
         model_loaded = doc2vec.Doc2Vec.load(filename)
         print("Model Loaded")
+        
         return model_loaded
 
     def infoRet(train_corpus, test_corpus1, test_corpus2):
