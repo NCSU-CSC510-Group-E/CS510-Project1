@@ -41,14 +41,13 @@ def strip_bracket(str):
 """
 main function to do the parser work
 """
-def so_parser(path_to_XML="./posts-1.xml", path_to_output='./soFileOutput/', num_file_need=200):
-    output_dir = [path_to_output + 'body/', path_to_output + 'tags/']
+def so_parser(num_train_need=1000,num_test_need=10, path_to_XML="./posts-1.xml", path_to_output_train='./soFileTrain/', path_to_output_test='./soFileTest/'):
+    output_dir = [path_to_output_train + 'body/', path_to_output_train + 'tags/', path_to_output_test + 'body/', path_to_output_test + 'tags/']
     
     #check if the output directory exists, if not, creat it
-    if not os.path.exists(os.path.dirname(output_dir[0])):
-        os.makedirs(os.path.dirname(output_dir[0]))
-    if not os.path.exists(os.path.dirname(output_dir[1])):
-        os.makedirs(os.path.dirname(output_dir[1]))
+    for directory in output_dir:
+        if not os.path.exists(os.path.dirname(directory)):
+            os.makedirs(os.path.dirname(directory))
 
     document = et.iterparse(path_to_XML, events=("start", "end"))
     i = 0
@@ -56,23 +55,38 @@ def so_parser(path_to_XML="./posts-1.xml", path_to_output='./soFileOutput/', num
         post_id = elem.get('Id')
         post_body = elem.get('Body')
         post_tags = elem.get('Tags')
+        
+        pre_define_tags = ['javascript', 'python', 'database', 'sql', 'java']
+        
         if post_id and post_body and post_tags:
-            # generate and save post content to file file
-            filename = output_dir[0] + str(post_id) + '.txt'
-            f = open(filename, 'w')
-            f.write(strip_html_tags(post_body).encode('utf8'))
-            f.close()
+            
+            tags = strip_bracket(post_tags.encode('utf8')).split(',')
+            
+            for pre_tag in pre_define_tags:
+                if pre_tag in tags:
+                # if True:
+                    # generate and save post content to file file
+                    if i > num_train_need:
+                        body_filename = output_dir[2] + str(post_id) + '.txt'
+                        tag_filename = output_dir[3] + str(post_id) + '.txt'
+                    else:
+                        body_filename = output_dir[0] + str(post_id) + '.txt'
+                        tag_filename = output_dir[1] + str(post_id) + '.txt'
+                    f = open(body_filename, 'w')
+                    f.write(strip_html_tags(post_body).encode('utf-8'))
+                    f.close()
 
-            # generate and save post content to file file
-            filename = output_dir[1] + str(post_id) + '.txt'
-            f = open(filename, 'w')
-            tags = post_tags.encode('utf8')
-            f.write(strip_bracket(tags))
-            f.close()
+                    # generate and save post content to file file
+                    f = open(tag_filename, 'w')
+                    tags = post_tags.encode('utf-8')
+                    f.write(strip_bracket(tags))
+                    f.close()
+                    i += 1
+                    break
 
         # to get only a few of file, not to parse the whole document
-        i += 1
-        if i > num_file_need:
+
+        if i > num_train_need + num_test_need:
             print i
             break
 
