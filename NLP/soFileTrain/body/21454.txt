@@ -1,0 +1,1 @@
+How do I go about specifying and using an ENUM in a Django model?

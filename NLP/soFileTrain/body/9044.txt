@@ -1,0 +1,19 @@
+I have a base class that represents a database test in TestNG, and I want to specify that all classes extending from this class are of a group "db-test", however I have found that this doesn't seem possible.  I have tried the @Test annotation:
+
+@Test(groups = { "db-test" })
+public class DBTestBase {
+}
+
+
+However, this doesn't work because the @Test annotation will try to make a bunch of methods into tests, and warnings/errors pop up in eclipse when the tests are run.
+
+So I tried disabling the test, so at least the groups are assigned:
+
+@Test(enabled = false, groups = { "db-test" })
+public class DBTestBase {
+}
+
+
+but then any @BeforeTest (and other similar annotations) ALSO get disabled... which is of course not what I want.
+
+I would like some way to annotate a class as being of a particular type of group, but it doesn't quite seem possible in TestNG.  Does anyone have any other ideas?

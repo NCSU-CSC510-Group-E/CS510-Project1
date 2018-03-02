@@ -1,0 +1,5 @@
+I've been using Emacs's sql interactive mode to talk to the MySQL db server and gotten to enjoy it. A developer has set up another db on a new non-default port number but I don't know how to access it using sql-mysql.
+
+How do I specify a port number when I'm trying to connect to a database?
+
+It would be even better if Emacs can prompt me for a port number and just use the default if I don't specify. Any chances of that?

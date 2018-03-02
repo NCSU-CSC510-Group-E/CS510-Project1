@@ -1,0 +1,1 @@
+Is there a function like document.getElementById("FirstDiv").clear()?

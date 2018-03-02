@@ -1,0 +1,7 @@
+I am considering creating my own website using Java and am trying to decide what framework to use. However, doing a quick search for Java frameworks returns more than 50 to choose from!
+
+My website is just going to be for my own enjoyment of building it in the beginning, but if it becomes popular, it would be good for it to have some scalability, or to at least be able to redesign for that.
+
+What are the main differences between the more popular frameworks? Are there instances where one significantly outperforms the others? For example, high-traffic enterprise applications versus low-traffic small applications. I'm also wondering if some are much easier to learn and use than others.
+
+Is there anyone who has experience with some of these frameworks and can make a recommendation? Does the sheer number of choices just serve as an early warning to avoid Java-based web development where possible?

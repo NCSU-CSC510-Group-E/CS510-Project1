@@ -1,0 +1,29 @@
+I'm having trouble with events in Internet Explorer 7
+
+When I have a form with TWO+ input[type=text] and I press Enter key the events occurs in this order:
+
+
+submit button, onClick
+form, onSubmit
+
+
+Sample code:
+
+form onSubmit="{alert('form::onSubmit'); return false;}"
+    input type="text"
+    input type="text"
+    input type="submit" onClick="{alert('button::onClick');}"
+/form
+
+
+BUT... 
+
+If a have only ONE input[type=text] and I press Enter key the submit button onClick event DOESN'T FIRES. Sample code:
+
+form onSubmit="{alert('form::onSubmit'); return false;}"
+    input type="text"
+    input type="submit" onClick="{alert('button::onClick');}"
+/form
+
+
+Any Ideas?

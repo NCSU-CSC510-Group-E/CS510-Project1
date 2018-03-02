@@ -1,0 +1,1 @@
+sql,database,oracle,indexing,db2

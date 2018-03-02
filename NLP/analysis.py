@@ -3,7 +3,7 @@ import click
 from prototype import main
 
 @click.command()
-@click.option('--training', default='soFileOutput/', help='Path to your training documents.')
+@click.option('--training', default='soFileTrain/', help='Path to your training documents.')
 
 # Providing two "names" in one option creates a boolean parameter 
 @click.option('--verbose/--no-verbose', default=False, help='Print extra debugging information.')

@@ -1,0 +1,9 @@
+I have a postgres database with a user table (userid, firstname, lastname) and a usermetadata table (userid, code, content, created datetime). I store various information about each user in the usermetadata table by code and keep a full history. so for example, a user (userid 15) has the following metadata:
+
+15, 'QHS', '20', '2008-08-24 13:36:33.465567-04'  
+15, 'QHE', '8', '2008-08-24 12:07:08.660519-04'  
+15, 'QHS', '21', '2008-08-24 09:44:44.39354-04'  
+15, 'QHE', '10', '2008-08-24 08:47:57.672058-04'  
+
+
+I need to fetch a list of all my users and the most recent value of each of various usermetadata codes. I did this programmatically and it was, of course godawful slow. The best I could figure out to do it in SQL was to join sub-selects, which were also slow and I had to do one for each code.

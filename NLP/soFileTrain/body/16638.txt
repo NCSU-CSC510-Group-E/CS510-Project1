@@ -1,0 +1,41 @@
+I am having some trouble with the Google Maps API. I have an array which holds a ojbect I created to store points.
+
+My array and class:
+
+var tPoints = [];    
+function tPoint(name) {
+        var id = name;
+        var points = [];
+        var pointsCount = 0;
+        ...
+        this.getHeadPoint = function() { return points[pointsCount-1]; }
+    }
+
+
+tPoint holds an array of GLatLng points. I want to write a function to return a GLatLngBounds object which is extended from the current map bounds to show all the HeadPoints.
+
+Heres what I have so far..
+
+function getBounds() {
+    var mBound = map.getBounds();
+    for (var i = 0; i  tPoints.length; i++) {
+        alert(mBound.getSouthWest().lat() + "," + mBound.getSouthWest().lng());
+        alert(mBound.getNorthEast().lat() + "," + mBound.getNorthEast().lng());
+            currPoint = trackMarkers[i].getHeadPoint();        
+            if (!mBound.containsLatLng(currPoint)) {
+                mBound.extend(currPoint);
+            }
+        }
+    return mBound;
+}
+
+
+Which returns these values for the alert. (Generally over the US)
+
+
+  "19.64258,NaN" "52.69636,NaN" "i=0"
+  "19.64258,NaN" "52.69636,-117.20701" "i=1"
+
+
+I don't know why I am getting NaN back.
+When I use the bounds to get a zoom level I think the NaN value is causing the map.getBoundsZoomLevel(bounds) to return 0 which is incorrect. Am I using GLatLngBounds incorrectly?

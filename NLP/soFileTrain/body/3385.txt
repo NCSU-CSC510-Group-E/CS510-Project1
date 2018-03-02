@@ -1,0 +1,3 @@
+I know that we can get the MAC address of a user via IE (ActiveX objects).
+
+Is there a way to obtain a user's MAC address using JavaScript?

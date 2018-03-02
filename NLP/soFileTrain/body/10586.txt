@@ -1,0 +1,7 @@
+I'm currently trying to read in an XML file, make some minor changes (alter the value of some attributes), and write it back out again.
+
+I have intended to use a StAX parser (javax.xml.stream.XMLStreamReader) to read in each event, see if it was one I wanted to change, and then pass it straight on to the StAX writer (javax.xml.stream.XMLStreamReader) if no changes were required.
+
+Unfortunately, that doesn't look to be so simple - The writer has no way to take an event type and a parser object, only methods like writeAttribute and writeStartElement. Obviously I could write a big switch statement with a case for every possible type of element which can occur in an XML document, and just write it back out again, but it seems like a lot of trouble for something which seems like it should be simple.
+
+Is there something I'm missing that makes it easy to write out a very similar XML document to the one you read in with StAX?

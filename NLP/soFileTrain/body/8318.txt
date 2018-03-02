@@ -1,0 +1,1 @@
+I need to prevent Session Fixation, a particular type of session hijacking, in a Java web application running in JBoss. However, it appears that the standard idiom doesn't work in JBoss. Can this be worked around?

@@ -1,0 +1,5 @@
+What I mean by autolinking is the process by which wiki links inlined in page content are generated into either a hyperlink to the page (if it does exist) or a create link (if the page doesn't exist).
+
+With the parser I am using, this is a two step process - first, the page content is parsed and all of the links to wiki pages from the source markup are extracted. Then, I feed an array of the existing pages back to the parser, before the final HTML markup is generated.
+
+What is the best way to handle this process? It seems as if I need to keep a cached list of every single page on the site, rather than having to extract the index of page titles each time. Or is it better to check each link separately to see if it exists? This might result in a lot of database lookups if the list wasn't cached. Would this still be viable for a larger wiki site with thousands of pages?

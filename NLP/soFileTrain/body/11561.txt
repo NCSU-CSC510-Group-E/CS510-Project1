@@ -1,0 +1,29 @@
+I've used Apache CXF to expose about ten java classes as web services.
+
+I've generated clients using CXF, Axis, and .NET.
+
+In Axis and CXF a "Service" or "Locator" is generated. 
+From this service you can get a "Port".
+The "Port" is used to make individual calls to the methods exposed by the web service.
+
+In .NET the "Service" directly exposes the calls to the web service.
+
+Can someone explain the difference between a port, a service, a locator, and an endpoint when it comes to web services?
+
+Axis:
+
+PatientServiceImplServiceLocator locator = 
+    new PatientServiceImplServiceLocator();
+PatientService service = locator.getPatientServiceImplPort();
+
+
+CXF:
+
+PatientServiceImplService locator = new PatientServiceImplService();
+PatientService service = locator.getPatientServiceImplPort();
+
+
+.net:
+
+PatientServiceImplService service = new PatientServiceImplService();
+

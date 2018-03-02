@@ -1,0 +1,10 @@
+.NET, Java and other high level database API's in various language often provide techniques known as prepared statements and parameter binding as opposed to sending plain text commands to the Database server. What I would like to know is what happens when you execute a statement like this:
+
+SqlCommand cmd = new SqlCommand("GetMemberByID");
+cmd.CommandType = CommandType.StoredProcedure;
+SqlParameter param = new SqlParameter("@ID", memberID);
+para.DbType = DbType.Integer;
+cmd.Parameters.Add(param);
+
+
+I know this is a best practice. SQL injection attacks are minimized this way. But what exactly happens under the hood when you execute these statements? Is the end result still a SQL safe string?  If not, what is the end result? And is this enough to prevent SQL injection attacks?

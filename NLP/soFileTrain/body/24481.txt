@@ -1,0 +1,3 @@
+What is the "best" way to store international addresses in a database? Answer in the form of a schema and an explanation of the reasons why you chose to normalize (or not) the way you did. Also explain why you chose the type and length of each field.
+
+Note: You decide what fields you think are necessary.

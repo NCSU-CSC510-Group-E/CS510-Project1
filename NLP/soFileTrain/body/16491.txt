@@ -1,0 +1,1 @@
+How do you restore a database backup using SQL Server 2005 over the network? I recall doing this before but there was something odd about the way you had to do it.

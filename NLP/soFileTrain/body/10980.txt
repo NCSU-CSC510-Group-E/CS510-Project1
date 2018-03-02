@@ -1,0 +1,7 @@
+I have been looking into IKVMing Apache's FOP project to use with our .NET app.  It's a commercial product, and looking into licensing, IKVM runs into some sticky areas because of its use of GNU Classpath.  From what I've seen, no one can say for sure if this stuff can be used in a commercial product.  Has anyone used IKVM, or an IKVM'd product, in a commercial product?  Here's what I've found so far:
+
+IKVM license page, which notes that one dll contains code from other projects, their license GPLv2 + Classpath Exception
+
+Saxon for .NET is generated with IKVM, but released under the Apache license...
+
+Anyone have experience with this?

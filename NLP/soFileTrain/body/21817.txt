@@ -1,0 +1,8 @@
+The topic says the most of it - what is the reason for the fact that static methods can't be declared in an interface?
+
+public interface ITest {
+    public static String test();
+}
+
+
+The code above gives me the following error (in Eclipse, at least): "Illegal modifier for the interface method ITest.test(); only public  abstract are permitted".

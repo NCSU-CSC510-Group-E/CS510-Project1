@@ -1,0 +1,21 @@
+I'm about to deploy a mediumsized site powered by Django. I have a dedicated Ubuntu Server. 
+
+I'm really confused over which serversoftware to use. So i thought to myself: why not ask stackoverflow.
+
+What i'm looking for is:
+
+
+Easy to set up
+Fast and easy on resources
+Can serve mediafiles
+Able to serve multiple djangosites on same server
+I would rather not install PHP or anything else that sucks resources, and for which I have no use for.
+
+
+I have heard of mod_wsgi and mod_python on Apache, nginx and lighty. Which are the pros and cons of these and have i missed someone?
+
+@Barry: Somehow i feel like Apache is to bloated for me. What about the alternatives?
+
+@BrianLy: Ok I'll check out mod_wsgi some more. But why do i need Apache if i serve static files with lighty? I have also managed to serve the django app itself with lighty. Is that bad in anyway? Sorry for beeing so stupid :-)
+
+UPDATE: What about lighty and nginx - which are the uses-cases when these are the perfect choice?

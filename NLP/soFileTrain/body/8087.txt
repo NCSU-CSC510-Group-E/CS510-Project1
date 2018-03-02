@@ -1,0 +1,3 @@
+There are numerous ways to connect and interact with the database layer. In Java, for example, common usages are JDBC calls of raw SQL, object relational mappers, JDBCTemplate (Spring), stored procedures, etc.
+
+In your language, which option is your preference and why? When would you consider the others?

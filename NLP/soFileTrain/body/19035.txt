@@ -1,0 +1,24 @@
+Hey I am working with both amq.js (ActiveMQ) and Google Maps. I load my scripts in this order
+
+head
+    meta http-equiv="content-type" content="text/html;charset=UTF-8" /
+    titleAMQ  Maps Demo/title
+
+    !-- Stylesheet --
+    link rel="stylesheet" type="text/css" href="style.css"/link
+
+    !-- Google APIs --
+    script type="text/javascript" src="http://www.google.com/jsapi?key=abcdefg"/script
+
+    !-- Active MQ --
+    script type="text/javascript" src="amq/amq.js"/script
+    script type="text/javascript"amq.uri='amq';/script
+
+    !-- Application --
+    script type="text/javascript" src="application.js"/script
+/head
+
+
+However in my application.js it loads Maps fine but I get an error when trying to subscribe to a Topic with AMQ. AMQ depends on prototype which the error console in Firefox says object is not defined. I think I have a problem with using the amq object before the script is finished loading. Is there a way to make sure both scripts load before I use them in my application.js? 
+
+Google has this nice function call google.setOnLoadCallback(initialize); which works great. I'm not sure amq.js has something like this.

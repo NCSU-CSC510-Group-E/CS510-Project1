@@ -1,0 +1,1 @@
+Can anyone recommend a library for chart generation (bar charts, pie charts etc.) which runs on both Java and .Net?

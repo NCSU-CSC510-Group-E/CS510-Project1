@@ -1,1 +1,0 @@
-Does anyone know of a good way to compress or decompress files and folders in C# quickly? Handling large files might be necessary.

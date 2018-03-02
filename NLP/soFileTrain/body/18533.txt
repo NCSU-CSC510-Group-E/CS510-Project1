@@ -1,0 +1,7 @@
+I've found myself increasingly unsatisfied with the DataSet/DataTable/DataRow paradigm in .Net, mostly because it's often a couple of steps more complicated than what I really want to do.  In cases where I'm binding to controls, DataSets are fine.  But in other cases, there seems to be a fair amount of mental overhead.
+
+I've played a bit with SqlDataReader, and that seems to be good for simple jaunts through a select, but I feel like there may be some other models lurking in .Net that are useful to learn more about.  I feel like all of the help I find on this just uses DataSet by default.  Maybe that and DataReader really are the best options.
+
+I'm not looking for a best/worst breakdown, just curious what my options are and what experiences you've had with them.  Thanks!
+
+-Eric Sipple

@@ -1,0 +1,22 @@
+How do I open the default mail program with a Subject and Body in a cross-platform way?
+
+Unfortunately, this is for a a client app written in Java, not a website.
+
+I would like this to work in a cross-platform way (which means Windows and Mac, sorry Linux). I am happy to execute a VBScript in Windows, or AppleScript in OS X. But I have no idea what those scripts should contain. I would love to execute the user's default program vs. just searching for Outlook or whatever.
+
+In OS X, I have tried executing the command:
+
+open mailto:?subject=MySubjectbody=TheBody
+
+
+URL escaping is needed to replace spaces with %20.
+
+Updated On Windows, you have to play all sorts of games to get start to run correctly. Here is the proper Java incantation:
+
+class Win32 extends OS {
+    public void email(String subject, String body) throws Exception {
+        String cmd = "cmd.exe /c start \"\" \"" + formatMailto(subject, body) + "\"";
+        Runtime.getRuntime().exec(cmd);
+    }
+}
+

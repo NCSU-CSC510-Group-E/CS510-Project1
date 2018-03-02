@@ -1,0 +1,42 @@
+I've had a lot of good experiences learning about web development on w3schools.com. It's hit or miss, I know, but the PHP and CSS sections specifically have proven very useful for reference.
+
+Anyway, I was wondering if there was a similar site for jQuery. I'm interested in learning, but I need it to be online/searchable, so I can refer back to it easily when I need the information in the future.
+
+Also, as a brief aside, is jQuery worth learning? Or should I look at different JavaScript libraries? I know Jeff uses jQuery on Stack Overflow and it seems to be working well.
+
+Thanks!
+
+Edit: jQuery's website has a pretty big list of tutorials, and a seemingly comprehensive documentation page. I haven't had time to go through it all yet, has anyone else had experience with it?
+
+Edit 2: It seems Google is now hosting the jQuery libraries. That should give jQuery a pretty big advantage in terms of publicity. 
+
+Also, if everyone uses a single unified aQuery library hosted at the same place, it should get cached for most Internet users early on and therefore not impact the download footprint of your site should you decide to use it.
+
+2 Months Later...
+
+Edit 3: I started using jQuery on a project at work recently and it is great to work with! Just wanted to let everyone know that I have concluded it is ABSOLUTELY worth it to learn and use jQuery.
+
+Also, I learned almost entirely from the Official jQuery documentation and tutorials. It's very straightforward.
+
+10 Months Later...
+
+jQuery is a part of just about every web app I've made since I initially wrote this post. It makes progressive enhancement a breeze, and helps make the code maintainable.
+
+Also, all the jQuery plug-ins are an invaluable resource!
+
+3 Years Later...
+
+Still using jQuery just about every day. I now author jQuery plug-ins and consult full time. I'm primarily a Djangonaut but I've done several javascript only contracts with jQuery. It's a life saver.
+
+From one jQuery user to another... You should look at templating with jQuery (or underscore -- see below).
+
+Other things I've found valuable in addition to jQuery (with estimated portion of projects I use it on):
+
+
+jQuery Form Plugin (95%)
+jQuery Form Example Plugin (75%)
+jQuery UI (70%)
+Underscore.js (80%)
+CoffeeScript (30%)
+Backbone.js (10%)
+

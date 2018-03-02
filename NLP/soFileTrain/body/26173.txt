@@ -1,0 +1,7 @@
+I am looking for some JavaScript based component to be used as a course scheduler which would be a cross between Google Calendar and the login time. I do not know if the right term for this is Course Scheduler but I shall describe this in more detail here.
+
+Course Scheduler
+The widget would be used to enter date and times of a course, as an example if I run a programming course 3 days a week on Mon, Tue and Wed every 7:00 am to 9:00am, 2 hours every day from 1st September to 30th November. I could answer various questions and the course data would be displayed in the calendar. It would also allow for non pattern based timings where each week is different from the other week etc. 
+
+Question
+So would I end up creating something from scratch? Would it be sensible to use Google Calendar API for this? I did a Google search for some widgets, but I believe I need better keywords, as I could not find anything close to what I am looking for. Any tips? Commercial libraries would also work for me. Thanks.

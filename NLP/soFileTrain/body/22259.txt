@@ -1,0 +1,5 @@
+I want to allow users to upload avatar-type images in a variety of formats (GIF, JPEG, and PNG at least), but to save them all as PNG database BLOBs. If the images are oversized, pixelwise, I want to resize them before DB-insertion.
+
+What is the best way to use GD to do the resizing and PNG conversion?
+
+Edit: Sadly, only GD is available on the server I need to use, no  ImageMagick.

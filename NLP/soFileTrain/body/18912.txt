@@ -1,0 +1,13 @@
+I know in javascript Objects double as hashes but i have been unable to find a built in function to get the keys 
+
+var h = {a:'b',c:'d'};
+
+
+I want something like 
+
+var k = h.keys() ; // k = ['a','c'];
+
+
+It is simple to write a function myself to iterate over the items and add the keys to an array that I return, but is there a standard cleaner way to do that?
+
+I keep feeling it must be a simple built in function that I missed but I can't find it!

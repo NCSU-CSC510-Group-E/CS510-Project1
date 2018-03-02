@@ -1,0 +1,1 @@
+What is the best way to sanitize user input for a Python-based web application? Is there a single function to remove HTML characters and any other necessary characters combinations to prevent an XSS or SQL injection attack?

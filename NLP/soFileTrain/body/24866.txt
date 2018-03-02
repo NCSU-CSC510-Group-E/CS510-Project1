@@ -1,0 +1,2 @@
+I am using Java back end for creating an XML string which is passed to the browser. Currently I am using simple string manipulation to produce this XML. Is it essential that I use some XML library in Java to produce the XML string?
+I find the libraries very difficult to use compared to what I need.

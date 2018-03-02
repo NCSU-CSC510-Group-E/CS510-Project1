@@ -1,0 +1,1 @@
+Assuming you can't use Linq for whatever reason, is it a better practice to place your queries in stored procedures, or is it just as good a practice to execute ad hoc queries against the database (say, Sql Server for argument's sake)?

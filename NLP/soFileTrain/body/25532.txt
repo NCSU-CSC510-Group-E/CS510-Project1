@@ -1,0 +1,5 @@
+What would be the Master Pages equivalent in the Java web development world?  I've heard of Tiles, Tapestry and Velocity but don't know anything about them.  Are they as easy to use as Master Pages?  
+
+I want something as easy as set up one template and subsequent pages derive from the template and override content regions, similar to Master Pages.
+
+Any examples would be great!!

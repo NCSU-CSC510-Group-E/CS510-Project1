@@ -1,0 +1,32 @@
+I have a view that has a list of jobs in it, with data like who they're assigned to and the stage they are in. I need to write a stored procedure that returns how many jobs each person has at each stage.
+
+So far I have this (simplified):
+
+DECLARE @ResultTable table 
+(
+  StaffName nvarchar(100),
+  Stage1Count int,
+  Stage2Count int
+)
+
+INSERT INTO @ResultTable (StaffName, Stage1Count)
+  SELECT StaffName, COUNT(*) FROM ViewJob
+  WHERE InStage1 = 1
+  GROUP BY StaffName
+
+INSERT INTO @ResultTable (StaffName, Stage2Count)
+  SELECT StaffName, COUNT(*) FROM ViewJob
+  WHERE InStage2 = 1
+  GROUP BY StaffName
+
+
+The problem with that is that the rows don't combine. So if a staff member has jobs in stage1 and stage2 there's two rows in @ResultTable. What I would really like to do is to update the row if one exists for the staff member and insert a new row if one doesn't exist.
+
+Does anyone know how to do this, or can suggest a different approach?
+I would really like to avoid using cursors to iterate on the list of users (but that's my fall back option).
+
+I'm using SQL Server 2005.
+
+Edit: @Lee: Unfortunately the InStage1 = 1 was a simplification. It's really more like WHERE DateStarted IS NOT NULL and DateFinished IS NULL.
+
+Edit: @BCS: I like the idea of doing an insert of all the staff first so I just have to do an update every time. But I'm struggling to get those UPDATE statements correct.

@@ -1,0 +1,10 @@
+I have been trying to find an easy way to parse a search query and convert it to an SQL query for my DB. 
+
+I have found two solutions:
+
+
+Lucene: Powerful Java-based search engine, contains a query parser but it isn't very configurable and I could find a way to easily hack/adapt it to create SQL queries.
+ANTLR: A veteran text lexer-parser. Used for building anything from compilers to sky scrapers. ANTLR is highly configurable but everyone touching the code from now on will have to learn a new language...
+
+
+Any other ideas?

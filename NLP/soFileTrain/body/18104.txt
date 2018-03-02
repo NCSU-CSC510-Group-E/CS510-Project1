@@ -1,0 +1,4 @@
+I was looking for a good free debugger for STP (Stored Procedures) as I need to make changes to a few of them as a part of my recent project. The stored procedures are stored in independent .sql files and not in the code.
+
+A debugger would speed things up quite a it in my case. Could anyone recommend any tools that can be used for this?
+­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­

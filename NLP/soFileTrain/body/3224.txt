@@ -1,0 +1,19 @@
+CSS and Javascript files don't change very often, so I want them to be cached by the web browser. But I also want the web browser to see changes made to these files without requiring the user to clear their browser cache. Also want a solution that works well with a version control system such as Subversion.
+
+
+
+
+  Some solutions I have seen involve adding a version number to the end of the file in the form of a query string.
+  
+  Could use the SVN revision number to automate this for you: ASP.NET Display SVN Revision Number
+
+
+Can you specify how you include the Revision variable of another file? That is in the HTML file I can include the Revision number in the URL to the CSS or Javascript file.
+
+In the Subversion book it says about Revision: "This keyword describes the last known revision in which this file changed in the repository".
+
+
+  Firefox also allows pressing CTRL+R to reload everything on a particular page.
+
+
+To clarify I am looking for solutions that don't require the user to do anything on their part.

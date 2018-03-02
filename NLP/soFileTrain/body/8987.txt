@@ -1,0 +1,19 @@
+Scalar-valued functions can be called from .NET as follows:
+
+SqlCommand cmd = new SqlCommand("testFunction", sqlConn); //testFunction is scalar
+cmd.CommandType = CommandType.StoredProcedure;  
+cmd.Parameters.Add("retVal", SqlDbType.Int);
+cmd.Parameters["retVal"].Direction = ParameterDirection.ReturnValue;
+cmd.ExecuteScalar();
+int aFunctionResult = (int)cmd.Parameters["retVal"].Value;
+
+
+I also know that table-valued functions can be called in a similar fashion, for example: 
+
+String query = "select * from testFunction(param1,...)"; //testFunction is table-valued
+SqlCommand cmd = new SqlCommand(query, sqlConn);
+SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+adapter.Fill(tbl);
+
+
+My question is, can table-valued functions be called as stored procedures, like scalar-valued functions can? (e.g., replicate my first code snippet with a table-valued function being called and getting the returned table through a ReturnValue parameter).

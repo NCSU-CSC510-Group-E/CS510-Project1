@@ -1,0 +1,5 @@
+Modern Databases systems today come with loads of feature. And you would agree with me that to learn one database you must unlearn the concepts you learned in another database. For e.g. each database would implement locking differently than other. So to carry the concepts of one database to another would be a recipe for failure. And there could be other examples where two database would perform very very differently. 
+
+So while developing the database driven systems should the programmers need to know the database in detail so that they code for performance? I don't think it would be appropriate to have the DBA called for performance later as his job is to only maintain the database and help out the developer in case of emergency but not on a regular basis. 
+
+What do you think should be the extent the developer needs to gain an insight into the database?

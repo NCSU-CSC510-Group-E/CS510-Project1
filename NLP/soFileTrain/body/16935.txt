@@ -1,0 +1,31 @@
+I'm trying to compile over 100 java classes from different packages from a clean
+directory (no incremental compiles) using the following ant tasks:
+
+target name="-main-src-depend"
+    depend srcdir="${src.dir}" 
+            destdir="${bin.dir}" 
+            cache="${cache.dir}"
+            closure="true"/
+/target   
+
+target name="compile" depends="-main-src-depend"
+        description="Compiles the project."
+
+    echoCompiling/echo
+
+    javac  target="${javac.target}"
+            source="${javac.source}"
+            debug="${javac.debug}"
+            srcdir="${src.dir}"
+            destdir="${bin.dir}"
+        classpath
+            path refid="runtime.classpath"/
+            path refid="compile.classpath"/
+        /classpath
+    /javac
+/target
+
+
+However, the first time I run the compile task I always get a StackOverflowException. If I run the task again the compiler does an incremental build and everything works fine. This is undesirable since we are using CruiseControl to do an automatic daily build and this is causing false build failures.
+
+As a quick-and-dirty solution I have created 2 separate tasks, compiling portions of the project in each. I really don't think this solution will hold as more classes are added in the future, and I don't want to be adding new compile tasks every time we hit the "compile limit".

@@ -1,0 +1,3 @@
+What is the best way to use PyGame (SDL) within a PyGTK application?
+
+I'm searching for a method that allows me to have a drawing area in the GTK window and at the same time being able to manage both GTK and SDL events.

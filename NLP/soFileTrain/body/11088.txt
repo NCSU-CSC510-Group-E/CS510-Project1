@@ -1,0 +1,5 @@
+In Java, there is no such thing as an unsigned byte.
+
+Working with some low level code, occasionally you need to work with bytes that have unsigned values greater than 128, which causes Java to interpret them as a negative number due to the MSB being used for sign.
+
+What's a good way to work around this? (Saying don't use Java is not an option)

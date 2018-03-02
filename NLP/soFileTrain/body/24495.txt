@@ -1,0 +1,20 @@
+I have a Struts + Velocity structure like for example, a Person class, whose one property is a Car object (with its own getter/setter methods) and it is mapped to a Velocity form that submits to an Action, using ModelDriven and getModel structure.
+
+I what to put a button on the form that shows "View Car" if car property is not null or car.id != 0 or show another button "Choose Car" if car is null or car.id = 0.
+
+How do I code this. I tried something like that in the template file:
+
+#if($car != null)
+  #ssubmit("name=view" "value=View Car")
+#else
+  #ssubmit("name=new" "value=Choose Car")
+#end
+
+
+But I keep getting error about Null value in the #if line. 
+
+I also created a boolean method hasCar() in Person to try, but I can't access it and I don't know why.
+
+And Velocity + Struts tutorials are difficult to find or have good information.
+
+Thanks

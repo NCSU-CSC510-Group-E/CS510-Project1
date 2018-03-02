@@ -1,0 +1,40 @@
+I'm currently working on an internal sales application for the company I work for, and I've got a form that allows the user to change the delivery address.
+
+Now I think it would look much nicer, if the textarea I'm using for the main address details would just take up the area of the text in it, and automatically resize if the text was changed.
+
+Here's a screenshot of it currently.
+
+
+
+Any ideas?
+
+
+
+@Chris
+
+A good point, but there are reasons I want it to resize. I want the area it takes up to be the area of the information contained in it. As you can see in the screen shot, if I have a fixed textarea, it takes up a fair wack of vertical space.
+
+I can reduce the font, but I need address to be large and readable. Now I can reduce the size of the text area, but then I have problems with people who have an address line that takes 3 or 4 (one takes 5) lines. Needing to have the user use a scrollbar is a major no-no.
+
+I guess I should be a bit more specific. I'm after vertical resizing, and the width doesn't matter as much. The only problem that happens with that, is the ISO number (the large "1") gets pushed under the address when the window width is too small (as you can see on the screenshot).
+
+It's not about having a gimick; it's about having a text field the user can edit that won't take up unnecessary space, but will show all the text in it.
+
+Though if someone comes up with another way to approach the problem I'm open to that too.
+
+
+
+I've modified the code a little because it was acting a little odd. I changed it to activate on keyup, because it wouldn't take into consideration the character that was just typed.
+
+resizeIt = function() {
+  var str = $('iso_address').value;
+  var cols = $('iso_address').cols;
+  var linecount = 0;
+
+  $A(str.split("\n")).each(function(l) {
+    linecount += 1 + Math.floor(l.length / cols); // Take into account long lines
+  })
+
+  $('iso_address').rows = linecount;
+};
+

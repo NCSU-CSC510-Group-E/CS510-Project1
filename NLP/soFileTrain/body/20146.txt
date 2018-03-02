@@ -1,0 +1,14 @@
+
+  Possible Duplicate:
+  Creating tempory folders  
+
+
+
+
+I'm looking for something like the tempfile module in Python: A (preferably) secure way to open a file for writing to. This should be easy to delete when I'm done too...
+
+It seems, .NET does not have the "batteries included" features of the tempfile module, which not only creates the file, but returns the file descriptor (old school, I know...) to it along with the path. At the same time, it makes sure only the creating user can access the file and whatnot (mkstemp() I think): https://docs.python.org/library/tempfile.html
+
+
+
+Ah, yes, I can see that. But GetTempFileName does have a drawback: There is a race condition between when the file was created (upon call to GetTempFileName a 0-Byte file gets created) and when I get to open it (after return of GetTempFileName). This might be a security issue, although not for my current application...

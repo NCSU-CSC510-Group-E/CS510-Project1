@@ -1,0 +1,1 @@
+After reading Hidden Features of C# I wondered, What are some of the hidden features of Java?

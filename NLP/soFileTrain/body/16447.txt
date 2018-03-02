@@ -1,0 +1,38 @@
+I am trying to generate a report by querying 2 databases (Sybase) in classic ASP.
+
+I have created 2 connection strings:
+
+
+  connA for databaseA
+  connB for databaseB
+
+
+Both databases are present on the same server (don't know if this matters)
+
+Queries:
+
+
+  q1 = SELECT column1 INTO #temp FROM databaseA..table1 WHERE xyz="A"
+  q2 = SELECT columnA,columnB,...,columnZ FROM table2 a #temp b WHERE b.column1=a.columnB
+
+
+followed by:
+
+
+  response.Write(rstsql) 
+  set rstSQL = CreateObject("ADODB.Recordset")
+  rstSQL.Open q1, connA
+  rstSQL.Open q2, connB
+
+
+When I try to open up this page in a browser, I get error message:
+
+
+  Microsoft OLE DB Provider for ODBC Drivers error '80040e37'
+  
+  [DataDirect][ODBC Sybase Wire Protocol driver][SQL Server]#temp not found. Specify owner.objectname or use sp_help to check whether the object exists (sp_help may produce lots of output). 
+
+
+Could anyone please help me understand what the problem is and help me fix it?
+
+Thanks.

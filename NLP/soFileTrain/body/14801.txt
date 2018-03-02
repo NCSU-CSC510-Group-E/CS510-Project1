@@ -1,0 +1,49 @@
+Suppose you have the following EJB 3 interfaces/classes:
+
+public interface RepositoryE
+{
+   public void delete(E entity);
+}
+
+public abstract class AbstractRepositoryE  implements RepositoryE
+{
+   public void delete(E entity){
+      //...
+   }
+}
+
+public interface FooRepositoryFoo
+{
+   //other methods
+}
+
+@Local(FooRepository.class)
+@Stateless
+public class FooRepositoryImpl extends
+    AbstractRepositoryFoo implements FooRepository
+{
+   @Override
+   public void delete(Foo entity){
+      //do something before deleting the entity
+      super.delete(entity);
+   }
+   //other methods
+}
+
+
+And then another bean that accesses the FooRepository bean :
+
+//...
+@EJB
+private FooRepository fooRepository;
+
+public void someMethod(Foo foo)
+{
+    fooRepository.delete(foo);
+}
+//...
+
+
+However, the overriding method is never executed when the delete method of the FooRepository bean is called. Instead, only the implementation of the delete method that is defined in AbstractRepository is executed. 
+
+What am I doing wrong or is it simply a limitation of Java/EJB 3 that generics and inheritance don't play well together yet ?

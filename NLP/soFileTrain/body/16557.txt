@@ -1,0 +1,3 @@
+I have always thought that the .equals() method in java should be overridden to be made specific to the class you have created. In other words to look for equivalence of two different instances rather than two references to the same instance. However I have encountered other programmers who seem to think that the default object behavior should be left alone and a new method created for testing equivalence of two objects of the same class. 
+
+What are the argument for and against overriding the equals method?

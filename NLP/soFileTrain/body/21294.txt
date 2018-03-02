@@ -1,0 +1,15 @@
+How can you reliably and dynamically load a JavaScript file?  This will can be used to implement a module or component that when 'initialized' the component will dynamically load all needed JavaScript library scripts on demand.
+
+The client that uses the component isn't required to load all the library script files (and manually insert script tags into their web page) that implement this component - just the 'main' component script file.
+
+How do mainstream JavaScript libraries accomplish this (Prototype, jQuery, etc)?  Do these tools merge multiple JavaScript files into a single redistributable 'build' version of a script file?  Or do they do any dynamic loading of ancillary 'library' scripts?
+
+An addition to this question: is there a way to handle the event after a dynamically included JavaScript file is loaded?  Prototype has document.observe for document-wide events. Example:
+
+document.observe("dom:loaded", function() {
+  // initially hide all containers for tab content
+  $$('div.tabcontent').invoke('hide');
+});
+
+
+What are the available events for a script element?

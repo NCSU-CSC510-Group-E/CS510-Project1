@@ -1,0 +1,3 @@
+In Python you can use StringIO for a file-like buffer for character data. Memory-mapped file basically does similar thing for binary data, but it requires a file that is used as the basis. Does Python have a file object that is intended for binary data and is memory only, equivalent to Java's ByteArrayOutputStream?
+
+The use-case I have is I want to create a ZIP file in memory, and ZipFile requires a file-like object.

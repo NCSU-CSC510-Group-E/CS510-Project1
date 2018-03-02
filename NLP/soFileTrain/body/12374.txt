@@ -1,0 +1,12 @@
+We’ve found that the unit tests we’ve written for our C#/C++ code have really paid off. 
+But we still have thousands of lines of business logic in stored procedures, which only really get tested in anger when our product is rolled out to a large number of users. 
+
+What makes this worse is that some of these stored procedures end up being very long, because of the performance hit when passing temporary tables between SPs. This has prevented us from refactoring to make the code simpler.
+
+We have made several attempts at building unit tests around some of our key stored procedures (primarily testing the performance), but have found that setting up the test data for these tests is really hard. For example, we end up copying around test databases. In addition to this, the tests end up being really sensitive to change, and even the smallest change to a stored proc. or table requires a large amount of changes to the tests. So after many builds breaking due to these database tests failing intermittently, we’ve just had to pull them out of the build process.
+
+So, the main part of my questions is: has anyone ever successfully written unit tests for their stored procedures?
+
+The second part of my questions is whether unit testing would be/is easier with linq? 
+
+I was thinking that rather than having to set up tables of test data, you could simply create a collection of test objects, and test your linq code in a “linq to objects” situation? (I am a totally new to linq so don’t know if this would even work at all)

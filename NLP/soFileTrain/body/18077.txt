@@ -1,0 +1,43 @@
+I wanted some of those spiffy rounded corners for a web project that I'm currently working on.
+
+I thought I'd try to accomplish it using javascript and not CSS in an effort to keep the requests for image files to a minimum (yes, I know that it's possible to combine all required rounded corner shapes into one image) and I also wanted to be able to change the background color pretty much on the fly.
+
+I already utilize jQuery so I looked at the excellent rounded corners plugin and it worked like a charm in every browser I tried. Being a developer however I noticed the opportunity to make it a bit more efficient. The script already includes code for detecting if the current browser supports webkit rounded corners (safari based browsers). If so it uses raw CSS instead of creating layers of divs.
+
+I thought that it would be awesome if the same kind of check could be performed to see if the browser supports the Gecko-specific -moz-border-radius-* properties and if so utilize them.
+
+The check for webkit support looks like this:
+
+var webkitAvailable = false;  
+try {  
+    webkitAvailable = (document.defaultView.getComputedStyle(this[0], null)['-webkit-border-radius'] != undefined);
+} 
+catch(err) {}
+
+
+That, however, did not work for -moz-border-radius so I started checking for alternatives.
+
+My fallback solution is of course to use browser detection but that's far from recommended practice ofcourse.
+
+My best solution yet is as follows.
+
+var mozborderAvailable = false;
+try {
+    var o = jQuery('div').css('-moz-border-radius', '1px');
+    mozborderAvailable = $(o).css('-moz-border-radius-topleft') == '1px';
+    o = null;
+} catch(err) {}
+
+
+It's based on the theory that Gecko "expands" the composite -moz-border-radius to the four sub-properties
+
+
+-moz-border-radius-topleft
+-moz-border-radius-topright
+-moz-border-radius-bottomleft
+-moz-border-radius-bottomright
+
+
+Is there any javascript/CSS guru out there that have a better solution?
+
+(The feature request for this page is at http://plugins.jquery.com/node/3619)

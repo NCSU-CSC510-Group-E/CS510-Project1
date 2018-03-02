@@ -1,0 +1,5 @@
+I just saw this mentioned in StackOverflow question Best WYSIWYG CSS editor and didn't know it could be done. I'm a Visual Studio newbie, so how do you do it?
+
+Is there a separate debugger for JavaScript? I know how to work the one for code-behind pages...  I usually use Firebug to deal with debugging JavaScript code.
+
+I'm using VisualStudio2005.

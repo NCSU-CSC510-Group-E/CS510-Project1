@@ -1,0 +1,17 @@
+What are the advantages/disadvantages of keeping SQL in your C# source code or in Stored Procs? I've been discussing this with a friend on an open source project that we're working on (C# ASP.NET Forum). At the moment, most of the database access is done by building the SQL inline in C# and calling to the SQL Server DB. So I'm trying to establish which, for this particular project, would be best.
+
+So far I have:
+
+Advantages for in Code:
+
+
+Easier to maintain - don't need to run a SQL script to update queries
+Easier to port to another DB - no procs to port
+
+
+Advantages for Stored Procs:
+
+
+Performance
+Security
+

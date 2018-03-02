@@ -1,0 +1,1 @@
+Currently, I don't really have a good method of debugging JavaScript in InternetExplorer and Safari. In Firefox, you can use Firebug's logging feature and command Line functions. However, this doesn't help me when I move to other browsers.

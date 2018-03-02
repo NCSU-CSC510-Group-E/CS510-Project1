@@ -1,0 +1,1 @@
+Is there any JavaScript method similar to the jQuery delay() or wait() (to delay the execution of a script for a specific amount of time)?

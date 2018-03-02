@@ -1,0 +1,21 @@
+My current development project has two aspects to it. First, there is a public website where external users can submit and update information for various purposes. This information is then saved to a local SQL Server at the colo facility.
+
+The second aspect is an internal application which employees use to manage those same records (conceptually) and provide status updates, approvals, etc. This application is hosted within the corporate firewall with its own local SQL Server database.
+
+The two networks are connected by a hardware VPN solution, which is decent, but obviously not the speediest thing in the world.
+
+The two databases are similar, and share many of the same tables, but they are not 100% the same. Many of the tables on both sides are very specific to either the internal or external application.
+
+So the question is: when a user updates their information or submits a record on the public website, how do you transfer that data to the internal application's database so it can be managed by the internal staff? And vice versa... how do you push updates made by the staff back out to the website?
+
+It is worth mentioning that the more "real time" these updates occur, the better. Not that it has to be instant, just reasonably quick.
+
+So far, I have thought about using the following types of approaches:
+
+
+Bi-directional replication
+Web service interfaces on both sides with code to sync the changes as they are made (in real time).
+Web service interfaces on both sides with code to asynchronously sync the changes (using a queueing mechanism).
+
+
+Any advice? Has anyone run into this problem before? Did you come up with a solution that worked well for you?

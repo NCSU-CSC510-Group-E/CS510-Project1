@@ -1,0 +1,1 @@
+java,generics,inheritance,java-ee,ejb-3.0

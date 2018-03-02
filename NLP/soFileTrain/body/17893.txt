@@ -1,0 +1,3 @@
+My current setup.py script works okay, but it installs tvnamer.py (the tool) as tvnamer.py into site-packages or somewhere similar..
+
+Can I make setup.py install tvnamer.py as tvnamer, and/or is there a better way of installing command-line applications?

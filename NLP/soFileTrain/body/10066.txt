@@ -1,0 +1,19 @@
+specifically, I use SQL Server 2005, but the solution might be brand independent.
+
+Need: You have 40 database tables, in some, you may have a column which is a integer values 1-9 representing some enum. Sure it makes sense in code, but not if you need to SQL the DB in a report getting only rows of type "active" but you have no clue if active is 1,2 or 3...
+
+my solution: I have a wiki page and I tell each developer that each table must be there, with the schema and for each column the possible values with explanation.
+I also generate the SQL server 2005 database diagram, but that is only marginally helpful since you have so many tables and so many lines connecting them.
+
+Is there a better way do document what a table is, what a column is and publishing it?
+
+
+
+Note regarding answers:
+Please don't answer this question thinking like an engineer! Answers like "if you have an extra table linked with a foreign key, then anyone can see the values" misses the point. 
+A solution is good if:
+
+
+I can print it and send it to a partner
+I can write free text, documenting the datable/clm. Not everything in life is self documenting. I may want to say "this table is a report supporting table and is de-normalized data from XYZ tables.
+

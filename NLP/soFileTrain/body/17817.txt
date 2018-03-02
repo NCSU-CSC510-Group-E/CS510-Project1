@@ -1,0 +1,1 @@
+Any recommendations for a javascript form validation library. I could try and roll my own (but I'm not very good at javascript). Needs to support checking for required fields, and preferably regexp validation of fields.

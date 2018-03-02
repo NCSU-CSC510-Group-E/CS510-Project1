@@ -1,0 +1,7 @@
+Python uses the reference count method to handle object life time. So an object that has no more use will be immediately destroyed.
+
+But, in Java, the GC(garbage collector) destroys objects which are no longer used at a specific time.
+
+Why does Java choose this strategy and what is the benefit from this?
+
+Is this better than the Python approach?

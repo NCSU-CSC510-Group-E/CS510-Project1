@@ -1,0 +1,8 @@
+I have been developing web/desktop applications for about 6 years now. During the course of my career, I have come across application that were heavily written in the database using stored procedures whereas a lot of application just had only a few basic stored procedures (to read, insert, edit and delete entity records) for each entity. 
+
+I have seen people argue saying that if you have paid for an enterprise database use its features extensively. Whereas a lot of "object oriented architects" told me its absolute crime to put anything more than necessary in the database and you should be able to drive the application using the methods on those classes? 
+
+Where do you think is the balance?
+
+Thanks,
+Krunal

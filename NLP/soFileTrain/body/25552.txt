@@ -1,0 +1,5 @@
+I'm currently building a Java app that could end up being run on many different platforms, but primarily variants of Solaris, Linux and Windows.
+
+Has anyone been able to successfully extract information such as the current disk space used, CPU utilisation and memory used in the underlying OS? What about just what the Java app itself is consuming?
+
+Preferrably I'd like to get this information without using JNI.

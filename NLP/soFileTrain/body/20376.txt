@@ -1,0 +1,9 @@
+Does anyone know a tool for Profiling JavaScript in IE?
+
+List available:
+
+
+IE8 (Internet Explorer 8 only)
+JavaScript Profiler
+YUI!
+

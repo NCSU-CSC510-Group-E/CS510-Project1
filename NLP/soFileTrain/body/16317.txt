@@ -1,0 +1,5 @@
+I'm aware of some of the test data generators out there, but most seem to just fill name and address style databases [feel free to correct me].
+
+We have a large integrated and normalised application - e.g. invoices have part numbers linked to stocking tables, customer numbers linked to customer tables, change logs linked to audit information, etc which are obviously difficult to fill randomly. Currently we obfuscate real life data to get test data (but not very well).
+
+What tools\methods do you use to create large volumes of data to test with?

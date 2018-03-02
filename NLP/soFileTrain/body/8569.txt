@@ -1,0 +1,3 @@
+I'm currently trying to get into the Java EE development with the Spring framework. As I'm new to Spring, it is hard to imaging how a good running project should start off.
+
+Do you have any best practices, tipps or major DO NOTs for a starter? How did you start with Spring - big project or small tutorial-like applications? Which technology did you use right away: AOP, complex Hibernate...

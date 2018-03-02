@@ -1,0 +1,4 @@
+I need to validate an XML string (and not a file)
+against a DTD description file. 
+
+How can that be done in python?

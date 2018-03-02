@@ -1,0 +1,5 @@
+Jeff mentioned in one of the podcasts that one of the things he always does is put in instrumentation for database calls, so that he can tell what queries are causing slowness etc.  This is something I've measured in the past using SQL Profiler, but I'm interested in what strategies other people have used to include this as part of the application.
+
+Is it simply a case of including a timer across each database call and logging the result, or is there a 'neater' way of doing it?  Maybe there's a framework that does this for you already, or is there a flag I could enable in e.g. Linq-to-SQL that would provide similar functionality.
+
+I mainly use c# but would also be interested in seeing methods from different languages, and I'd be more interested in a 'code' way of doing this over a db platform method like SQL Profiler.

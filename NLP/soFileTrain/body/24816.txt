@@ -1,0 +1,1 @@
+Does anyone know of an easy way to escape HTML from strings in jQuery?  I need to be able to pass an arbitrary string and have it properly escaped for display in an HTML page (preventing JavaScript/HTML injection attacks).  I'm sure it's possible to extend jQuery to do this, but I don't know enough about the framework at the moment to accomplish this.

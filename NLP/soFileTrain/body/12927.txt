@@ -1,0 +1,13 @@
+I am calling a vendor's Java API, and on some servers it appears that the JVM goes into a low priority polling loop after logging into the API (CPU at 100% usage).  The same app on other servers does not exhibit this behavior. This happens on WebSphere and Tomcat.  The environment is tricky to set up so it is difficult to try to do something like profiling within Eclipse.
+
+Is there a way to profile (or some other method of inspecting) an existing Java app running in Tomcat to find out what methods are being executed while it's in this spinwait kind of state?  The app is only executing one method when it gets in this state (vendor's method). Vendor can't replicate the behavior (of course).
+
+
+
+Update:  
+
+Using JConsole I was able to determine who was running and what they were doing.  It took me a few hours to then figure out why it was doing it.  The problem ended up being that the vendor's API jar that was being used did not match exactly to the the database configuration that it was using.  It was defaulting to having tracing and performance monitoring enabled on the servers that had the slight mis-match in configuration.  I used a different jar and all is well.
+
+So thanks, Joshua, for your answer. JConsole was extremely easy to setup and use to monitor an existing application. 
+
+@Cringe - I did some experimenting with some of the options you suggested.  I had some problems with getting JProfiler set up, it looks good (but pricey).  Going forward I went ahead and added the Eclipse Profiler plugin and I'll be looking over the different open source profilers to compare functionality.

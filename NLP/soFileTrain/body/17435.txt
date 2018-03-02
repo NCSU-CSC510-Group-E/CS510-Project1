@@ -1,0 +1,5 @@
+Does anyone see server-side JavaScript taking off? There are a couple of implementations out there, but it all seems to be a bit of a stretch (as in, "doing it BECAUSE WE CAN" type of attitude). 
+
+I'm curious to know if anyone actually writes JavaScript for the server-side and what their experiences with it have been to date.
+
+Also, which implementation is generally seen as the most stable?

@@ -1,0 +1,8 @@
+I've frequently encountered sites that put all of their javascript inside a "namespace" structure along the lines of
+
+namespaces = { com : { example: { example.com's data} }
+
+
+But setting this up safely with respect to other namespaced frameworks seems to require a relatively hefty amount of code (defined as > 2 lines).  I was wondering whether anyone knows of a concise way to do this?  and whether there's a relatively standard/consistent way to structure it? eg. is the "com" namespace directly attached to the global object, or is it attached through a namespace object?
+
+[Edit: whoops, obviously {com = { ... } } wouldn't accomplish anything close to what i intended, thanks to Shog9 for pointing that out. :D] 

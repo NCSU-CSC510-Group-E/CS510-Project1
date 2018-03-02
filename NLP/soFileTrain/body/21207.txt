@@ -1,0 +1,1 @@
+I'm currently trying out db4o (the java version) and I pretty much like what I see. But I cannot help wondering how it does perform in a real live (web-)environment. Does anyone have any experiences (good or bad) to share about running db4o?  

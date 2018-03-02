@@ -1,0 +1,1 @@
+Is it possible to embed an inline search box into a web page which provides similar functionality to the IE7Pro Inline Search or similar plugins for Firefox/Safari?

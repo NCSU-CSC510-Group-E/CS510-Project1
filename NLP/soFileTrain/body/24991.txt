@@ -1,0 +1,18 @@
+I have defined a Java function:
+
+static T ListT createEmptyList() {
+    return new ArrayListT();
+}
+
+
+One way to call it is like so:
+
+ListInteger myList = createEmptyList(); // Compiles
+
+
+Why can't I call it by explicitly passing the generic type argument? :
+
+Object myObject = createEmtpyListInteger(); // Doesn't compile. Why?
+
+
+I get the error Illegal start of expression from the compiler.

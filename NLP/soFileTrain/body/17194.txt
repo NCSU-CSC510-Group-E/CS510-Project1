@@ -1,0 +1,58 @@
+I have a Monthly Status database view I need to build a report based on. The data in the view looks something like this:
+
+Category | Revenue  |  Yearh  |  Month
+Bikes      10 000      2008        1
+Bikes      12 000      2008        2
+Bikes      12 000      2008        3
+Bikes      15 000      2008        1
+Bikes      11 000      2007        2
+Bikes      11 500      2007        3
+Bikes      15 400      2007        4
+
+
+
+... And so forth
+
+The view has a product  category, a revenue, a year and a month. I want to create a report comparing 2007 and 2008, showing 0 for the months with no sales. So the report should look something like this:
+
+Category  |  Month  |  Rev. This Year  |  Rev. Last Year
+Bikes          1          10 000               0
+Bikes          2          12 000               11 000
+Bikes          3          12 000               11 500
+Bikes          4          0                    15 400
+
+
+
+The key thing to notice is how month 1 only has sales in 2008, and therefore is 0 for 2007. Also, month 4 only has no sales in 2008, hence the 0, while it has sales in 2007 and still show up.
+
+Also, the report is actually for financial year - so I would love to have empty columns with 0 in both if there was no sales in say month 5 for either 2007 or 2008.
+
+The query I got looks something like this:
+
+SELECT 
+    SP1.Program,
+    SP1.Year,
+    SP1.Month,
+    SP1.TotalRevenue,
+    IsNull(SP2.TotalRevenue, 0) AS LastYearTotalRevenue
+
+FROM PVMonthlyStatusReport AS SP1 
+     LEFT OUTER JOIN PVMonthlyStatusReport AS SP2 ON 
+                SP1.Program = SP2.Program AND 
+                SP2.Year = SP1.Year - 1 AND 
+                SP1.Month = SP2.Month
+WHERE 
+    SP1.Program = 'Bikes' AND
+    SP1.Category = @Category AND 
+    (SP1.Year = @FinancialYear AND SP1.Year = @FinancialYear + 1) AND
+    ((SP1.Year = @FinancialYear AND SP1.Month  6) OR 
+     (SP1.Year = @FinancialYear + 1 AND SP1.Month = 6))
+
+ORDER BY SP1.Year, SP1.Month
+
+
+The problem with this query is that it would not return the fourth row in my example data above, since we didn't have any sales in 2008, but we actually  did in 2007.
+
+This is probably a common query/problem, but my SQL is rusty after doing front-end development for so long. Any help is greatly appreciated!
+
+Oh, btw, I'm using SQL 2005 for this query so if there are any helpful new features that might help me let me know.

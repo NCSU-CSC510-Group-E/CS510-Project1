@@ -1,0 +1,1 @@
+For parsing player commands, I've most often used the split method to split a string by delimiters and then to then just figure out the rest by a series of ifs or switches. What are some different ways of parsing strings in Java?

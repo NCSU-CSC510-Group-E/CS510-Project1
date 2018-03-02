@@ -1,0 +1,3 @@
+I am using SourceForge for some Open Source projects and I want to automate the deployment of releases to the SourceForge File Release System. I use Maven for my builds and the standard SFTP deployment mechanism doesn't seem to work unless you do some manual preparation work. I have come across some old postings on other forums suggesting that the only approach is to write a Wagon specifically for SourceForge.
+
+Has anybody had any recent experience with this?

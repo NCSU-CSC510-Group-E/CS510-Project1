@@ -1,0 +1,5 @@
+Are there any good recommendations anyone can provide for a good Javascript editor on Windows?  
+
+I currently use combinations of FireBug and TextPad but would hate to miss out on the party if there are better options out there.  
+
+Thanks.

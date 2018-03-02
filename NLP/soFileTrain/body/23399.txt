@@ -1,0 +1,17 @@
+I've got an interesting design question.  I'm designing the security side of our project, to allow us to have different versions of the program for different costs and also to allow Manager-type users to grant or deny access to parts of the program to other users.  Its going to web-based and hosted on our servers.
+
+I'm using a simple Allow or Deny option for each 'Resource' or screen.
+
+We're going to have a large number of resources, and the user will be able to set up many different groups to put users in to control access.  Each user can only belong to a single group.
+
+I've got two approaches to this in mind, and was curious which would be better for the SQL server in terms of performance.
+
+Option A
+The presence of an entry in the access table means access is allowed.  This will not need a column in the database to store information.  If no results are returned, then access is denied.
+
+I think this will mean a smaller table, but would queries search the whole table to determine there is no match?
+
+Option B
+A bit column is included in the database that controls the Allow/Deny.  This will mean there is always a result to be found, and makes for a larger table.
+
+Thoughts?

@@ -1,0 +1,26 @@
+Currently we have a project with a standard subversion repository layout of:
+
+./trunk
+./branches
+./tags
+
+However, as we're moving down the road of OSGi and a modular project, we've ended up with:
+
+./trunk/bundle/main
+./trunk/bundle/modulea
+./trunk/bundle/moduleb
+./tags/bundle/main-1.0.0
+./tags/bundle/main-1.0.1
+./tags/bundle/modulea-1.0.0
+
+The 'build' is still quite monolithic in that it builds all modules in sequence, though I'm starting to wonder if we should refactor the build/repository to something more like:
+
+./bundle/main/trunk
+./bundle/main/tags/main-1.0.0
+./bundle/main/tags/main-1.0.1
+./bundle/modulea/trunk
+./bundle/modulea/tags/modulea-1.0.0  
+
+In this pattern I would imagine each module building itself, and storing its binary in a repository (maven, ivy, or another path of the subversion repository itself).
+
+Are there guidelines or 'best-practices' over project layouts once one goes modular?

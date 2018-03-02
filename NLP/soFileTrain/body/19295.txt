@@ -1,0 +1,11 @@
+I'd like to use a database to store i18n key/value pairs so we can modify / reload the i18n data at runtime. Has anyone done this? Or does anyone have an idea of how to implement this? I've read several threads on this, but I haven't seen a workable solution.
+
+I'm specifically refering to something that would work with the jstl tags such as
+
+fmt:setlocale
+fmt:bundle
+fmt:setBundle
+fmt:message
+
+
+I think this will involve extending ResourceBundle, but when I tried this I ran into problems that had to do with the way the jstl tags get the resource bundle.

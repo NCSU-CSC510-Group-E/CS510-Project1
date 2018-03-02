@@ -1,0 +1,17 @@
+I'd like some sorthand for this:
+
+Map rowToMap(row) {
+    def rowMap = [:];
+    row.columns.each{ rowMap[it.name] = it.val }
+    return rowMap;
+}
+
+
+given the way the GDK stuff is, I'd expect to be able to do something like:
+
+Map rowToMap(row) {
+    row.columns.collectMap{ [it.name,it.val] }
+}
+
+
+but I haven't seen anything in the docs... am I missing something? or am I just way too lazy?

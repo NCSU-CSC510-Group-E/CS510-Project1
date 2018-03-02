@@ -1,0 +1,1 @@
+I'd like to utilize an ICE Faces fileInput control to fill in the file path  file name for the input to an input field on a web page based on file that the user selects. How can I capture these properties without actually performing any file transfer operations?

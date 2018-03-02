@@ -1,0 +1,4 @@
+I'm running a long process stored procedure.
+
+I'm wondering if in case of a timeout or any case of disconnection with the database after initiating the call to the stored procedure. Is it still working and implementing the changes on the server?
+­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­

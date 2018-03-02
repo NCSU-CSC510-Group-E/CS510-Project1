@@ -1,0 +1,17 @@
+I am having a strange DB2 issue when I run DBUnit tests.  My DBUnit tests are highly customized, but I don't think it is the issue.  When I run the tests, I get a failure: 
+
+
+  SQLCODE: -1084, SQLSTATE: 57019
+
+
+which translates to 
+
+
+  SQL1084C Shared memory segments cannot be allocated.
+
+
+It sounds like a weird memory issue, though here's the big strange thing.  If I ssh to the test database server, then go in to db2 and do "connect to MY_DB", the tests start succeeding!  This seems to have no relation to the supposed memory error that is being reported.
+
+I have 2 tests, and the first one actually succeeds, the second one is the one that fails.  However, it fails in the DBUnit setup code, when it is obtaining the connection to the DB server to load my xml dataset.
+
+Any ideas what might be going on?

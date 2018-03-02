@@ -1,0 +1,47 @@
+So, in Java, the first line of your constructor HAS to be a call to super... be it implicitly calling super(), or explicitly calling another constructor.  What I want to know is, why can't I put a try block around that?
+
+My specific case is that I have a mock class for a test.  There is no default constructor, but I want one to make the tests simpler to read.  I also want to wrap the exceptions thrown from the constructor into a RuntimeException.
+
+So, what I want to do is effectively this:
+
+public class MyClassMock extends MyClass {
+    public MyClassMock() {
+        try {
+            super(0);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // Mocked methods
+}
+
+
+But Java complains that super isn't the first statement.
+
+My workaround:
+
+public class MyClassMock extends MyClass {
+    public static MyClassMock construct() {
+        try {
+            return new MyClassMock();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public MyClassMock() throws Exception {
+        super(0);
+    }
+
+    // Mocked methods
+}
+
+
+Is this the best workaround?  Why doesn't Java let me do the former?
+
+
+
+My best guess as to the "why" is that Java doesn't want to let me have a constructed object in a potentially inconsistent state... however, in doing a mock, I don't care about that.  It seems I should be able to do the above... or at least I know that the above is safe for my case... or seems as though it should be anyways.
+
+I am overriding any methods I use from the tested class, so there is no risk that I am using uninitialized variables.

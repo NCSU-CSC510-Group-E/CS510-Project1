@@ -1,0 +1,13 @@
+I have a script that retrieves objects from a remote server through an Ajax call. The server returns objects in JSON notation.­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
+
+However, in Adobe AIR, there is a restriction on using eval() for security reasons. So I'm able to get replies from the remote server, but can't turn them back into JavaScript objects. Is there any workaround for this issue? I would like to use JSON for my JavaScript objects, since it can be used almost immediately.
+
+Side-note : I do understand the security implications for forcing the issue, but I will be doing some rapid application development for a competition, so the program would only be a quick prototype, and not used for production purposes. Nevertheless, it would be great if there's a better alternative to what I'm trying to do now
+
+
+
+Update:
+
+Thanks to Theo and jsight for their answers; 
+
+One important thing I learnt today is that I can actually make use of ActionScript libraries by using the script src="lib/myClasses.swf" type="application/x-shockwave-flash"/script tag extended by Adobe AIR. Check out Theo's link for more details!

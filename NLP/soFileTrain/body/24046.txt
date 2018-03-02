@@ -1,0 +1,24 @@
+I do some minor programming and web work for a local community college. Work that includes maintaining a very large and soul destroying website that consists of a hodge podge of VBScript, javascript, Dreamweaver generated cruft and a collection of add-ons that various conmen have convinced them to buy over the years. 
+
+A few days ago I got a call "The website is locking up for people using Safari!" Okay, step one download Safari(v3.1.2), step two surf to the site. Everything appears to work fine.
+
+Long story short I finally isolated the problem and it relates to Safari's back button. The website uses a fancy-pants javascript menu that works in every browser I've tried including Safari, the first time around. But in Safari if you follow a link off the page and then hit the back button the menu no longer works.
+
+I made a pared down webpage to illustrate the principle.
+
+!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+html
+headtitleSafari Back Button Test/title
+meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"
+/head
+body onload="alert('Hello');"
+a href="http://www.codinghorror.com"Coding Horror/a
+/body
+/html
+
+
+Load the page and you see the alert box. Then follow the link off the page and hit the back button. In IE and Firefox you see the alert box again, in Safari you do not.
+
+After a vigorous googling I've discovered others with similar problems but no really satisfactory answers. So my question is how can I make my pages work the same way in Safari after the user hits the back button as they do in other browsers?
+
+If this is a stupid question please be gentle, javascript is somewhat new to me.

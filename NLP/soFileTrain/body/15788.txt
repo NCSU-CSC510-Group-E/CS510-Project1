@@ -1,0 +1,3 @@
+I love the ease that the ASP.NET Ajax control Toolkit provides to ASP.NET developers. However, I've not found it to be a scalable solution at all. I have a page with 2 date input fields. By putting a TextBox and an CalendarExtendar control attached to it for each date field, I get several (11, in fact) external Javascript calls to /ScriptResource.axd?d=xxxx
+
+Is there any way to control this? Why does it suck so much? What's a better Ajax toolkit for .NET that can provide equal (or better) set of functionality that is more scalable, straight forward and completely customizable? NOT looking to reinvent the wheel here.

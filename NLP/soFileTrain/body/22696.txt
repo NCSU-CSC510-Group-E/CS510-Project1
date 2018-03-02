@@ -1,0 +1,4 @@
+OK, here is my problem, without being too specific for reasons of being fired for putting company practices on the internet.
+
+There are spreadsheets made. These are uploaded to the database. I need to filter out duplicates from uploading. The only way to do this is by making sure that for each and every entry that two fields aren't the same as an entry already in the database. As just becasue one field is the same does not mean its a duplicate. There are two specific fields lets call them FLDA and FLDB that both must match up to an entry in the database already. I can filter by one field already. I'm thinking this has to be a subquery but I'm not sure how to apply it.
+This is hard to decribe. Just ask if your not sure what I mean.

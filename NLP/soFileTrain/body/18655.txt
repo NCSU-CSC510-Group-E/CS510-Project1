@@ -1,0 +1,44 @@
+I really need to see some honest, thoughtful debate on the merits of the currently accepted enterprise application design paradigm.
+
+I am not convinced that entity objects should exist.
+
+By entity objects I mean the typical things we tend to build for our applications, like "Person", "Account", "Order", etc.
+
+My current design philosophy is this:
+
+
+All database access must be accomplished via stored procedures.
+Whenever you need data, call a stored procedure and iterate over a SqlDataReader or the rows in a DataTable
+
+
+(Note: I have also built enterprise applications with Java EE, java folks please substitute the equvalent for my .NET examples)
+
+I am not anti-OO.  I write lots of classes for different purposes, just not entities.  I will admit that a large portion of the classes I write are static helper classes.
+
+I am not building toys.  I'm talking about large, high volume transactional applications deployed across multiple machines.  Web applications, windows services, web services, b2b interaction, you name it.
+
+I have used OR Mappers.  I have written a few.  I have used the Java EE stack, CSLA, and a few other equivalents.  I have not only used them but actively developed and maintained these applications in production environments.
+
+I have come to the battle-tested conclusion that entity objects are getting in our way, and our lives would be so much easier without them.
+
+Consider this simple example: you get a support call about a certain page in your application that is not working correctly, maybe one of the fields is not being persisted like it should be.  With my model, the developer assigned to find the problem opens exactly 3 files.  An ASPX, an ASPX.CS and a SQL file with the stored procedure.  The problem, which might be a missing parameter to the stored procedure call, takes minutes to solve.  But with any entity model, you will invariably fire up the debugger, start stepping through code, and you may end up with 15-20 files open in Visual Studio.  By the time you step down to the bottom of the stack, you forgot where you started.  We can only keep so many things in our heads at one time.  Software is incredibly complex without adding any unnecessary layers.
+
+Development complexity and troubleshooting are just one side of my gripe.
+
+Now let's talk about scalability.
+
+Do developers realize that each and every time they write or modify any code that interacts with the database, they need to do a throrough analysis of the exact impact on the database?  And not just the development copy, I mean a mimic of production, so you can see that the additional column you now require for your object just invalidated the current query plan and a report that was running in 1 second will now take 2 minutes, just because you added a single column to the select list?  And it turns out that the index you now require is so big that the DBA is going to have to modify the physical layout of your files?
+
+If you let people get too far away from the physical data store with an abstraction, they will create havoc with an application that needs to scale.
+
+I am not a zealot.  I can be convinced if I am wrong, and maybe I am, since there is such a strong push towards Linq to Sql, ADO.NET EF, Hibernate, Java EE, etc.  Please think through your responses, if I am missing something I really want to know what it is, and why I should change my thinking.
+
+[Edit]
+
+It looks like this question is suddenly active again, so now that we have the new comment feature I have commented directly on several answers.  Thanks for the replies, I think this is a healthy discussion.
+
+I probably should have been more clear that I am talking about enterprise applications.  I really can't comment on, say, a game that's running on someone's desktop, or a mobile app.
+
+One thing I have to put up here at the top in response to several similar answers: orthogonality and separation of concerns often get cited as reasons to go entity/ORM.  Stored procedures, to me, are the best example of separation of concerns that I can think of.  If you disallow all other access to the database, other than via stored procedures, you could in theory redesign your entire data model and not break any code, so long as you maintained the inputs and outputs of the stored procedures.  They are a perfect example of programming by contract (just so long as you avoid "select *" and document the result sets).
+
+Ask someone who's been in the industry for a long time and has worked with long-lived applications: how many application and UI layers have come and gone while a database has lived on?  How hard is it to tune and refactor a database when there are 4 or 5 different persistence layers generating SQL to get at the data?  You can't change anything!  ORMs or any code that generates SQL lock your database in stone.

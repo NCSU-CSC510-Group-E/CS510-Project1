@@ -1,0 +1,5 @@
+Does anyone here know of good batch file code indenters or beautifiers?
+
+Specifically for PHP, JS and SGML-languages.
+
+Preferably with options as to style.

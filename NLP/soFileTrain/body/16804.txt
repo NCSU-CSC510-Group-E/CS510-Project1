@@ -1,0 +1,7 @@
+What options are there in the industry for enterprise reporting?  I'm currently using SSRS 2005, and know that there is another version coming out with the new release of MSSQL.
+
+But, it seems like it might also be a good time to investigate the market to see what else is out there.
+
+What have you encountered?  Do you like it/dislike it? Why?
+
+Thank you.

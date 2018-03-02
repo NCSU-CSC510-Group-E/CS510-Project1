@@ -1,0 +1,16 @@
+I have binary data in a file that I can read into a byte array and process with no problem.  Now I need to send parts of the data over a network connection as elements in an XML document.  My problem is that when I convert the data from an array of bytes to a String and back to an array of bytes, the data is getting corrupted.  I've tested this on one machine to isolate the problem to the String conversion, so I now know that it isn't getting corrupted by the XML parser or the network transport.
+
+What I've got right now is
+
+byte[] buffer = ...; // read from file
+// a few lines that prove I can process the data successfully
+String element = new String(buffer);
+byte[] newBuffer = element.getBytes();
+// a few lines that try to process newBuffer and fail because it is not the same data anymore
+
+
+Does anyone know how to convert binary to String and back without data loss?
+
+Answered:  Thanks Sam.  I feel like an idiot.  I had this answered yesterday because my SAX parser was complaining.  For some reason when I ran into this seemingly separate issue, it didn't occur to me that it was a new symptom of the same problem.
+
+EDIT:  Just for the sake of completeness, I used the Base64 class from the Apache Commons Codec package to solve this problem.

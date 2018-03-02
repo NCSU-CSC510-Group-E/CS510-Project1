@@ -1,0 +1,3 @@
+How do I implement some logic that will allow me to reproduce on Windows the functionality that I have on Linux with the fork() system call, using Python?
+
+I'm specifically trying to execute a method on the SAPI Com component, while continuing the other logic in the main thread without blocking or waiting.

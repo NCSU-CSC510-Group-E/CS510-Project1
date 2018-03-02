@@ -1,0 +1,38 @@
+Can/Should I use a LIKE criteria as part of an INNER JOIN when building a stored procedure/query? I'm not sure I'm asking the right thing, so let me explain.
+
+I'm creating a procedure that is going to take a list of keywords to be searched for in a column that contains text. If I was sitting at the console, I'd execute it as such:
+
+SELECT Id, Name, Description
+  FROM dbo.Card
+ WHERE Description LIKE '%warrior%' 
+       OR
+       Description LIKE '%fiend%' 
+       OR 
+       Description LIKE '%damage%'
+
+
+But a trick I picked up a little while go to do "strongly typed" list parsing in a stored procedure is to parse the list into a table variable/temporary table, converting it to the proper type and then doing an INNER JOIN against that table in my final result set. This works great when sending say a list of integer IDs to the procedure. I wind up having a final query that looks like this:
+
+SELECT Id, Name, Description
+  FROM dbo.Card
+       INNER JOIN @tblExclusiveCard ON dbo.Card.Id = @tblExclusiveCard.CardId
+
+
+I want to use this trick with a list of strings. But since I'm looking for a particular keyword, I am going to use the LIKE clause. So ideally I'm thinking I'd have my final query look like this:
+
+SELECT Id, Name, Description
+  FROM dbo.Card
+       INNER JOIN @tblKeyword ON dbo.Card.Description LIKE '%' + @tblKeyword.Value + '%'
+
+
+Is this possible/recommended?
+
+Is there a better way to do something like this?
+
+
+
+The reason I'm putting wildcards on both ends of the clause is because there are "archfiend", "beast-warrior", "direct-damage" and "battle-damage" terms that are used in the card texts.
+
+I'm getting the impression that depending on the performance, I can either use the query I specified or use a full-text keyword search to accomplish the same task? 
+
+Other than having the server do a text index on the fields I want to text search, is there anything else I need to do?

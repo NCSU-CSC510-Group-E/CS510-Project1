@@ -1,0 +1,7 @@
+I have an application deployed into multiple zones and there are some issues with opening larger documents (20-50MB) across the WAN.  
+
+Currently the documents are stored in Zone 1 (Americas) and a link stored in the database to the docs.  
+
+I have heard some things about blobs in oracle and store binary in MS SQL Server 2005 and then perhaps copying the database to other zones.
+
+Any other suggestions or good results with one of the described options?

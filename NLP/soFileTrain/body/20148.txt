@@ -1,0 +1,6 @@
+I'm working on a projects which involves a lot of database writes, I'd say (70% inserts and 30% reads).  This ratio would also include updates which I consider to be one read and one write.  The reads can be dirty (e.g. I don't need 100% accurate information at the time of read).
+The task in question will be doing over 1 million database transactions an hour.  
+
+I've read a bunch of stuff on the web about the differences between MyISAM and InnoDB, and MyISAM seems like the obvious choice to me for the particular database/tables that I'll be using for this task.  From what I seem to be reading, InnoDB is good if transactions are needed since row level locking is supported.
+
+Does anybody have any experience with this type of load (or higher)?  Is MyISAM the way to go?

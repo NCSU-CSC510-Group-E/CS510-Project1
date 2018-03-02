@@ -1,0 +1,20 @@
+When I'm joining three or more tables together by a common column, I'd write my query like this:
+
+SELECT *
+FROM   a, b, c
+WHERE  a.id = b.id
+AND    b.id = c.id
+
+
+a colleague recently asked my why I didn't do explicit Join Transitive Closure in my queries like this:
+
+SELECT *
+FROM   a, b, c
+WHERE  a.id = b.id
+AND    b.id = c.id
+AND    c.id = a.id
+
+
+are the really any advantages to this? Surely the optimiser can imply this for itself?
+
+edit: I know it's evil syntax, but it's a quick and dirty example of legitimate legacy code +1 @Stu for cleaning it up

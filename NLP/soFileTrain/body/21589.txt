@@ -1,0 +1,23 @@
+I did some tests a while ago and never figured out how to make this work.  
+
+The ingredients:
+
+
+COM+ transactional object (developed in VB6)  
+.Net web application (with transaction) in IIS that...
+makes a call to the COM+ component
+updates a row in a SQL database
+
+
+Testing:  
+
+Run the .Net application and force an exception.  
+
+Result:  
+
+The update made from the .Net application rolls back.
+The update made by the COM+ object does not roll back.
+
+If I call the COM+ object from an old ASP page the rollback works.
+
+I know some people may be thinking "what?! COM+ and .Net you must be out of your mind!", but there are some places in this world where there still are a lot of COM+ components. I was just curious if someone ever faced this and if you figured out how to make this work.

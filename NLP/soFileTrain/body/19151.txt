@@ -1,0 +1,1 @@
+How would one create an iterative function (or iterator object) in python?

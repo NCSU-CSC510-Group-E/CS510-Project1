@@ -1,0 +1,3 @@
+I have a SqlServer database that I've manually filled with some test data. Now I'd like to extract this test data as insert statements and check it in to source control. The idea is that other team members should be able to create the same database, run the created insert scripts and have the same data to test and develop on.
+
+Is there a good tool out there to do this? I'm not looking for a tool to generate data as discussed here.

@@ -1,0 +1,9 @@
+I need to call a web service written in .NET from Java.  The web service implements the WS-Security stack (either WSE 2 or WSE 3, it's not clear from the information I have).  
+
+The information that I received from the service provider included WSDL, a policyCache.config file, some sample C# code, and a sample application that can successfully call the service.
+
+This isn't as useful as it sounds because it's not clear how I'm supposed to use this information to write a Java client.  If the web service request isn't signed according to the policy then it is rejected by the service.  I'm trying to use Apache Axis2 and I can't find any instructions on how I'm supposed to use the policyCahce.config file and the WSDL to generate a client.
+
+There are several examples that I have found on the Web but in all cases the authors of the examples had control of both the service and the client and so were able to make tweaks on both sides in order to get it to work.  I'm not in that position.
+
+Has anyone done this successfully?

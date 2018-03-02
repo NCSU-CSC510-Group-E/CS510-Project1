@@ -1,0 +1,2 @@
+I want to show HTML content inside Flash. Is there some way to do this?
+I am talking about full blown HTML (with JavaScript if possible).

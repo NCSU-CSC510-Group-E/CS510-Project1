@@ -1,0 +1,5 @@
+I am developing a J2ME application that has a large amount of data to store on the device (in the region of 1MB but variable). I can't rely on the file system so I'm stuck the Record Management System (RMS), which allows multiple record stores but each have a limited size. My initial target platform, Blackberry, limits each to 64KB.
+
+I'm wondering if anyone else has had to tackle the problem of storing a large amount of data in the RMS and how they managed it? I'm thinking of having to calculate record sizes and split one data set accross multiple stores if its too large, but that adds a lot of complexity to keep it intact.
+
+There is lots of different types of data being stored but only one set in particular will exceed the 64KB limit.

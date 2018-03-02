@@ -1,0 +1,27 @@
+Given a select with multiple option's in JQuery. 
+
+$select = $("select/select");
+$select.append("optionJason/option") //Key = 1
+       .append("optionJohn/option") //Key = 32
+       .append("optionPaul/option") //Key = 423
+
+
+How should the key be stored and retrieved?
+
+The ID may be an OK place but would not be guaranteed unique if I had multiple select's sharing values (and other scenarios).
+
+Thanks
+
+and in the spirit of TMTOWTDI.
+
+$option = $("option/option");
+$select = $("select/select");
+$select.addOption = function(value,text){
+    $(this).append($("option/").val(value).text(text));
+};
+
+$select.append($option.val(1).text("Jason").clone())
+       .append("option value=32John/option")
+       .append($("option/").val(423).text("Paul"))
+       .addOption("321","Lenny");
+

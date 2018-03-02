@@ -1,0 +1,31 @@
+Basically I want to get the number of lines-of-code in the repository after each commit.
+
+The only (really crappy) ways I have found is to use git filter-branch to run wc -l *, and a script that runs git reset --hard on each commit, then runs wc -l
+
+To make it a bit clearer, when the tool is run, it would output the lines of code of the very first commit, then the second and so on. This is what I want the tool to output (as an example):
+
+me@something:~/$ gitsloc --branch master
+10
+48
+153
+450
+1734
+1542
+
+
+I've played around with the ruby 'git' library, but the closest I found was using the .lines() method on a diff, which seems like it should give the added lines (but does not: it returns 0 when you delete lines for example)
+
+require 'rubygems'
+require 'git'
+
+total = 0
+g = Git.open(working_dir = '/Users/dbr/Desktop/code_projects/tvdb_api')    
+
+last = nil
+g.log.each do |cur|
+  diff = g.diff(last, cur)
+  total = total + diff.lines
+  puts total
+  last = cur
+end
+

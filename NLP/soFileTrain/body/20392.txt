@@ -1,0 +1,3 @@
+We've been trying to alter a lot of columns from nullable to not nullable, which involves dropping all the associated objects, making the change, and recreating the associated objects.
+
+We've been using SQL Compare to generate the scripts, but I noticed that SQL Compare doesn't script statistic objects. Does this mean its ok to drop them and the database will work as well as it did before without them, or have Red Gate missed a trick?

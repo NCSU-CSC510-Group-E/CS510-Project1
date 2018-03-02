@@ -1,0 +1,7 @@
+Can anyone recommend a good binary XML format? It's for a JavaME application, so it needs to be a) Easy to implement on the server, and b) Easy to write a low-footprint parser for on a low-end JavaME client device.
+
+And it goes without saying that it needs to be smaller than XML, and faster to parse.
+
+
+
+The data would be something akin to SVG.

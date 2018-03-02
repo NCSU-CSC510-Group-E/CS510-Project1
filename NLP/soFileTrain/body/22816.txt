@@ -1,0 +1,8 @@
+I know the following libraries for drawing charts in an SWT/Eclipse RCP application:
+
+
+Eclipse BIRT Chart Engine (Links to an article on how to use it)
+JFreeChart
+
+
+Which other libraries are there for drawing pretty charts with SWT? Or charts in Java generally? After all, you can always display an image...

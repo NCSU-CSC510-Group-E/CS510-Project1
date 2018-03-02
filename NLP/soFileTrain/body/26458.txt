@@ -1,0 +1,1 @@
+Is there any IDE that simplifies creating Swing applications (ideally something along the lines of Visual Studio)

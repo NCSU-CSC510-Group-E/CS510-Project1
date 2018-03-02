@@ -1,0 +1,1 @@
+How do I select all records that contain "LCS" within the title column in sql.

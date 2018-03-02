@@ -1,0 +1,17 @@
+In Java 5 and above you have the foreach loop, which works magically on anything that implements Iterable:
+
+for (Object o : list) {
+  doStuff(o);
+}
+
+
+However, Enumerable still does not implement Iterable, meaning that to iterate over an Enumeration you must do the following:
+
+for(; e.hasMoreElements() ;) {
+  doStuff(e.nextElement());
+}
+
+
+Does anyone know if there is a reason why Enumeration still does not implement Iterable?
+
+Edit: As a clarification, I'm not talking about the language concept of an enum, I'm talking a Java-specific class in the Java API called 'Enumeration'. 

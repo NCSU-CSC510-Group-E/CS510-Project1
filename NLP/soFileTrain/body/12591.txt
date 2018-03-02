@@ -1,0 +1,1 @@
+Is there a way, when I parse an XML document using lxml, to validate that document against its DTD using an external catalog file?   I need to be able to work the fixed attributes defined in a document’s DTD.

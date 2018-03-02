@@ -1,0 +1,9 @@
+I wrote a piece of code to convert PHP's striplashes into valid Python [backslash] escapes:
+
+cleaned = stringwithslashes
+cleaned = cleaned.replace('\\n', '\n')
+cleaned = cleaned.replace('\\r', '\n')
+cleaned = cleaned.replace('\\', '')
+
+
+How can I condense it? 

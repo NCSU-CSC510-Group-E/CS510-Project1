@@ -1,0 +1,23 @@
+If I have Python code
+
+class A():
+    pass
+class B():
+    pass
+class C(A, B):
+    pass
+
+
+and I have class C, is there a way to iterate through it's super classed (A and B)? Something like pseudocode:
+
+ magicGetSuperClasses(C)
+(type 'A', type 'B')
+
+
+One solution seems to be inspect module and getclasstree function.
+
+def magicGetSuperClasses(cls):
+    return [o[0] for o in inspect.getclasstree([cls]) if type(o[0]) == type]
+
+
+but is this a "Pythonian" way to achieve the goal?

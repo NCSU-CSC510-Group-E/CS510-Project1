@@ -1,0 +1,3 @@
+"Microsoft SQL Server Profiler is a graphical user interface to SQL Trace for monitoring an instance of the Database Engine or Analysis Services."
+
+I find using SQL Server Profiler extremely useful during development, testing and when I am debugging database application problems. Does anybody know if there is an equivalent program for MySql?

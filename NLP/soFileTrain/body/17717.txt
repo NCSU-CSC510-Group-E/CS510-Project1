@@ -1,0 +1,5 @@
+We are currently using MySQL for a product we are building, and are keen to move to PostgreSQL as soon as possible, primarily for licensing reasons.
+
+Has anyone else done such a move? Our database is the lifeblood of the application and will eventually be storing TBs of data, so I'm keen to hear about experiences of performance improvements/losses, major hurdles in converting SQL and stored procedures, etc.
+
+Edit: Just to clarify to those who have asked why we don't like MySQL's licensing. We are developing a commercial product which (currently) depends on MySQL as a database back-end. Their license states we need to pay them a percentage of our list price per installation, and not a flat fee. As a startup, this is less than appealing.

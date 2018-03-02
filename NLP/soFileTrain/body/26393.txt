@@ -1,0 +1,3 @@
+I've seen news of John Resig's fast new selector engine named Sizzle pop up in quite a few places, but I don't know what a selector engine is, nor have any of the articles given an explanation of what it is.  I know Resig is the creator of jQuery, and that Sizzle is something in Javascript, but beyond that I don't know what it is. So, what is a selector engine?
+
+Thanks!

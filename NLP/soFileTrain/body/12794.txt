@@ -1,0 +1,24 @@
+I'm trying to use jQuery to format code blocks, specifically to add a pre tag inside the code tag:
+
+$(document).ready(function() {
+$("code").wrapInner("pre/pre");
+});
+
+
+Firefox applies the formatting correctly, but IE puts the entire code block on one line. If I add an alert  
+
+alert($("code").html());
+
+
+I see that IE has inserted some additional text into the pre tag:
+
+PRE jQuery1218834632572="null"
+
+
+If I reload the page, the number following jQuery changes.
+
+If I use wrap() instead of wrapInner(), to wrap the pre outside the code tag, both IE and Firefox handle it correctly. But shouldn't pre work inside code as well?
+
+I'd prefer to use wrapInner() because I can then add a CSS class to the pre tag to handle all formatting, but if I use wrap(), I have to put page formatting CSS in the pre tag and text/font formatting in the code tag, or Firefox and IE both choke. Not a huge deal, but I'd like to keep it as simple as possible.
+
+Has anyone else encountered this? Am I missing something?

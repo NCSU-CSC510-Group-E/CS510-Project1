@@ -1,0 +1,7 @@
+I know it can be done and I even have a vague idea of how to do it but it stops at being vague.
+
+I have a standard HTML image tag with an image in it, 100 by 100 pixels in size. I want people to be able to click the image and for that to pass the X and Y that they click into a function.
+
+The coordinates need to be relative to the image top and left.
+
+Thank you in advance for any help.

@@ -1,0 +1,3 @@
+Is anyone else having trouble running Swing applications from IntelliJ IDEA 8 Milestone 1?  Even the simplest application of showing an empty JFrame seems to crash the JVM.  I don't get a stack trace or anything, it looks like the JVM itself crashes and Windows shows me a pop-up that says the usual "This process is no longer responding" message.
+
+Console applications work fine, and my Swing code works fine when launching from Netbeans or from the command line. I'm running Windows Vista x64 with the JDK 1.6 Update 10 beta, which may be a configuration the Jetbrains guys haven't run into yet.

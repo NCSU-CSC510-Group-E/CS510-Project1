@@ -1,0 +1,1 @@
+What's the best framework for creating mock objects in Java? Why? What are the pros and cons of each framework?

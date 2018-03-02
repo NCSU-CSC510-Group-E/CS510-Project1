@@ -1,0 +1,3 @@
+I am messing around with a toy interpreter in Java and I was considering trying to write a simple compiler that can generate bytecode for the Java Virtual Machine. Which got me thinking, how much optimization needs to be done by compilers that target virtual machines such as JVM and CLI?
+
+Do Just In Time (JIT) compilers do constant folding, peephole optimizations etc?

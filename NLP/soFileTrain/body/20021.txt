@@ -1,0 +1,3 @@
+I'm currently looking at the Python framework Django for future db-based web apps as well as for a port of some apps currently written in PHP. One of the nastier issues during my last years was keeping track of database schema changes and deploying these changes to productive systems. I haven't dared asking for being able to undo them too, but of course for testing and debugging that would be a great feature. From other questions here (such as this one or this one), I can see that I'm not alone and that this is not a trivial problem. Also, I found many inspirations in the answers there.
+
+Now, as Django seems to be very powerful, does it have any tools to help with the above? Maybe it's even in their docs and I missed it?

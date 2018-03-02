@@ -1,0 +1,18 @@
+I'm writing a program that sends an email out at a client's specific local time. I have a .NET method that takes a timezone  time and destination timezone and returns the time in that timezone. So my method is to select every distinct timezone in the database, check if it is the correct time using the method, then select every client out of the database with that timezone(s). 
+
+The query will look like one of these. Keep in mind the order of the result set does not matter, so a union would be fine. Which runs faster, or do they really do the same thing?
+
+SELECT email FROM tClient WHERE timezoneID in (1, 4, 9)
+
+
+or
+
+SELECT email FROM tClient WHERE timezoneID = 1
+    UNION ALL SELECT email FROM tClient WHERE timezoneID = 4
+    UNION ALL SELECT email FROM tCLIENT WHERE timezoneID = 9
+
+
+Edit: timezoneID is a foreign key to tTimezone, a table with primary key timezoneID and varchar(20) field timezoneName.
+Also, I went with WHERE IN since I didn't feel like opening up the analyzer.
+
+Edit 2: Query processes 200k rows in under 100 ms, so at this point I'm done.

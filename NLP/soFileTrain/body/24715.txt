@@ -1,0 +1,24 @@
+I'm implementing a tagging system for a website. There are multiple tags per object and multiple objects per tag. This is accomplished by maintaining a table with two values per record, one for the ids of the object and the tag.
+
+I'm looking to write a query to find the objects that match a given set of tags. Suppose I had the following data (in [object] -> [tags]* format)
+
+apple - fruit red food
+banana - fruit yellow food
+cheese - yellow food
+firetruck - vehicle red
+
+
+If I want to match (red), I should get apple and firetruck. If I want to match (fruit, food) I should get (apple, banana).
+
+How do I write a SQL query do do what I want?
+
+@Jeremy Ruten,
+
+Thanks for your answer. The notation used was used to give some sample data - my database does have a table with 1 object id and 1 tag per record.
+
+Second, my problem is that I need to get all objects that match all tags. Substituting your OR for an AND like so:
+
+SELECT object WHERE tag = 'fruit' AND tag = 'food';
+
+
+Yields no results when run.
