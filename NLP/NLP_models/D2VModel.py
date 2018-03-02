@@ -92,7 +92,7 @@ class D2VModel():
         self.model_name = filename
         model_loaded = doc2vec.Doc2Vec.load(filename)
         print("Model Loaded")
-        
+
         return model_loaded
 
     def infoRet(train_corpus, test_corpus1, test_corpus2):
@@ -137,6 +137,8 @@ def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testD
 
     print("done copy-pasting files")
 
+
+
 def main():
 
     model_name = 'javascript-python-model'
@@ -149,6 +151,8 @@ def main():
     # ---- Create Training and Testing Folders for Info Retrieval ----
     # createRandomMix(25000, 30000, 'D:/javascriptPosts/', train_dir, test_dir1)
     # createRandomMix(25000, 15000, 'D:/pythonPosts/', train_dir, test_dir2)
+
+
 
     # ---- Info Retrieval ----
     train_corpus = TaggedDocs(self.train_dir) #both
