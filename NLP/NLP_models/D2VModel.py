@@ -15,7 +15,7 @@ class TaggedDocs(object):
         """
         self.data_dir = data_dir
         self.filenames = [file for file in listdir(data_dir) if file.endswith('.txt')]
-        
+
     def __iter__(self):
 
         #read the corpus - the collection or set of documents
@@ -37,11 +37,24 @@ class TaggedDocs(object):
 
     ## With the current gensim implementation, all label vectors are stored separately in RAM.
     ## they report being able to run 2 million different sentences no problem, however
+
+
 class D2VModel():
     def __init__(self, model_name):
         self.model_name = model_name
 
+
+        """
+        Instructions:
+        create the corpus
+        build the model
+        train model
+        save model
+        """
+
     def createCorpus(directory, tokens_only=False):
+        #TaggedDocs acts as a iterator
+
         if tokens_only: #testing, not training. Doesn't use tags.
             corpus = TaggedDocs(directory, True)
         else:
@@ -49,18 +62,12 @@ class D2VModel():
 
         return corpus
 
-     def trainModel(self, train_corpus):
-        """
-        create the corpus
-        build the model
-        train model
-        save model
-        """
+    def createModel(self, dm=1, vector_size=300, window=10, min_count=2, epochs=20):
+        #create doc2vec model
+        model = gensim.models.doc2vec.Doc2Vec(dm=dm, vector_size=vector_size, window=window, min_count=min_count, epochs=epochs)
+        return model
 
-        #First, get corpus iterator (train_corpus)
-
-        #create do2vec model. dm=1 is for DM model
-        model = gensim.models.doc2vec.Doc2Vec(dm=1, vector_size=300, window=10, min_count=2, epochs=20)
+    def trainModel(self, train_corpus, model):
 
         #build vocabulary (dictionary accessible via mode.wv.vocab of all unique words extracted 
         #from the training corpus) with the frequency counts (model.wv.vocan['word'].count)
@@ -68,20 +75,23 @@ class D2VModel():
 
         #Train
         model.train(train_corpus, total_examples=model.corpus_count, epochs=model.epochs)
-        self.model = model
 
-    def saveModel(self):
+        return model
+
+    def saveModel(self, model):
         #save model 
         print()
-        print("Saving Model..")
-        self.model.save(self.model_name)
+        print("Saving Model ", self.model_name)
+        model.save(self.model_name)
         print("Model Saved")
         print()
 
     def loadModel(self, filename):
         # LOAD
+        print("Loading Model ", filename)
         model_loaded = doc2vec.Doc2Vec.load(filename)
-        self.model = model_loaded
+        print("Model Loaded")
+        return model_loaded
 
     def infoRet(train_corpus, test_corpus1, test_corpus2):
         """
@@ -137,6 +147,11 @@ def main():
     # ---- Create Training and Testing Folders for Info Retrieval ----
     # createRandomMix(25000, 30000, 'D:/javascriptPosts/', train_dir, test_dir1)
     # createRandomMix(25000, 15000, 'D:/pythonPosts/', train_dir, test_dir2)
+
+    # ---- Info Retrieval ----
+    train_corpus = TaggedDocs(self.train_dir) #both
+    test_corpus1 = TaggedDocs(self.test_dir1, True) #javascript
+    test_corpus2 = TaggedDocs(self.test_dir2, True)  #python
 
 
 
