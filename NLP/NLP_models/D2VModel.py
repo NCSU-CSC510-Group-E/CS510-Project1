@@ -44,7 +44,7 @@ class D2VModel():
     def __init__(self, model_name):
         self.model_name = model_name
         self.cores = multiprocessing.cpu_count()
-        assert gensim.models.doc2vec.FAST_VERSION > -1,
+        assert gensim.models.doc2vec.FAST_VERSION > -1
 
 
         """
@@ -55,23 +55,27 @@ class D2VModel():
         save model
         """
 
-    def createCorpus(directory, tokens_only=False):
+    def createCorpus(self, directory, tokens_only=False):
         #TaggedDocs acts as a iterator
-
+        print("Creating Corpus...")
         if tokens_only: #testing, not training. Doesn't use tags.
             corpus = TaggedDocs(directory, True)
         else:
             corpus = TaggedDocs(directory) 
 
         self.corpus = corpus
+        print("Corpus Created")
 
     def createModel(self, dm=1, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=1, dm_mean=0):
+        print("Creating Model...")
         #create doc2vec model
         model = gensim.models.doc2vec.Doc2Vec(dm=dm, vector_size=vector_size, window=window, min_count=min_count, epochs=epochs, dm_concat=dm_concat, dm_mean=dm_mean, workers=self.cores)
         self.model = model
+        print("Model Created")
 
     def trainModel(self):
         model = self.model
+        print("Training Model ", str(model))
 
         #build vocabulary (dictionary accessible via mode.wv.vocab of all unique words extracted 
         #from the training corpus) with the frequency counts (model.wv.vocan['word'].count)
@@ -81,6 +85,7 @@ class D2VModel():
         model.train(self.corpus, total_examples=model.corpus_count, epochs=model.epochs)
 
         self.model = model
+        print("Model Trained")
 
     def saveModel(self):
         #save model 
@@ -139,15 +144,15 @@ class D2VModel():
 
             x_vector = model.infer_vector(test_corpus1[x].words)
             y1_vector = model.infer_vector(test_corpus1[y1].words)
-            y2 vector = model.infer_vector(test_corpus1[y2].words)
+            y2_vector = model.infer_vector(test_corpus1[y2].words)
 
-            #y1 and y2 should be closer in distance than x
+            #y1 and y2 should be closer in distance to each other than x
             xy1 = abs(x_vector - y1_vector)
             xy2 = abs(x_vector - y2_vector)
             y1y2 = abs(y1_vector - y2_vector)
 
             if min(xy1, xy2, y1y2) is y1y2:
-                corect =+ 1
+                correct =+ 1
 
             count += 1
 
@@ -193,7 +198,7 @@ def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testD
 
 def main():
     #Directories of posts
-    train_python_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainPythonJavascript'
+    train_python_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainPythonJavascript/'
     test_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testJavascript/'
     test_python = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testPython/'
 
