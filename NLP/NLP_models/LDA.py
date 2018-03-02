@@ -66,7 +66,7 @@ class LDA(object):
 
         return self.Dictionary
 
-    def LoadModel(self, id2word, topic_count = 200, pass_count=500):
+    def LoadModel(self, id2word, topic_count = 5, pass_count=1):
         """
         Train a model! (yay!)
         Pass in a core and a number of topics to mine for
