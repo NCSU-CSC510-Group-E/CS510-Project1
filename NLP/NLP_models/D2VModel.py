@@ -4,6 +4,7 @@ import random
 #from docToExcel import docToExcel
 import shutil
 import multiprocessing
+import smart_open
 
 """
 Gensim Doc2Vec needs model training data in an iterator object
@@ -16,6 +17,7 @@ class TaggedDocs(object):
         """
         self.data_dir = data_dir
         self.filenames = [file for file in listdir(data_dir) if file.endswith('.txt')]
+        self.tokens_only = tokens_only
 
     def __iter__(self):
 
@@ -24,12 +26,13 @@ class TaggedDocs(object):
         #gives it new integer tag/label to save space in case of large filenames
 
         for i, filename in enumerate(self.filenames):
-            file = open(self.data_dir + filename, 'r')
-            doc = file.read()  #get string of entire document
+            file = smart_open.smart_open(self.data_dir + filename, 'rb')
+            doc = file.read().decode("utf-8") #get past unicode
             file.close()
+
                        
             #gensim has built in tokenizer - remove punctuation, set to lowercase, split into list of words...
-            if tokens_only:
+            if self.tokens_only:
                 yield gensim.utils.simple_preprocess(doc)
 
             else:
@@ -57,6 +60,7 @@ class D2VModel():
 
     def createCorpus(self, directory, tokens_only=False):
         #TaggedDocs acts as a iterator
+        print()
         print("Creating Corpus...")
         if tokens_only: #testing, not training. Doesn't use tags.
             corpus = TaggedDocs(directory, True)
@@ -65,16 +69,20 @@ class D2VModel():
 
         self.corpus = corpus
         print("Corpus Created")
+        print()
 
     def createModel(self, dm=1, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=1, dm_mean=0):
+        print()
         print("Creating Model...")
         #create doc2vec model
         model = gensim.models.doc2vec.Doc2Vec(dm=dm, vector_size=vector_size, window=window, min_count=min_count, epochs=epochs, dm_concat=dm_concat, dm_mean=dm_mean, workers=self.cores)
         self.model = model
-        print("Model Created")
+        print("Model " + str(model) + " Created")
+        print()
 
     def trainModel(self):
         model = self.model
+        print()
         print("Training Model ", str(model))
 
         #build vocabulary (dictionary accessible via mode.wv.vocab of all unique words extracted 
@@ -86,12 +94,13 @@ class D2VModel():
 
         self.model = model
         print("Model Trained")
+        print()
 
     def saveModel(self):
         #save model 
         print()
         print("Saving Model ", self.model_name)
-        self.model.save(self.model_name)
+        self.model.save(self.model_name + ".model")
         print("Model Saved")
         print()
 
