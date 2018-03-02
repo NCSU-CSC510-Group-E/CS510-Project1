@@ -103,9 +103,55 @@ class D2VModel():
         """
         Information Retrieval Test. Can the model accuratly predict 
         whether two documents are similar or not in comparison to another?
+        @params - test_corpus2 is the corpus 
         """
-
+        model = self.model
+        used1 = []
+        used2 = []
+        correct = 0
+        count = 0
+        x = random.randint(0, test_corpus1.corpus_count)
+        y1 = random.randint(0, test_corpus1.corpus_count)
+        y2 = random.randint(0, test_corpus1.corpus_count)
         
+        
+
+        #find minimum number of times to run test
+        min_ = min(test_corpus1.corpus_count, (test_corpus2.corpus_count)//2)
+
+        #INFER A VECTOR without having to retrain via cosine similarity
+        #use random documents from the corpuses
+        for i in range(min_):
+            while x in used1:
+                x = random.randint(0, test_corpus1.corpus_count)
+
+            used1.append(x)
+
+            while y1 in used2:
+                y1 = random.randint(0, test_corpus1.corpus_count)
+
+            used2.append(y1)
+
+            while y2 in used2:
+                y2 = random.randint(0, test_corpus1.corpus_count)
+
+            used2.append(y2)
+
+            x_vector = model.infer_vector(test_corpus1[x].words)
+            y1_vector = model.infer_vector(test_corpus1[y1].words)
+            y2 vector = model.infer_vector(test_corpus1[y2].words)
+
+            #y1 and y2 should be closer in distance than x
+            xy1 = abs(x_vector - y1_vector)
+            xy2 = abs(x_vector - y2_vector)
+            y1y2 = abs(y1_vector - y2_vector)
+
+            if min(xy1, xy2, y1y2) is y1y2:
+                corect =+ 1
+
+            count += 1
+
+        return (correct, count)
 
         
 
@@ -159,9 +205,6 @@ def main():
 
 
     # ---- Info Retrieval ----
-    # train_corpus = TaggedDocs(self.train_dir) #both
-    # test_corpus1 = TaggedDocs(self.test_dir1, True) #javascript
-    # test_corpus2 = TaggedDocs(self.test_dir2, True)  #python
 
     #initialzie objects
     dm_mean = D2VModel("dmM_python_javascript")
@@ -190,7 +233,13 @@ def main():
 
     #send to information retrieval task
     for mod in all_models:
-        mod.infoRet(testPython, testJavascript)
+        results = mod.infoRet(testPython, testJavascript)
+        print(mod.model)
+        print("Correct: ", results[0])
+        print("Out of: ", results[1])
+
+
+
 
 
     #to compare:
