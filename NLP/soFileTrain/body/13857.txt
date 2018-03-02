@@ -1,0 +1,1 @@
+I've been reading a lot about closures and I think I understand them, but without clouding the picture for myself and others, I am hoping someone can explain closures as succinctly and clearly as possible.  I'm looking for a simple explanation that might help me understand where and why I would want to use them.

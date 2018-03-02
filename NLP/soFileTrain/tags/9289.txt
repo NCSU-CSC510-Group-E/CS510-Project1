@@ -1,0 +1,1 @@
+javascript,functional-programming,data-manipulation,client-scripting

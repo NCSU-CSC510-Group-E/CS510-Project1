@@ -1,0 +1,5 @@
+What is the purpose of annotations in Java? I have this fuzzy idea of them as somewhere in between a comment and actual code. Do they affect the program at run time?
+
+What are their typical usages?
+
+Are they unique to Java? Is there a C++ equivalent?

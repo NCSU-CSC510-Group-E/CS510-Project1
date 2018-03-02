@@ -1,0 +1,7 @@
+I am a C/C++ programmer professionally, but I've created a couple of personal web sites using PHP and MySQL. 
+
+They're pretty basic, and I'd like to jazz them up using Ajax, but I've never done any Ajax. I've done all the development so far manually, i.e. no IDE or anything like that.
+
+Does anyone have suggestions on Ajax development environments that can help me?
+
+Shareware or freeware would be preferable as I'd find it hard to justify spending more than a minimal amount of money on this...

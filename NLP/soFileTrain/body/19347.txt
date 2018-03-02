@@ -1,0 +1,5 @@
+At my university most of my classes have been in Java.  I have also recently learned C# (and the Visual Studio environment) at a summer internship.  Now I'm taking an Intro to Computer Graphics class and the grad student teaching the class prefers us to use C++ to access the OpenGL bindings via GLUT.
+
+Does anyone have any good resources on how to make a good transition from Java/C# to C++?  Obviously pointers are going to be a big issue, but any other things I should be looking out for?  Any tutorials, guides, etc. would be very helpful!
+
+Thanks!

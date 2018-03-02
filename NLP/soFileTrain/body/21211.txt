@@ -1,0 +1,5 @@
+This is a bit of a long shot, but if anyone can figure it out, you guys can...
+
+In Windows XP, is there any meta-data that comes with a cut and paste action, from which I can ascertain the application that provided the clipboard contents?
+
+Bonus question... if there is such information, is there any way I can access it through a Java app?

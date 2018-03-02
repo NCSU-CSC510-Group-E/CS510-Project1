@@ -1,0 +1,15 @@
+I have two programs. One is in C# and another one in Java.
+Those programs will, most probably, always run on the same machine.
+
+What would be the best way to let them talk to each other?
+
+So, to clarify the problem:
+
+This is a personal project (so professional/costly libraries are a no go).
+The message volume is low, there will be about 1 to 2 messages per second.
+The messages are small, a few primitive types should do the trick.
+I would like to keep the complexity low.
+The java application is deployed as a single jar as a plugin for another application. So the less external libraries I have to merge, the better.
+I have total control over the C# application.
+As said earlier, both application have to run on the same computer.
+Right now, my solution would be to use sockets with some sort of csv-like format.

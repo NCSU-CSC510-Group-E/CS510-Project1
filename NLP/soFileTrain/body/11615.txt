@@ -1,0 +1,1 @@
+I'm looking for a book/site/tutorial on best practices for relational database design, tuning for performance etc. It turns out this kind of resource is a bit difficult to find; there's a lot of "here's normalization, here's ER diagrams, have at it," but not much in the way of real examples. Anyone have any ideas?

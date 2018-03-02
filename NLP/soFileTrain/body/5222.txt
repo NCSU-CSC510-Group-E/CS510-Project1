@@ -1,0 +1,1 @@
+What is the Java equivalent of PHP's $_POST? After searching the web for an hour, I'm still nowhere closer.

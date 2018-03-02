@@ -1,0 +1,29 @@
+If I have data like this:
+
++---+----+
+|Key|Name|
++---+----+
+|1  |Dan |
++---+----+
+|2  |Tom |
++---+----+
+|3  |Jon |
++---+----+
+|4  |Tom |
++---+----+
+|5  |Sam |
++---+----+
+|6  |Dan |
++---+----+
+
+
+What is the SQL query to bring back the records where Name is repeated 2 or more times?
+
+So the result I would want is
+
+ +---+
+ |Tom|
+ +---+
+ |Dan|
+ +---+
+

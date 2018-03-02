@@ -1,0 +1,16 @@
+I just get the beach ball all day long (it's been doing nothing for hours). It's not taking CPU, not reading from disk, not using the network.
+
+I'm using Java 1.6 on Mac OS X 10.5.4. It worked once, now even restarts of the computer won't help. Activity Monitor says it's "(Not Responding)". Only thing that I can do is kill -9 that sucker.
+
+When I sample the process I see this:
+
+    mach_msg_trap        16620
+    read        831
+    semaphore_wait_trap        831
+
+
+An acceptable answer that doesn't fix this would include a url for a decent free Oracle client for the Mac.
+
+Edit:
+@Mark Harrison sadly this happens every time I start it up, it's not an old connection. I'll like to avoid running Windows on my laptop. I'm giving some plugins for my IDE a whirl, but still no solution for me.
+@Matthew Schinckel Navicat seems to only have a non-commercial Oracle product...I need a commercial friendly one (even if it costs money).

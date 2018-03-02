@@ -1,0 +1,49 @@
+The following code works great in IE, but not in FF or Safari.  I can't for the life of me work out why.  The code is supposed to disable radio buttons if you select the "Disable 2 radio buttons" option.  It should enable the radio buttons if you select the "Enable both radio buttons" option.  These both work...
+
+However, if you don't use your mouse to move between the 2 options ("Enable..." and "Disable...") then the radio buttons do not appear to be disabled or enabled correctly, until you click anywhere else on the page (not on the radio buttons themselves).
+
+If anyone has time/is curious/feeling helpful, please paste the code below into an html page and load it up in a browser.  It works great in IE, but the problem manifests itself in FF (3 in my case) and Safari, all on Windows XP.
+
+html
+  head
+    script language="javascript"
+      function SetLocationOptions() {
+        var frmTemp = document.frm;
+        var selTemp = frmTemp.user;
+
+        if(selTemp.selectedIndex = 0) {
+          var myOpt = selTemp.options[selTemp.selectedIndex];
+          if(myOpt.attributes[0].nodeValue == '1') {
+            frmTemp.transfer_to[0].disabled = true;
+            frmTemp.transfer_to[1].disabled = true;
+            frmTemp.transfer_to[2].checked = true;
+          } else {
+            frmTemp.transfer_to[0].disabled = false;
+            frmTemp.transfer_to[1].disabled = false;
+          }
+        }
+      }
+    /script
+  /head
+
+  body
+    form name="frm" action="coopfunds_transfer_request.asp" method="post"
+      select name="user" onchange="javascript: SetLocationOptions()"
+        option value="" /Choose One
+        option value="58" user_is_tsm="0" /Enable both radio buttons
+        option value="157" user_is_tsm="1" /Disable 2 radio buttons
+      /select
+
+      br /br /
+
+      input type="radio" name="transfer_to" value="fund_amount1" /Premiumnbsp;nbsp;nbsp;
+      input type="radio" name="transfer_to" value="fund_amount2" /Othernbsp;nbsp;nbsp;
+      input type="radio" name="transfer_to" value="both" CHECKED /Both
+
+      br /br /
+
+      input type="button" class="buttonStyle" value="Submit Request" /
+    /form
+  /body
+/html
+

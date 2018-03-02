@@ -1,0 +1,1 @@
+How can I permanently enable line numbers in IntelliJ IDEA?

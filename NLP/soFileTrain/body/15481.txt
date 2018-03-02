@@ -1,0 +1,11 @@
+Sometimes a labeled break or continue can make code a lot more readable. 
+
+OUTERLOOP: for ( ;/*stuff*/; ) {
+    //...lots of code
+
+    if ( isEnough() ) break OUTERLOOP;
+    //...more code
+}
+
+
+I was wondering what the common convention for the labels was. All caps? first cap? 

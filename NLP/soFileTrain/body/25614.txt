@@ -1,0 +1,5 @@
+I've used jdom in the past, and have looked briefly at XOM and DOM4j. Each seems to provide essentially the same thing, as they each provide a simplified wrapper over the (very obtuse) standard W3C DOM APIs.  
+
+I know that JDOM went through some effort to develop a JSR and standardization process at one point, but as far as I know that effort never went anywhere.  All of the project appear to be in stasis with little new development in the past several years.
+
+Is there a consensus as to which is the best?  Also what are the pros and cons of each ?

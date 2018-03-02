@@ -1,0 +1,5 @@
+I'm thinking that the reason I can't do this is because it might be a huge security hole, but here goes...
+
+I want to have a bookmark on my browser (FF3, preferably) that is only a snippet of javascript code.  It would merely construct a URL based on the current date and then do a window.location = on that URL.
+
+I know that I could make a page and keep it on my local machine and just refer to it that way, but I was just wondering if you could bypass that step and actually have the "location" of the bookmark really just be javascript.  I could have sworn that this was possible years ago, but I can't find anything that tells me either way now.

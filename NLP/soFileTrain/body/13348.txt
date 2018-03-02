@@ -1,0 +1,9 @@
+In a database-centric application that is designed for multiple clients, I've always thought it was "better" to use a single database for ALL clients - associating records with proper indexes and keys.  In listening to the Stack Overflow podcast, I heard Joel mention that FogBugz uses one database per client (so if there were 1000 clients, there would be 1000 databases).  What are the advantages of using this architecture?
+
+I understand that for some projects, clients need direct access to all of their data - in such an application, it's obvious that each client needs their own database.  However, for projects where a client does not need to access the database directly, are there any advantages to using one database per client?  It seems that in terms of flexibility, it's much simpler to use a single database with a single copy of the tables.  It's easier to add new features, it's easier to create reports, and it's just easier to manage.
+
+I was pretty confident in the "one database for all clients" method until I heard Joel (an experienced developer) mention that his software uses a different approach -- and I'm a little confused with his decision...
+
+I've heard people cite that databases slow down with a large number of records, but any relational database with some merit isn't going to have that problem - especially if proper indexes and keys are used.
+
+Any input is greatly appreciated!

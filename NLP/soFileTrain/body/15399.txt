@@ -1,0 +1,16 @@
+My firm have a talented and smart operations staff who are working very hard. I'd like to give them a SQL-execution tool that helps them avoid common, easily-detected SQL mistakes that are easy to make when they are in a hurry. Can anyone suggest such a tool? Details follow.
+
+Part of the operations team remit is writing very complex ad-hoc SQL queries. Not surprisingly, operators sometimes make mistakes in the queries they write because they are so busy. 
+
+Luckily, their queries are all SELECTs not data-changing SQL, and they are running on a copy of the database anyway. Still, we'd like to prevent errors in the SQL they run. For instance, sometimes the mistakes lead to long-running queries that slow down the duplicate system they're using and inconvenience others until we find the culprit query and kill it. Worse, occasionally the mistakes lead to apparently-correct answers that we don't catch until much later, with consequent embarrassment. 
+
+Our developers also make mistakes in complex code that they write, but they have Eclipse and various plugins (such as FindBugs) that catch errors as they type. I'd like to give operators something similar - ideally it would see
+
+SELECT U.NAME, C.NAME FROM USER U, COMPANY C WHERE U.NAME = 'ibell';
+
+
+and before you executed, it would say "Hey, did you realise that's a Cartesian product? Are you sure you want to do that?" It doesn't have to be very smart - finding obviously missing join conditions and similar evident errors would be fine.
+
+It looks like TOAD should do this but I can't seem to find anything about such a feature. Are there other tools like TOAD that can provide this kind of semi-intelligent error correction?
+
+Update: I forgot to mention that we're using MySQL.

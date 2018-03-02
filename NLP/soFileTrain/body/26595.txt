@@ -1,0 +1,11 @@
+Is there any difference between:
+
+if foo is None: pass
+
+
+and
+
+if foo == None: pass
+
+
+The convention that I've seen in most Python code (and the code I myself write) is the former, but I recently came across code which uses the latter.  None is an instance (and the only instance, IIRC) of NoneType, so it shouldn't matter, right?  Are there any circumstances in which it might?

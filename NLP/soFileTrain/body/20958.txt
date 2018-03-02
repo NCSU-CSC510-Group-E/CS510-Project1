@@ -1,0 +1,3 @@
+I'm designing a database table and once again asking myself the same stupid question: How long should the firstname field be?
+
+Does anyone have a list of reasonable lengths for the most common fields, such as first name, last name, and email address?

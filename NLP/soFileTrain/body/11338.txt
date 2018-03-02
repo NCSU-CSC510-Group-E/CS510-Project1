@@ -1,0 +1,3 @@
+I'm working on building an app to scan directly from TWAIN scanner to a Java applet. I'm already aware of Morena and JTwain, but they cost money. I need free. I could re-invent the wheel with JNI, but it seems like someone has probably already done this as a FOSS tool.
+
+Is anyone familiar with a free tool that can get a Java applet to read directly from a TWAIN scanner?

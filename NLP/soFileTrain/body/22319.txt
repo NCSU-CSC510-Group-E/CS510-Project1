@@ -1,0 +1,7 @@
+I am writing a program that needs to send out an email every hour on the hour, but at a time local to the user.
+
+Say I have 2 users in different time zones. John is in New York and Fred is in Los Angeles. The server is in Chicago. If I want to send an email at 6 PM local to each user, I'd have to send the email to John at 7 PM Server time and Fred at 4 PM Server time.
+
+What's a good approach to this in .NET / Sql Server? I have found an xml file with all of the time zone information, so I am considering writing a script to import it into the database, then querying off of it.
+
+Edit: I used “t4znet.dll” and did all comparisons on the .NET side.

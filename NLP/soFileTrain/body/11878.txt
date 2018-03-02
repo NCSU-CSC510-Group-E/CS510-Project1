@@ -1,0 +1,13 @@
+I am currently architecting a small CRUD applicaton. Their database is a huge mess and will be changing frequently over the course of the next 6 months to a year. What would you recommend for my data layer:
+
+1) ORM (if so, which one?)
+
+2) Linq2Sql
+
+3) Stored Procedures
+
+4) Parametrized Queries
+
+I really need a solution that will be dynamic enough (both fast and easy) where I can replace tables and add/delete columns frequently.
+
+Note: I do not have much experience with ORM (only a little SubSonic) and generally tend to use stored procedures so maybe that would be the way to go. I would love to learn Ling2Sql or NHibernate if either would allow for the situation I've described above.

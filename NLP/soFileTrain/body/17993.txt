@@ -1,0 +1,1 @@
+We've been developing a windows based application using Java for a while now, but NOW we want to make a mac port and have to reverse of code from Java 6 and Java 5.  Is there any easy way to do this rather than re-coding Java 6 specific code?  We'd like to keep our code up to date.

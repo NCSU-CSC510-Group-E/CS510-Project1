@@ -1,0 +1,37 @@
+I have a large application (~50 modules) using a structure similar to the following:
+
+
+Application  
+
+
+Communication modules
+
+
+Color communication module
+SSN communication module
+etc. communication module
+
+Router module
+Service modules
+
+
+Voting service module
+
+
+Web interface submodule for voting
+Vote collector submodule for voting
+etc. for voting
+
+Quiz service module
+etc. module
+
+
+
+
+I would like to import the application to Maven and Subversion. After some research I found that two practical approaches exists for this.
+
+One is using a tree structure just as the previous one. The drawback of this structure is that you need a ton of tweaking/hacks to get the multi-module reporting work well with Maven. Another downside is that in Subversion the standard trunk/tags/branches approach add even more complexity to the repository.
+
+The other approach uses a flat structure, where there are only one parent project and all the modules, submodules and parts-of-the-submodules are a direct child of the parent project. This approach works well for reporting and is easier in Subversion, however I feel I lose a bit of the structure this way.
+
+Which way would you choose in the long term and why?

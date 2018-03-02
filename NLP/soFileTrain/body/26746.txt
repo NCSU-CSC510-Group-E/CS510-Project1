@@ -1,0 +1,7 @@
+I have a Windows 2008 Server (x64) running Microsoft SQL 2008 (x64) and I'm creating a Linked Server connection to an Oracle server.  I'm able to make the connection, but I cannot see any information regarding which schema a table belongs to.
+
+In SQL 2005, my linked servers show the schema information as I would expect.
+
+Does anyone know how to resolve this issue?  Is it an issue with the provider, OraOLEDB.Oracle?
+
+Any help or pointers would be appreciated.

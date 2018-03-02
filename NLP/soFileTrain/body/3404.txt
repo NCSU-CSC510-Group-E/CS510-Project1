@@ -1,0 +1,5 @@
+I use Firebug and the Mozilla JS console heavily, but every now and then I run into an IE-only JavaScript bug, which are really hard to locate (ex: error on line 724, when the source html only has 200 lines).
+
+I would love to have a lightweight JS tool (a la firebug) for Internet Explorer, something I can install in seconds on a client's PC if I run into an error and then uninstall. Some Microsoft tools take some serious download and configuration time.
+
+Any ideas?

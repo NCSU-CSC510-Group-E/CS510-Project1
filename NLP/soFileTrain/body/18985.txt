@@ -1,0 +1,1 @@
+I am looking for a code beautifier that supports JavaScript and works on both Windows and Linux and can be used in batch scripts. Any recommendations?

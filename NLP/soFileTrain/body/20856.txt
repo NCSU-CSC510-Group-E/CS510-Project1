@@ -1,0 +1,3 @@
+I've heard of a few ways to implement tagging; using a mapping table between TagID and ItemID (makes sense to me, but does it scale?), adding a fixed number of possible TagID columns to ItemID (seems like a bad idea), Keeping tags in a text column that's comma separated (sounds crazy but could work). I've even heard someone recommend a sparse matrix, but then how do the tag names grow gracefully?
+
+Am I missing a best practice for tags?

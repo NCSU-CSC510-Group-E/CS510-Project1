@@ -1,0 +1,11 @@
+I've been making a concerted effort to improve my javascript skills lately by reading as much javascript code as I can. In doing this I've sometimes seen the javascript: prefix appended to the front of event handler attributes in HTML element tags. What's the purpose of this prefix? Basically, is there any appreciable difference between:
+
+onchange="javascript: myFunction(this)"
+
+
+and
+
+onchange="myFunction(this)"
+
+
+?

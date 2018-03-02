@@ -1,0 +1,28 @@
+I have two collections of the same object, CollectionFoo oldSet and CollectionFoo newSet.  The required logic is as follow:
+
+
+if foo is in(*) oldSet but not newSet, call doRemove(foo)
+else if foo is not in oldSet but in newSet, call doAdd(foo)
+else if foo is in both collections but modified, call doUpdate(oldFoo, newFoo)
+else if !foo.activated  foo.startDate = now, call doStart(foo)
+else if foo.activated  foo.endDate = now, call doEnd(foo)
+
+
+(*) "in" means the unique identifier matches, not necessarily the content.
+
+The current (legacy) code does many comparisons to figure out removeSet, addSet, updateSet, startSet and endSet, and then loop to act on each item.
+
+The code is quite messy (partly because I have left out some spaghetti logic already) and I am trying to refactor it.  Some more background info:
+
+
+As far as I know, the oldSet and newSet are actually backed by ArrayList
+Each set contains less than 100 items, most likely max out at 20
+This code is called frequently (measured in millions/day), although the sets seldom differ
+
+
+My questions:
+
+
+If I convert oldSet and newSet into HashMapFoo (order is not of concern here), with the IDs as keys, would it made the code easier to read and easier to compare?  How much of time  memory performance is loss on the conversion?
+Would iterating the two sets and perform the appropriate operation be more efficient and concise?
+

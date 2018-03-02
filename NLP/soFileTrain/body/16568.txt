@@ -1,0 +1,23 @@
+I'm interested in learning some (ideally) database agnostic ways of selecting the nth row from a database table. It would also be interesting to see how this can be achieved using the native functionality of the following databases: 
+
+
+SQL Server
+MySQL
+PostgreSQL
+SQLite
+Oracle
+
+
+I am currently doing something like the following in SQL Server 2005, but I'd be interested in seeing other's more agnostic approaches:
+
+WITH Ordered AS (
+SELECT ROW_NUMBER() OVER (ORDER BY OrderID) AS RowNumber, OrderID, OrderDate
+FROM Orders)
+SELECT *
+FROM Ordered
+WHERE RowNumber = 1000000
+
+
+Credit for the above SQL: Firoz Ansari's Weblog
+
+Update: See Troels Arvin's answer regarding the SQL standard. Troels, have you got any links we can cite?

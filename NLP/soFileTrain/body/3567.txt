@@ -1,0 +1,1 @@
+In SQL Server how do you query a database to bring back all the tables that have a field of a specific name?

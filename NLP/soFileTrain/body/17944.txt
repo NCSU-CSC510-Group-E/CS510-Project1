@@ -1,0 +1,3 @@
+I'm thinking in particular of how to display pagination controls, when using a language such as C# or Java.
+
+If I have x items which I want to display in chunks of y per page, how many pages will be needed?

@@ -1,0 +1,7 @@
+OK, so I don't want to start a holy-war here, but we're in the process of trying to consolidate the way we handle our application configuration files and we're struggling to make a decision on the best approach to take. At the moment, every application we distribute is using it's own ad-hoc configuration files, whether it's property files (ini style), XML or JSON (internal use only at the moment!).
+
+Most of our code is Java at the moment, so we've been looking at Apache Commons Config, but we've found it to be quite verbose. We've also looked at XMLBeans, but it seems like a lot of faffing around. I also feel as though I'm being pushed towards XML as a format, but my clients and colleagues are apprehensive about trying something else. I can understand it from the client's perspective, everybody's heard of XML, but at the end of the day, shouldn't be using the right tool for the job?
+
+What formats and libraries are people using in production systems these days, is anyone else trying to avoid the angle bracket tax?
+
+Edit: really needs to be a cross platform solution: Linux, Windows, Solaris etc. and the choice of library used to interface with configuration files is just as important as the choice of format.

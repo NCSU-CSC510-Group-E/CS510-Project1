@@ -1,0 +1,16 @@
+I have an absolutely positioned div that I want to show when the user clicks a link. The onclick of the link calls a js function that sets the display of the div to block (also tried: "", inline, table-cell, inline-table, etc). This works great in IE7, not at all in every other browser I've tried (FF2, FF3, Opera 9.5, Safari).
+
+I've tried adding alerts before and after the call, and they show that the display has changed from none to block but the div does not display.
+
+I can get the div to display in FF3 if I change the display value using Firebug's HTML inspector (but not by running javascript through Firebug's console) - so I know it's not just showing up off screen, etc.
+
+I've tried everything I can think of, including:
+
+
+Using a different doctype (XHTML 1, HTML 4, etc)
+Using visibility visible/hidden instead of display block/none
+Using inline javascript instead of a function call
+Testing from different machines
+
+
+Any ideas about what could cause this?

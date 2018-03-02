@@ -1,0 +1,1 @@
+I'm looking for the best JavaScript editor available as an Eclipse plugin. I've been using Spket which is good. But, is there more better one?

@@ -1,0 +1,48 @@
+I have a XmlDocument in java, created with the Weblogic XmlDocument parser.
+
+I want to replace the content of a tag in this XMLDocument with my own data, or insert the tag if it isn't there.
+
+customdata
+   tag1 /
+   tag2mfkdslmlfkm/tag2
+   location /
+   tag3 /
+/customdata
+
+
+I for example want to insert some URL in the location tag:
+
+locationhttp://something/location
+
+
+but otherwise leave the XML as is.
+
+Currently I use a XMLCursor:
+
+    XmlObject xmlobj = XmlObject.Factory.parse(a.getCustomData(), options);
+    XmlCursor xmlcur = xmlobj.newCursor();
+
+    while (xmlcur.hasNextToken()) {
+      boolean found = false;
+      if (xmlcur.isStart()  "schema-location".equals(xmlcur.getName().toString())) {
+        xmlcur.setTextValue("http://replaced");
+        System.out.println("replaced");
+        found = true;
+      } else if (xmlcur.isStart()  "customdata".equals(xmlcur.getName().toString())) {
+        xmlcur.push();
+      } else if (xmlcur.isEnddoc()) {
+        if (!found) {
+          xmlcur.pop();
+          xmlcur.toEndToken();
+          xmlcur.insertElementWithText("schema-location", "http://inserted");
+          System.out.println("inserted");
+        }
+
+      }
+      xmlcur.toNextToken();
+    }
+
+
+I tried to find a "quick" xquery way to do this since the XmlDocument has an execQuery method, but didn't find it very easy. 
+
+Do anyone have a better way than this? It seems a bit elaborate.

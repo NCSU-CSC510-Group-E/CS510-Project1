@@ -1,0 +1,8 @@
+I know I need to have (although I don't know why) a GROUP BY clause on the end of a SQL query that uses any aggregate functions like count, sum, avg, etc:
+
+SELECT count(userID), userName
+FROM users
+GROUP BY userName
+
+
+When else would GROUP BY be useful, and what are the performance ramifications?

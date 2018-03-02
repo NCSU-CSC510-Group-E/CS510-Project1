@@ -1,0 +1,3 @@
+I was wondering how as semantic service like Open Calais figures out the names of companies, or people, tech concepts, keywords, etc. from a piece of text. Is it because they have a large database that they match the text against? 
+
+How would a service like Zemanta know what images to suggest to a piece of text for instance? 

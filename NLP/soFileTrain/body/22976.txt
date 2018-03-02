@@ -1,0 +1,21 @@
+I've got a JavaScript "object", built this way:
+
+function foo()
+{
+    this.length = 0;
+}
+
+foo.prototype.getLength = function()
+{
+    return this.length;
+}
+
+...
+
+
+I know how to emulate namespaces with singleton JavaScript objects, but what is the best way to "namepace" an object such as that above that will intanced? 
+
+I know that several JavaScript libraries have namepacing capabilities, but I'm using jQuery and would rather not add another library to the mix. I'd like to be able to provide my own, perhaps by exploiting jQuery, intrinsic namespacing scheme for the JS objects of mine that need to be instanced. 
+
+Thanks
+rp

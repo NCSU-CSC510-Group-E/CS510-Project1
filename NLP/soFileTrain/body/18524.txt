@@ -1,0 +1,3 @@
+I have a list of integers, ListInteger and I'd like to convert all the integer objects into Strings, thus finishing up with a new ListString.
+
+Naturally, I could create a new ListString and loop through the list calling String.valueOf() for each integer, but I was wondering if there was a better (read: more automatic) way of doing it?

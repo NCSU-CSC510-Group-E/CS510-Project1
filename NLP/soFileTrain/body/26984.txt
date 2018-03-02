@@ -1,0 +1,10 @@
+I have been in both situations: 
+
+
+Creating too many custom Exceptions
+Using too many general Exception class
+
+
+In both cases the project started OK but soon became an overhead to maintain (and refactor).
+
+So what is the best practice regarding the creation of your own Exception classes?

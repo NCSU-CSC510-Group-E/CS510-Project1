@@ -1,0 +1,11 @@
+So basically I'm building an app for my company and it NEEDS to be built using MS Access and it needs to be built on SQL Server.
+
+I've drawn up most of the plans but am having a hard time figuring out a way to handle the auditing system.
+
+Since it is being used internally only and you won't even be able to touch the db from outside the building we are not using a login system as the program will only be used once a user has already logged in to our internal network via Active Directory.  Knowing this, we're using a system to detect automatically the name of the Active Directory user and with their permissions in one of the DB tables, deciding what they can or cannot do.
+
+So the actual audit table will have 3 columns (this design may change but for this question it doesn't matter); who (Active Directory User), when (time of addition/deletion/edit), what (what was changed)
+
+My question is how should I be handling this.  Ideally I know I should be using a trigger so that it is impossible for the database to be updated without an audit being logged, however I don't know how I could grab the Active Directory User that way.  An alternate would be to code it directly into the Access source so that whenever something changes I run an INSERT statement.  Obviously that is flawed because if something happens to Access or the database is touched by something else then it will not log the audit.
+
+Any advice, examples or articles that may help me would be greatly appreciated!

@@ -1,0 +1,13 @@
+I wonder if anyone uses commercial/free java obfuscators on his own commercial product. I know only about one project that actually had an obfuscating step in the ant build step for releases.
+
+Do you obfuscate? And if so, why do you obfuscate?
+
+Is it really a way to protect the code or is it just a better feeling for the developers/managers?
+
+edit: Ok, I to be exact about my point: Do you obfuscate to protect your IP (your algorithms, the work you've put into your product)? I won't obfuscate for security reasons, that doesn't feel right. So I'm only talking about protecting your applications code against competitors.
+
+@staffan has a good point:
+
+
+  The reason to stay away from chaining code flow is that some of those changes makes it impossible for the JVM to efficiently optimize the code. In effect it will actually degrade the performance of your application.
+

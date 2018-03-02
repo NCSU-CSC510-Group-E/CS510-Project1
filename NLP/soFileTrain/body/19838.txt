@@ -1,0 +1,13 @@
+I've been trying to understand how Ruby blocks work, and to do that I've been trying to implement them in C.
+
+One easy way to implement closures is to pass a void* to the enclosing stack to the closure/function but Ruby blocks also seem to handle returns and break statements from the scope that uses the block.
+
+loop do
+  break i if (i = 4000)
+  i *= 2
+end
+
+
+I think one of the closures proposals for Java works like this also.
+
+So, how would you implement Ruby-blocks/Java-closures in C?

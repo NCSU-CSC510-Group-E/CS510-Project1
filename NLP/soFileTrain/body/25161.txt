@@ -1,0 +1,3 @@
+I have an image and on it are logos (it's a map), I want to have a little box popup with information about that logo's location when the user moves their mouse over said logo.
+
+Can I do this without using a javascript framework and if so, are there any small libraries/scripts that will let me do such a thing?

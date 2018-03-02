@@ -1,0 +1,5 @@
+The university I work at uses Oracle for the database system. We currently have programs we run at night to download what we need into some local Access tables for our testing needs. Access is getting to small for this now and we need something bigger. Also, the nightly jobs require constant maintance to keep working (because of network issues, table changes, bad code :) ) and I would like to eliminate them to free us up for more important things.
+
+I am most familiar with MySQL so I setup a test MySQL server. What is the best way to automate copying the needed tables from Oracle to MySQL?
+
+Edit: I accepted the answer. I don't like the answer but it seems to be correct based on further research and the lack of other answers provided. Thanks to all for pondering my question and answering it.

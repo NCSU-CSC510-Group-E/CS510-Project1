@@ -1,0 +1,7 @@
+I'm just about to make my first trip into the world of JNI (Java Native Interface) to provide file system change notifications from platform specific C/C++ code to Java. That is unless someone suggest some brilliant library for doing this that I've missed.
+
+Being new to JNI I've managed to find much documentation on the interface side of it and library generation side of it, but I've not found much on building the native library.
+
+I've got an existing build based on ant for the pre-existing Java source, so I'm trying to work out if I should get ant to call make  to create the library or if it's best to get make to call ant after creating the library?
+
+Neither option jumps out as being terribly nice, but both seem better than trying to get ant to call a compiler to compile the code and generate the library directly.

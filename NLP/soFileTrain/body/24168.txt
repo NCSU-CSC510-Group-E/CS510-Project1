@@ -1,0 +1,5 @@
+When writing database queries in something like TSQL or PLSQL, we often have a choice of iterating over rows with a cursor to accomplish the task, or crafting a single SQL statement that does the same job all at once.
+
+Also, we have the choice of simply pulling a large set of data back into our application and then processing it row by row, with C# or Java or PHP or whatever.
+
+Why is it better to use set-based queries?  What is the theory behind this choice?  What is a good example of a cursor-based solution and its relational equivalent?

@@ -1,0 +1,55 @@
+As part of our current database work, we are looking at a dealing with the process of updating databases.
+
+A point which has been brought up recurrently, is that of dealing with system vs. user values; in our project user and system vals are stored together. For example...
+
+We have a list of templates.
+
+1, system template
+
+2, system template
+
+3, system template
+
+
+These are mapped in the app to an enum (1, 2, 3)
+
+Then a user comes in and adds...
+
+4, user template
+
+
+...and...
+
+5, user template
+
+
+Then.. we issue an upgrade.. and insert as part of our upgrade scripts...
+
+new id [6], new system template
+
+
+THEN!!... we find a bug in the new system template and need to update it... The problem is how? We cannot update record using ID6 (as we may have inserted it as 9, or 999, so we have to identify the record using some other mechanism)
+
+So, we've come to two possible solutions for this.
+
+In the red corner (speed)....
+
+We simply start user Ids at 5000 (or some other value) and test data at 10000 (or some other value). This would allow us to make modifications to system values and test them up to the lower limit of the next ID range. 
+
+Advantage...Quick and easy to implement, 
+
+Disadvantage... could run out of values if we don't choose a big enough range!
+
+In the blue corner (scalability)...
+
+We store, system and user data separately, use GUIDs as Ids and merge the two lists using a view.
+
+Advantage...Scalable..No limits w/regard to DB size. 
+
+Disadvantage.. More complicated to implement. (many to one updatable views etc.)
+
+
+
+I plump squarely for the first option, but looking for some ammo to back me up!
+
+Does anyone have any thoughts on these approaches, or even one(s) that we've missed?

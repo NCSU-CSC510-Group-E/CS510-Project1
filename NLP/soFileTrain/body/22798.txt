@@ -1,0 +1,1 @@
+Has anyone got a working solution without some Java/COM-bridge? E.g. process the Email as a file (.msg) rather than locating the data that is referenced in the Clipboard?

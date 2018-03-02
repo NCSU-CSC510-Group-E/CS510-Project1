@@ -1,0 +1,1 @@
+How can I request a random row (or as close to truly random as is possible) in pure SQL?

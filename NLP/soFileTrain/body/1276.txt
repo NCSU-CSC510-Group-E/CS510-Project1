@@ -1,0 +1,9 @@
+At what point does a MySQL database start to lose performance?
+
+
+Does physical database size matter?
+Do number of records matter?
+Is any performance degradation linear or exponential?
+
+
+I have what I believe to be a large database, with roughly 15M records which take up almost 2GB. Based on these numbers, is there any incentive for me to clean the data out, or am I safe to allow it to continue scaling for a few more years?

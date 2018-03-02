@@ -1,0 +1,1 @@
+I would like to automatically generate PDF documents from WebObjects based on mulitpage forms. Assuming I have a class which can assemble the related forms (java/wod files) is there a good way to then parse the individaul forms into a PDF instead of going to the screen?

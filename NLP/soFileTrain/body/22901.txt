@@ -1,0 +1,1 @@
+I am going to be using C/C++, and would like to know the best way to talk to a MySQL server.  Should I use the library that comes with the server installation?  Are they any good libraries I should consider other than the official one?

@@ -1,0 +1,17 @@
+I have developed a high speed transactional server for transfering data over the internet so I do not need to rely upon a database implementation like MySQL to provide this. That opens up the question of which SQL version to use?
+
+I really like SQLite, but I am not convinced it is industrial strength yet
+What I do like is how lightweight it is on resources.
+
+I loathed MySQL 8 years ago, but now it obviously IS industrial strength and my partners use it, so it is the obvious choice on the server side. If I use it I will just be connecting through "localhost" to the installed server (windows service). My concern is about the memory usage.
+
+I DO NOT load the result set into memory, but I notice about 6Mb for the first connection. I am hoping subsequent connections are not an additional 6MB!
+
+If I use the libmysqld.dll embedded libarary then does each new connection load a new instance of the embedded client/server code into memory? We assume so since each process will have its own in process memory...
+
+Regardless, the manual states that When using the libmysqld embedded server, the memory benefits are essentially lost when retrieving results row by row because "memory usage incrementally increases with each row retrieved until mysql_free_result() is called."
+http://dev.mysql.com/doc/refman/5.1/en/mysql-use-result.html
+
+This means I must use the installed service. But is this as fast as the embedded server?
+
+Are there any other low cost flavors that have high reliability?

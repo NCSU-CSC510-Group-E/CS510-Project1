@@ -1,0 +1,3 @@
+What would be a very fast way to determine if your connectionstring lets you connect to a database?
+
+Normally a connection attempt keeps the user waiting a long time before notifying the attempt was futile anyway.

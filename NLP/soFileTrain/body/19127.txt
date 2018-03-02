@@ -1,0 +1,9 @@
+I have a page using ul lists for navigation (Javascript changes the styling to display or not on mouseover).
+
+This is working fine for me except in IE6 and IE7 when I have a Google Map on the page.
+
+In this case the drop-down simply does not work. However, the page continues to work in FireFox 2.
+
+I have done a little bit of research and discovered that this may be an example of the IE Select Box Bug, but I am not sure as the Google Map appears to be using a div, not an iframe.
+
+Has anyone else encountered a problem similar to this, and if so do they have any recommendations on the best way to overcome this problem?

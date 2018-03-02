@@ -1,0 +1,3 @@
+I had an idea, if I add a python .py file to my C# project, and tag the file with a custom generator that would execute the python file, and treat the output as the result of the code generation, ie. put it into a C# file, that would allow me to do quite a lot of code generation as part of the build process.
+
+Does anyone know if such a custom generator for Visual Studio 2008 exists?

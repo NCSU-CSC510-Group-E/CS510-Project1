@@ -1,0 +1,5 @@
+I've been developing a "Form Builder" in Javascript, and coming up to the part where I'll be sending the spec for the form back to the server to be stored. The builder maintains an internal data structure that represents the fields, label, options (for select/checkbox/radio), mandatory status, and the general sorting order of the fields.
+
+When I want to send this structure back to the server, which format should I communicate it with?
+
+Also, when restoring a server-saved form back into my Javascript builder, should I load in the data in the same format it sent it with, or should I rebuild the fields using the builder's createField() functions?

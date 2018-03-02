@@ -1,0 +1,66 @@
+The RFC for a Java class is set of all methods that can be invoked in response to a message to an object of the class or by some method in the class. 
+RFC = M + R where 
+M = Number of methods in the class.
+R = Total number of other methods directly invoked from the M.
+
+Thinking C is the .class and J is the .java file of which we need to calculate RFC.
+
+
+class J{
+
+ a(){}
+ b(){}
+ c(){
+   e1.e();
+   e1.f();
+   e1.g();
+ }
+ h(){
+   i.k();
+   i.j();
+  }
+  m(){}
+  n(){
+   i.o();
+   i.p();
+   i.p();
+   i.p();
+  }
+}
+
+
+here M=6
+and R=9  (Don't worry about call inside a loop. It's considered as a single call)
+
+Calculating M is easy. Load C using classloader and use reflection to get the count of methods.
+
+Calculating R is not direct. We need to count the number of method calls from the class. First level only. 
+
+For calculating R I must use regex. Usually format would be (calls without using . are not counted)
+
+
+[variable_name].[method_name]([zero or more parameters]);
+
+
+or
+
+
+[variable_name].[method_name]([zero or more parameters])
+
+
+with out semicolon when call return is directly becomes parameter to another method.
+or  
+
+
+[variable_name].[method_name]([zero or more parameters]).method2();
+
+
+this becomes two method calls
+
+What other patterns of the method call can you think of?  Is there any other way other than using RegEx that can be used to calculate R.
+
+
+
+UPDATE:
+@McDowell
+Looks like using BCEL I can simplify the whole process. Let me try it.

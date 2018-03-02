@@ -1,0 +1,5 @@
+Let's say that you want to create a dead simple BlogEditor and, one of your ideas, is to do what Live Writer does and ask only the URL of the persons Blog. How can you detect what type of blog is it?
+
+Basic detection can be done with the URL itself, such as “http://myblog.blogger.com” etc. But what if it's self hosted?
+
+I'm mostly interested on how to do this in Java, but this question could be also used as a reference for any other language.

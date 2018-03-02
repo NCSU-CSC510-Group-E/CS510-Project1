@@ -1,0 +1,17 @@
+Simple asp.net application.
+
+I have two drop-down controls, on the first-drop down I have a javascript onChange event. The javascript enables the second drop-down and removes a value from it (the value selected in the first drop-down). If they click the blank first value of the drop-down, then the second drop-down will be disabled (and the options reset).
+
+I also have code in the OnPreRender method that will enable or disable the second drop-down based on the value of the first drop-down. This is so that the value of the first drop-down can be selected in code (loading user settings).
+
+My problem is:
+
+
+The user selects something in the first drop-down. The second drop-down will become enabled through javascript. 
+They then change a third drop-down that initiates a post back. After the post back the drop-downs are in the correct state (first value selected, second drop-down enabled).
+If they then click the back button, the second drop-down will no longer be enabled although it should be since there's something selected in the first drop-down.
+
+
+I've tried adding a startup script (that will set the correct state of the second-drop down) through ClientScript.RegisterStartupScript, however when this gets called the first drop-down has a selectedIndex of 0, not what it actually is. My guess is that the value of the selection gets set after my start script (but still doesn't call the onChange script).
+
+Any ideas on what to try?

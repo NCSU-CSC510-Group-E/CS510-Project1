@@ -1,0 +1,17 @@
+I'm new to SQL Server Reporting Services, and was wondering the best way to do the following:
+
+
+  
+  Query to get a list of popular IDs
+  Subquery on each item to get properties from another table
+  
+
+
+Ideally, the final report columns would look like this:
+
+[ID] [property1] [property2] [SELECT COUNT(*)
+                              FROM AnotherTable 
+                              WHERE ForeignID=ID]
+
+
+There may be ways to construct a giant SQL query to do this all in one go, but I'd prefer to compartmentalize it. Is the recommended approach to write a VB function to perform the subquery for each row? Thanks for any help.

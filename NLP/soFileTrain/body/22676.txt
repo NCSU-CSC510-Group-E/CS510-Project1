@@ -1,0 +1,7 @@
+I have a small utility that I use to download a MP3 from a website on a schedule and then builds/updates a podcast XML file which I've obviously added to iTunes.
+
+The text processing that creates/updates the XML file is written in Python. I use wget inside a Windows .bat file to download the actual MP3 however. I would prefer to have the entire utility written in Python though.
+
+I struggled though to find a way to actually down load the file in Python, thus why I resorted to wget.
+
+So, how do I download the file using Python?

@@ -1,0 +1,81 @@
+Am I correct in assuming that the only difference between "windows files" and "unix files" is the linebreak? 
+
+We have a system that has been moved from a windows machine to a unix machine and are having troubles with the format.
+
+I need to automate the translation between unix/windows before the files get delivered to the system in our "transportsystem". I'll probably need something to determine the current format and something to transform it into the other format.
+If it's just the newline thats the big difference then I'm considering just reading the files with the java.io. As far as I know, they are able to handle both with readLine. And then just write each line back with 
+
+while (line = readline)
+    print(line + NewlineInOtherFormat)
+....
+
+
+
+
+Summary:
+
+
+  samjudson:
+  
+  
+    This is only a difference in text files, where UNIX uses a single Line Feed (LF) to signify a new line, Windows uses a Carriage Return/Line Feed (CRLF) and Mac uses just a CR.
+  
+  
+  to which Cebjyre elaborates: 
+  
+  
+    OS X uses LF, the same as UNIX - MacOS 9 and below did use CR though
+  
+  
+  Mo
+  
+  
+    There could also be a difference in character encoding for national characters. There is no "unix-encoding" but many linux-variants use UTF-8 as the default encoding. Mac OS (which is also a unix) uses its own encoding (macroman). I am not sure, what windows default encoding is.
+  
+  
+  McDowell
+  
+  
+    In addition to the new-line differences, the byte-order mark can cause problems if files are treated as Unicode on Windows.
+  
+  
+  Cheekysoft
+  
+  
+    However, another set of problems that you may come across can be related to single/multi-byte character encodings. If you see strange unexpected chars (not at end-of-line) then this could be the reason. Especially if you see square boxes, question marks, upside-down question marks, extra characters or unexpected accented characters.
+  
+  
+  Sadie
+  
+  
+    On unix, files that start with a . are hidden. On windows, it's a filesystem flag that you probably don't have easy access to. This may result in files that are supposed to be hidden now becoming visible on the client machines.
+    
+    File permissions vary between the two. You will probably find, when you copy files onto a unix system, that the files now belong to the user that did the copying and have limited rights. You'll need to use chown/chmod to make sure the correct users have access to them.
+  
+
+
+There exists tools to help with the problem:
+
+
+  pauldoo
+  
+  
+    If you are just interested in the content of text files, then yes the line endings are different. Take a look at something like dos2unix, it may be of help here.
+  
+  
+  Cheekysoft
+  
+  
+    As pauldoo suggests, tools like dos2unix can be very useful. Note that these may be on your linux/unix system as fromdos or tofrodos, or perhaps even as the general purpose toolbox recode.
+  
+
+
+Help for java coding
+
+
+  Cheekysoft
+  
+  
+    When writing to files or reading from files (that you are in control of), it is often worth specifying the encoding to use, as most Java methods allow this. However, also ensuring that the system locale matches can save a lot of pain
+  
+

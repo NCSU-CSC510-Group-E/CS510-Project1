@@ -1,0 +1,6 @@
+For example: Updating all rows of the customer table because you forgot to add the where clause.
+
+
+What was it like, realizing it and reporting it to your coworkers or customers? 
+What were the lessons learned?
+

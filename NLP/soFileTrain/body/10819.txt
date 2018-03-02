@@ -1,0 +1,3 @@
+For certain types of sql queries, an auxiliary table of numbers can be very useful. It may be created as a table with as many rows as you need for a particular task or as a user defined function that returns the number of rows required in each query.
+
+What is the optimal way to create such a function?

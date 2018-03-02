@@ -1,0 +1,3 @@
+My coworker and I have encountered a nasty situation where we have to use an active X control to manipulate a web camera on a page. 
+
+Is it possible to assign a javascript event handler to a button in the active x control so that it would fire an action on the page when clicked, or do we have to create a button on the html page itself that manipulates the Active X Control and then can fire any necessary actions on the page?

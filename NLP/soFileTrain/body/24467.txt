@@ -1,0 +1,9 @@
+I'm developing a web- application using NHibernate. Can you tell me how to write a NHibernate Query for the following SQL query:
+
+SELECT v1.Id
+FROM VIEW v1
+LEFT JOIN VIEW v2 ON v1.SourceView = v2.Id
+ORDER BY v1.Position
+
+
+It's basically a auto-join but I don't know how to write this in Nhibernate. Lets say the property names are the same as the table column names.

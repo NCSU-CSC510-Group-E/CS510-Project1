@@ -1,0 +1,9 @@
+I'm starting a new project here (Windows Forms). What's the best option today for a small (free as in beer) DBMS?
+
+I've used SQL Server Express on the past projects, but time and time again I hear people saying that the product from Oracle is faster and more powerful.
+
+It will be used in a small company (around 20 users) and will not reach the 4 GB limit any time soon :)
+
+I don't want to start a flame war on my first post, so please point me to some link showing a good (and actual) comparison between the 2 products, if possible.
+
+PS: I've heard about IBM DB2 Express too, but I coudn't find any information about it. (Marketing material from IBM doesn't count :) )

@@ -1,0 +1,13 @@
+I'm using ColdFusion to return a result set from a SQL database and turn it into a list.  I need some way to generate an alphabetical navigation bar for that list.  I have ColdFusion and the jQuery library available.  I'm looking to generate something like this:
+
+A | B | C | ...      
+- A
+- A
+- B
+- B
+- B
+- C
+- D
+
+
+Where clicking on one of the letters drops you down the page to the first item for that letter.  Not all 26 letters of the alphabet are necessarily in use.

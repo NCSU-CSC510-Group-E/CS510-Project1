@@ -1,0 +1,4 @@
+I have a table with a 'filename' column.
+I recently performed an insert into this column but in my haste forgot to append the file extension to all the filenames entered.  Fortunately they are all '.jpg' images.
+
+How can I easily update the 'filename' column of these inserted fields (assuming I can select the recent rows based on known id values) to include the '.jpg' extension?

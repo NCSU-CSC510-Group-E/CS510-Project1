@@ -1,0 +1,12 @@
+I'm looking for (arguably) the correct way to return data from a XmlHttpRequest. Options I see are:
+
+
+Plain HTML. Let the request format the data and return it in a usable format. 
+Advantage: easy to consume by the calling page.Disadvantage: Very rigid, stuck with a fixed layout.
+XML. Let the request return XML, format it using XSLT on the calling page.Advantage: the requested service is easily consumed by other sources.Disadvantage: Is browser support for XSLT good enough?
+JSON. Let the request return JSON, consume it using javascript, render HTML accordingly.Advantage: easier to 'OO-ify' the javascript making the request. Disadvantage: Probably not as easy to use as the previous two options.
+
+
+I've also thought about going for option one while abstracting the view logic in the called service in such a way that switching in and out different layouts would be trivial. Personally I think this option is the best out of three, for compatibility reasons.
+
+While typing this, I got another insight. Would it be a good idea to allow all three response formats, based on a parameter added to the request?

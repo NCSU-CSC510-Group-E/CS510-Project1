@@ -1,0 +1,1 @@
+When you have a query or stored procedure that needs performance tuning, what are some of the first things you try?

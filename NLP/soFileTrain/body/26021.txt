@@ -1,0 +1,21 @@
+For our application, we keep large amounts of data indexed by three integer columns (source, type and time). Loading significant chunks of that data can take some time and we have implemented various measures to reduce the amount of data that has to be searched and loaded for larger queries, such as storing larger granularities for queries that don't require a high resolution (time-wise).
+
+When searching for data in our backup archives, where the data is stored in bzipped text files, but has basically the same structure, I noticed that it is significantly faster to untar to stdout and pipe it through grep than to untar it to disk and grep the files. In fact, the untar-to-pipe was even noticeably faster than just grepping the uncompressed files (i. e. discounting the untar-to-disk).
+
+This made me wonder if the performance impact of disk I/O is actually much heavier than I thought. So here's my question:
+
+Do you think putting the data of multiple rows into a (compressed) blob field of a single row and search for single rows on the fly during extraction could be faster than searching for the same rows via the table index?
+
+For example, instead of having this table
+
+CREATE TABLE data ( `source` INT, `type` INT, `timestamp` INT, `value` DOUBLE);
+
+
+I would have
+
+CREATE TABLE quickdata ( `source` INT, `type` INT, `day` INT, `dayvalues` BLOB );
+
+
+with approximately 100-300 rows in data for each row in quickdata and searching for the desired timestamps on the fly during decompression and decoding of the blob field.
+
+Does this make sense to you? What parameters should I investigate? What strings might be attached? What DB features (any DBMS) exist to achieve similar effects?

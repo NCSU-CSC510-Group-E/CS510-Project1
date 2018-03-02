@@ -1,0 +1,3 @@
+In your applications, what's a "long time" to keep a transaction open before committing or rolling back?  Minutes?  Seconds?  Hours?
+
+and on which database?

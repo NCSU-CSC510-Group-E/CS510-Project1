@@ -1,0 +1,22 @@
+If you're building an AJA~Xy app, are there any downsides to using JSONP requests/responses even if you're not planning on any cross-domain requests? 
+
+The only thing I can think of is that there are a couple extra bytes for the callback wrapper... 
+
+Edit:
+
+I found this which also suggests security and error handling as potential problems... 
+
+
+  There's no error handling. The script injection either works, or it doesn't.
+  If there's an error from the injection, it'll hit the page, and short of a window wide error handler (bad, bad, very bad), you need to be sure the return value is valid on the server side.
+
+
+I don't think error handling is much of a problem... most of us would use a library to generate the JSON... the well-formedness of my response isn't a concern for this question.
+
+and security:
+
+
+  There's documents out on the web that can help, but as a cursory check, I would check the referrer in the server side script.
+
+
+it seems like this is a potential problem with any type of response... certainly there's nothing unique to JSONP in the security arena...?

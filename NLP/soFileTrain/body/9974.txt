@@ -1,0 +1,5 @@
+This is a question I asked on another forum which received some decent answers, but I wanted to see if anyone here has more insight.
+
+The problem is that you have one of your pages in a web application timing out when it gets to a stored procedure call, so you use Sql Profiler, or your application trace logs, to find the query and you paste it into management studio to figure our why it's running slow.  But you run it from there and it just blazes along, returning in less than a second each time.
+
+My particular case was using ASP.NET 2.0 and Sql Server 2005, but I think the problem could apply to any RDBMS system.

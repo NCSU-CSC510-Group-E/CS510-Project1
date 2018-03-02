@@ -1,0 +1,5 @@
+I have a database with a table Customers that have some data
+I have another database in the office that everything is the same, but my table Customers is empty
+How can I create a sql file in SQL Server 2005 (T-SQL) that takes everything on the table Customers from the first database, creates a, let's say, buildcustomers.sql, I zip that file, copy it across the network, execute it in my SQL Server and voila! my table Customers is full
+
+How can I do the same for a whole database?

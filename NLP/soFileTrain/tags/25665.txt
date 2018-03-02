@@ -1,0 +1,1 @@
+python,pdf,text-extraction,pdf-scraping

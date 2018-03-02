@@ -1,0 +1,18 @@
+I have a query where I am searching against a string:
+
+SELECT county FROM city WHERE UPPER(name) = 'SAN FRANCISCO';
+
+
+Now, this works fine, but it doesn't scale well, and I need to optimize it.  I have found an option along the lines of creating a generated view, or something like that, but I was hoping for a simpler solution using an index.
+
+We are using DB2, and I really want to use an expression in an index, but this option seems to only be available on z/OS, however we are running Linux.  I tried the expression index anyways:
+
+CREATE INDEX city_upper_name_idx
+ON city UPPER(name) ALLOW REVERSE SCANS;
+
+
+But of course, it chokes on the UPPER(name).
+
+Is there another way I can create an index or something similar in this manner such that I don't have to restructure my existing queries to use a new generated view, or alter my existing columns, or any other such intrusive change?
+
+EDIT: I'm open to hearing solutions for other databases... it might carry over to DB2...

@@ -1,0 +1,10 @@
+For example, http://developer.apple.com/cocoa/pyobjc.html is still for OS X 10.4 Tiger, not 10.5 Leopard.. And that's the official Apple documentation for it..
+
+The official PyObjC page is equally bad, http://pyobjc.sourceforge.net/
+
+It's so bad it's baffling.. I'm considering learning Ruby primarily because the RubyCocoa stuff is so much better documented, and there's lots of decent tutorials (http://www.rubycocoa.com/ for example), and because of the Shoes GUI toolkit..
+
+Even this badly-auto-translated Japanese tutorial is more useful than the rest of the documentation I could find..
+
+All I want to do is create fairly simple Python applications with Cocoa GUI's..
+Can anyone shed light on the horrible documentation, or point me at some tutorials that don't just give you huge blocks of code and assume you know what NSThread.detachNewThreadSelector_toTarget_withObject_("queryController", self, None) does..?

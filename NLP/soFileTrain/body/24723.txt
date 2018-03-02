@@ -1,0 +1,5 @@
+Jeff actually posted about this in Sanitize HTML. But his example is in C# and I'm actually more interested in a Java version. Does anyone have a better version for Java? Is his example good enough to just convert directly from C# to Java? 
+
+[Update] I have put a bounty on this question because SO wasn't as popular when I asked the question as it is today (*). As for anything related to security, the more people look into it, the better it is! 
+
+(*) In fact, I think it was still in closed beta

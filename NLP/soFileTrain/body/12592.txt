@@ -1,0 +1,2 @@
+Is it possible to write a doctest unit test that will check that an exception is raised?
+For example, if I have a function foo(x) that is supposed to raise an exception if x0, how would I write the doctest for that? 

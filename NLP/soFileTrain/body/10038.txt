@@ -1,0 +1,3 @@
+I understand how JS is run and I think I understand most of the DOM but I've no idea about animation. Does anybody here know of a good guide that can explain to me how it's done in Javascript?
+
+In addition, should I even consider Javascript for animation? Should I instead be looking to learn flash?

@@ -1,0 +1,5 @@
+I would like to be able to use the Tab key within the a text box to tab over four spaces. The way it is now, the Tab key jumps my cursor to the next input.
+
+Is there some JavaScript that will capture the Tab key in the text box before it bubbles up to the UI?
+
+I understand some browsers (i.e. FireFox) may not allow this. How about a custom key-combo like Shift+Tab, or Ctrl+Q?

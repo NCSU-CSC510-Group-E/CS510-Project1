@@ -1,0 +1,5 @@
+Every project invariably needs some type of reporting functionality.  From a foreach loop in your language of choice to a full blow BI platform.  
+
+
+  To get the job done what tools, widgets, platforms has the group used with success, frustration and failure?
+

@@ -1,0 +1,13 @@
+There are lots of widgets provided by sites that are effectively bits of JavaScript that generate HTML through DOM manipulation or document.write(). Rather than slow the browser down even more with additional requests and trust yet another provider to be fast, reliable and not change the widget output, I want to execute* the JavaScript to generate the rendered HTML, and then save that HTML source.­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
+
+Things I've looked into that seem unworkable or way too difficult:
+
+
+The Links Browser (not lynx!)
+Headless use of Xvfb plus Firefox plus Greasemonkey (yikes)
+The all-Java browser toolkit Cobra (the best bet!) 
+
+
+Any ideas? 
+
+** Obviously you can't really execute the JavaScript completely, as it doesn't necessarily have an exit path, but you get the idea.

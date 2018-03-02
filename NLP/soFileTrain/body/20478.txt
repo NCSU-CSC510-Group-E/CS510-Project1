@@ -1,0 +1,5 @@
+For my senior thesis, I developed a program that would automatically detect and suggest fixes to SQL injection vulnerabilities using prepared statements.  Specifically the mysqli extension for PHP.  My question for the SO community is this: What would your preferred approach be to detect the SQL in PHP source code?
+
+I used an enum containg the SQL keywords (SELECT, INSERT, ...) and basically parsed each line, iterating over the enum to determine if any SQL was present.  Additionally, I had to make sure that the parser was not erroneously detecting html (for example \select>).
+
+For me this solution worked fine, but now I have a little more time on my hands now and have thought about refactoring the code to use a more elegant (and efficient) solution. Please limit your solutions to using C# as that is what I wrote my program in.

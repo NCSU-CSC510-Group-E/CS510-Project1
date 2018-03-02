@@ -1,3 +1,0 @@
-I am starting a new web application in PHP and this time around I want to create something that people can extend by using a plugin interface. 
-
-How does one go about writing 'hooks' into their code so that plugins can attach to specific events?

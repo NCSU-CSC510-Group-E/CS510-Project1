@@ -1,0 +1,8 @@
+I need to find out how to format numbers as strings. My code is here:
+
+return str(hours)+":"+str(minutes)+":"+str(seconds)+" "+ampm
+
+
+Hours and minutes are integers, and seconds is a float.  the str() function will convert all of these numbers to the tenths (0.1) place.  So instead of my string outputting "5:30:59.07 pm", it would display something like "5.0:30.0:59.1 pm".
+
+Bottom line, what library / function do I need to do this for me?

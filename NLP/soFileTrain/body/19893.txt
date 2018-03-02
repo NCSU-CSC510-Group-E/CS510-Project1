@@ -1,0 +1,3 @@
+I have two applications written in Java that communicate with each other using XML messages over the network.  I'm using a SAX parser at the receiving end to get the data back out of the messages.  One of the requirements is to embed binary data in an XML message, but SAX doesn't like this.  Does anyone know how to do this?
+
+UPDATE:  I got this working with the Base64 class from the apache commons codec library, in case anyone else is trying something similar.

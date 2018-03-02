@@ -1,0 +1,3 @@
+Hopefully, I can get answers for each database server.
+
+For an outline of how indexing works check out: How does database indexing work?

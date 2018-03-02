@@ -1,0 +1,11 @@
+I want to create a Java program that can be extended with plugins. How can I do that and where should I look for?
+
+I have a set of interfaces that the plugin must implement, and it should be in a jar. The program should watch for new jars in a relative (to the program) folder and registered them somehow.
+
+
+
+Although I do like Eclipse RCP, I think it's too much for my simple needs.
+
+Same thing goes for Spring, but since I was going to look at it anyway, I might as well try it.
+
+But still, I'd prefer to find a way to create my own plugin "framework" as simple as possible.

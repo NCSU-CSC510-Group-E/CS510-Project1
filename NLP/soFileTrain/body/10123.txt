@@ -1,0 +1,11 @@
+I'm trying to decode the result of the Python os.wait() function. This returns, according to the Python docs:
+
+
+  a tuple containing its pid and exit status indication: a 16-bit number, whose low byte is the signal number that killed the process, and whose high byte is the exit status (if the signal number is zero); the high bit of the low byte is set if a core file was produced.
+
+
+How do I decode the exit status indication (which is an integer) to obtain the high and low byte? To be specific, how do I implement the decode function used in the following code snippet:
+
+(pid,status) = os.wait()
+(exitstatus, signum) = decode(status) 
+

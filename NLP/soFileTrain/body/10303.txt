@@ -1,0 +1,15 @@
+I have some SQL Server DTS packages that import data from a FoxPro database.  This was working fine until recently.  Now the script that imports data from one of the FoxPro tables bombs out about 470,000 records into the import.  I'm just pulling the data into a table with nullable varchar fields so I'm thinking it must be a weird/corrupt data problem.
+
+What tools would you use to track down a problem like this?
+
+FYI, this is the error I'm getting:
+
+
+  Data for source column 1 ('field1') is not available.  Your provider may require that all Blob columns be rightmost in the source result set.
+
+
+There should not be any blob columns in this table.
+
+
+
+Thanks for the suggestions.  I don't know if it a corruption problem for sure.  I just started downloading FoxPro from my MSDN Subscription, so I'll see if I can open the table.  SSRS opens the table, it just chokes before running through all the records.  I'm just trying to figure out which record it's having a problem with.

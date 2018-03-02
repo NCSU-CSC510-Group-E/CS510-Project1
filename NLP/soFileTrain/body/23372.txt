@@ -1,0 +1,32 @@
+What would be the best method for getting a custom element (that is using J2ME native Graphics) painted on LWUIT elements?
+
+The custom element is an implementation from mapping library, that paints it's content (for example Google map) to Graphics object. How would it be possible to paint the result directly on LWUIT elements (at the moment I am trying to paint it on a Component). 
+
+Is the only way to write a wrapper in LWUIT package, that would expose the internal implementation of it?
+
+Edit:
+
+John: your solution looks like a lot of engineering :P What I ended up using is following wrapper:
+
+package com.sun.lwuit;
+
+public class ImageWrapper {
+  private final Image image;
+
+  public ImageWrapper(final Image lwuitBuffer) {
+    this.image = lwuitBuffer;
+  }
+
+  public javax.microedition.lcdui.Graphics getGraphics() {
+    return image.getGraphics().getGraphics();
+  }
+}
+
+
+Now I can get the 'native' Graphics element from LWUIT. Paint on it - effectively painting on LWUIT image. And I can use the image to paint on a component.
+
+And it still looks like a hack :)
+
+But the real problem is 50kB of code overhead, even after obfuscation. But this is a issue for another post :)
+
+/JaanusSiim

@@ -1,0 +1,29 @@
+I am using the code snippet below, however it's not working quite as I understand it should.    
+
+public static void main(String[] args) {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    String line;
+    try {
+        line = br.readLine();
+        while(line != null) {
+            System.out.println(line);
+            line = br.readLine();
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
+
+From reading the Javadoc about readLine() it says: 
+
+Reads a line of text. A line is considered to be terminated by any one of a line feed (\n), a carriage return (\r), or a carriage return followed immediately by a linefeed. 
+
+Returns:
+A String containing the contents of the line, not including any line-termination characters, or null if the end of the stream has been reached 
+
+Throws: 
+IOException - If an I/O error occurs
+
+From my understanding of this, readLine should return null the first time no input is entered other than a line termination, like \r. However, this code just ends up looping infinitely. After debugging, I have found that instead of null being returned when just a termination character is entered, it actually returns an empty string (""). This doesn't make sense to me. What am I not understanding correctly?

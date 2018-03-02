@@ -1,0 +1,1 @@
+We need to add WorkFlow to our Spring managed application. Does anyone have any useful experience in using any of the myriad of OSS Work Flow solutions? Which one is best? Which one integrates with Spring best? Which ones should we avoid?

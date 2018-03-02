@@ -1,0 +1,39 @@
+Recently I have been investigating the possibilities of caching in ASP.NET.
+
+I rolled my own "Cache", because I didn't know any better, it looked a bit like this:
+
+public class DataManager
+{
+
+      private static DataManager s_instance;
+
+      public static DataManager GetInstance()
+      {
+      }
+
+      private Data[] m_myData;
+      private DataTime m_cacheTime;
+
+      public Data[] GetData()
+      {
+            TimeSpan span = DateTime.Now.Substract(m_cacheTime);
+
+            if(span.TotalSeconds  10)
+            {
+                  // Do SQL to get data
+                  m_myData = data;
+                  m_cacheTime = DateTime.Now;
+                  return m_myData;     
+            }
+            else
+            {
+                  return m_myData;
+            }
+      }
+
+}
+
+
+So the values are stored for a while in a singleton, and when the time expires, the values are renewed. If time has not expired, and a request for the data is done, the stored values in the field are returned.
+
+What are the benefits over using the real method (http://msdn.microsoft.com/en-us/library/aa478965.aspx) instead of this?

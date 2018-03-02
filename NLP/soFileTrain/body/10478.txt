@@ -1,0 +1,5 @@
+One of the things I'd like to do in my browser-based application is allow the user to select some text (not in a textarea, just plain ol' text!), and have my application pop up a small toolbar that then can interact with the next (in my case, add annotations).
+
+I've found a lot of stuff on google that seems to be focused on writing WYSIWYG editors, but that isn't what I want, and most of it worked in IE but not in FF2 or 3. Ideally, I'd like some function that can return the currently selected text in the browser window that works in IE7 (and 6 if possible), FireFox 2  3 and Safari 2. If it works in Opera, that'd be a bonus, but it's not a requirement.
+
+Anyone have a function that does this? Or an idea of where to start?

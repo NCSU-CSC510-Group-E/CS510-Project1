@@ -1,0 +1,1 @@
+What are the pros and cons of using table aliases in SQL?  I personally try to avoid them, as I think they make the code less readable (especially when reading through large where/and statements), but I'd be interested in hearing any counter-points to this.  When is it generally a good idea to use table aliases, and do you have any preferred formats?

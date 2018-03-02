@@ -1,0 +1,11 @@
+In my asp.net User Control I'm adding some script to the window.onload event like so:
+
+if (!Page.ClientScript.IsStartupScriptRegistered(this.GetType(), onloadScriptName))
+  Page.ClientScript.RegisterStartupScript(this.GetType(), onloadScriptName, 
+    "window.onload = function() {myFunction();};", true);            
+
+
+My problem is, if there is already something in the onload event, than this overwrites it. 
+How would I go about allowing two user controls to each execute javascript in the onload event?
+
+**Edit:**Thanks for the info on third party libraries. I'll keep them in mind. 

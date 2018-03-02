@@ -1,0 +1,6 @@
+I have been using PHP and JavaScript for building my dad's website. He wants to incorporate a login system into his website, and I have the design for the system using PHP. My problem is how do I show buttons if the person is logged in?­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
+
+For Example - You have Home, Products, About Us, and Contact. I want to have buttons for Dealer, Distributor, and maybe other information if the user is logged in.  So I will have Home, Products, About Us, Contacts, Dealer (if dealer login), Distributor (if distributor login), and so forth.  
+
+Would JavaScript be a good way to do this or would PHP, or maybe even both? Using JavaScript to show and hide buttons, and PHP to check to see which buttons to show.
+­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­

@@ -1,0 +1,1 @@
+I could only find the function confirm() that gives OK/Cancel buttons. Is there any way to give Yes/No buttons?

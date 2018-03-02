@@ -1,0 +1,16 @@
+Anyone seen this before? 
+
+
+  CREATE DATABASE permission denied in database 'master'.
+  An attempt to attach an auto-named database for file 
+  C:\Documents and Settings\..\App_Data\HelloWorld.mdf failed. 
+  A database with the same name exists, or specified file cannot be
+  opened, or it is located on UNC share.
+
+
+I'm asking on a friend's behalf. I've sent him these links:
+
+
+http://blog.benhall.me.uk/2008/03/sql-server-and-vista-create-database.html
+http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=702726SiteID=1
+

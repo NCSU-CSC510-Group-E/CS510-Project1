@@ -1,0 +1,3 @@
+Is it possible (in Vb.Net 2005), without manually parsing the dataset table properties, to create the table and add it to the database?
+
+We have old versions of our program on some machines, which obviously has our old database, and we are looking for a way to detect if there is a missing table and then generate the table based on the current status of the table in the dataset.  We were re-scripting the table every time we released a new version (if new columns were added) but we would like to avoid this step if possible.

@@ -1,0 +1,32 @@
+In SQL Server I have a DATETIME column which includes a time element.
+
+Example:   
+
+'14 AUG 2008 14:23:019'
+
+
+What is the best method to only select the records for a particular day, ignoring the time part?
+
+Example:  (Not safe, as it does not match the time part and returns no rows)
+
+DECLARE  @p_date DATETIME
+SET      @p_date = CONVERT( DATETIME, '14 AUG 2008', 106 )
+
+SELECT *
+FROM   table1
+WHERE  column_datetime = @p_date
+
+
+Note: Given this site is also about jotting down notes and techniques you pick up and then forget, I'm going to post my own answer to this question as DATETIME stuff in MSSQL is probably the topic I lookup most in SQLBOL.
+
+
+
+Update Clarified example to be more specific.
+
+
+
+Edit Sorry, But I've had to down-mod WRONG answers (answers that return wrong results).
+
+@Jorrit: WHERE (date'20080813' AND date'20080815') will return the 13th and the 14th.
+
+@wearejimbo: Close, but no cigar! badge awarded to you. You missed out records written at 14/08/2008 23:59:001 to 23:59:999 (i.e. Less than 1 second before midnight.)

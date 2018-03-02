@@ -1,0 +1,3 @@
+What is the difference between the EXISTS and IN clause in SQL?
+
+When should we use EXISTS, and when should we use IN?

@@ -1,0 +1,5 @@
+Anyone who writes client-side JavaScript is familiar with the DOM - the tree structure that your browser references in memory, generated from the HTML it got from the server. JavaScript can add, remove and modify nodes on the DOM tree to make changes to the page. I find it very nice to work with (browser bugs aside), and very different from the way my server-side code has to generate the page in the first place.
+
+My question is: what server-side frameworks/languages build a page by treating it as a DOM tree from the beginning - inserting nodes instead of echoing strings? I think it would be very helpful if the client-side and server-side code both saw the page the same way. You could certainly hack something like this together in any web server language, but a framework dedicated to creating a page this way could make some very nice optimizations.
+
+Open source, being widely deployed and having been around a while would all be pluses.

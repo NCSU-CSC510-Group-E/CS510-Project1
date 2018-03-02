@@ -1,0 +1,13 @@
+I stumbled over this passage in the Django tutorial:
+
+
+  Django models have a default str() method that calls unicode() and converts the result to a UTF-8 bytestring. This means that unicode(p) will return a Unicode string, and str(p) will return a normal string, with characters encoded as UTF-8.
+
+
+Now, I'm confused because afaik Unicode is not any particular representation, so what is a "Unicode string" in Python? Does that mean UCS-2? Googling turned up this "Python Unicode Tutorial" which boldly states
+
+
+  Unicode is a two-byte encoding which covers all of the world's common writing systems.
+
+
+which is plain wrong, or is it? I have been confused many times by character set and encoding issues, but here I'm quite sure that the documentation I'm reading is confused. Does anybody know what's going on in Python when it gives me a "Unicode string"?

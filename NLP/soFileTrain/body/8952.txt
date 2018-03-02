@@ -1,0 +1,1 @@
+Generally, how bad of a performance hit is storing a file in a database (specifically mssql) as opposed to the file system?  I can't come up with a reason outside of application portability that I would want to store my files as varbinaries in SQL Server.

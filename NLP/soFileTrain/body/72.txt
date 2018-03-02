@@ -1,3 +1,0 @@
-I want to format my existing comments as 'RDoc comments' so they can be viewed using ri.
-
-What are some recommended resources for starting out using RDoc?

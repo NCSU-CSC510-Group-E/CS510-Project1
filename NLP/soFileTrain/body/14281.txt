@@ -1,0 +1,3 @@
+I have over a million text files compressed into 40 zip files. I also have a list of about 500 model names of phones. I want to find out the number of times a particular model was mentioned in the text files. 
+
+Is there any python module which can do a regex match on the files without unzipping it. Is there a simple way to solve this problem without unzipping?

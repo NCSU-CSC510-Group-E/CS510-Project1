@@ -1,0 +1,6 @@
+I have seen two ways of implementing DAO-DVO design.
+
+1) DVO are objects and DAOs are instantiated using factories i.e DAOs are also objects
+2) DVOs are again objects but in this case, DAOs are classes which contain only static methods which accept DVOs to perform tasks.
+
+I was wondering which way is better and more scalable.

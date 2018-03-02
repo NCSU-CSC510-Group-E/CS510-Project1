@@ -1,0 +1,25 @@
+Since both a Table Scan and a Clustered Index Scan essentially scan all records in the table, why is a Clustered Index Scan supposedly better?
+
+As an example - what's the performance difference between the following when there are many records?:
+
+declare @temp table(
+    SomeColumn varchar(50)
+)
+
+insert into @temp
+select 'SomeVal'
+
+select * from @temp
+
+-----------------------------
+
+declare @temp table(
+    RowID int not null identity(1,1) primary key,
+    SomeColumn varchar(50)
+)
+
+insert into @temp
+select 'SomeVal'
+
+select * from @temp
+

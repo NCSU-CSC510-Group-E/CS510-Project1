@@ -1,0 +1,18 @@
+I would like to filter an array of items by using the map() function. Here is a code snippet:
+
+var filteredItems = items.map(function(item)
+{
+    if( ...some condition... )
+    {
+        return item;
+    }
+});
+
+
+The problem is that filtered out items still uses space in the array and I would like to completely wipe them out.
+
+Any idea?
+
+EDIT: Thanks, I forgot about filter(), what I wanted is actually a filter() then a map().
+
+EDIT2: Thanks for pointing that map() and filter() are not implemented in all browsers, although my specific code was not intended to run in a browser.

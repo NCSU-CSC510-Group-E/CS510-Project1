@@ -1,0 +1,1 @@
+We've got a page with a ton of jQuery (approximately 2000 lines) that we want to trim down b/c it is a maintenance nightmare, and it might be easier to maintain on the server.  We've thought about using UpdatePanel for this.  However, we don't like the fact that the UpdatePanel is sending the whole page back to the server.  

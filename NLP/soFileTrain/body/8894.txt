@@ -1,0 +1,3 @@
+Phppgadmin comes with instructions for creating a reports database on the system for use with phppgadmin. The instructions describe how to set it up, but do not really give any indication of what its purpose is, and the phppgadmin site was not very helpful either.
+
+It seems to allow you to store SQL queries, so is it for storing admin queries accessing tables like pg_class etc?

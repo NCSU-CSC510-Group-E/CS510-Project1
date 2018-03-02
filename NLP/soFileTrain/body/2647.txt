@@ -1,0 +1,3 @@
+Using SQL Server, how do I split a string so I can access item x?
+
+Take a string "Hello John Smith". How can I split the string by space and access the item at index 1 which should return "John"?

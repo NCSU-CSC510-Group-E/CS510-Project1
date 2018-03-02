@@ -1,0 +1,31 @@
+I've recently inherited a internationalized and text-heavy Struts 1.1 web application. Many of the JSP files look like:
+
+p
+    bean:message key="alert" /
+/p
+
+
+and the properties files look like:
+
+messages.properties
+alert=Please update your a href="/address.do"address/a and a href="/contact.do"contact information/a.
+
+
+with the appropriate translations in N other languages (messages_fr.properties, etc).
+
+Problems:
+
+
+DRY violation - I have N references to my Struts action URLs instead of 1, which makes refactoring action URLs error-prone.
+Mixed concerns - My application's markup is now in more than just my JSP files, making it difficult for a web specialist to tweak the markup (using CSS, etc).
+Post-translation markup - Anytime I receive newly-translated text, I must decide what to surround with the a.../a markup. Easy for English but less so for unfamiliar languages.
+
+
+I've considered adding placeholders in the messages file, like:
+
+alert=Please update your {0} and {1}.
+
+
+but then the words "address" and "contact information" would somehow need to be localized, wrapped with markup, and passed to my message tag - and I can't see an easy way to do it.
+
+What can I do to improve this?

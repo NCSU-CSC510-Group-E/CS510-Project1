@@ -1,0 +1,11 @@
+I am using Struts + Velocity in a Java application, but after I submit a form, the confirmation page (Velocity template) shows the variable names instead an empty label, like the Age in following example:
+
+
+  Name: Fernando
+  
+  Age: {person.age}
+  
+  Sex: Male
+
+
+I would like to know how to hide it!

@@ -1,0 +1,3 @@
+Does anyone here have any useful code which uses reduce() function in python? Is there any code other than the usual + and * that we see in the examples?
+
+Refer Fate of reduce() in Python 3000 by GvR

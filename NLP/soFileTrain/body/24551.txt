@@ -1,0 +1,37 @@
+I've been programming in C# and Java recently and I am curious where the best place is to initialize my class fields.
+
+Should I do it at declaration?:
+
+public class Dice
+{
+    private int topFace = 1;
+    private Random myRand = new Random();
+
+    public void Roll()
+    {
+       // ......
+    }
+}
+
+
+or in a constructor?:
+
+public class Dice
+{
+    private int topFace;
+    private Random myRand;
+
+    public Dice()
+    {
+        topFace = 1;
+        myRand = new Random();
+    }
+
+    public void Roll()
+    {
+        // .....
+    }
+}
+
+
+I'm really curious what some of you veterans think is the best practice. I want to be consistent and stick to one approach.

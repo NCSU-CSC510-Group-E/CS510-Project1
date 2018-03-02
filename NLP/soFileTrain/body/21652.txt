@@ -1,0 +1,18 @@
+I have some code that gives a user id to a utility that then send email to that user.
+
+emailUtil.sendEmail(userId, "foo");
+
+public void sendEmail(String userId, String message) throws MailException {
+    /* ... logic that could throw a MailException */
+}
+
+
+MailException could be thrown for a number of reasons, problems with the email address, problems with the mail template etc.
+
+My question is this: do you create a new Exception type for every one of these exceptions and then deal with them individually or do you create one MailException and then store something in the exception (something computer-readable, not the description text) that allows us to do different things based on what actually happened.
+
+Edit: As a clarification, the exceptions aren't for logs and what-not, this relates to how code reacts to them. To keep going with the mail example, let's say that when we send mail it could fail because you don't have an email address, or it could because you don't have a valid email address, or it could fail.. etc.
+
+My code would want to react differently to each of these issues (mostly by changing the message returned to the client, but actual logic as well).
+
+Would it be best to have an exception implementation for each one of these issues or one umbrella exception that had something internal to it (an enum say) that let the code distinguish what kind of issue it was.

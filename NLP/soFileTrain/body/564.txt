@@ -1,0 +1,3 @@
+I was reading More Joel on Software when I came across Joel Spolsky saying something about a particular type of programmer knowing the difference between an int and an Integer in Java/C# (Object Oriented Programming Languages).
+
+So, what is the difference?

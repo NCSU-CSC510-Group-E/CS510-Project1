@@ -1,0 +1,22 @@
+I have a script that parses the filenames of TV episodes (show.name.s01e02.avi for example), grabs the episode name (from the www.thetvdb.com API) and automatically renames them into something nicer (Show Name - [01x02].avi)
+
+The script works fine, that is until you try and use it on files that have Unicode show-names (something I never really thought about, since all the files I have are English, so mostly pretty-much all fall within [a-zA-Z0-9'\-])
+
+How can I allow the regular expressions to match accented characters and the likes? Currently the regex's config section looks like..
+
+config['valid_filename_chars'] = """0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^*()_+=-[]{}"'.,`~? """
+config['valid_filename_chars_regex'] = re.escape(config['valid_filename_chars'])
+
+config['name_parse'] = [
+    # foo_[s01]_[e01]
+    re.compile('''^([%s]+?)[ \._\-]\[[Ss]([0-9]+?)\]_\[[Ee]([0-9]+?)\]?[^\\/]*$'''% (config['valid_filename_chars_regex'])),
+    # foo.1x09*
+    re.compile('''^([%s]+?)[ \._\-]\[?([0-9]+)x([0-9]+)[^\\/]*$''' % (config['valid_filename_chars_regex'])),
+    # foo.s01.e01, foo.s01_e01
+    re.compile('''^([%s]+?)[ \._\-][Ss]([0-9]+)[\.\- ]?[Ee]([0-9]+)[^\\/]*$''' % (config['valid_filename_chars_regex'])),
+    # foo.103*
+    re.compile('''^([%s]+)[ \._\-]([0-9]{1})([0-9]{2})[\._ -][^\\/]*$''' % (config['valid_filename_chars_regex'])),
+    # foo.0103*
+    re.compile('''^([%s]+)[ \._\-]([0-9]{2})([0-9]{2,3})[\._ -][^\\/]*$''' % (config['valid_filename_chars_regex'])),
+]
+

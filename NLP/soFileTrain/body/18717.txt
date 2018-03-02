@@ -1,0 +1,3 @@
+As far as I know, foreign keys (FK) are used to aid the programmer to manipulate data in the correct way. Suppose a programmer is actually doing this in the right manner already, then do we really need the concept of foreign keys?
+
+Are there any other uses for foreign keys? Am I missing something here?

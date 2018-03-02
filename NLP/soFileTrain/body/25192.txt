@@ -1,0 +1,24 @@
+I'm looking for a Java library for SWIFT messages. I want to
+
+
+parse SWIFT messages into an object model
+validate SWIFT messages (including SWIFT network validation rules)
+build / change SWIFT messages by using an object model
+
+
+Theoretically, I need to support all SWIFT message types. But at the moment I need MT103+, MT199, MT502, MT509, MT515 and MT535.
+
+So far I've looked at two libraries
+
+
+AnaSys Message Objects (link text)
+Datamation SWIFT Message Suite (link text)
+
+
+Both libraries allow to accomplish the tasks mentioned above but in both cases I'm not really happy. 
+
+AnaSys uses a internal XML representation for all SWIFT messages which you need to know in order to access the fields of a message. And you need to operate on the DOM of the XML representation, there is no way to say "get the contents of field '50K' of the SWIFT message".
+
+And the Datamation library seems to have the nicer API but does not find all errors.
+
+So does anyone know other SWIFT libraries to use? 

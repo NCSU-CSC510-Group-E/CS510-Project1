@@ -1,0 +1,9 @@
+Wondering if there is a better why in  the WHERE clause of choosing records when you need to look at effective start and end dates?
+
+Currently this how I've done it in the past on MS SQL Server. Just worried about the date and not the time. I'm using SQL Server 2005.
+
+AND Convert(datetime, Convert(char(10), ep.EffectiveStartDate, 101))
+   = Convert(datetime, Convert(char(10), GetDate(), 101))
+AND Convert(datetime, Convert(char(10), ep.EffectiveEndDate, 101))
+   = Convert(datetime, Convert(char(10), GetDate(), 101))
+
