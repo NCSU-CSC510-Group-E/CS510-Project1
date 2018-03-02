@@ -64,7 +64,7 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
 
         # To make a new prediciton, just pass in a BOW vector (tokens) to test 
         # This will return array of topics + probability tuples.  
-        newPrediction = model.get_document_topics(bow, minimum_probability=.3)
+        newPrediction = model.get_document_topics(bow, minimum_probability=.1)
 
         # Returns the topics from the above model
         topics = model.get_topics()
