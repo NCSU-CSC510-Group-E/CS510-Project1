@@ -1,0 +1,10 @@
+I'm comparing between two techniques to create partitioned tables in SQL 2005.
+
+
+Use partitioned views with a standard version of SQL 2005 (described here)
+Use the built in partition in the Enterprise edition of SQL 2005 (described here)
+
+
+Given that the enterprise edition is much more expensive, I would like to know what are the main benefits of the newer enterprise built-in implementation. Is it just an time saver for the implementation itself. Or will I gain real performance on large DBs?
+
+I know i can adjust the constraints in the first option to keep a sliding window into the partitions. Can I do it with the built in version?

@@ -1,1 +1,0 @@
-Given a DateTime representing a person's birthday, how do I calculate their age in years?  
