@@ -181,6 +181,29 @@ class D2VModel():
         return (correct, count)
 
 
+    def spa(self):
+        """
+        Sentiment Prediction Accuracy
+        Is the model able to infer a trained document's vector as 
+        the most similar to its trained vector self?
+        """
+        print()
+        print("Starting Sentiment Prediction Accuracy on", str(self.model))
+
+        model = self.model
+        corpus = list(self.corpus)
+
+        corpus = list(corpus) #list of an iterable?
+
+        for doc in model:
+            inferred_vector = model.infer_vector(corpus[doc].words) #have to call .words on TaggedDoc with words (tokens) and tags(labels)
+            similar_vector = model.docvecs.most_similar([inferred_vector], topn=1)
+            print(similar_vector)
+            
+
+        return (correct, count, min_, max_, mean_, median_)
+
+
 
         
 
