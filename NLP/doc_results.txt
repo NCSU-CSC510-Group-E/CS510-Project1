@@ -6,3 +6,11 @@ dbow.createModel(dm=0, vector_size=300, window=10, min_count=2, epochs=20, dm_co
 1. Trained Fast, 2. About 20 mins, 3. trained fast
 Correct / Total Comparisons
 1. 5231 / 15000  2. 4872 / 15000 3. 5357/15000
+
+-----------------------------------------------------------------------------------------------------------
+TEST 2:
+dm_mean.createModel(dm=1, vector_size=300, negative=3, window=3, min_count=1, epochs=20, dm_concat=0, dm_mean=1)
+dm_concat.createModel(dm=1, vector_size=300, negative=3, window=3, min_count=1, epochs=20, dm_concat=1, dm_mean=0)
+dbow.createModel(dm=0, vector_size=300, negative=3, window=3, min_count=1, epochs=20, dm_concat=0, dm_mean=0)
+
+1. Trained Fast-ish 2. 3.
