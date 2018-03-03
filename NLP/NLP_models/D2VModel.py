@@ -177,8 +177,6 @@ class D2VModel():
                 correct += 1
 
             count += 1
-            if (count % min_//2) == 0:
-                print("Half Way Count:", count)
 
         return (correct, count)
 
