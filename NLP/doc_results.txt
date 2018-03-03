@@ -5,4 +5,4 @@ dbow.createModel(dm=0, vector_size=300, window=10, min_count=2, epochs=20, dm_co
 
 1. Trained Fast, 2. About 20 mins, 3. trained fast
 Correct / Total Comparisons
-1. 5231 / 15000  2.
+1. 5231 / 15000  2. 4872 / 15000 3. 5357/15000
