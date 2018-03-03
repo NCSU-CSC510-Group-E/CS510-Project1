@@ -24,14 +24,14 @@ def main():
     dbow.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dbow_Py.model')
     all_models = [dbow]
 
-    create training corpus
-    for m in all_models:
-        m.createCorpus(train_python)
+    #create training corpus
+    # for m in all_models:
+    #     m.createCorpus(train_python)
 
     # #create models
-    dm_mean.createModel(dm=1, vector_size=100, negative=5, window=5, min_count=1, epochs=20, dm_concat=0, dm_mean=1)
-    dm_concat.createModel(dm=1, vector_size=100, negative=5, window=5, min_count=1, epochs=20, dm_concat=1, dm_mean=0)
-    dbow.createModel(dm=0, vector_size=100, negative=10, window=0, min_count=1, epochs=20, dm_concat=0, dm_mean=0)
+    # dm_mean.createModel(dm=1, vector_size=100, negative=5, window=5, min_count=1, epochs=20, dm_concat=0, dm_mean=1)
+    # dm_concat.createModel(dm=1, vector_size=100, negative=5, window=5, min_count=1, epochs=20, dm_concat=1, dm_mean=0)
+    # dbow.createModel(dm=0, vector_size=100, negative=10, window=0, min_count=1, epochs=20, dm_concat=0, dm_mean=0)
 
     # #train models
     for mo in all_models:
