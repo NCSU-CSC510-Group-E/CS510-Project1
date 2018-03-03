@@ -5,6 +5,7 @@ from random import randint
 from shutil import copyfile
 from multiprocessing import cpu_count
 from smart_open import smart_open
+from numpy import linalg
 
 """
 Gensim Doc2Vec needs model training data in an iterator object
@@ -71,11 +72,11 @@ class D2VModel():
         print("Corpus Created")
         print()
 
-    def createModel(self, dm=1, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=1, dm_mean=0):
+    def createModel(self, dm=1, vector_size=300, negative=5, window=5, min_count=2, epochs=20, dm_concat=1, dm_mean=0):
         print()
         print("Creating Model...")
         #create doc2vec model
-        model = gensim.models.doc2vec.Doc2Vec(dm=dm, vector_size=vector_size, window=window, min_count=min_count, epochs=epochs, dm_concat=dm_concat, dm_mean=dm_mean, workers=self.cores)
+        model = gensim.models.doc2vec.Doc2Vec(dm=dm, vector_size=vector_size, negative=negative, window=window, min_count=min_count, epochs=epochs, dm_concat=dm_concat, dm_mean=dm_mean, workers=self.cores)
         self.model = model
         print("Model " + str(model) + " Created")
         print()
@@ -106,10 +107,11 @@ class D2VModel():
 
     def loadModel(self, filename):
         # LOAD
+        print()
         print("Loading Model ", filename)
-        self.model_name = filename
-        model_loaded = doc2vec.Doc2Vec.load(filename)
+        model_loaded = gensim.models.Doc2Vec.load(filename)
         print("Model Loaded")
+        print()
 
         self.model = model_loaded
 
@@ -119,53 +121,68 @@ class D2VModel():
         whether two documents are similar or not in comparison to another?
         @params - test_corpus2 is the corpus that needs twice as many documents
         """
+        print()
+        print("Starting Information Retrieval on", str(self.model))
+
         model = self.model
         used1 = []
         used2 = []
         correct = 0
         count = 0
-        x = randint(0, test_corpus1.corpus_count)
-        y1 = randint(0, test_corpus1.corpus_count)
-        y2 = randint(0, test_corpus1.corpus_count)
+        n1 = len(test_corpus1.filenames)
+        n2 = len(test_corpus2.filenames)
+
+        x = randint(0, n1-1) #randint is inclusive
+        y1 = randint(0, n2-1)
+        y2 = randint(0, n2-1)
         
-        
+        #cant use indexing on an iterator, have to add TaggedDocs to a list
+        print("Creating first list")
+        tc1 = [doc for doc in test_corpus1]
+        print("Creating second list")
+        tc2 = [doc for doc in test_corpus2]
 
         #find minimum number of times to run test
-        min_ = min(test_corpus1.corpus_count, (test_corpus2.corpus_count)//2)
+        min_ = min(n1, (n2)//2)
 
         #INFER A VECTOR without having to retrain via cosine similarity
         #use random documents from the corpuses
+        print("Calculating inferred_vectors...")
         for i in range(min_):
             while x in used1:
-                x = randint(0, test_corpus1.corpus_count)
+                x = randint(0, n1-1)
 
             used1.append(x)
 
             while y1 in used2:
-                y1 = randint(0, test_corpus1.corpus_count)
+                y1 = randint(0, n2-1)
 
             used2.append(y1)
 
             while y2 in used2:
-                y2 = randint(0, test_corpus1.corpus_count)
+                y2 = randint(0, n2-1)
 
             used2.append(y2)
 
-            x_vector = model.infer_vector(test_corpus1[x].words)
-            y1_vector = model.infer_vector(test_corpus1[y1].words)
-            y2_vector = model.infer_vector(test_corpus1[y2].words)
+            x_vector = model.infer_vector(tc1[x]) #only tokens (no tags) don't have to call .words
+            y1_vector = model.infer_vector(tc2[y1])
+            y2_vector = model.infer_vector(tc2[y2])
 
             #y1 and y2 should be closer in distance to each other than x
-            xy1 = abs(x_vector - y1_vector)
-            xy2 = abs(x_vector - y2_vector)
-            y1y2 = abs(y1_vector - y2_vector)
+            xy1 = linalg.norm(x_vector - y1_vector)
+            xy2 = linalg.norm(x_vector - y2_vector)
+            y1y2 = linalg.norm(y1_vector - y2_vector)
 
-            if min(xy1, xy2, y1y2) is y1y2:
-                correct =+ 1
+            if min(xy1, xy2, y1y2) == y1y2:
+                correct += 1
 
             count += 1
+            if (count % 500) == 0:
+                print("Count:", count)
 
         return (correct, count)
+
+
 
         
 
@@ -228,18 +245,25 @@ def main():
     #create training corpus
     all_models = [dm_mean, dm_concat, dbow]
 
-    for m in all_models:
-        m.createCorpus(train_python_javascript)
+    #load models if an error during testing
+    dm_mean.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmM_python_javascript.model')
+    dm_concat.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmC_python_javascript.model')
+    dbow.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dbowM_python_javascript.model')
+
+    #create training corpus
+    # for m in all_models:
+    #     m.createCorpus(train_python_javascript)
 
     #create models
-    dm_mean.createModel(dm=1, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=0, dm_mean=1)
-    dm_concat.createModel(dm=1, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=1, dm_mean=0)
-    dbow.createModel(dm=0, vector_size=300, window=10, min_count=2, epochs=20, dm_concat=0, dm_mean=0)
+    # dm_mean.createModel(dm=1, vector_size=300, negative=5, window=5, min_count=2, epochs=20, dm_concat=0, dm_mean=1)
+    # dm_concat.createModel(dm=1, vector_size=300, negative=5, window=5, min_count=2, epochs=20, dm_concat=1, dm_mean=0)
+    # dbow.createModel(dm=0, vector_size=300, negative=5, window=5, min_count=2, epochs=20, dm_concat=0, dm_mean=0)
 
-    #train models
-    for mo in all_models:
-        mo.trainModel()
-        mo.saveModel()
+    # #train models
+    # for mo in all_models:
+    #     mo.trainModel()
+    #     mo.saveModel()
+
 
     #create test corpuses
     testPython = TaggedDocs(test_python, True)

@@ -245,3 +245,6 @@ NLP/pythonPosts/
 NLP/testJavascript/
 NLP/testPython/
 NLP/trainPythonJavascript/
+
+#doc model stuff that is too big for git - kept the base models to be loaded
+/NLP/docModels/
