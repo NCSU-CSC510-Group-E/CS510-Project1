@@ -177,8 +177,8 @@ class D2VModel():
                 correct += 1
 
             count += 1
-            if (count % 500) == 0:
-                print("Count:", count)
+            if (count % min_//2) == 0:
+                print("Half Way Count:", count)
 
         return (correct, count)
 
@@ -189,52 +189,6 @@ class D2VModel():
 
 
 
-
-
-def main():
-    #Directories of posts
-    train_python_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainPythonJavascript/'
-    test_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testJavascript/'
-    test_python = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testPython/'
-
-
-
-    # ----  ----
-
-    #initialzie objects
-    dm_mean = D2VModel("")
-    dm_concat = D2VModel("")
-    dbow = D2VModel("")
-
-    #create training corpus
-    all_models = [dm_mean, dm_concat, dbow]
-
-    #load models if an error during testing
-    # dm_mean.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmM_python_javascript.model')
-    # dm_concat.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmC_python_javascript.model')
-    # dbow.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dbowM_python_javascript.model')
-
-    #create training corpus
-    for m in all_models:
-        m.createCorpus(train_python_javascript)
-
-    #create models
-    dm_mean.createModel(dm=1, vector_size=300, negative=3, window=3, min_count=1, epochs=20, dm_concat=0, dm_mean=1)
-    dm_concat.createModel(dm=1, vector_size=300, negative=3, window=3, min_count=1, epochs=20, dm_concat=1, dm_mean=0)
-    dbow.createModel(dm=0, vector_size=300, negative=3, window=3, min_count=1, epochs=20, dm_concat=0, dm_mean=0)
-
-    # #train models
-    for mo in all_models:
-        mo.trainModel()
-        mo.saveModel()
-
-
-    #create test corpuses
-    testPython = TaggedDocs(test_python, True)
-    testJavascript = TaggedDocs(test_javascript, True)
-
-
-    # ----  ----
 
 
 
@@ -268,14 +222,3 @@ def main():
     """
 
    # make a graph? docToExcel(inferred_vectors, similar_vectors, title)
-
-        
-
-    
-
-        
-
-
-
-if __name__ == "__main__":
-	main()
