@@ -2,21 +2,86 @@
 % algorithms because we had no idea how to implement them
 
 \paragraph{Prototypes}
-% List prototypes identified
-\begin{table}[h]
-    \caption{Prototypes}
-    \begin{tabular}{ l c l l}
-      Prototype & Requirements & Risk (1-5) & Complete \\
-      1 & 
-          \begin{itemize}
-          \item Implement CLI to make testing of models easier
-          \item Implement LDA algorithm using Gensim on static text
-              files.
-          \end{itemize} &
-                          3 & + \\
+% Reference table below.
+The prototypes the team identified for this project are listed in
+table \ref{sec:planning:prototypes-table}.
+% Talk about what the most risky parts of the project are.
+The team identified the learning algorithms as the most risky part of
+the project, primarily because of the team's lack of experience
+with natural language processing algorithms.  
 
-    \end{tabular} \label{sec:planning:prototypes-table}
-\end{table}
+% Go into why these things are risky
+As discussed before, these algorithms have succesfully been used to
+mine topics for some time, but the particular problem of identifying
+the topics in textbooks for search recommendations is fairly novel.
+This process requires a data set that matches up well with the desired
+% TODO: fill in section
+topics, which will come into play in section \ref{sec:eval_plan}.
+
+% mention briefly the problem of evaluating the models created, and
+% point ahead to when we'll talk about that more
+One other major point of risk is developing the Doc2Vec model.
+The Gensim API contains a Doc2Vec model but it does not expose parts
+of the API to make the clusters directly available, which is expanded
+% TODO: fill this ref in
+on in section \ref{??}.
+
+% TODO: What can be expanded on here?
+
+\begin{table*}[t]
+  \centering
+  \caption{Prototypes}
+  \begin{tabular}{ l p{10cm} l l}
+    % Prototype & Requirements & Risk (1-5) & Complete \\
+    1 & 
+        \begin{itemize}
+        \item Implement CLI to make testing of models easier
+        \item Implement LDA algorithm using Gensim on static text files.
+        \end{itemize} &
+                        3 & + \\
+    2 &
+        \begin{itemize}
+        \item Prototype 1
+        \item Parse Stack Overflow data to text files for input to prototype 1
+        \item Save/Load model so multiple experiments can be run more quickly
+        \item Adapt Prototype 1 to operate on Stack Overflow data.
+        \end{itemize} &
+                        4 & + \\
+    3 &
+        \begin{itemize}
+        \item Prototype 2
+        \item Prototype database models/access code.
+        \item Prototype similarity measures to be used with learning
+          algorithms
+        \end{itemize} &
+                        4 & + \\
+    4 &
+        \begin{itemize}
+        \item Implement Doc2Vec
+        \item Implement Doc2Vec with stack overflow data
+        \end{itemize} &
+                        5 & + \\
+    5 &
+        \begin{itemize}
+        \item Implement code to parse PDFs of textbooks
+        \item Implement connection to library (either REST API or a folder of PDFs
+        \item Apply trained models to textbooks
+        \item Save modeled topics in the database
+        \end{itemize} &
+                        4 & - \\
+    6 &
+        \begin{itemize}
+        \item Write algorithm to parse saved topics
+        \item Write REST API to serve above algorithm
+        \end{itemize} &
+                        2 & - \\
+    7 &
+        \begin{itemize}
+        \item Build web-app front end to the above suggestion service
+        \end{itemize} &
+                        2 & - 
+  \end{tabular} \label{sec:planning:prototypes-table}
+\end{table*}
 
 \paragraph{Timeline}
 % List timelines for each prototype
