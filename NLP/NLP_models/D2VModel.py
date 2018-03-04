@@ -115,6 +115,7 @@ class D2VModel():
 
         self.model = model_loaded
 
+
     def infoRet(self, test_corpus1, test_corpus2):
         """
         Information Retrieval Test. Can the model accuratly predict 
