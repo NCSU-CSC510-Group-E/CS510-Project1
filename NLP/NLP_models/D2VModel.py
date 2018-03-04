@@ -5,7 +5,7 @@ from random import randint
 from shutil import copyfile
 from multiprocessing import cpu_count
 from smart_open import smart_open
-from numpy import linalg
+import numpy as np
 
 """
 Gensim Doc2Vec needs model training data in an iterator object
@@ -101,7 +101,7 @@ class D2VModel():
         #save model to ./docModels folder
         print()
         print("Saving Model ", self.model_name)
-        self.model.save("./docModels/" + self.model_name + ".model")
+        self.model.save("./docModels/" + self.model_name)
         print("Model Saved")
         print()
 
@@ -170,9 +170,9 @@ class D2VModel():
             y2_vector = model.infer_vector(tc2[y2])
 
             #y1 and y2 should be closer in distance to each other than x
-            xy1 = linalg.norm(x_vector - y1_vector)
-            xy2 = linalg.norm(x_vector - y2_vector)
-            y1y2 = linalg.norm(y1_vector - y2_vector)
+            xy1 = np.linalg.norm(x_vector - y1_vector)
+            xy2 = np.linalg.norm(x_vector - y2_vector)
+            y1y2 = np.linalg.norm(y1_vector - y2_vector)
 
             if min(xy1, xy2, y1y2) == y1y2:
                 correct += 1
@@ -195,7 +195,9 @@ class D2VModel():
         corpus = list(self.corpus)
 
         corpus = list(corpus) #list of an iterable?
-
+        results = []
+        count = 0
+        ap = results.append
         for doc in model:
             print(corpus[doc])
             print(corpus[doc].words)
@@ -203,9 +205,19 @@ class D2VModel():
             print(inferred_vector)
             similar_vector = model.docvecs.most_similar([inferred_vector], topn=1)
             print(similar_vector)
+            #ap(vector_thing)
+
+            npArray = np.array(results)
+            min_ = min(results)
+            max_ = max(results)
+            mean_ = np.mean(npArray, dtype=np.float64) #float64 more accurate
+            median_ = np.percentile(npArray, 50)
+            firstQ = np.percentile(npArray, 25)
+            thirdQ = np.percentile(npArray, 75)
 
 
-        return (correct, count, min_, max_, mean_, median_)
+
+        return (len(results), min_, max_, mean_, median_, firstQ, thirdQ)
 
 
 
