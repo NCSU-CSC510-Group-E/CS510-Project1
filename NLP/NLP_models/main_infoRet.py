@@ -43,7 +43,6 @@ def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testD
         copyfile(source, destination)
 
     print("done copy-pasting files")
-    print()
 
 
 def main():
@@ -56,18 +55,18 @@ def main():
     allD  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/databasePosts/'
     allJava  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/javaPosts/'
 
-    train_dir = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainPythonDatabase/'
-    test_dir1 = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testDatabase/'
-    test_dir2 = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testPython2/'
+    train_dir = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainNetDatabase/'
+    test_dir1 = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testDatabaseN/'
+    test_dir2 = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testNet/'
 
     # ---- Create Training and Testing Folders for Info Retrieval ----
     createRandomMix(11973, 2000, allD, train_dir, test_dir1)
-    createRandomMix(40000, 4000, allPython, train_dir, test_dir2)
+    createRandomMix(30218, 4000, allNet, train_dir, test_dir2)
     ##### make sure test_dir2 is the directory that will test with twice as many documents #####
 
 
     # ---- Info Retrieval ----
-    name = "python_database"
+    name = "net_database"
     #initialzie objects
     dm_mean = D2VModel("dmM_" + name)
     dm_concat = D2VModel("dmC_" + name)

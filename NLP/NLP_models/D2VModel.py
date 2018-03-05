@@ -96,12 +96,18 @@ class D2VModel():
         print("Model Trained")
         print()
 
-    def saveModel(self):
+    def saveModel(self, doneTraining=True):
         #save model to ./docModels folder
         print()
         print("Saving Model ", self.model_name, "...")
         self.model.save("./docModels/" + self.model_name)
-        print("Model Saved")
+
+        if doneTraining: #save space, RAM
+            self.model.delete_temporary_training_data(keep_doctags_vectors=True, keep_inference=True)
+            print("Model Saved. Cannot be trained further.")
+        else:
+            print("Model Saved. Can still be trained.")
+        
         print()
 
     def loadModel(self, filename):
