@@ -62,7 +62,7 @@ class D2VModel():
     def createCorpus(self, directory, tokens_only=False):
         #TaggedDocs acts as a iterator
         print()
-        print("Creating Corpus...")
+        print("Creating", self.model_name, "Corpus...", end=" ")
         if tokens_only: #testing, not training. Doesn't use tags.
             corpus = TaggedDocs(directory, True)
         else:
@@ -74,17 +74,17 @@ class D2VModel():
 
     def createModel(self, dm=1, vector_size=300, negative=5, window=5, min_count=2, epochs=20, dm_concat=1, dm_mean=0):
         print()
-        print("Creating Model...")
+        print("Creating", self.model_name, "Model...", end=" ")
         #create doc2vec model
         model = gensim.models.doc2vec.Doc2Vec(dm=dm, vector_size=vector_size, negative=negative, window=window, min_count=min_count, epochs=epochs, dm_concat=dm_concat, dm_mean=dm_mean, workers=self.cores)
         self.model = model
-        print("Model " + str(model) + " Created")
+        print("Model", str(model), "Created")
         print()
 
     def trainModel(self):
         model = self.model
         print()
-        print("Training Model ", str(model))
+        print("Training Model ", self.model_name, str(model), end=" ")
 
         #build vocabulary (dictionary accessible via mode.wv.vocab of all unique words extracted 
         #from the training corpus) with the frequency counts (model.wv.vocan['word'].count)
@@ -100,7 +100,7 @@ class D2VModel():
     def saveModel(self):
         #save model to ./docModels folder
         print()
-        print("Saving Model ", self.model_name)
+        print("Saving Model ", self.model_name, "...", end=" ")
         self.model.save("./docModels/" + self.model_name)
         print("Model Saved")
         print()
@@ -108,7 +108,7 @@ class D2VModel():
     def loadModel(self, filename):
         # LOAD
         print()
-        print("Loading Model ", filename)
+        print("Loading Model ", filename, "...", end=" ")
         model_loaded = gensim.models.Doc2Vec.load(filename)
         print("Model Loaded")
         print()
@@ -123,7 +123,7 @@ class D2VModel():
         @params - test_corpus2 is the corpus that needs twice as many documents
         """
         print()
-        print("Starting Information Retrieval on", str(self.model))
+        print("Starting Information Retrieval on", self.model_name, str(self.model))
 
         model = self.model
         used1 = []
@@ -187,37 +187,34 @@ class D2VModel():
         Vector Prediction Accuracy
         Is the model able to infer a trained document's vector as 
         the most similar to its trained vector self?
+        Checks every document in the corpus that was trained --> smaller corpus
         """
         print()
-        print("Starting Vector Prediction Accuracy on", str(self.model))
+        print("Starting Vector Prediction Accuracy on", self.model_name, str(self.model))
 
         model = self.model
-        corpus = list(self.corpus)
-
-        corpus = list(corpus) #list of an iterable?
+        corpus = list(self.corpus) #gets every TaggedDocument out of the iterator.
         results = []
-        count = 0
+        correct = 0
         ap = results.append
-        for doc in model:
-            print(corpus[doc])
-            print(corpus[doc].words)
-            inferred_vector = model.infer_vector(corpus[doc].words) #have to call .words on TaggedDoc with words (tokens) and tags(labels)
-            print(inferred_vector)
+        for doc in corpus:
+            inferred_vector = model.infer_vector(doc.words) #have to call .words on TaggedDoc with words (tokens) and tags(labels)
             similar_vector = model.docvecs.most_similar([inferred_vector], topn=1)
-            print(similar_vector)
-            #ap(vector_thing)
+            ap(similar_vector[0][1]) #cosine similarity
+            if similar_vector[0][0] == doc.tags[0]: #tag of most similar vector should match tag of the document in the corpus
+                correct += 1
 
-            npArray = np.array(results)
-            min_ = min(results)
-            max_ = max(results)
-            mean_ = np.mean(npArray, dtype=np.float64) #float64 more accurate
-            median_ = np.percentile(npArray, 50)
-            firstQ = np.percentile(npArray, 25)
-            thirdQ = np.percentile(npArray, 75)
+        npArray = np.array(results)
+        min_ = min(results)
+        max_ = max(results)
+        mean_ = np.mean(npArray, dtype=np.float64) #float64 more accurate
+        median_ = np.percentile(npArray, 50)
+        firstQ = np.percentile(npArray, 25)
+        thirdQ = np.percentile(npArray, 75)
 
 
 
-        return (len(results), min_, max_, mean_, median_, firstQ, thirdQ)
+        return (correct, len(results), min_, max_, mean_, median_, firstQ, thirdQ)
 
 
 
