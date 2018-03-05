@@ -1,21 +1,32 @@
 from D2VModel import D2VModel, TaggedDocs
+import os
+from random import randint
+from shutil import copyfile
 
 def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testDirectory):
     """
     copy and paste random files from one folder into another
     for testing so that the test files are not trained on
     """
-    filenames = listdir(inputDirectory) #returns a list of filenames in order
+
+    #check if directories exists, if not, create them
+    if not os.path.exists(os.path.dirname(trainDirectory)):
+        os.makedirs(os.path.dirname(trainDirectory))
+    if not os.path.exists(os.path.dirname(testDirectory)):
+        os.makedirs(os.path.dirname(testDirectory))
+
+    filenames = [file for file in os.listdir(inputDirectory)] #returns a list of filenames in order
     used = []
     ap = used.append
 
+    print()
     print("copy-pasting files...")
 
     #add files to training folder
     for i in range(numToTrain):
-        x = random.randint(0, len(filenames)-1)
+        x = randint(0, len(filenames)-1) #randint is inclusive
         while x in used:
-            x = random.randint(0, len(filenames)-1)
+            x = randint(0, len(filenames)-1)
         ap(x)
         source = inputDirectory + filenames[x]
         destination = trainDirectory + filenames[x]
@@ -23,36 +34,44 @@ def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testD
 
     #add files to testing folder that were not trained on
     for k in range(numToTest):
-        y = random.randint(0, len(filenames)-1)
+        y = randint(0, len(filenames)-1)
         while y in used:
-            y = random.randint(0, len(filenames)-1)
+            y = randint(0, len(filenames)-1)
         ap(y)
         source = inputDirectory + filenames[y]
         destination = testDirectory + filenames[y]
         copyfile(source, destination)
 
     print("done copy-pasting files")
+    print()
 
 
 def main():
     #Directories of posts
     train_python_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainPythonJavascript/'
-    test_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testJavascript/'
-    test_python = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testPython/'
+    allPython = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/pythonPosts/'
+    allJavascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/javascriptPosts/'
+    allC = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/c#Posts/'
+    allNet  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/.netPosts/'
+    allD  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/databasePosts/'
+    allJava  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/javaPosts/'
 
+    train_dir = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainPythonDatabase/'
+    test_dir1 = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testDatabase/'
+    test_dir2 = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testPython2/'
 
     # ---- Create Training and Testing Folders for Info Retrieval ----
-    # createRandomMix(25000, 30000, 'D:/javascriptPosts/', train_dir, test_dir1)
-    # createRandomMix(25000, 15000, 'D:/pythonPosts/', train_dir, test_dir2)
-
+    createRandomMix(11973, 2000, allD, train_dir, test_dir1)
+    createRandomMix(40000, 4000, allPython, train_dir, test_dir2)
+    ##### make sure test_dir2 is the directory that will test with twice as many documents #####
 
 
     # ---- Info Retrieval ----
 
     #initialzie objects
-    dm_mean = D2VModel("dmM_python_javascript2")
-    dm_concat = D2VModel("dmC_python_javascript2")
-    dbow = D2VModel("dbowM_python_javascript2")
+    dm_mean = D2VModel("dmM_python_database")
+    dm_concat = D2VModel("dmC_python_database")
+    dbow = D2VModel("dbowM_python_database")
 
     #create training corpus
     all_models = [dm_mean, dm_concat, dbow]
@@ -64,26 +83,26 @@ def main():
 
     #create training corpus
     for m in all_models:
-        m.createCorpus(train_python_javascript)
+        m.createCorpus(train_dir)
 
     #create models
-    dm_mean.createModel(dm=1, vector_size=400, negative=5, window=5, min_count=1, epochs=20, dm_concat=0, dm_mean=1)
-    dm_concat.createModel(dm=1, vector_size=400, negative=5, window=5, min_count=1, epochs=20, dm_concat=1, dm_mean=0)
-    dbow.createModel(dm=0, vector_size=400, negative=10, window=5, min_count=1, epochs=20, dm_concat=0, dm_mean=0)
+    dm_mean.createModel(dm=1, vector_size=300, negative=5, window=5, min_count=1, epochs=20, dm_concat=0, dm_mean=1)
+    dm_concat.createModel(dm=1, vector_size=300, negative=5, window=5, min_count=1, epochs=20, dm_concat=1, dm_mean=0)
+    dbow.createModel(dm=0, vector_size=300, negative=10, window=5, min_count=1, epochs=20, dm_concat=0, dm_mean=0)
 
-    # #train models
+    #train models
     for mo in all_models:
         mo.trainModel()
         mo.saveModel()
 
 
     #create test corpuses
-    testPython = TaggedDocs(test_python, True)
-    testJavascript = TaggedDocs(test_javascript, True)
+    test1 = TaggedDocs(test_dir1, True)
+    test2 = TaggedDocs(test_dir2, True)
 
     #send to information retrieval task
     for mod in all_models:
-        results = mod.infoRet(testPython, testJavascript)
+        results = mod.infoRet(test_dir1, test_dir2)
         print()
         print(mod.model)
         print("Correct: ", results[0])

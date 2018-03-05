@@ -10,8 +10,8 @@ def main():
     train_net  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/.netPosts/'
     train_d  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/databasePosts/'
     train_java  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/javaPosts/'
-    #test_list = [[train_python_javascript, "PJ"], [train_python, "py"], [train_javascript, "js"]]
-    test_list = [[train_c, "C"], [train_net, "net"], [train_d, "database"], [train_java, "java"]]
+    test_list = [ [train_python_javascript, "PJ"], [train_python, "py"], [train_javascript, "js"], 
+                [train_c, "C"], [train_net, "net"], [train_d, "database"], [train_java, "java"] ]
 
     # ---- Sentiment Prediction Accuracy ----
     for test in test_list:

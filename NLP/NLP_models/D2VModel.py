@@ -62,7 +62,7 @@ class D2VModel():
     def createCorpus(self, directory, tokens_only=False):
         #TaggedDocs acts as a iterator
         print()
-        print("Creating", self.model_name, "Corpus...", end=" ")
+        print("Creating", self.model_name, "Corpus...")
         if tokens_only: #testing, not training. Doesn't use tags.
             corpus = TaggedDocs(directory, True)
         else:
@@ -74,7 +74,7 @@ class D2VModel():
 
     def createModel(self, dm=1, vector_size=300, negative=5, window=5, min_count=2, epochs=20, dm_concat=1, dm_mean=0):
         print()
-        print("Creating", self.model_name, "Model...", end=" ")
+        print("Creating", self.model_name, "Model...")
         #create doc2vec model
         model = gensim.models.doc2vec.Doc2Vec(dm=dm, vector_size=vector_size, negative=negative, window=window, min_count=min_count, epochs=epochs, dm_concat=dm_concat, dm_mean=dm_mean, workers=self.cores)
         self.model = model
@@ -84,7 +84,7 @@ class D2VModel():
     def trainModel(self):
         model = self.model
         print()
-        print("Training Model ", self.model_name, str(model), end=" ")
+        print("Training Model ", self.model_name, str(model), "...")
 
         #build vocabulary (dictionary accessible via mode.wv.vocab of all unique words extracted 
         #from the training corpus) with the frequency counts (model.wv.vocan['word'].count)
@@ -100,7 +100,7 @@ class D2VModel():
     def saveModel(self):
         #save model to ./docModels folder
         print()
-        print("Saving Model ", self.model_name, "...", end=" ")
+        print("Saving Model ", self.model_name, "...")
         self.model.save("./docModels/" + self.model_name)
         print("Model Saved")
         print()
@@ -108,7 +108,7 @@ class D2VModel():
     def loadModel(self, filename):
         # LOAD
         print()
-        print("Loading Model ", filename, "...", end=" ")
+        print("Loading Model ", filename, "...")
         model_loaded = gensim.models.Doc2Vec.load(filename)
         print("Model Loaded")
         print()
