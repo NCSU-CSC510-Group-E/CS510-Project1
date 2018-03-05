@@ -139,14 +139,14 @@ class D2VModel():
         
         #cant use indexing on an iterator, have to add TaggedDocs to a list
         print("Creating first list")
-        tc1 = [doc for doc in test_corpus1]
+        tc1 = list(test_corpus1)
         print("Creating second list")
-        tc2 = [doc for doc in test_corpus2]
+        tc2 = list(test_corpus2)
 
         #find minimum number of times to run test
         min_ = min(n1, (n2)//2)
 
-        #INFER A VECTOR without having to retrain via cosine similarity
+        #INFER A VECTOR without having to retrain
         #use random documents from the corpuses
         print("Calculating inferred_vectors...")
         for i in range(min_):
@@ -169,7 +169,7 @@ class D2VModel():
             y1_vector = model.infer_vector(tc2[y1])
             y2_vector = model.infer_vector(tc2[y2])
 
-            #y1 and y2 should be closer in distance to each other than x
+            #y1 and y2 vectors should be closer in distance to each other than x
             xy1 = np.linalg.norm(x_vector - y1_vector)
             xy2 = np.linalg.norm(x_vector - y2_vector)
             y1y2 = np.linalg.norm(y1_vector - y2_vector)
@@ -200,7 +200,7 @@ class D2VModel():
         for doc in corpus:
             inferred_vector = model.infer_vector(doc.words) #have to call .words on TaggedDoc with words (tokens) and tags(labels)
             similar_vector = model.docvecs.most_similar([inferred_vector], topn=1)
-            ap(similar_vector[0][1]) #cosine similarity
+            ap(similar_vector[0][1]) 
             if similar_vector[0][0] == doc.tags[0]: #tag of most similar vector should match tag of the document in the corpus
                 correct += 1
 
