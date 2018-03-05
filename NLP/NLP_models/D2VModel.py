@@ -1,7 +1,6 @@
 import gensim
 from os import listdir
 from random import randint
-#from docToExcel import docToExcel
 from shutil import copyfile
 from multiprocessing import cpu_count
 from smart_open import smart_open
@@ -215,44 +214,3 @@ class D2VModel():
 
 
         return (correct, len(results), min_, max_, mean_, median_, firstQ, thirdQ)
-
-
-
-        
-
-
-
-
-
-
-
-    #to compare:
-
-    #INFER A VECTOR without having to retrain via cosine similarity
-    #vector = model.infer_vector(['words', 'in', 'a', 'list'])
-
-    #you can do this with already trained data:
-    #vector = model.infer_vector(train_corpus[id].words) where id is the given tag
-
-    #MOST SIMILAR - find the most similar vector in the trained corpus to the given one
-    # similar = model.docvecs.most_similar([vector], topn=1)  change topn for number wanted to be returned
-    #similar[index] will return data about the vector
-
-
-    ## TEST RANDOM NEW DOC ##
-    """
-    doc_id = random.randint(0, len(test_corpus)-1)
-    inferred_vector = model.infer_vector(test_corpus[doc_id])
-    similar = model.docvecs.most_similar([inferred_vector], topn=1)
-    similar[index]
-    """
-
-    ## TEST RANDOM TRAINED DOC ##
-    """
-    doc_id = random.randint(0, len(train_corpus)-1)
-    inferred_vector = model.infer_vector(train_corpus[doc_id])
-    similar = model.docvecs.most_similar([inferred_vector], topn=1)
-    similar[index]
-    """
-
-   # make a graph? docToExcel(inferred_vectors, similar_vectors, title)

@@ -67,19 +67,19 @@ def main():
 
 
     # ---- Info Retrieval ----
-
+    name = "python_database"
     #initialzie objects
-    dm_mean = D2VModel("dmM_python_database")
-    dm_concat = D2VModel("dmC_python_database")
-    dbow = D2VModel("dbowM_python_database")
+    dm_mean = D2VModel("dmM_" + name)
+    dm_concat = D2VModel("dmC_" + name)
+    dbow = D2VModel("dbowM_" + name)
 
     #create training corpus
     all_models = [dm_mean, dm_concat, dbow]
 
-    #load models if an error during testing
-    # dm_mean.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmM_python_javascript.model')
-    # dm_concat.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmC_python_javascript.model')
-    # dbow.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dbowM_python_javascript.model')
+    #load models if an error during testing --> comment out train models and create training corpus
+    # dm_mean.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmM_' + name)
+    # dm_concat.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmC_' + name)
+    # dbow.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dbowM_' + name)
 
     #create training corpus
     for m in all_models:
@@ -102,7 +102,7 @@ def main():
 
     #send to information retrieval task
     for mod in all_models:
-        results = mod.infoRet(test_dir1, test_dir2)
+        results = mod.infoRet(test1, test2)
         print()
         print(mod.model)
         print("Correct: ", results[0])
