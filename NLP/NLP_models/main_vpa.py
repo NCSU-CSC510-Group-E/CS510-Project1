@@ -6,7 +6,6 @@ def main():
     train_python_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainPythonJavascript/'
     train_python = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/pythonPosts/'
     train_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/javascriptPosts/'
-    train_all = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/allPosts/body/'
     test_list = [[train_python_javascript, "PJ"], [train_python, "py"], [train_javascript, "js"]]
 
     # ---- Sentiment Prediction Accuracy ----
