@@ -23,10 +23,15 @@ will need to be validated as it is built, for the accuracy of its NLP
 algorithms, the usefullness of its suggestions, and the
 user-friendlyness of it's UI
 
-% TODO: reference a figure showing the "layers"
+% TODO: figure ref doesn't seem to be resolving correctly
+See figure \ref{sec:system-design:fig:design} for a detailed
+breakdown of the overall system design.
+The arrows in this diagram represent the flow of information from one
+layer to the next.
+Notice how no layer communicates with anything past its surrounding layers.
 
 \begin{figure*}[h]
-\label{solution:mockup_search}
+\label{sec:system-design:fig:design}
 \caption{Visualization of layered architecture}
 \centering
 \includegraphics[width=\textwidth]{SystemDesign}
@@ -62,7 +67,12 @@ The app proposed will use the database as a repository from which to
 make suggestions rather than natively running the NLP algorithms,
 which should help to improve the performance of the overall app.
 
-% TODO: ERD
+\begin{figure*}[h]
+\label{sec:system-design:fig:erd}
+\caption{ERD of Proposed Database}
+\centering
+\includegraphics[width=\textwidth]{ERD}
+\end{figure*}
 
 \paragraph{Suggestion Algorithm}
 % Talk about the design of the algorithms API
