@@ -1,14 +1,55 @@
 \paragraph{Overall System}
 % Introduce the layered architecture
-We propose building a layered system.
+We propose building a layered system where each piece of the
+funcionality of the overall application is built into one layer of the
+overall design.
 
 % Give overview of why this is a good idea.  
+This design gives us the ability to build the riskiest, most difficult
+pieces of functionality early, while slowly building up to an
+application taht is usable.
+It also allows us to parallel path much of the development of the
+overall system.
+One person can easily be working on one layer of the system without
+impacting other layers, as long as interfaces between layers are well
+designed and documented.
+
+The other primary advantage of the layered model detailed in the
+following sections is that it makes validation possible at each layer
+of the model.
+% TODO: what section?
+As we will get into in the following sections, the overall application
+will need to be validated as it is built, for the accuracy of its NLP
+algorithms, the usefullness of its suggestions, and the
+user-friendlyness of it's UI
+
+% TODO: reference a figure showing the "layers"
+
+\paragraph{Textbook Library}
+% TODO: should we detail the textbook library as a part of the overall system?
 
 \paragraph{NLP Algorithm}
 % Talk about the design of the NLP algorithms
+The ``lowest'' level of the stack we have designed is the suggestion
+algorithms.
+This layer has the responsibility of identifying the topis found in
+textbooks using trained models.
+Because all modern topic modeling algorithms are extremely slow to
+run, analysis can not be done in real-time.
+To work around that, we propose buildign a command-line application
+that could be scheduled on a server to run on some kind of regular
+interval and set against some external textbook parsing API.  
+See section \ref{sec:cli-design} for a more detailed breakdown than
+this overview.
 
 \paragraph{Database}
 % Talk about the design of the database
+The database sits above the NLP algorithms, but below the rest of the
+stack.
+Its purpose is to hold the topics, textbooks, and author information
+mined from our external API.  
+
+% TODO: ERD
 
 \paragraph{Suggestion Algorithm}
 % Talk about the design of the algorithms API
