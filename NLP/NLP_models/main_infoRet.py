@@ -47,48 +47,42 @@ def createRandomMix(numToTrain, numToTest, inputDirectory, trainDirectory, testD
 
 def main():
     #Directories of posts
-    train_python_javascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainPythonJavascript/'
-    allPython = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/pythonPosts/'
-    allJavascript = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/javascriptPosts/'
-    allC = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/c#Posts/'
-    allNet  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/.netPosts/'
-    allD  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/databasePosts/'
-    allJava  = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/javaPosts/'
-
-    train_dir = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/trainNetDatabase/'
-    test_dir1 = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testDatabaseN/'
-    test_dir2 = 'C:/Users/xocho/OneDrive/CS510-Project1/NLP/testNet/'
+    
+    #need / at end
+    train_dir = '/'
+    test_dir1 = '/'
+    test_dir2 = '/'
 
     # ---- Create Training and Testing Folders for Info Retrieval ----
-    createRandomMix(11973, 2000, allD, train_dir, test_dir1)
-    createRandomMix(30218, 4000, allNet, train_dir, test_dir2)
+    # createRandomMix(int_to_train, int_to_test, dir_to_find_topic1, train_dir, test_dir1)
+    # createRandomMix(int_to_train, int_to_test, dir_to_find_topic1, train_dir, test_dir2)
     ##### make sure test_dir2 is the directory that will test with twice as many documents #####
 
 
     # ---- Info Retrieval ----
-    name = "net_database"
+    
     #initialzie objects
     dm_mean = D2VModel("dmM_" + name)
     dm_concat = D2VModel("dmC_" + name)
     dbow = D2VModel("dbowM_" + name)
 
     #create training corpus
-    all_models = [dm_mean, dm_concat, dbow]
+    all_models = [dbow, dm_mean, dm_concat]
 
-    #load models if an error during testing --> comment out train models and create training corpus
-    # dm_mean.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmM_' + name)
-    # dm_concat.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmC_' + name)
-    # dbow.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dbowM_' + name)
+    #load models if an error during testing --> comment out training corpus, create models, and train models
+    # dm_mean.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmM_' + name + ".model")
+    # dm_concat.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dmC_' + name + ".model")
+    # dbow.loadModel('C:/Users/xocho/OneDrive/CS510-Project1/NLP/docModels/dbowM_' + name + ".model")
 
     #create training corpus
     for m in all_models:
         m.createCorpus(train_dir)
 
     #create models
-    dm_mean.createModel(dm=1, vector_size=300, negative=5, window=5, min_count=1, epochs=20, dm_concat=0, dm_mean=1)
-    dm_concat.createModel(dm=1, vector_size=300, negative=5, window=5, min_count=1, epochs=20, dm_concat=1, dm_mean=0)
-    dbow.createModel(dm=0, vector_size=300, negative=10, window=5, min_count=1, epochs=20, dm_concat=0, dm_mean=0)
-
+    dbow.createModel(dm=0, vector_size=300, negative=10, window=0, min_count=1, epochs=50, dm_concat=0, dm_mean=0)
+    dm_mean.createModel(dm=1, vector_size=300, negative=5, window=5, min_count=1, epochs=50, dm_concat=0, dm_mean=1)
+    dm_concat.createModel(dm=1, vector_size=300, negative=5, window=5, min_count=1, epochs=50, dm_concat=1, dm_mean=0)
+        
     #train models
     for mo in all_models:
         mo.trainModel()
@@ -96,16 +90,17 @@ def main():
 
 
     #create test corpuses
-    test1 = TaggedDocs(test_dir1, True)
-    test2 = TaggedDocs(test_dir2, True)
+    testCorpus1 = TaggedDocs(test_dir1, True)
+    testCorpus2 = TaggedDocs(test_dir2, True)
 
     #send to information retrieval task
     for mod in all_models:
-        results = mod.infoRet(test1, test2)
+        results = mod.infoRet(testCorpus1, testCorpus2)
         print()
         print(mod.model)
-        print("Correct: ", results[0])
-        print("Out of: ", results[1])
+        print("Correct (Eucildean Distance): ", results[0])
+        print("Correct (Cosine Disstance): ", results[1])
+        print("Out of: ", results[2])
         print()
 
 
