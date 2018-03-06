@@ -48,6 +48,13 @@ The database sits above the NLP algorithms, but below the rest of the
 stack.
 Its purpose is to hold the topics, textbooks, and author information
 mined from our external API.  
+To house this information, we have assembled a database using the
+Python library Peewee as an ORM.
+When run, Peewee will build out the tables listed in figure \ref{sec:system-design:fig:erd}.
+The app proposed will use the database as a repository from which to
+make suggestions rather than natively running the NLP algorithms,
+which should help to improve the performance of the overall app.
+
 
 % TODO: ERD
 
