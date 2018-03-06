@@ -55,14 +55,50 @@ The app proposed will use the database as a repository from which to
 make suggestions rather than natively running the NLP algorithms,
 which should help to improve the performance of the overall app.
 
-
 % TODO: ERD
 
 \paragraph{Suggestion Algorithm}
 % Talk about the design of the algorithms API
+The suggestion layer is the last layer of the application before the
+interface itself.
+To make suggestions, the team intends to build out a REST API built on
+top of the database previously discussed.
+The API should accept a list of topics to search for along with two
+weights: one for the wieght of topic coverage and one for weight of
+cost.
 
-\paragraph{Webapp}
+The weights serve as tuning parameters and may or may not be displayed
+to the end-users.
+The weights are them multiplied by their respective parameters and
+summed to come to a final priority number, which can then be
+considered a measure of the ``fitness'' of a particular textbook for
+use, where larger numbers are more fit.
+The fitness numbers should also be normalized to a scale between 0 and
+1, so that the ``fitness'' of different searches could be compared in
+a meaningful way.
+
+The proposed formula for calculating the priority of a suggestion is
+detailed in equation \ref{sec:system-design:eq:priority}.
+
+
+\begin{align}
+Priority_i &= a \times num\_topics_i + (b \times max(cost) - cost_i) \label{sec:system-design:eq:priority}
+\end{align}
+
+\paragraph{Web App}
 % Talk about the design of the webapp
+The final componenet in this proposed architecture is the user
+interface.
+For the purpose of this project, the team proposes building a simple
+webapp using AngularJS.
+In this design, the actual web app needs to do very little; it is
+merely acting as an interface to the previously mentioned API.
+It does not need to directly connect to a database or to perform
+complex calculations, it simply needs to provide a simple, easy way to
+input a set of search topics and to display the results of the REST
+API to the users.
+
+AngularJS is well positioned to be useful in this situation
 
 %%% Local Variables:
 %%% mode: latex
