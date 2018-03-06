@@ -25,6 +25,12 @@ pip install gensim
 pip install peewee
 ```
 
+If desired, Stack Overflow data can be downloaded for
+parsing [here](https://archive.org/details/stackexchange) though this
+is not recommended, as it can take significant portions of time.  For
+convenience, a test data set is included in the soFileTest and
+soFiletrain folders.
+
 ## Running the test
 
 You can run a simple end-to-end test of LDA simply by typing 
@@ -72,3 +78,9 @@ python analysis --help
 
 There is the beginning of a useful Ansible script to deploy this code
 in the ansible folder, but that script is currently not functional.
+
+## Documentation
+*
+  [Paper 1](https://github.com/NCSU-CSC510-Group-E/CS510-Project1/blob/master/Doc/Paper1/main.pdf) (complete)
+*
+  [Paper 2](https://github.com/NCSU-CSC510-Group-E/CS510-Project1/blob/master/Doc/Paper2/main.pdf) (in progress)
