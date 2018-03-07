@@ -1,5 +1,5 @@
 from gensim import corpora, models
-
+from NLP_models.textcorpusOEM import TextDirectoryCorpus
 # used to determine if models exist to load from disk
 from pathlib import Path
 
@@ -47,7 +47,7 @@ class LDA(object):
 
         if(self.Dictionary == None):
             
-            corpus = corpora.TextDirectoryCorpus(path_to_input, lines_are_documents=False)
+            corpus = TextDirectoryCorpus(path_to_input, lines_are_documents=False)
 
             if(self.debugging):
                 print('Dumping corpus')
