@@ -2,14 +2,17 @@
 % !TEX root = ../../main.tex
 
 \section{Evaluation}
-The performance measure is a typical way to evaluate machine learning models. It is the measurement that will make of the predictions made by a trained model on the test dataset. Performance measures are typically specialized to the class of problem, for example in this paper, our problem is a NLP topic modeling, we will use likelihood score and perplexity to evaluate our LDA model.
+In this section, we present the evaluations that been performed on our solustions. This including two parts: 1) methods that used to evaluate our core topic learning models LDA and Doc2Vec and 2) methods used to evaluate the whole solution as the final product. 
+\subsection{Evaluating Learing Models}
+The performance measure is a typical way to evaluate machine learning models. It is the measurement that will make of the predictions made by a trained model on the test dataset. Performance measures are typically specialized to the class of problem, for example in this paper, our problem is a NLP topic modeling, we will use likelihood score and perplexity to evaluate our LDA model.\\
+Based on how to split the data into training and testing, evaluate machine learning models usually involves hould out, cross valiation(CV) and leave-one-out. 
+\subsubsection{Evaluating LDA}
 
-\subsection{Evaluating LDA}
-There are 
-\subsection{Evaluating Doc2Vec}
+
+\subsubsection{Evaluating Doc2Vec}
 TO DO
 
-\subsubsection{Sentiment Prediction Accuracy}
+\subsubsubsection{Sentiment Prediction Accuracy}
 %Need to figure out how to test the accuracy of doc2vec when it predicts future text
 %
 %-gensim has a infer vector function that "infers a vector for given post-bulk trainng document"
@@ -22,7 +25,7 @@ TO DO
 %
 %-Error rate would be how far away best vectors are, lower the better?
 
-\subsubsection{Information Retrieval}
+\subsubsubsection{Information Retrieval}
 
 One way to verify that our implementation of Doc2Vec is correctly mapping word vectors to other semantically similar word vectors is to test the trained model on an information retrieval task . \cite{RefWorks:doc:5a6e5746e4b0d609eec798d7} The data collected from stackoverflow is tagged with different topics that pertain to the content. The tags can then be used to organize the content via topic. The Doc2Vec model should report two documents that pertain to the same topic as less distant to each other than a third document that focuses on a different topic.
 
@@ -30,3 +33,36 @@ One way to verify that our implementation of Doc2Vec is correctly mapping word v
 %
 %- 3 folders: two with the same topic, a third folder of different topics that don't include the picked special topic
 %-Report results (use DM, DBOW, and both together -follow gensim example at https://github.com/RaRe-Technologies/gensim/blob/develop/docs/notebooks/doc2vec-IMDB.ipynb 
+\subsection{Evaluating Application}
+\subsubsection{Pre-Surveying}
+To evaluate our project idea, we conducted a pre-surveying to see what the problem we are facing and how people reacting about our proposed solution. We asked our participants how long they will spend on find the right textbook, what aspect do they think is most important when choosing a textbook (except the content, our learning model will do the best of this part). See Table \ref{Pre-survey} for a breakdown of the questions to ask.
+
+\begin{table}[ht] 
+\caption{Questions in Pre-survey}
+\label{Pre-survey}
+\begin{center}
+\begin{tabular}{ll}
+\multicolumn{1}{c}{\bf Questions} 
+\\ \hline \\
+1. Are you a student or professor?\\
+2. How much time do you spend on choosing a textbook?\\
+3. How do you choose a textbook?\\
+4. What aspect do you think is most important\\
+when choosing a textbook (except the content)? \\
+5. Would you consider an app that will give you \\
+recommended textbooks base on your course \\
+syllabus and your preference? \\
+\end{tabular}
+\end{center}
+\end{table}
+Among the 29 responses, we found that 73.3\% responded as they interested to our application to recommend the textbooks. The answer to most important aspect during the textbook chosen, review/ratings and sell price were the highest concern. These preliminary results give us the guidance to design the application and to improve the core learning models. See Figure \ref{result_of_presurvey} for detailed results.
+
+\begin{figure}[ht]
+\caption{Result of preSurvey}
+\label{result_of_presurvey}
+\centering
+\includegraphics[width=0.5\textwidth]{preSurvey.jpeg}
+\end{figure}
+
+\subsubsection{Experiments and Post-survey}
+After we build the application with the command line interface and core learning models, we ran the experiments with different users in a foucs group to evaluate the solution.
