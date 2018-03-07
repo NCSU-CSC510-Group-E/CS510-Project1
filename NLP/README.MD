@@ -15,6 +15,11 @@ To run this code, you will need the following python libraries:
 * [Gensim](https://radimrehurek.com/gensim/)
 * [Peewee](http://docs.peewee-orm.com/en/latest/)
 
+Some have reported needing further dependencies including boto,
+bz2file, and boto3.  If you encounter this issue, please contact Zach
+DeLong on the class slack team or at zpdelong@ncsu.edu to sort this
+out.  The team has been unable to reproduce this issue.
+
 ### Installing
 
 The required dependencies should be installable via Pip in most
@@ -37,6 +42,13 @@ You can run a simple end-to-end test of LDA simply by typing
 ```
 python analysis --verbose
 ```
+
+You may also need to create a 'save' directory to cache your models
+in.  You can do this with 
+```
+mkdir save
+```
+in the "NLP" directory you've checked out.  
 
 For help with command-line options, run 
 ```
