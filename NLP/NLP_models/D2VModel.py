@@ -5,6 +5,7 @@ from shutil import copyfile
 from multiprocessing import cpu_count
 from smart_open import smart_open
 import numpy as np
+from scipy import spatial
 
 """
 Gensim Doc2Vec needs model training data in an iterator object
@@ -97,10 +98,10 @@ class D2VModel():
         print()
 
     def saveModel(self, doneTraining=True):
-        #save model to ./docModels folder
+        #save model. Set doneTraining = False if you want to keep training
         print()
         print("Saving Model ", self.model_name, "...")
-        self.model.save("./docModels/" + self.model_name)
+        self.model.save(self.model_name + ".model")
 
         if doneTraining: #save space, RAM
             self.model.delete_temporary_training_data(keep_doctags_vectors=True, keep_inference=True)
@@ -126,6 +127,9 @@ class D2VModel():
         Information Retrieval Test. Can the model accuratly predict 
         whether two documents are similar or not in comparison to another?
         @params - test_corpus2 is the corpus that needs twice as many documents
+        @return - number of correct times Eudcildean and cosine distance found the
+                  two documents from the same topic were the most similar
+                - total times tested
         """
         print()
         print("Starting Information Retrieval on", self.model_name, str(self.model))
@@ -133,7 +137,8 @@ class D2VModel():
         model = self.model
         used1 = []
         used2 = []
-        correct = 0
+        correct1 = 0
+        correct2 = 0
         count = 0
         n1 = len(test_corpus1.filenames)
         n2 = len(test_corpus2.filenames)
@@ -143,9 +148,9 @@ class D2VModel():
         y2 = randint(0, n2-1)
         
         #cant use indexing on an iterator, have to add TaggedDocs to a list
-        print("Creating first list")
+        print("Creating first test corpus list")
         tc1 = list(test_corpus1)
-        print("Creating second list")
+        print("Creating second test corpus list")
         tc2 = list(test_corpus2)
 
         #find minimum number of times to run test
@@ -174,17 +179,25 @@ class D2VModel():
             y1_vector = model.infer_vector(tc2[y1])
             y2_vector = model.infer_vector(tc2[y2])
 
-            #y1 and y2 vectors should be closer in distance to each other than x
+            #Eucildean Distance:y1 and y2 vectors should be closer in distance to each other than x
             xy1 = np.linalg.norm(x_vector - y1_vector)
             xy2 = np.linalg.norm(x_vector - y2_vector)
             y1y2 = np.linalg.norm(y1_vector - y2_vector)
 
             if min(xy1, xy2, y1y2) == y1y2:
-                correct += 1
+                correct1 += 1
+
+            #cosine similarity - may be better for vectors with different directions/magnitudes
+            xy1 = spatial.distance.cosine(x_vector, y1_vector)
+            xy2 = spatial.distance.cosine(x_vector, y2_vector)
+            y1y2 = spatial.distance.cosine(y1_vector, y2_vector)
+
+            if max(xy1, xy2, y1y2) == y1y2: #values -1 to 1, 1 = the same
+                correct2 += 1
 
             count += 1
 
-        return (correct, count)
+        return (correct1, correct2, count)
 
 
     def vpa(self):
@@ -193,6 +206,11 @@ class D2VModel():
         Is the model able to infer a trained document's vector as 
         the most similar to its trained vector self?
         Checks every document in the corpus that was trained --> smaller corpus
+        @return - number of correct tiems the cosine similarity found the inferred
+                  vector from same document was the most similar to the trained
+                  vector corresponding to that document within the model
+                - total times tested
+                - min, max, mean, median, first and third quartiles
         """
         print()
         print("Starting Vector Prediction Accuracy on", self.model_name, str(self.model))
@@ -206,12 +224,13 @@ class D2VModel():
             inferred_vector = model.infer_vector(doc.words) #have to call .words on TaggedDoc with words (tokens) and tags(labels)
             similar_vector = model.docvecs.most_similar([inferred_vector], topn=1)
             ap(similar_vector[0][1]) 
+
             if similar_vector[0][0] == doc.tags[0]: #tag of most similar vector should match tag of the document in the corpus
                 correct += 1
 
         npArray = np.array(results)
-        min_ = min(results)
-        max_ = max(results)
+        min_ = min(results) #smallest cosine simularity
+        max_ = max(results) #largest = the most similar
         mean_ = np.mean(npArray, dtype=np.float64) #float64 more accurate
         median_ = np.percentile(npArray, 50)
         firstQ = np.percentile(npArray, 25)
