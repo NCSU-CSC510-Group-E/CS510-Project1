@@ -23,7 +23,10 @@ out.  The team has been unable to reproduce this issue.
 ### Installing
 
 The required dependencies should be installable via Pip in most
-cases.  
+cases.  Note that if you are running multiple versions of Python on
+your machine, you will need to specifically install the dependencies
+for Python3.  This is most often done using pip3, but may depend on
+your config.
 ```
 pip install click
 pip install gensim
