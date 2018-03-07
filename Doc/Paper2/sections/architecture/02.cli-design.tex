@@ -1,4 +1,13 @@
-testing
+% Introduce the where this topic fits in the previous discussion
+The NLP algorithms are the focus of most of the rest of this paper.
+To make it easier to test and evaluate these algorithms, the team
+designed a CLI using the Python package Click.
+Once the CLI was up and running, the learning algorithms were
+implemented using the package Gensim.
+Wrapper classes around the Gensim models were built using a variant of
+the strategy pattern, so that our implementations could easily be
+swapped back and forth during testing.  
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../main"
