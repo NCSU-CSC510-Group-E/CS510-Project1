@@ -29,12 +29,29 @@ Cosine simularity is usually used to compare vectors by the size of the cosine a
 
 \subsubsection{Vector Prediction Accuracy}
 
-Before Doc2Vec was tested on untrained data, it was tested on itself. One can determine how accuratly the model represents the trained data by generating an inferred vector from the training corpus and comparing it to the most similar learned vector from the model. The more similar the inferred vectors of each document are to the vectors representing the same trained documents, the better the representation of the trained data. Initially, testing was done on a dataset containing both python and javascript. To avoid having to create special folders of training datasets to be used against multiple combinations of parameters, data was not chosen randomly. All of the documents in a given training corpus were used during testing. The python and javascript set was the training set created randomly before information retrieval testing that contained 25,000 posts each from python and javascript.The results from information retrieval suggested that there was not a semantic differece between python and javascript posts so python was also tested alone with all parsed python posts (slightly less than 50,000). 
+One can determine how accurately the model represents the trained data by generating an inferred vector from the training corpus and comparing it to the most similar learned vector from the model. The more similar the inferred vectors of each document are to the vectors representing the same trained documents, the better the representation of the trained data. Initially, testing was done on a dataset containing both python and javascript. To avoid having to create special folders of training datasets to be used against multiple combinations of parameters, data was not chosen randomly. All of the documents in a given training corpus were used during testing. The python and javascript set was the training set created randomly before information retrieval testing that contained 25,000 posts each from python and javascript.The results from information retrieval suggested that there was not a semantic differece between python and javascript posts so python was also tested alone with all parsed python posts (slightly less than 50,000). ---FIGURE OF DATA FOR NORMAL, HIGH VECTOR, MORE EPOCHS, SMALL VECTOR)----
 
-The results revealed several interesting points about the stackoverflow data. 
--
--
--
+The results revealed several interesting points about the stackoverflow data:
+
+-Models as a whole performec better with small 100 size feature vector. ---mostly decided by DM-C. DM-M worse. Both in python and javascript. 1st quartile and mean in DBOW very high
+
+-DM-M performed the best with larger vectors, training more did not affect DM-M that much compared to vector size and window size. TEST 300v 20 epochs, 10 window, 50 epochs. better than window 16 at 50 epochs? 
+-DM-M semi-consistent. 1-3.5 percent error. Combinining the paragraph vectors as suggested by Mikolov et all of DM-M and DBOW probably produce most consistent model good for data already trained and data that has not been seen - DM-M better at picking out topics  --> info RET.
+
+-DM-C has the best Max when the vector was the largest - 400 neurons. More epochs ruined percent erro? TEST ABOVE. or was it the large 16 window? TEST 400v, 20epochs. best percent error when vector was small. Smaller vector = smaller vector space = less ability to determine semantic differences = better results if there is no relationship? -DBOW most consistent at percent error. Never broke .1. Good at predicting data that was already trained. Model based on probability distributions of words.
+-DM-C has highest possibility for success, high maxes, but very large range, low Mins, wide 1st-3rd quartiles, low means. Probably does the best with very close semantic relationships as Mikolov suggested. They also used a combination of Dm-C and DBOW for better results. Very slow to train and did the worst with our sparce unrelated data so not worth it for this data.
+
+
+-DBOW better in PYJS than just PY by .01-.02 . 20, 50-epochs not must difference. lowest at 300V 10 negative. still lower percent error than the others at other parameter changes. Consistently the best. Similar mean , quartile distribution as python. small difference between mean 1st and 3rd quartiles.
+
+
+-the higher the epochs, the closer the 3rd quartile was to the max. Distance from 3rd quartile to 1st not greatly affected. Even though the percent erros would go down up with more epochs, the cosine simularities got better. Better the cosine simularity, the better the data is being represented by the model, better the topics can probably be dinstinguished? Some of the data must be very different semantically. Posts from untold amount of users on stackoverflow. 
+
+
+
+
+
+ 
 
 
 \subsubsection{Conclusions}
