@@ -13,11 +13,15 @@ Based on how to split the data into training and testing, evaluate machine learn
 \subsection{Evaluating Doc2Vec}
 While LDA produces keywords predicted to be the main topics of the document, Doc2Vec produces vectors. To convert these vectors in potential important topics, first the accuracy of the model must be established to ensure that it can distinguish between one topic and another. Two tests were used to evalutate the accuracy of the three Doc2Vec models, Distributed-Memory by taking the mean of the vectors (DM-M), Distributed-Memory by concatenating (DM-C), and Distributed Bag of Words (DBOW): vector prediction and information retrieval.
 
-Doc2Vec was tested on parsed stackoverflow data. Folders of different tags were created such that no document had the other tags that were being tested listed. For exaple, a document tagged 'python' would not also have 'javascript' as a tag. This was done to decrease topic blending and increase the semantic importance of the tags. Tags included python, javascript, database, c\#, .net, and java. 
+Doc2Vec was tested on parsed stackoverflow data. Datasets of different tags were created such that training no document in a set for one tag had any documents that contained other tags that were being tested listed. For exaple, a document tagged 'python' would not also have 'javascript' as a tag. This was done to decrease topic blending and increase the semantic importance of the tags. Tags included python, javascript, database, c\#, .net, and java. Decisions on what tags to tests, what parameters to use, etc. where decided in response to test results along the way with the goal of the models being able to distinguish a semantic difference between tags so that the models could determine which posts belonged to which tags, e.g. python post was indeed a python post and a javascript post.
 
 \subsubsection{Vector Prediction Accuracy}
 
-Before Doc2Vec was tested on untrained data, it was tested on itself. One can determine how accuratly the model represents the trained data by generating an inferred vector from the trained corpus and comparing it to the most similar vector from the model. The more similar the inferred vectors of each document are to the vectors representing the same trained documents, the better the representation of the trained data. 
+Before Doc2Vec was tested on untrained data, it was tested on itself. One can determine how accuratly the model represents the trained data by generating an inferred vector from the training corpus and comparing it to the most similar learned vector from the model. The more similar the inferred vectors of each document are to the vectors representing the same trained documents, the better the representation of the trained data. Initially, testing was done on a dataset containing both python and javascript. To avoid having to create special folders of training datasets to be used against multiple combinations of parameters, data was not chosen randomly. All of the documents in a given training corpus were used during testing. The python and javascript set was the training set created randomly before information retrieval testing that contained 25,000 posts each from python and javascript.The results from information retrieval suggested that there was not a semantic differece between python and javascript posts so python was also tested alone with all parsed python posts (slightly less than 50,000). 
+
+The results revealed several interesting points about the stackoverflow data. 
+
+
 
 \subsubsection{Information Retrieval}
 
