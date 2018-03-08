@@ -1,7 +1,68 @@
 % Why did we prioritize our prototypes in the order we did.
+% The team thought the NLP algorithms were the riskiest part.
+% We wanted to get them out of the way early to make developing the
+% web app easier.
+% When When working 
+
+\paragraph{Prototype Progress}
+The original plan for implementing our system did not adequately
+address the issues we had with implementing our learning algorithms,
+so the team quickly pivoted to a more risk driven approach as outlined
+in section \ref{sec:devi-from-init-pln}.
 
 % What were we able to finish
+% We finished prototypes of our natural language processing algorithms
+% What actually works so far?  :
+The team currently has implemented prototypes 1-4, which means that
+the lion's share of NLP processing has been done.
+We now have a script that will transform Stack Overflow dumps into
+something that our learning algorithms can more easily and efficently
+process, as well as a NLP implementations of both LDA and Doc2Vec that
+are able to act on the processed data and which implement various
+accuracy measures that we have used to detail their usefulness.
+We also have save and load functionality worked into our models so
+that the models can be reused without the need to train the model on
+every run, which has proven to be one of the most useful features
+during testing.  
 
+
+\paragraph{Challenges}
 % What challenges did we have on the way?
+% NLP algorithms are complciated
+% Doc2Vec isn't a topic mining algorithm!  What we are doing with it
+% isn't actually natively supported!
+% LDA takes FOREVER to run
+On the way to getting those prototypes running, we ran into a number
+of challenges, chief among them the fact that the team had no
+experience in this field, as outlined in seciton \ref{sections/introduction/02.deviations.tex}.
+Another major complication we ran into was the simple complexity of
+these algorithms.  The Gensim library provides amazingly powerful
+implementations for re-use, but that power comes at the cost of
+complexity which their reasonably high quality documentation does not
+entirely weed out.
+The third major stumbling block was the fact that we intended to use
+Doc2Vec to mine topics out of text---something it does not natively
+do!  
+We came up with a somewhat novel approach to this as outlined in
+seciton \ref{sections/eval_plan/eval_plan_main.tex} after some time,
+bt this was a major challenge of our research.  
+The last major challenge was one of time.
+Not time to finish the projec, though we could easily have listed
+that, but the execution time of the NLP algorithms.
+These algorithms are both extremely expensive, and to run them on the
+data sets required can take significant portions of time.
 
 % How did we respond to those challenges?
+To respond to those challenges, the team spent a lot of time in
+research and in documentation.
+We spent a lot of time studying the research and trawling through
+Gensim documentation
+To solve doc2vec we came up with a somewhat novel approach to
+modeling topics.
+We tried to optomize LDA and implemented caching of models to make
+retraining unnecessary once a reasonable model was trained.  
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:
