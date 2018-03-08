@@ -10,7 +10,7 @@ Based on how to split the data into training and testing, evaluate machine learn
 
 
 \subsection{Evaluating Doc2Vec}
-TO DO
+Doc2Vec was tested on parsed stackoverflow data. Folders of different tags were created such that no document had the other tags that were being tested listed. For exaple, a document tagged 'python' would not also have 'javascript' as a tag. This was done to decrease topic blending and increase the semantic importance of the tags. Tags included python, javascript, database, c\#, .net, and java. 
 
 \subsubsection{Vector Prediction Accuracy}
 %Need to figure out how to test the accuracy of doc2vec when it predicts future text
@@ -28,6 +28,21 @@ TO DO
 \subsubsection{Information Retrieval}
 
 One way to verify that our implementation of Doc2Vec is correctly mapping word vectors to other semantically similar word vectors is to test the trained model on an information retrieval task . \cite{RefWorks:doc:5a6e5746e4b0d609eec798d7} The data collected from stackoverflow is tagged with different topics that pertain to the content. The tags can then be used to organize the content via topic. The Doc2Vec model should report two documents that pertain to the same topic as less distant to each other than a third document that focuses on a different topic.
+
+Three different datasets were used for this test largely based off the results of the vector prediction analysis testing: a set trained on just Python, a set trained on Python and Database, and a set trained on Python and Javascript. The Python and Javascript training data contained 25,000 randomly selected documents from each tag. Another 15,000 documetns for each tag that were not used for training were selected to be tested. Out of these 15,000 documents, two of the javascript documents were shown with one python document to determine if the model could accuratlely determine a semantic difference between the two tags allowing the model to be used for topic prediction like LDA. The same was one with the python and database set, except only 2,000 database documents were tested against 4,000 python documents shown two at a time. The rest of the python and database documents were used for training. The number database documents was far less than both python and javascript, but the database dataset scored high on the vector prediction analysis indicationg a possible semantic advantage over python and javascript. The set trained on just python was tested the same way as the other python and database set.
+
+Mikolov et. all Used two different sources for their information retrieval tests -----CITE----. One was sentences taken from Rotten Tomatoes reviews that were labeled by MTurk workers as positive or negative. The models preformed well with being able to tell if a sentence was negative or positive, but not with five fine-tuned ratiings - if it was very positive vs. slightly positive, etc. The paragraph vector percent error for the fine-tuned ratings was a high 51.3\%. The other test involved taking 1 million popular search engine queries and creating three paragraphs several sentences long from the 10 most popular results for each query. Two of the paragraphs would be from the same source while the third would be from a different source. Their implementation of the paragraph vector was able to correctly idenity the paragraphs from the same source as closer in distance with the vector space with only a 7.42\% error. 
+
+Similar to the fine-tuned Rotten Tomatotes experiment, attemps to implement Gensim's Doc2Vec were met with high percent errors with the parsed stackoverflow data. The error rate was determined by two measurements: the Eucildean distance and cosine simularity. Eucildean distance takes two vectors and calculates the straight-line distance between them. This measurement was used initially with poor results. The number of epochs was increased from 20 to 50 iterations in an attempt to better performance, but the error consistently became worse. ----FIGURES --- Upon further research, it was discovered that within a vector space, Eucildean distance is not always an accurate measurement because two vectors that are close to each other will be classified as similar even if they are going in opposite directions, thus actually being opposites in semantics. Similar semantically meaning words can also be deemed far apart if the texts vary in length greatly resulting in a high word counts creating a larger magnitude vector. Cosine simularity, the measurement Gensim uses to compare inferred vectors to the trained vectors within the models, was adopted to solve this problem.
+
+Cosine simularity is usually used to compare vectors by the size of the cosine angle between the vector and the origin. Comparing to the origin captures the semantical direction and accounts for the magnitue problem. However, in this test the Eucildean distance consistently performed better than the cosine simularty.  ----FIGURES---  Raising epochs from 20 to 50 only seemed to affect the DM-C model, decreasing performance. The two datasets that were tested with the python and database tags performed better than python and javascript at Eucildean and cosine distance even though the python and javascript dataset was implemented with less epochs, which seemed to make the DM-C model worse. 
+
+% Cosne Simularity is normally used to measure semantics - DAta did not have good semanticss. Good not distinquich between topics well. Data may also not be different enough. Python is close to Javascript - CS language. ADD TO CONCLUSION AT END OF SECTION
+
+
+
+
+
 
 %-Seperate content such that documents used for testing were not trained on
 %
