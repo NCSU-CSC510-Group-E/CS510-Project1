@@ -30,56 +30,41 @@ on in section \ref{??}.
 
 \begin{table*}[t]
   \centering
-  \caption{Prototypes}
+  \caption{Prototypes and Schedules}
   \begin{tabular}{ l p{10cm} l l}
-    % Prototype & Requirements & Risk (1-5) & Complete \\
+     \bf Prototype & \bf Requirements & \bf Risk (1-5) & \bf Complete \\ \hline \\
     1 & 
-        \begin{itemize}
-        \item Implement CLI to make testing of models easier
-        \item Implement LDA algorithm using Gensim on static text files.
-        \end{itemize} &
-                        3 & + \\
+         Implement CLI to make testing of models easier. 
+         \newline Implement LDA algorithm using Gensim on static text files.  
+         & 3 & + \\ \\
     2 &
-        \begin{itemize}
-        \item Prototype 1
-        \item Parse Stack Overflow data to text files for input to prototype 1
-        \item Save/Load model so multiple experiments can be run more quickly
-        \item Adapt Prototype 1 to operate on Stack Overflow data.
-        \end{itemize} &
-                        4 & + \\
+        Prototype 1
+        Parse Stack Overflow data to text files for input to prototype 1
+        Save/Load model so multiple experiments can be run more quickly
+        Adapt Prototype 1 to operate on Stack Overflow data.
+        & 4 & + \\ \\
     3 &
-        \begin{itemize}
-        \item Prototype 2
-        \item Prototype database models/access code.
-        \item Prototype similarity measures to be used with learning
-          algorithms
-        \end{itemize} &
-                        4 & + \\
+        Prototype 2
+        Prototype database models/access code.
+        Prototype similarity measures to be used with learning algorithms
+        & 4 & + \\ \\
     4 &
-        \begin{itemize}
-        \item Implement Doc2Vec
-        \item Implement Doc2Vec with stack overflow data
-        \end{itemize} &
-                        5 & + \\
+        Implement Doc2Vec
+        Implement Doc2Vec with stack overflow data
+        & 5 & + \\ \\
     5 &
-        \begin{itemize}
-        \item Implement code to parse PDFs of textbooks
-        \item Implement connection to library (either REST API or a folder of PDFs
-        \item Apply trained models to textbooks
-        \item Save modeled topics in the database
-        \end{itemize} &
-                        4 & - \\
+        Implement code to parse PDFs of textbooks
+        Implement connection to library (either REST API or a folder of PDFs
+        Apply trained models to textbooks
+        Save modeled topics in the database
+        & 4 & - \\ \\
     6 &
-        \begin{itemize}
-        \item Write algorithm to parse saved topics
-        \item Write REST API to serve above algorithm
-        \end{itemize} &
-                        2 & - \\
+        Write algorithm to parse saved topics
+        Write REST API to serve above algorithm
+        & 2 & - \\ \\
     7 &
-        \begin{itemize}
-        \item Build web-app front end to the above suggestion service
-        \end{itemize} &
-                        2 & - 
+        Build web-app front end to the above suggestion service
+        & 2 & - 
   \end{tabular} \label{sec:planning:prototypes-table}
 \end{table*}
 
