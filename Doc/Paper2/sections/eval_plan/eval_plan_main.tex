@@ -17,17 +17,19 @@ Normally, with the text corpus ready, the next data preprocessing would be remov
 One typical method to evaluate LDA model is to calculate the likelihood probability of the testing data(hold out data in our case). We used perplexity to calculate and estimate the likelihood. Perplexity is defined as the reciprocal geometric mean of the token likelihoods in the test text corpus given the trained model. Lower values of perplexity means lower misrepresentation of the words of the test files by the trained topics.\\ 
 We first parsed the stackoverflow data into several groups of data. Each group contains different number of text files. We would like to evaluate the model performance with the increasing of  data size.\\
 As we found out from the first experiment, the likelihood is not increasing significantly, but the train time is extremely longer. After we analyzed the results, it is possible that the training data has too many topics which has less common with the test data. Therefore, we designed the second test method.\\
-Secondly, we parsed the stackoverflow data with filter out those posts do not contain any tags in a five topic set. The set contains tags: python, java, javascript, database and sql. With this less sparsity dataset, we have been able to train the model and test it with a better result.\\
-\begin{table}{ll}
+Secondly, we parsed the stackoverflow data with filter out those posts do not contain any tags in a five topics set. The set contains tags: python, java, javascript, database and sql. With this less sparsity dataset, we have been able to train the model and test it with a better result.\\
+\begin{table}[!htbp]
+\caption{Test Result of LDA Model}
+\label{lda-result}
 \begin{center}
-\caption{Test result of Model LDA}
-\begin{tabular}{l c ccc}
-
+\begin{tabular}{  l  p{5cm} }
+\bf Epoch & \bf LIKELIHOOD\\ \hline \\
+1         &0.5443\\
+10       &0.6584\\
+100     &0.9189\\
 \end{tabular}
-\label{table2}
 \end{center}
 \end{table}
-
 \paragraph{Evaluating Doc2Vec}
 TO DO
 
@@ -55,20 +57,20 @@ One way to verify that our implementation of Doc2Vec is correctly mapping word v
 \subsection{Evaluating Application}
 \paragraph{Pre-Surveying}
 To evaluate our project idea, we conducted a pre-surveying to see what the problem we are facing and how people reacting about our proposed solution. We asked our participants how long they will spend on find the right textbook, what aspect do they think is most important when choosing a textbook (except the content, our learning model will do the best of this part). See Table \ref{Pre-survey} for a breakdown of the questions to ask.
-
-\begin{tabular}{ll}
-\multicolumn{1}{c}{\bf Questions in Pre-Survey} 
-\\ \hline \\
-1. Are you a student or professor?\\
-2. How much time do you spend on choosing a textbook?\\
-3. How do you choose a textbook?\\
-4. What aspect do you think is most important\\
-when choosing a textbook (except the content)? \\
-5. Would you consider an app that will give you \\
-recommended textbooks base on your course \\
-syllabus and your preference? \\
-\end{tabular} \label{Pre-survey}
-
+\begin{table}[!htbp]
+\caption{\bf Questions in Pre-Survey} 
+\label{Pre-survey}
+\begin{center}
+\begin{tabular}{  l  p{5cm} }
+\bf NO & \bf QUESTIONS\\ \hline \\
+1 & Are you a student or professor?\\
+2 & How much time do you spend on choosing a textbook?\\
+3 & How do you choose a textbook?\\
+4 & What aspect do you think is most important when choosing a textbook (except the content)? \\
+5 & Would you consider an app that will give you recommended textbooks base on your course syllabus and your preference? \\
+\end{tabular} 
+\end{center}
+\end{table}
 Among the 29 responses, we found that 73.3\% responded as they interested to our application to recommend the textbooks. The answer to most important aspect during the textbook chosen, review/ratings and sell price were the highest concern. These preliminary results give us the guidance to design the application and to improve the core learning models. See Figure \ref{result_of_presurvey} for detailed results.
 
 \begin{figure}[ht]
