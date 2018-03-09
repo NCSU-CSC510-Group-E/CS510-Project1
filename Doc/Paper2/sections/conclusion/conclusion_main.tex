@@ -51,12 +51,25 @@ was one central repository to track progress.
 \label{sec:conc:lda}
 % LDA is super dependent on the test set.
 As expeted, purely based on the accuracy of the topics, LDA is the
-clear winner in our battle of learning algorithms
+clear winner in our battle of learning algorithms based purely on the
+measures presented.
+That said, it has some serious downsides.
+% LDA can run unsupervised, but topic limiting is bad
+While it should be considered a positive that the algorithm is capable
+of learning topics unsupervised, the need to specify the number of
+topics mined limits the flexibility.
 
 % LDA takes forever to run!
+It is also worth noting that LDA can take significant portions of time
+to train in a casual computing environment like a laptop.
+There are some configurations of parameters that performed well in
+evaluation but took upwards of 20 minutes simply to train on a few
+thousand short Stack Overflow posts.
+This can be mitigated somewhat with proper tuning and the algorithm
+could be optomized for a high-performance environment but it is
+something that seems to be inherent in how to train the algorithm.
 
-% LDA can run reasonably well unsupervised.  
-
+% 
 \subsection{Doc2Vec}
 \label{sec:conc:doc2vec}
 % TODO, no idea what to write here yet,
