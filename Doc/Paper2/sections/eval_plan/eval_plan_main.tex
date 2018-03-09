@@ -4,7 +4,7 @@
 \section{Evaluation}
 In this section, we present the evaluations that been performed on our solutions. This including two parts: 1) methods that used to evaluate our core topic learning models LDA and Doc2Vec and 2) methods used to evaluate the whole solution as the final product. 
 \subsection{Evaluating Learning Models}
-The performance measure is a typical way to evaluate machine learning models. It is the measurement that will make of the predictions made by a trained model on the test dataset. Performance measures are typically specialized to the class of problem, for example in this paper, our problem is a NLP topic modeling, we will use likelihood score and perplexity to evaluate our LDA model.\\
+The performance measure is a typical way to evaluate machine learning models. It is the measurement that will make of the predictions made by a trained model on the test dataset. Performance measures are typically specialized to the class of problem, for example in this paper, while we using LDA  to deal with NLP topic modeling, we will use likelihood score and clustering result to evaluate our LDA model.\\
 Based on how to split the data into training and testing, evaluate machine learning models usually involves hold out, cross validation(CV) and leave-one-out. \\
 Hold out method is a simple split of dataset, for example, 70\% of the instances are used for training the models, the rest 30\% for testing the model. In the CV method, it first involves separating the dataset into a number of equally sized groups of instances (called folds). The model is then trained on all folds exception one that was left out and the prepared model is tested on that left out fold. The process is repeated so that each fold get's an opportunity at being left out and acting as the test dataset. Finally, the performance measures are averaged across all folds to estimate the capability of the algorithm on the problem.  Leave-one-out is a special case of CV, where folds is equal to data points.\\
 In our original plan, we may need CV to run our model evaluation, because our dataset is not large enough and the computational difficult is not critical. But with using only stackoverflow data, we have plenty of dataset. So the decision is using hold out method. We tested our models using different size of dataset. 
@@ -14,7 +14,7 @@ Ultimately, we plan to use actual open source books as our primary dataset, whic
 StackOverFlow dataset is a signal file in xml format. In order to use these data to train our models, we need to do some data preprocessing to clean up the data. In the topic modeling, the input data is text itself, which is post body in the case of stackoverflow dataset. After training, during the test phase, the extracted topics from the test dataset using the trained model, will be compared with the actual topics, which are the post tags. In summary, the first step of data preparation is to extract post body and tags from raw data.\\
 Normally, with the text corpus ready, the next data preprocessing would be removing punctuations and changing words to lower cases, but these steps have been included in our models.
 \paragraph{Evaluating LDA}
-
+One typical method is to calculate the likelihood of the testing data(hold out data in our case). 
 
 \paragraph{Evaluating Doc2Vec}
 TO DO
