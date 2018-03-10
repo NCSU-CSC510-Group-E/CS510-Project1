@@ -5,12 +5,7 @@ We propose two methods for analyzing and storing topics from books automatically
 
 \subsection{LDA}
 \label{sec:lda}
-\par In this section, we describe the Latent Dirichlet allocation(LDA) method for storing topics against books. 
-\par LDA uses a Bayesian clustering approach to find topics relevant to the book. \cite{RefWorks:doc:5a721fb5e4b0d609eec83aa1} The input to the method is a book (or later, a series of books) which consists of collection of words. 
-\par This method assumes that each book (or books) consists of topics and that each topic has several key words associated with it. The number of topics associated with a book can be variable, and can be changed for better optimization. In this association, the words comprising the text are thrown into a "bag-of-words" model such that grammer and word order are disregarded, but multiplicity is measurable. The calculated topics found from this bag-of-words are "latent" variables, that is they are not directly measurable but indirectly observed.  
-\par The performance of the method depends on the initial assumptions made. For example, some have assumed that books are random mixes of topics \cite{RefWorks:doc:5a721e4ae4b095066af57410}. The number of topics can initally be chosen as constant for a given book, or as a function of a chosen Poisson distribution. \cite{RefWorks:doc:5a721e4ae4b095066af57410} Topic distribution in the book is assumed to be a sparse Dirichlet function.
-\par A sparse Dirichlet function implies that we assume that a topic will be discussed only in a small breadth of pages in the book, and also that words relating to this topic will predominantly figure in these pages.
-\par The algorithm looks to identify unique words to identify as topic names. Words like "the" and "a" are common and will occur with equal probability throughout the text. However, in say one chapter of the book some words may occur much more frequently in that particular chapter than the rest of the book, which means that the probability of these words in that chapter is more, which then the algorithm can use to choose a topic name and also a list of words related to that topic.
+\input{sections/lit_review/01.lda.tex}
 
 \subsection{Doc2Vec}
 \label{sec:doc2vec}
@@ -46,3 +41,8 @@ An LDA approach of a tagging system was implemented to improve tag recommendatio
 
 
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:
