@@ -1,0 +1,147 @@
+zhangqi (master *) NLP $ python3 analysis.py --verbose
+Training on files in soFileTrain/
+Training on data in soFileTrain/body/
+Dumping corpus
+<NLP_models.textcorpusOEM.TextDirectoryCorpus object at 0x10818d5f8>
+
+------Top 10 words in each topic--------
+[(0,
+  '0.012*"database" + 0.008*"like" + 0.007*"data" + 0.006*"javascript" + '
+  '0.006*"know" + 0.006*"class" + 0.005*"best" + 0.005*"use" + 0.005*"way" + '
+  '0.005*"java"'),
+ (1,
+  '0.012*"code" + 0.010*"table" + 0.009*"like" + 0.008*"data" + 0.006*"java" + '
+  '0.005*"new" + 0.005*"database" + 0.005*"use" + 0.004*"need" + 0.004*"way"'),
+ (2,
+  '0.009*"sql" + 0.008*"use" + 0.008*"like" + 0.007*"server" + '
+  '0.006*"database" + 0.005*"want" + 0.005*"need" + 0.005*"text" + '
+  '0.005*"file" + 0.005*"code"'),
+ (3,
+  '0.010*"java" + 0.009*"like" + 0.009*"way" + 0.008*"table" + 0.007*"python" '
+  '+ 0.005*"javascript" + 0.005*"data" + 0.005*"database" + 0.005*"know" + '
+  '0.004*"use"'),
+ (4,
+  '0.011*"server" + 0.008*"sql" + 0.008*"use" + 0.008*"way" + 0.007*"java" + '
+  '0.006*"like" + 0.006*"code" + 0.005*"data" + 0.005*"want" + 0.005*"time"')]
+-----------Test the model---------------
+Reading file soFileTest/body/27129.txt
+The topics modeled in file: 27129.txt
+Topic: 0, Likelihood:0.5892037749290466, 
+Jacc: 1.0, 	Cos: 0.0
+
+	Word:angle , 	Likelihood: 0.011659184470772743
+	Word:apache , 	Likelihood: 0.008160111494362354
+	Word:application , 	Likelihood: 0.006677323020994663
+	Word:apprehensive , 	Likelihood: 0.006126464810222387
+	Word:approach , 	Likelihood: 0.005602113902568817
+Topic: 2, Likelihood:0.3235771954059601, 
+Jacc: 1.0, 	Cos: 0.0
+
+	Word:angle , 	Likelihood: 0.009111863560974598
+	Word:apache , 	Likelihood: 0.0077179064974188805
+	Word:application , 	Likelihood: 0.007643752731382847
+	Word:apprehensive , 	Likelihood: 0.0066163064911961555
+	Word:approach , 	Likelihood: 0.006475300528109074
+
+Reading file soFileTest/body/27206.txt
+The topics modeled in file: 27206.txt
+Topic: 0, Likelihood:0.3993973135948181, 
+Jacc: 1.0, 	Cos: 0.0
+
+	Word:angle , 	Likelihood: 0.011659184470772743
+	Word:apache , 	Likelihood: 0.008160111494362354
+	Word:application , 	Likelihood: 0.006677323020994663
+	Word:apprehensive , 	Likelihood: 0.006126464810222387
+	Word:approach , 	Likelihood: 0.005602113902568817
+Topic: 2, Likelihood:0.36190491914749146, 
+Jacc: 0.9912180321994328, 	Cos: 0.5381149945060697
+
+	Word:angle , 	Likelihood: 0.009111863560974598
+	Word:apache , 	Likelihood: 0.0077179064974188805
+	Word:application , 	Likelihood: 0.007643752731382847
+	Word:apprehensive , 	Likelihood: 0.0066163064911961555
+	Word:approach , 	Likelihood: 0.006475300528109074
+Topic: 4, Likelihood:0.22447742521762848, 
+Jacc: 0.992373318998236, 	Cos: 0.42342190324148843
+
+	Word:angle , 	Likelihood: 0.01091342605650425
+	Word:apache , 	Likelihood: 0.007942311465740204
+	Word:application , 	Likelihood: 0.007895988412201405
+	Word:apprehensive , 	Likelihood: 0.0076665920205414295
+	Word:approach , 	Likelihood: 0.006966717541217804
+
+Reading file soFileTest/body/27034.txt
+The topics modeled in file: 27034.txt
+Topic: 0, Likelihood:0.7776164412498474, 
+Jacc: 0.9940990983229835, 	Cos: 0.344625361672675
+
+	Word:angle , 	Likelihood: 0.011659184470772743
+	Word:apache , 	Likelihood: 0.008160111494362354
+	Word:application , 	Likelihood: 0.006677323020994663
+	Word:apprehensive , 	Likelihood: 0.006126464810222387
+	Word:approach , 	Likelihood: 0.005602113902568817
+Topic: 4, Likelihood:0.20488855242729187, 
+Jacc: 1.0, 	Cos: 0.0
+
+	Word:angle , 	Likelihood: 0.01091342605650425
+	Word:apache , 	Likelihood: 0.007942311465740204
+	Word:application , 	Likelihood: 0.007895988412201405
+	Word:apprehensive , 	Likelihood: 0.0076665920205414295
+	Word:approach , 	Likelihood: 0.006966717541217804
+
+Reading file soFileTest/body/27219.txt
+The topics modeled in file: 27219.txt
+Topic: 1, Likelihood:0.9085843563079834, 
+Jacc: 1.0, 	Cos: 0.0
+
+	Word:angle , 	Likelihood: 0.01163393259048462
+	Word:apache , 	Likelihood: 0.009699871763586998
+	Word:application , 	Likelihood: 0.009288299828767776
+	Word:apprehensive , 	Likelihood: 0.007675859145820141
+	Word:approach , 	Likelihood: 0.006008988246321678
+
+Reading file soFileTest/body/27242.txt
+The topics modeled in file: 27242.txt
+Topic: 1, Likelihood:0.1537626087665558, 
+Jacc: 1.0, 	Cos: 0.0
+
+	Word:angle , 	Likelihood: 0.01163393259048462
+	Word:apache , 	Likelihood: 0.009699871763586998
+	Word:application , 	Likelihood: 0.009288299828767776
+	Word:apprehensive , 	Likelihood: 0.007675859145820141
+	Word:approach , 	Likelihood: 0.006008988246321678
+Topic: 3, Likelihood:0.5315760970115662, 
+Jacc: 1.0, 	Cos: 0.0
+
+	Word:angle , 	Likelihood: 0.009986231103539467
+	Word:apache , 	Likelihood: 0.009004170075058937
+	Word:application , 	Likelihood: 0.008971767500042915
+	Word:apprehensive , 	Likelihood: 0.00814711395651102
+	Word:approach , 	Likelihood: 0.0069636330008506775
+Topic: 4, Likelihood:0.2383265644311905, 
+Jacc: 1.0, 	Cos: 0.0
+
+	Word:angle , 	Likelihood: 0.01091342605650425
+	Word:apache , 	Likelihood: 0.007942311465740204
+	Word:application , 	Likelihood: 0.007895988412201405
+	Word:apprehensive , 	Likelihood: 0.0076665920205414295
+	Word:approach , 	Likelihood: 0.006966717541217804
+
+Reading file soFileTest/body/27240.txt
+The topics modeled in file: 27240.txt
+Topic: 1, Likelihood:0.644938588142395, 
+Jacc: 0.9942459559066813, 	Cos: 0.2964970755341928
+
+	Word:angle , 	Likelihood: 0.01163393259048462
+	Word:apache , 	Likelihood: 0.009699871763586998
+	Word:application , 	Likelihood: 0.009288299828767776
+	Word:apprehensive , 	Likelihood: 0.007675859145820141
+	Word:approach , 	Likelihood: 0.006008988246321678
+Topic: 4, Likelihood:0.3162543475627899, 
+Jacc: 0.9933101424509156, 	Cos: 0.37141086865867273
+
+	Word:angle , 	Likelihood: 0.01091342605650425
+	Word:apache , 	Likelihood: 0.007942311465740204
+	Word:application , 	Likelihood: 0.007895988412201405
+	Word:apprehensive , 	Likelihood: 0.0076665920205414295
+	Word:approach , 	Likelihood: 0.006966717541217804
