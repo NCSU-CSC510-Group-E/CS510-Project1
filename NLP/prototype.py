@@ -1,7 +1,7 @@
 # Our similarity measures
 from gensim.matutils import jaccard
 from gensim.matutils import cossim
-
+import pprint
 # used to determine if models exist to load from disk
 from pathlib import Path
 
@@ -24,11 +24,15 @@ def main(path_to_training_data, path_to_test_data, path_to_dictionary = None, pa
     dictionary.id2token = dict([[v,k] for k,v in dictionary.token2id.items()])
 
     model = lda.LoadModel(dictionary.id2token)
-
+    # after train the model, print out each topics
+    print('------Top 10 words in each topic--------')
+    pprint.pprint(model.show_topics())
+    
     """
      Lets attempt to predict our files.
      We first need to read that file in and tokenize it
     """
+    print('-----------Test the model---------------')
     predictFiles(path_to_test_data, model, dictionary, debugging)
 
 
@@ -39,6 +43,9 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
     path_to_test_data = path_to_test_data + 'body/'
     
     files = os.listdir(path_to_test_data)
+    likelihoods = []
+    jaccards = []
+    cossims = []
     for file in files:
         # skip pesky dotfiles (thanks OSX with your .DS_STORE 
         if(file[0] == '.'):
@@ -68,20 +75,48 @@ def predictFiles(path_to_test_data, model, dictionary, debugging):
 
         # Returns the topics from the above model
         topics = model.get_topics()
-
         if(debugging):
             print('The topics modeled in file: {}'.format(file))
-            for pred in newPrediction:
+            print('There are {} predicted topics, here is the max likelihood one:'.format(len(newPrediction)))
+            newPrediction.sort(key=lambda tup: tup[1])
+            pred = newPrediction[0]
 
-                topicTerms = model.get_topic_terms(pred[0], topn=5 )
-
+            topic_id = pred[0]
+            Likelihood = pred[1]
+            topic_word = []
+            for i in range(10):
+                topic_word.append(model.show_topic(topic_id)[i][0])
+            topic_bow = dictionary.doc2bow(topic_word)
 
                 #here, we need to calculate the similarity of topics found to the tags vector
-                jac = jaccard(topicTerms, labels)
-                cos = cossim(topicTerms, labels)
+            jac = jaccard(topic_bow, labels)
+            cos = cossim(topic_bow, labels)
 
-                print('Topic: {}, Likelihood:{}, \nJacc: {}, \tCos: {}\n'.format(pred[0], pred[1], jac, cos))
+            print('Topic: {}, Likelihood:{}, \nJacc: {}, \tCos: {}\n'.format(topic_id, Likelihood, jac, cos))
 
-                for (key, val) in enumerate(topicTerms):
-                    print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
             print('')
+
+            likelihoods.append(Likelihood)
+            jaccards.append(jac)
+            cossims.append(cos)
+    print('---------Final average results for {} test files--------'.format(len(files)))
+    print('Likelihood: {}'.format(sum(likelihoods)/len(likelihoods)))
+    print('Jacc: {}'.format(sum(jaccards)/len(jaccards)))
+    print('Cos: {}'.format(sum(cossims)/len(cossims)))
+
+        # if(debugging):
+        #     print('The topics modeled in file: {}'.format(file))
+        #     for pred in newPrediction:
+
+        #         topicTerms = model.get_topic_terms(pred[0], topn=5 )
+
+
+        #         #here, we need to calculate the similarity of topics found to the tags vector
+        #         jac = jaccard(topicTerms, labels)
+        #         cos = cossim(topicTerms, labels)
+
+        #         print('Topic: {}, Likelihood:{}, \nJacc: {}, \tCos: {}\n'.format(pred[0], pred[1], jac, cos))
+
+        #         for (key, val) in enumerate(topicTerms):
+        #             print('\tWord:{} , \tLikelihood: {}'.format(dictionary.id2token[key], val[1]))
+        #     print('')
