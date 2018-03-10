@@ -16,16 +16,29 @@ Normally, with the text corpus ready, the next data preprocessing would be remov
 One typical method to evaluate LDA model is to calculate the likelihood probability of the testing data(hold out data in our case). We used perplexity to calculate and estimate the likelihood. Perplexity is defined as the reciprocal geometric mean of the token likelihoods in the test text corpus given the trained model. Lower values of perplexity means lower misrepresentation of the words of the test files by the trained topics.\\ 
 We first parsed the stackoverflow data into several groups of data. Each group contains different number of text files. We would like to evaluate the model performance with the increasing of  data size.\\
 As we found out from the first experiment, the likelihood is not increasing significantly, but the train time is extremely longer. After we analyzed the results, it is possible that the training data has too many topics which has less common with the test data. Therefore, we designed the second test method.\\
-Secondly, we parsed the stackoverflow data with filter out those posts do not contain any tags in a five topics set. The set contains tags: python, java, javascript, database and sql. With this less sparsity dataset, we have been able to train the model and test it with a better result.\\
+Secondly, we parsed the stackoverflow data with filter out those posts do not contain any tags in a five topics set. The set contains tags: python, java, javascript, database and sql. With this less sparsity dataset, we have been able to train the model and test it with a better result. As we can see from Table \ref{lda-result}, the average likelihood of all the test files has been converged as we increased the epoch to 100 passes.\\
 \begin{table}[!htbp]
 \caption{Test Result of LDA Model}
 \label{lda-result}
 \begin{center}
 \begin{tabular}{  l  l l}
-\bf EPOCH & \bf LIKELIHOOD & K\\ \hline \\
-1         &0.5443 & word\\
-10       &0.6584& word\\
-100     &0.9189& word\\
+\bf Epoch & \bf Likelihood & \bf Topic words\\ \hline \\
+1         &0.4350 & table, sql, like, code, javascript\\
+10       &0.5206 & sql, table, database, like, java\\
+100     &0.5137& table, database, sql, java, javascript\\
+\end{tabular}
+\end{center}
+\end{table}
+We also used Jaccard and Cosine similarity to independently measure our test results. For each of our test file, the matched topic with the highest likelihood will contribute to the final average measurement. Table \ref{lda-jc} summarized the test results. These test results confirmed and agreed with the likelihood measure. \\
+\begin{table}[!htbp]
+\caption{Similarity Measure of Test Result}
+\label{lda-jc}
+\begin{center}
+\begin{tabular}{  l  l l l}
+\bf Epoch & \bf Likelihood & \bf Jaccard & \bf Cosine \\ \hline \\
+1         &0.4350 & 0.9709 & 0.0900\\
+10       &0.5206 & 0.9568 & 0.1358\\
+100     &0.5137 &  0.9430 & 0.1731\\
 \end{tabular}
 \end{center}
 \end{table}
