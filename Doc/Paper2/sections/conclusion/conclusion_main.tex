@@ -79,7 +79,8 @@ something that seems to be inherent in how to train the algorithm.
 % 
 \subsection{Doc2Vec}
 \label{sec:conc:doc2vec}
-% TODO, no idea what to write here yet,
+Doc2Vec has some advantages over LDA that make it a desirable alternative. It can compare documents quickly if the model is already trained, eliminating LDA's wait time. In addition, there is no need to specify the number of topics to mine. However, Doc2Vec was unsuccessful at accurately generating topics as it could not distinguish between the different stackoverflow topics within an acceptable precision. If Doc2Vec has been able to distiguish between different topics, it could have been trained on pre-labeled documents such that an untrained, un-labeled document could have been suggested the labels from the most similar labeled document in the model. A better use for Doc2Vec might be as an extra feature of the Web Application to suggest text that is semantically similar to given text, i.e. finding a book author that writes in a similar syntax to the given author or text. 
+
 
 
 
