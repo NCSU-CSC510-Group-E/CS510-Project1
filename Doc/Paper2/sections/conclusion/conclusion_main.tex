@@ -51,14 +51,19 @@ relatively small project, the issues have been solved one by one cases.
 \subsection{LDA}
 \label{sec:conc:lda}
 % LDA is super dependent on the test set.
-As expected, purely based on the accuracy of the topics, LDA is the
-clear winner in our battle of learning algorithms based purely on the
-measures presented.
+As expected, purely based on the accuracy (topics likelihood) of the 
+topics, LDA is the clear winner in our battle of learning algorithms 
+based purely on the measures presented. 
 That said, it has some serious downsides.
 % LDA can run unsupervised, but topic limiting is bad
 While it should be considered a positive that the algorithm is capable
 of learning topics unsupervised, the need to specify the number of
 topics mined limits the flexibility.
+
+Noticed that our independent Jaccard and Cosine measurements were not 
+as good as topics likelihood, it could be the way that we calculated 
+the measurements which only used certained labeled words, these words 
+could be less similar to those words in the mined topics.
 
 % LDA takes forever to run!
 It is also worth noting that LDA can take significant portions of time
@@ -67,7 +72,8 @@ There are some configurations of parameters that performed well in
 evaluation but took upwards of 20 minutes simply to train on a few
 thousand short Stack Overflow posts.
 This can be mitigated somewhat with proper tuning and the algorithm
-could be optomized for a high-performance environment but it is
+could be optomized for a high-performance environment, for instance, 
+by refactoring the algorithms to run on distrbuted system, but it is
 something that seems to be inherent in how to train the algorithm.
 
 % 
