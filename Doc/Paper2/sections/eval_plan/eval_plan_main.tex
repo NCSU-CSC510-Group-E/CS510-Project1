@@ -138,32 +138,7 @@ The distribution of cosine similarity values in vector prediction analysis was t
 Information retrieval of the just python dataset generally produced lower error rates than the others, therefore, training a Doc2Vec model on one topic at a time and filtering for that topic might be better for predicting topics like LDA. However, the error rates in information retrieval were too high to recommend using Doc2Vec over a technique like LDA to predict text content topics. The Doc2Vec DM models depend on semantic relationships to distinguish between input. A high error rate suggests that there may be no actual semantic relationship between the stackoverflow data. Part of the problem might be the topics themselves. Python and javascript, for example, are both computer programming languages. Although they have different uses and purposes, the concepts surrounding them are more similar than say a programming language and more distance subject such as biology. The stackoverflow data could also be parsed more effectively. The data consisted of the 'posts' from stackoverflow. These posts did not contain the post titles or the comments. Both the titles and comment so often contain the most helpful information relevant to the topic at hand. Alternatively, content with more specific information that is better suited for parsing could also be adopted instead, such as typo-less information or cleaned up code from scholarly resources to allow for more efficient tokenization of relevant words or symbols like parathensis and brackets which are more prevalent in some programming languages than others. It is possible, however, that because the data from stackoverflow comes from a substantial amount of users, a semantic relationship may simply not exist. 
 
 \subsection{Evaluating Application}
-\paragraph{Pre-Surveying}
-To evaluate our project idea, we conducted a pre-surveying to see what the problem we are facing and how people reacting about our proposed solution. We asked our participants how long they will spend on find the right textbook, what aspect do they think is most important when choosing a textbook (except the content, our learning model will do the best of this part). See Table \ref{Pre-survey} for a breakdown of the questions to ask.
-\begin{table}[!htbp]
-\caption{\bf Questions in Pre-Survey} 
-\label{Pre-survey}
-\begin{center}
-\begin{tabular}{  l  p{6cm} }
-\bf NO & \bf QUESTIONS\\ \hline \\
-1 & Are you a student or professor?\\
-2 & How much time do you spend on choosing a textbook?\\
-3 & How do you choose a textbook?\\
-4 & What aspect do you think is most important when choosing a textbook (except the content)? \\
-5 & Would you consider an app that will give you recommended textbooks base on your course syllabus and your preference? \\
-\end{tabular} 
-\end{center}
-\end{table}
-Among the 29 responses, we found that 73.3\% responded as they interested to our application to recommend the textbooks. The answer to most important aspect during the textbook chosen, review/ratings and sell price were the highest concern. These preliminary results give us the guidance to design the application and to improve the core learning models. See Figure \ref{result_of_presurvey} for detailed results.
 
-\begin{figure}[ht]
-\caption{Summary of Pre-survey}
-\label{result_of_presurvey}
-\centering
-\includegraphics[width=0.5\textwidth]{preSurvey.jpeg}
-\end{figure}
-
-\paragraph{Experiments and Post-survey}
 After we build the application with the command line interface and core learning models, we ran the experiments with different users in a focus group to evaluate the solution. We present our work to our peers to evaluate, after they try our application, we used google form to collect their opinions and comments on our application. Table \ref{post-survey} is the breakdown of the survey questions.
 \begin{table}[!htbp]
 \caption{\bf Questions in Post-Survey} 
