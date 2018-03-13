@@ -98,12 +98,14 @@ Using cosine similarity to determine if the two posts from the same tag were mor
 \paragraph{Results} Error rates were calculated as the percent error of inferred posts that were not determined to be the most similar to their trained selves. The best models per each dataset displayed in Table \ref{vpa-models} revealed several interesting possibilities regarding the stackoverflow data:
 
 \begin{itemize}
+  \item Overall, the default model of 300 feature vector size, 20 epochs, minimum word count of 1, total window size of 10, and negative set to 10 in DBOW performed well.
   \item Again, DM-M was the most precise, but DBOW was close behind.
   \item Optimized DBOW was the most accurate.
   \item Setting the total window size to 16 caued DM-C to generate 99+\% error with python, javascript, and both python and javascript datasets. Over 97\% for the database dataset.
   \item Increasing epochs from 20 to 50 on a 300 feature vector greatly decreased error rates in DM-C, slightly in DM-M and did not significantly change in DBOW. 
   \item Increasing epochs from 20 to 50 on a 100 feature vector slightly lowered error rates in DM-M and slightly more in DM-C. Only javascript was benefitted in DBOW.
   \item Raising minimum word count from 1 to 10 greatly reduce error rates in a 300 vector size at 20 epochs for DM-M and DM-C.
+ \item Not every dataset was impacted in the same way for one parameter change
 \end{itemize}
 
 \begin{table}[ht]
