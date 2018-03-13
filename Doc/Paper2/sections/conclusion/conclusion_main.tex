@@ -88,13 +88,7 @@ Doc2Vec has some advantages over LDA that make it a desirable alternative. It ca
 % TODO
 The trained learning algorithms have not peroformed as well as
 expected.
-This might be due to a few different potential causes.
-First off, in Stack Overflow posts, topics are not always explicitly
-mentioned, which would prevent LDA from properly parsing topics.
-For example, many posts tagged C++ do not actually mentione C++
-specifically.
-A tweak to the input data set might help improve algorithm accuracy
-significantly.
+Doc2Vec’s classification of similar documents in different clusters combined with LDA’s relatively poor performance suggests strongly that the training data set has too much variation in it for the learning algorithms to correctly parse.  In other words, the training set, even after limiting to fewer topics, was probably too diverse to successfully mine topics from.
 One approach the team considered but was unable to finish in time was
 manually parsing Stack Overflow posts for posts that did include their
 tags in the body and running the example on those.  
