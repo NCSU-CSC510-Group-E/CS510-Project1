@@ -79,7 +79,7 @@ something that seems to be inherent in how to train the algorithm.
 % 
 \subsection{Doc2Vec}
 \label{sec:conc:doc2vec}
-Doc2Vec has some advantages over LDA that make it a desirable alternative. It can compare documents quickly if the model is already trained, eliminating LDA's wait time. In addition, there is no need to specify the number of topics to mine. However, Doc2Vec was unsuccessful at accurately generating topics as it could not distinguish between the different stackoverflow topics within an acceptable precision. If Doc2Vec has been able to distiguish between different topics, it could have been trained on pre-labeled documents such that an untrained, un-labeled document could have been suggested the labels from the most similar labeled document in the model. A better use for Doc2Vec might be as an extra feature of the Web Application to suggest text that is semantically similar to given text, i.e. finding a book author that writes in a similar syntax to the given author or text. 
+Doc2Vec has some advantages over LDA that make it a desirable alternative. It can compare documents quickly if the model is already trained, eliminating LDA's wait time. In addition, there is no need to specify the number of topics to mine. However, Doc2Vec was unsuccessful at accurately generating topics as it could not distinguish between the different stackoverflow topics within an acceptable precision. If Doc2Vec has been able to distiguish between different topics, it could have been trained on pre-labeled documents such that an untrained, un-labeled document could have been suggested the labels from the most similar labeled document in the model. A better use for Doc2Vec might be as an extra feature of the Web Application to suggest text that is semantically similar to given text, e.g. finding a book author that writes in a similar syntax to the given author or text. 
 
 
 
@@ -87,18 +87,9 @@ Doc2Vec has some advantages over LDA that make it a desirable alternative. It ca
 \subsection{Future enhancement}
 % TODO
 The trained learning algorithms have not peroformed as well as
-expected.
-Doc2Vec’s classification of similar documents in different clusters combined with LDA’s relatively poor performance suggests strongly that the training data set has too much variation in it for the learning algorithms to correctly parse.  In other words, the training set, even after limiting to fewer topics, was probably too diverse to successfully mine topics from.
-One approach the team considered but was unable to finish in time was
-manually parsing Stack Overflow posts for posts that did include their
-tags in the body and running the example on those.  
+expected. Doc2Vec's classification of similar documents in different clusters combined with LDA's relatively poor performance suggests strongly that the training data set has too much variation in it for the learning algorithms to correctly parse.  In other words, the training set, even after limiting to fewer topics, was probably too diverse to successfully mine topics from. One approach the team considered but was unable to finish in time was manually parsing Stack Overflow posts for posts that did include their tags in the body and running the example on those.  
 
-The next obvious goal would be to start building the rest of the
-system.
-Once the problem of topic modeling is more appropriately solved, the
-suggestion algorithm discussed in \ref{sec:system-design}.
-Once Equation \ref{sec:system-design:eq:priority} is implemented in a REST API, the
-actual webapp could easily be built quickly.  
+The next obvious goal would be to start building the rest of the system. Once the problem of topic modeling is more appropriately solved, the suggestion algorithm discussed in \ref{sec:system-design}. Once Equation \ref{sec:system-design:eq:priority} is implemented in a REST API, the actual webapp could easily be built quickly.  
 
 \section{Chits}
 \begin{itemize}
